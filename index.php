@@ -35,7 +35,7 @@
 <nav>
 <ul>
 <li><a href="#">item 1</a></li>
-<li>item 2</li>
+<li><a id="item_selectionne" href="#">item 2</a></li>
 	<ul>
 	<li><a href="#">sous-item 1</a></li>
 	<li>sous-item 2</li>
