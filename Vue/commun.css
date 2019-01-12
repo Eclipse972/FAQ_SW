@@ -8,7 +8,7 @@ body {
 	--couleur5: #002F2F;
 	
 	--largeur_1e_colonne:200px;
-	--largeur_2e_colonne:800px;
+	--largeur_2e_colonne:900px;
 	--largeur_3e_colonne:300px;
 	/* fin de déclaraion de variables */
 	background-color:var(--couleur3);
