@@ -17,41 +17,49 @@
 <body>
 
 <header>
-	<div id="logo"><img src="Vue/images/logo.png" alt = "Logo"></div>
-	<div id="titre">
-		<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
-		<ul>
-			<li>Accueil</li>
-			<li>Pi&egrave;ce</li>
-			<li>Mise en plan</li>
-			<li>Assemblage</li>
-			<li>Autre</li>
-		</ul>
-	</div>
+<div id="logo"><img src="Vue/images/logo.png" alt = "Logo"></div>
+<div id="titre">
+	<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
+	<ul>
+	<li><a href="#">Accueil</a</li>
+	<li><a href="#">Pi&egrave;ce</a></li>
+	<li>Mise en plan</li>
+	<li><a href="#">Assemblage</a</li>
+	<li><a href="#">Autre</a</li>
+	</ul>
+</div>
 </header>
 
 <main role="main">
 
 <nav>
+<ul>
+<li><a href="#">item 1</a></li>
+<li>item 2</li>
 	<ul>
-	<li>item 1</li>
-	<li>item 2</li>
-	<li>item 3</li>
+	<li><a href="#">sous-item 1</a></li>
+	<li>sous-item 2</li>
+	<li><a href="#">sous-item 3</a></li>
+	<li><a href="#">sous-item 4</a></li>
 	</ul>
+<li><a href="#">item 3</a></li>
+<li><a href="#">item 4</a></li>
+<li><a href="#">item 5</a></li>
+</ul>
 </nav>
 
 <section>
-	<h1>Titre</h1>
-	<p>Corps de la page</p>
+<h1>Titre</h1>
+<p>Corps de la page</p>
 </section>
 
 <aside>
-	<h1>Articles connexes</h1>
-	<ul>
-	<li>article 1</li>
-	<li>article 2</li>
-	<li>article 3</li>
-	</ul>
+<h1>Articles connexes</h1>
+<ul>
+<li><a href="#">article 1</a></li>
+<li><a href="#">article 2</a></li>
+<li><a href="#">article 3</a></li>
+</ul>
 </aside>
 </main>
 
