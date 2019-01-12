@@ -21,7 +21,7 @@
 <div id="titre">
 	<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
 	<ul>
-	<li><a href="#">Accueil</a</li>
+	<li><a href="#">Accueil</a></li>
 	<li><a href="#">Pi&egrave;ce</a></li>
 	<li>Mise en plan</li>
 	<li><a href="#">Assemblage</a</li>
