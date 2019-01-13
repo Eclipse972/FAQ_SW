@@ -24,8 +24,8 @@
 	<li><a href="#">Accueil</a></li>
 	<li><a href="#">Pi&egrave;ce</a></li>
 	<li>Mise en plan</li>
-	<li><a href="#">Assemblage</a</li>
-	<li><a href="#">Autre</a</li>
+	<li><a href="#">Assemblage</a></li>
+	<li><a href="#">Autre</a></li>
 	</ul>
 </div>
 </header>
