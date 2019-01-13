@@ -21,11 +21,11 @@
 <div id="titre">
 	<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
 	<ul>
-	<li><a href="#">Accueil</a></li>
-	<li><a href="#">Pi&egrave;ce</a></li>
-	<li>Mise en plan</li>
-	<li><a href="#">Assemblage</a></li>
-	<li><a href="#">Autre</a></li>
+	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Accueil</a></li>
+	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Pi&egrave;ce</a></li>
+	<li><img src="Vue/images/chrome.png" alt="Chrome">Mise en plan</li>
+	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Assemblage</a></li>
+	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Autre</a></li>
 	</ul>
 </div>
 </header>

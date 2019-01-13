@@ -27,7 +27,6 @@ header ul {
 header li {
 	display:inline-block;
 	margin-right:5px;
-	width:160px;
 	color:white;
 	text-align:center;
 	font-size:25px;
@@ -40,6 +39,10 @@ header a {
 }
 header li a:hover, header li { background-color: var(--couleur2); } /* couleur de l'onglet sélectionné et celui sous la souris */
 
+header ul img {
+	height:30px;
+	margin-right:8px;
+}
 /*	--------------------------------------------------------------------------------------------
 	---------------------------------- pour le menu  -------------------------------------------
 	-------------------------------------------------------------------------------------------- */
