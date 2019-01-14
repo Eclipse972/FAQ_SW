@@ -19,7 +19,6 @@ default:
 	$code = '';
 }
 return ['css'	=> 'style_page',
-		'logo'	=> '<img src="Vue/images/logo.png" alt="logo">',
 		'titre'	=> 'Erreur '.$code,
 		'page'	=> 'erreur',
 		'message' => $message];

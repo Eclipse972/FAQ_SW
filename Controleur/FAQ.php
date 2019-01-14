@@ -1,5 +1,5 @@
-<?php // Controleur dossier technique
+<?php // Controleur FAQ
 function Configurer() {
 $BD = new base2donnees();
-list($id, $item, $sous_item) = Lire_parametre("p", -1, 1);
+list($onglet, $item, $sous_item) = Lire_parametre("p", 0, 0, 0);
 }
