@@ -22,8 +22,8 @@
 	<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
 	<ul>
 	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Accueil</a></li>
-	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Pi&egrave;ce</a></li>
-	<li><img src="Vue/images/chrome.png" alt="Chrome">Mise en plan</li>
+	<li><a id="onglet_selectionne" href="#"><img src="Vue/images/chrome.png" alt="Chrome">Pi&egrave;ce</a></li>
+	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Mise en plan</a></li>
 	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Assemblage</a></li>
 	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Autre</a></li>
 	</ul>
