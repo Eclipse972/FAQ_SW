@@ -27,21 +27,22 @@ header ul {
 header li {
 	display:inline-block;
 	margin-right:5px;
-	color:white;
-	text-align:center;
-	font-size:25px;
 }
 header a {
-	color:white;
-	background-color:var(--couleur5);
+	font-size:25px;
+	background-color:var(--couleur2);
+	color:black; /* le texte des onglets est noir */
 	text-decoration:none;  /* aucun lien n'est souligné */
+	padding: 10px;
 	display:block;
+	border-radius: 10px 10px 0 0;
 }
-header li a:hover, header li { background-color: var(--couleur2); } /* couleur de l'onglet sélectionné et celui sous la souris */
+header li a:hover, #onglet_selectionne { background-color:white; } /* couleur de l'onglet sélectionné et celui sous la souris */
 
 header ul img {
 	height:30px;
 	margin-right:8px;
+	vertical-align:middle;
 }
 /*	--------------------------------------------------------------------------------------------
 	---------------------------------- pour le menu  -------------------------------------------
@@ -91,4 +92,6 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol�
 /*	--------------------------------------------------------------------------------------------
 	----------------------------- pour les articles connexes  ----------------------------------
 	-------------------------------------------------------------------------------------------- */
+aside { width:var(--largeur_3e_colonne); }
+
 aside h1 { text-align:center; }

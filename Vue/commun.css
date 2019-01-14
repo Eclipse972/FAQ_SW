@@ -21,7 +21,7 @@ header, footer, main {
 }
 /* l'en-tete ---------------------------------------------------------------------------------- */
 header {
-	margin-bottom:5px;
+	margin-bottom:0;
 	background-image:linear-gradient(to right, white, var(--couleur5));
 }
 
