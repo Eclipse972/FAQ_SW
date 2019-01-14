@@ -2,7 +2,27 @@
 /*********************************************************************************************************************************** 
 	contrôleur principal
 ************************************************************************************************************************************/
+require 'Modele/classe_BD.php';
+require 'Modele/classe_navigation.php';
+require 'Modele/classe_traceur.php';
+require 'Modele/classe_valideur.php';
 
+session_start(); // On démarre la session AVANT toute chose
+
+$TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
+// détermination du mode pour le traitement et l'affichage
+if ((empty($_GET)) || (preg_match("#^[a-zA-Z0-9]{1,3}$#", $_GET["p"])))
+	$MODE = 'FAQ';
+elseif (isset($_GET["f"]))
+	$MODE = 'formulaire';
+else
+	$MODE = 'erreur';
+include 'Controleur/'.$MODE.'.php';
+/* chacun des controleurs renvoie la configuration sous la forme d'un tableau associatif.
+ * le contenu dépend de chaque mode.
+ * A voir dans le code de chaque mode
+ */
+$CONFIG = Configurer();
 ?>
 <!doctype html>
 <html lang="fr">
