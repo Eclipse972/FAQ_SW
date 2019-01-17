@@ -1,26 +1,24 @@
 <?php
-$LISTE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 62 possibilités
+$LISTE = 'abcdefghijklmnopqrstuvwxyz';
 /*
  A propos des 3 paramètres. Ce sont des entiers
- * support: identifiant du support.-1 signifie aucun support
- * item: si non nul alors identifiant du menu sinon la page a propos u support
- * sous_item: identifiant du sous item. la valeur nulle signifie aucun item sétectionné
+ * onglet: identifiant de l'onglet de 0 à 4 car il n'y a que 5 onglets
+ * item: 0 signifie aucun item sélectionné donc le premier item à pour identifiant 1
+ * sous_item: idem
  */
 
-function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
-	return '<a href="?p='.Creer_parametre($support, $item, $sous_item).'">'.$texte.'</a>';
+function Lien($texte, $onglet, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
+	return '<a href="?p='.Creer_parametre($onglet, $item, $sous_item).'">'.$texte.'</a>';
 }
 
-function Lien_item_selectionne($texte, $support, $item) { return '<a id="item_selectionne" '.substr(Lien($texte, $support, $item), 3); }
-
 // Lecture des paramètres
-function Lire_parametre($nom, $defaut_id = 0, $defaut_item = 0, $defaut_sous_item = 0) {
+function Lire_parametre($nom) {
 	global $LISTE;
-	$param = substr((string) $_GET[$nom],0,3);	// le paramètre est converti en nombre chaîne de 3 caractères maxi
-	$id			= (isset($param[0])) ? strpos($LISTE, $param[0]) : $defaut_id; //  aucun support a comme identifiant -1 => liste des supports
-	$item		= (isset($param[1])) ? strpos($LISTE, $param[1]) : $defaut_item;
-	$sous_item	= (isset($param[2])) ? strpos($LISTE, $param[2]) : $defaut_sous_item;
-	return [$id, $item, $sous_item];
+	$param = substr((string) $_GET[$nom],0,4);	// le paramètre est converti en nombre chaîne de 4 caractères maxi
+	$onglet		= (isset($param[0])) ? strpos($LISTE, $param[0]) : 0; 
+	/*$item		= (isset($param[1])) ? strpos($LISTE, $param[1]) : 0;
+	$sous_item	= (isset($param[2])) ? strpos($LISTE, $param[2]) : 0;*/
+	return [$onglet, 0, 0]; //[$onglet, $item, $sous_item];
 }
 
 // Ecriture des paramètres

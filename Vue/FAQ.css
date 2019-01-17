@@ -37,7 +37,7 @@ header a {
 	display:block;
 	border-radius: 10px 10px 0 0;
 }
-header li a:hover, #onglet_selectionne { background-color:white; } /* couleur de l'onglet sélectionné et celui sous la souris */
+header li a:hover, #onglet_actif { background-color:white; } /* couleur de l'onglet sélectionné et celui sous la souris */
 
 header ul img {
 	height:30px;

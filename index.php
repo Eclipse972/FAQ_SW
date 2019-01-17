@@ -4,14 +4,16 @@
 ************************************************************************************************************************************/
 require 'Modele/classe_BD.php';
 require 'Modele/classe_navigation.php';
+require 'Modele/classe_position.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_valideur.php';
+require 'Controleur/liens.php';
 
 session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 // détermination du mode pour le traitement et l'affichage
-if ((empty($_GET)) || (preg_match("#^[a-zA-Z0-9]{1,3}$#", $_GET["p"])))
+if ((empty($_GET)) || (preg_match("#^[a-e][a-z]{0,2}[0-9]{0,1}$#", $_GET["p"])))
 	$MODE = 'FAQ';
 elseif (isset($_GET["f"]))
 	$MODE = 'formulaire';
@@ -30,7 +32,7 @@ $CONFIG = Configurer();
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
 	<link rel="stylesheet" href="Vue/commun.css" />
-	<link rel="stylesheet" href="Vue/FAQ.css" />
+	<link rel="stylesheet" href="Vue/<?=$CONFIG['css']?>.css" />
 	<title>La Foire Aux Questions SolidWorks de ChristopHe</title>
 </head>
 
@@ -40,13 +42,7 @@ $CONFIG = Configurer();
 <div id="logo"><img src="Vue/images/logo.png" alt = "Logo"></div>
 <div id="titre">
 	<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
-	<ul>
-	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Accueil</a></li>
-	<li><a id="onglet_selectionne" href="#"><img src="Vue/images/chrome.png" alt="Chrome">Pi&egrave;ce</a></li>
-	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Mise en plan</a></li>
-	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Assemblage</a></li>
-	<li><a href="#"><img src="Vue/images/chrome.png" alt="Chrome">Autre</a></li>
-	</ul>
+	<?=$CONFIG['onglets']?>
 </div>
 </header>
 
@@ -88,4 +84,5 @@ $CONFIG = Configurer();
 </footer>
 
 </body>
+<?php $TRACEUR->afficher_rapport();?>
 </html>

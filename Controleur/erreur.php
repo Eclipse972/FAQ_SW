@@ -19,6 +19,7 @@ default:
 	$code = '';
 }
 return ['css'	=> 'style_page',
+		'onglets' => '',
 		'titre'	=> 'Erreur '.$code,
 		'page'	=> 'erreur',
 		'message' => $message];

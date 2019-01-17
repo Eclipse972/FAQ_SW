@@ -8,6 +8,7 @@ $_SESSION['validation'] = serialize($valideur);
 $_SESSION['temps'] = time();
 
 return ['css'	=> 'style_page',
+		'onglets' => '',
 		'titre'	=> 'Formulaire de contact',
 		'page'	=> 'formulaire',
 		'objet' => 'Exemple: &agrave; propos de '.Contexte()];
