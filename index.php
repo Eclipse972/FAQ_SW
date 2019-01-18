@@ -3,7 +3,6 @@
 	contrôleur principal
 ************************************************************************************************************************************/
 require 'Modele/classe_BD.php';
-require 'Modele/classe_navigation.php';
 require 'Modele/classe_position.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_valideur.php';
@@ -13,7 +12,7 @@ session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 // détermination du mode pour le traitement et l'affichage
-if ((empty($_GET)) || (preg_match("#^[a-e][a-z]{0,2}[0-9]{0,1}$#", $_GET["p"])))
+if ((empty($_GET)) || (preg_match("#^[a-e][a-z]{0,2}[1-9]{0,1}$#", $_GET["p"])))
 	$MODE = 'FAQ';
 elseif (isset($_GET["f"]))
 	$MODE = 'formulaire';
@@ -46,38 +45,9 @@ $CONFIG = Configurer();
 </div>
 </header>
 
-<main role="main">
-
-<nav>
-<ul>
-<li><a href="#">item 1</a></li>
-<li><a id="item_selectionne" href="#">item 2</a></li>
-	<ul>
-	<li><a href="#">sous-item 1</a></li>
-	<li>sous-item 2</li>
-	<li><a href="#">sous-item 3</a></li>
-	<li><a href="#">sous-item 4</a></li>
-	</ul>
-<li><a href="#">item 3</a></li>
-<li><a href="#">item 4</a></li>
-<li><a href="#">item 5</a></li>
-</ul>
-</nav>
-
-<section>
-<h1>Titre</h1>
-<p>Corps de la page</p>
-</section>
-
-<aside>
-<h1>Articles connexes</h1>
-<ul>
-<li><a href="#">article 1</a></li>
-<li><a href="#">article 2</a></li>
-<li><a href="#">article 3</a></li>
-</ul>
-</aside>
-</main>
+<?php
+	include('Vue/pageHTML.php');
+?>
 
 <footer>
 <?php include 'Vue/pied2page.php'; ?>

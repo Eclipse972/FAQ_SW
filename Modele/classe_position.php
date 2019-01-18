@@ -3,15 +3,11 @@ class Position {	// identifiant des paramètres actuels ...
 private $onglet;	// de 0 à 4 car il n'y a que 5 onglets
 private $item;		// 0 signifie aucun item sélectionné donc le premier item à pour identifiant 1
 private $sous_item;	// idem
-
 //private $id_article;
 //private $dossier;
 //private $No_page;
 
-//private $code_items;
-//private $code_sous_items;
-
-// les classes BD,navigation sont nécessaires
+// la classes BD est nécessaire
 
 public function __construct($onglet, $item = 0, $sous_item = 0) {
 	$this->onglet = $onglet;		// onglet accueil
@@ -19,15 +15,16 @@ public function __construct($onglet, $item = 0, $sous_item = 0) {
 	$this->sous_item = $sous_item;	// pas de sous-item sélectionné	
 }
 
-public function Generer_items() {
-	// recherche a faire dans la BD
-}
-
 public function Generer_sous_items() {
 	// recherche a faire dans la BD
+	/*$T_sous_item[1] = '<a href="#">sous-item 1</a>';
+	$T_sous_item[2] = '<a href="#">sous-item 2</a>';
+	$T_sous_item[3] = '<a href="#">sous-item 3</a>';
+	$T_sous_item[4] = '<a href="#">sous-item 4</a>';
+	return $T_sous_item;*/
 }
 
-public function Selectionner_Code($T_code, $id_actif, $etiquette) {
+private function Selectionner_Code($T_code, $id_actif, $etiquette) {
 // T_code: tableau contenant les lignes de code HTML
 // id_actif: No de la ligne sélectionée
 // etiquette: étiquette pour la ligne sélectionnée
@@ -37,26 +34,35 @@ $T_code[$id_actif] = '<a id="'.$etiquette.'"'.substr($T_code[$id_actif], 2); // 
 return $T_code;
 }
 
-public function Generer_Code_onglets() {
+public function Generer_onglets() {
 	// comme il n'y a que 5 onglets immuables on stocke chaque ligne de code dans un tableau
 	$T_code_onglets[0] = Lien('<img src="Vue/images/accueil.png" alt="accueil">Accueil', 0);
-	$T_code_onglets[1] = Lien('<img src="Vue/images/piece.png" alt="pi&egrave;ce">Pi&egrave;ce</a>', 1);
-	$T_code_onglets[2] = Lien('<img src="Vue/images/MEP.png" alt="Mise en plan">Mise en plan</a>', 2);
-	$T_code_onglets[3] = Lien('<img src="Vue/images/assemblage.png" alt="Assemblage">Assemblage</a>', 3);
-	$T_code_onglets[4] = Lien('<img src="Vue/images/autre.png" alt="Autre">Autre</a>', 4);
+	$T_code_onglets[1] = Lien('<img src="Vue/images/piece.png" alt="pi&egrave;ce">Pi&egrave;ce', 1);
+	$T_code_onglets[2] = Lien('<img src="Vue/images/MEP.png" alt="Mise en plan">Mise en plan', 2);
+	$T_code_onglets[3] = Lien('<img src="Vue/images/assemblage.png" alt="Assemblage">Assemblage', 3);
+	$T_code_onglets[4] = Lien('<img src="Vue/images/autre.png" alt="Autre">Autre', 4);
 	
 	$T_code_onglets = $this->Selectionner_Code($T_code_onglets, $this->onglet, 'onglet_actif');
 	
 	$code = '<ul>'."\n";
-	for ($i = 0; $i<5; $i++) {
-		$code .= "\t".'<li>'.$T_code_onglets[$i].'</li>'."\n";
-	}
+	for ($i = 0; $i<5; $i++) { $code .= "\t".'<li>'.$T_code_onglets[$i].'</li>'."\n"; }
 	$code .= "\t".'</ul>'."\n";
 	return $code;
 }
 
-public function Code_menu() {
-	// il va falloir intégrer le sous menu à la bonne place
-}
+public function Generer_menu() {
+	// recherche a faire dans la BD
+	$T_item[1] = Lien('item 1',0,1);
+	$T_item[2] = Lien('item 2',0,2);
+	$T_item[3] = Lien('item 3',0,3);
+	$T_item[4] = Lien('item 4',0,4);
+	$T_item[5] = Lien('item 5',0,5);
+	$T_item = $this->Selectionner_Code($T_item, $this->item, 'item_actif');
 
+	// il va falloir intégrer le sous menu à la bonne place
+	$code = '<ul>'."\n";
+	for ($i = 1; $i<=5; $i++) { $code .= "\t".'<li>'.$T_item[$i].'</li>'."\n"; }
+	$code .= "\t".'</ul>'."\n";
+	return $code;
+}
 }

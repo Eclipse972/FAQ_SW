@@ -7,7 +7,7 @@ $LISTE = 'abcdefghijklmnopqrstuvwxyz';
  * sous_item: idem
  */
 
-function Lien($texte, $onglet, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
+function Lien($texte, $onglet, $item = null, $sous_item = null, $page = null) { // l'existence de la page correpondante doit être vérifiée en amont
 	return '<a href="?p='.Creer_parametre($onglet, $item, $sous_item).'">'.$texte.'</a>';
 }
 
@@ -15,10 +15,13 @@ function Lien($texte, $onglet, $item = null, $sous_item = null) { // l'existence
 function Lire_parametre($nom) {
 	global $LISTE;
 	$param = substr((string) $_GET[$nom],0,4);	// le paramètre est converti en nombre chaîne de 4 caractères maxi
+	// il faut chercher en premier si le dernier caractère est un chiffre
+	// si oui l'extraire et l'enlever du paramètre
+	// avec le nouveau paramètre le reste ne change pas
 	$onglet		= (isset($param[0])) ? strpos($LISTE, $param[0]) : 0; 
-	/*$item		= (isset($param[1])) ? strpos($LISTE, $param[1]) : 0;
-	$sous_item	= (isset($param[2])) ? strpos($LISTE, $param[2]) : 0;*/
-	return [$onglet, 0, 0]; //[$onglet, $item, $sous_item];
+	$item		= (isset($param[1])) ? strpos($LISTE, $param[1]) : 0;
+	$sous_item	= (isset($param[2])) ? strpos($LISTE, $param[2]) : 0;
+	return [$onglet, $item, $sous_item]; //[$onglet, $item, $sous_item];
 }
 
 // Ecriture des paramètres
@@ -29,12 +32,13 @@ function Creer_parametre($param1, $param2, $param3) {
 		$parametre .= $LISTE[(int)$param2];
 		if (isset($param3))	$parametre .= $LISTE[(int)$param3];
 	}
+	// /!\ avec les pages la fonction ne sera plus aussi simple
 	return $parametre;
 }
 
-function Parametres_support_courant() {
+/*function Parametres_support_courant() {
 	if (isset($_SESSION['support'])) {
 		$oSupport = unserialize($_SESSION['support']);
 		return '?p='.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item());
 	} else return 'index.php';
-}
+}*/

@@ -73,7 +73,7 @@ nav li a {
 	border-radius:9px;
 }
 
-nav li a:hover, #item_selectionne { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
+nav li a:hover, #item_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ---------------------------------------------------------------------------------- */
 nav ul ul {	margin: 5px; }
