@@ -32,7 +32,7 @@ public function Titre_article($id) {
 	$this->Requete('SELECT titre FROM Articles WHERE id = ?', [$id]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return (isset($reponse['titre'])) ? $reponse['titre'] : 'Pas de titre';	
+	return (isset($reponse['titre'])) ? $reponse['titre'] : 'Pas de titre';
 }
 
 public function Page_article($id, $page = 0) {
