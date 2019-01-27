@@ -55,17 +55,18 @@ public function Generer_onglets() {
 }
 
 public function Generer_menu() {
-	// recherche a faire dans la BD
-	$T_item[1] = Lien('item 1',$this->onglet,1);
-	$T_item[2] = Lien('item 2',$this->onglet,2);
-	$T_item[3] = Lien('item 3',$this->onglet,3);
-	$T_item[4] = Lien('item 4',$this->onglet,4);
-	$T_item[5] = Lien('item 5',$this->onglet,5);
-	$T_item = $this->Selectionner_Code($T_item, $this->item, 'item_actif');
+	$BD = new base2donnees;
+	$T_item = $BD->Liste_items($this->onglet);
+	if ($this->item>0) // item sélectionné?
+		$T_item = $this->Selectionner_Code($T_item, $this->item, 'item_actif');
 
-	// il va falloir intégrer le sous menu à la bonne place
+	// il va falloir intégrer le sous-menu à la bonne place
 	$code = "\t".'<ul>'."\n";
-	for ($i = 1; $i<=5; $i++) { $code .= "\t".'<li>'.$T_item[$i].'</li>'."\n"; }
+	$i = 1;
+	while (isset($T_item[$i])) {
+		$code .= "\t".'<li>'.$T_item[$i].'</li>'."\n";
+		$i++;
+	}
 	$code .= "\t".'</ul>'."\n";
 	return $code;
 }

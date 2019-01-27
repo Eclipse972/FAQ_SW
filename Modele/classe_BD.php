@@ -47,4 +47,16 @@ public function Page_article($id, $page = 0) {
 	}
 	return 'Articles/'.$dossier.'/'.$fichier;
 }
+
+public function Liste_items($onglet) { // crée un tableau qui va contenir le code des (sous-)items
+	$this->Requete('SELECT titre FROM Articles, Items WHERE onglet=? AND item>0 AND article_ID=id', [$onglet]);
+	$i=1;
+	$tableau = null;
+	while ($ligne = $this->resultat->fetch()) {
+		$tableau[$i] = Lien($ligne['titre'], $onglet, $i);
+		$i++;
+	}
+	$this->Fermer();
+	return $tableau;
+}
 }
