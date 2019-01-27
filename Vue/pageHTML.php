@@ -1,14 +1,11 @@
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 <nav>
-<?php	
-	$etat = unserialize($_SESSION['état']);
-	echo $etat->Generer_menu();
-?>
+<?php echo $etat->Generer_menu();?>
 </nav>
 
 <section>
-<h1>Titre de l&apos;article</h1>
-<p>Corps de la page</p>
+<h1><?php echo $etat->Generer_titre();?></h1>
+<?php include $etat->Generer_page();?>
 </section>
 
 <aside>

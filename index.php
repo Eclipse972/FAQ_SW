@@ -41,7 +41,12 @@ $CONFIG = Configurer();
 <div id="logo"><img src="Vue/images/logo.png" alt = "Logo"></div>
 <div id="titre">
 	<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
-	<?=$CONFIG['onglets']?>
+<?php
+	if ($MODE == 'FAQ') {
+		$etat = unserialize($_SESSION['état']);
+		echo $etat->Generer_onglets();
+	}
+?>
 </div>
 </header>
 
