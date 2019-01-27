@@ -1,4 +1,4 @@
-<map version="freeplane 1.6.0">
+<map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1548382027812" MAX_WIDTH="1600.0 px" MIN_WIDTH="1.0 px"><richcontent TYPE="NODE">
 
@@ -17,7 +17,7 @@
 </html>
 </richcontent>
 <hook NAME="MapStyle" zoom="1.101">
-    <properties show_note_icons="true" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" show_note_icons="true"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -144,7 +144,7 @@
 <node TEXT="programmation" ID="ID_1525657188" CREATED="1547747951134" MODIFIED="1547747956863"/>
 </node>
 </node>
-<node TEXT="nouveaut&#xe9;s" FOLDED="true" ID="ID_253617544" CREATED="1526380890500" MODIFIED="1528383148299" STYLE="fork">
+<node TEXT="nouveaut&#xe9;s" ID="ID_253617544" CREATED="1526380890500" MODIFIED="1528383148299" STYLE="fork">
 <node TEXT="articles mis &#xe0; jour" ID="ID_1823348878" CREATED="1526380917270" MODIFIED="1526380924596"/>
 <node TEXT="article ajout&#xe9;" ID="ID_349198835" CREATED="1542233424171" MODIFIED="1542233430713"/>
 <node TEXT="moteur de recherche?" ID="ID_1511110366" CREATED="1526380924997" MODIFIED="1526380930467"/>
@@ -169,7 +169,7 @@
 <node TEXT="le module" ID="ID_743037055" CREATED="1547849700581" MODIFIED="1547849711507"/>
 <node TEXT="liste des articles du module en vrac" ID="ID_1048834037" CREATED="1547849714518" MODIFIED="1547849941275"/>
 </node>
-<node TEXT="esquisse 2D" FOLDED="true" ID="ID_1924496097" CREATED="1526675534157" MODIFIED="1548020062699" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="esquisse 2D" ID="ID_1924496097" CREATED="1526675534157" MODIFIED="1548020062699" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -183,8 +183,24 @@
 </html>
 </richcontent>
 <node TEXT="dessiner" ID="ID_1430719732" CREATED="1526678165535" MODIFIED="1528383171261" STYLE="fork"/>
+<node TEXT="le plan d&apos;esquisse" ID="ID_1420679796" CREATED="1548578463594" MODIFIED="1548578477912" STYLE="fork"/>
+<node TEXT="cr&#xe9;er un plan" ID="ID_650268318" CREATED="1548578512292" MODIFIED="1548578539976" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      g&#233;om&#233;trie de r&#233;f&#233;rence
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 <node TEXT="coter une esquisse" ID="ID_390488448" CREATED="1526380776449" MODIFIED="1528383171262" STYLE="fork"/>
-<node TEXT="utilisation des contraintes g&#xe9;om&#xe9;triques" ID="ID_8774979" CREATED="1526380750368" MODIFIED="1528383171259" STYLE="fork"/>
+<node TEXT="contraindre une esquisse" ID="ID_8774979" CREATED="1526380750368" MODIFIED="1548578578739" STYLE="fork"/>
 <node TEXT="coter au diam&#xe8;tre avec un axe de r&#xe9;volution" ID="ID_1333934118" CREATED="1548020131821" MODIFIED="1548020150108"/>
 </node>
 <node TEXT="fonctions" FOLDED="true" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1528384514470" STYLE="fork">
@@ -266,7 +282,10 @@
 </node>
 <node TEXT="changer sa transparence ou sa couleur" ID="ID_646139070" CREATED="1548019951468" MODIFIED="1548020301234" STYLE="fork"/>
 </node>
-<node TEXT="exploiter l&apos;arbre de cr&#xe9;ation" ID="ID_1946037529" CREATED="1528384465150" MODIFIED="1528384496781" STYLE="fork"/>
+<node TEXT="l&apos;arbre de cr&#xe9;ation" ID="ID_1946037529" CREATED="1528384465150" MODIFIED="1548579069107" STYLE="fork">
+<node TEXT="zone graphique -&gt; arbre" ID="ID_1762388668" CREATED="1548579074402" MODIFIED="1548579088622" STYLE="fork"/>
+<node TEXT="arbre -&gt; zone graphique" ID="ID_1573167791" CREATED="1548579092180" MODIFIED="1548579105992" STYLE="fork"/>
+</node>
 </node>
 <node TEXT="Assemblage" POSITION="right" ID="ID_944297772" CREATED="1526380524664" MODIFIED="1528384202793" STYLE="bubble" VSHIFT_QUANTITY="-30.0 px">
 <edge COLOR="#ff00ff" WIDTH="3"/>
@@ -285,13 +304,6 @@
 </richcontent>
 <node TEXT="le module" ID="ID_208363964" CREATED="1547849750186" MODIFIED="1547849754562"/>
 <node TEXT="liste des articles du module en vrac" ID="ID_971904087" CREATED="1547849756651" MODIFIED="1547849951957"/>
-</node>
-<node TEXT="exploiter l&apos;arbre de cr&#xe9;ation" FOLDED="true" ID="ID_938334082" CREATED="1528383343210" MODIFIED="1528383898099" STYLE="fork">
-<node TEXT="arbre -&gt; zone graphique" ID="ID_1169259879" CREATED="1528383962593" MODIFIED="1528383982227"/>
-<node TEXT="zone graphique -&gt; arbre" ID="ID_1181142758" CREATED="1528383982895" MODIFIED="1528384012469"/>
-<node TEXT="ouvrir un sous ensemble/composant" ID="ID_1522560487" CREATED="1528384015802" MODIFIED="1528384034731"/>
-<node TEXT="cacher/monter un composant" ID="ID_736639294" CREATED="1528383317073" MODIFIED="1528384078529" STYLE="fork"/>
-<node TEXT="voir les contraintes" ID="ID_350048060" CREATED="1548022822835" MODIFIED="1548022829168"/>
 </node>
 <node TEXT="ajouter des contraintes" FOLDED="true" ID="ID_655026047" CREATED="1526381130588" MODIFIED="1528383171181" STYLE="fork">
 <node TEXT="appui plan" ID="ID_1129550598" CREATED="1528383207203" MODIFIED="1528383217777"/>
@@ -346,6 +358,13 @@
 </html>
 </richcontent>
 </node>
+</node>
+<node TEXT="exploiter l&apos;arbre de cr&#xe9;ation" FOLDED="true" ID="ID_938334082" CREATED="1528383343210" MODIFIED="1528383898099" STYLE="fork">
+<node TEXT="arbre -&gt; zone graphique" ID="ID_1169259879" CREATED="1528383962593" MODIFIED="1528383982227"/>
+<node TEXT="zone graphique -&gt; arbre" ID="ID_1181142758" CREATED="1528383982895" MODIFIED="1528384012469"/>
+<node TEXT="ouvrir un sous ensemble/composant" ID="ID_1522560487" CREATED="1528384015802" MODIFIED="1528384034731"/>
+<node TEXT="cacher/monter un composant" ID="ID_736639294" CREATED="1528383317073" MODIFIED="1528384078529" STYLE="fork"/>
+<node TEXT="voir les contraintes" ID="ID_350048060" CREATED="1548022822835" MODIFIED="1548022829168"/>
 </node>
 <node TEXT="utiliser les configurations" ID="ID_1865529424" CREATED="1531019489817" MODIFIED="1548023673159" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -413,15 +432,15 @@
 <node TEXT="palette de vues" ID="ID_1533769219" CREATED="1526676912106" MODIFIED="1526676926762"/>
 <node TEXT="vue projet&#xe9;e" ID="ID_949879126" CREATED="1526380989399" MODIFIED="1526380996550"/>
 <node TEXT="d&#xe9;tail agrandi" ID="ID_1789010124" CREATED="1547214964158" MODIFIED="1547214972303"/>
-<node TEXT="vue en coupe simple" FOLDED="true" ID="ID_711652150" CREATED="1526380954391" MODIFIED="1526380964967">
+<node TEXT="vue en coupe simple" FOLDED="true" ID="ID_711652150" CREATED="1526380954391" MODIFIED="1548580065692">
 <node TEXT="avec 2012" ID="ID_1384721864" CREATED="1526380964972" MODIFIED="1526380972885"/>
-<node TEXT="avec 2015" ID="ID_1111396579" CREATED="1526380973352" MODIFIED="1526380977349"/>
+<node TEXT="avec 2015" ID="ID_1111396579" CREATED="1526380973352" MODIFIED="1548580065691"/>
 </node>
 <node TEXT="ins&#xe9;rer une perspective" FOLDED="true" ID="ID_722323352" CREATED="1526381061820" MODIFIED="1526381091197">
 <node TEXT="standard" ID="ID_1664917681" CREATED="1526381091201" MODIFIED="1526381094890"/>
 <node TEXT="personalis&#xe9;e" ID="ID_620547263" CREATED="1526381095837" MODIFIED="1526381108217"/>
 </node>
-<node TEXT="ins&#xe9;rer u &#xe9;clat&#xe9;" ID="ID_1970811189" CREATED="1548021823322" MODIFIED="1548021830281"/>
+<node TEXT="ins&#xe9;rer un &#xe9;clat&#xe9;" ID="ID_1970811189" CREATED="1548021823322" MODIFIED="1548579906109"/>
 <node TEXT="ins&#xe9;rer un &#xe9;corch&#xe9;" ID="ID_279962288" CREATED="1547214637831" MODIFIED="1548021813566"/>
 </node>
 <node TEXT="la cotation" FOLDED="true" ID="ID_683564504" CREATED="1526676301616" MODIFIED="1548021215261" STYLE="fork"><richcontent TYPE="NOTE">
@@ -455,10 +474,31 @@
 </node>
 <node TEXT="nombre de d&#xe9;cimales" ID="ID_1315602142" CREATED="1528385456761" MODIFIED="1528385480533" STYLE="fork"/>
 <node TEXT="modifier les lignes de rappel" ID="ID_723380356" CREATED="1528385179132" MODIFIED="1528385198831"/>
+<node TEXT="rajouter du texte" ID="ID_232089914" CREATED="1548580140682" MODIFIED="1548580197960"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ex; ajustements
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 </node>
 <node TEXT="mise en page" FOLDED="true" ID="ID_1036880012" CREATED="1526381025610" MODIFIED="1548474460815" STYLE="fork">
 <node TEXT="d&#xe9;placer les vues" ID="ID_157904754" CREATED="1526381032424" MODIFIED="1526677562082"/>
 <node TEXT="modifier l&apos;&#xe9;chelle" ID="ID_496530960" CREATED="1526381042282" MODIFIED="1542233044725"/>
+</node>
+<node TEXT="dessin d&apos;ensmble" FOLDED="true" ID="ID_449170022" CREATED="1547214615959" MODIFIED="1548474474045" STYLE="fork">
+<node TEXT="ajouter des rep&#xe8;res" ID="ID_1738073918" CREATED="1547214899489" MODIFIED="1548580258648"/>
+<node TEXT="nomenclature" ID="ID_315902939" CREATED="1547214906748" MODIFIED="1547214911130"/>
+<node TEXT="ins&#xe9;rer un &#xe9;clat&#xe9;" ID="ID_946703472" CREATED="1547214721106" MODIFIED="1548580248942"/>
+<node TEXT="inclure un &#xe9;corch&#xe9;" ID="ID_959264513" CREATED="1548021252302" MODIFIED="1548579934323"/>
 </node>
 <node TEXT="remplir le cartouche" ID="ID_369796455" CREATED="1526381017832" MODIFIED="1528385248037" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -489,13 +529,7 @@
 </richcontent>
 </node>
 <node TEXT="exploiter l&apos;arbre de cr&#xe9;ation" ID="ID_1589909495" CREATED="1528384551665" MODIFIED="1528384579218" STYLE="fork"/>
-<node TEXT="dessin d&apos;ensmble" FOLDED="true" ID="ID_449170022" CREATED="1547214615959" MODIFIED="1548474474045" STYLE="fork">
-<node TEXT="ins&#xe9;rrer un &#xe9;clat&#xe9;" ID="ID_946703472" CREATED="1547214721106" MODIFIED="1547214731879"/>
-<node TEXT="ajouter des rep&#xe8;re" ID="ID_1738073918" CREATED="1547214899489" MODIFIED="1547214906098"/>
-<node TEXT="nomenclature" ID="ID_315902939" CREATED="1547214906748" MODIFIED="1547214911130"/>
-<node TEXT="inclure u &#xe9;corh&#xe9;" ID="ID_959264513" CREATED="1548021252302" MODIFIED="1548021259587"/>
-</node>
-<node TEXT="lien avec son fichier pi&#xe8;ce/assemblage" ID="ID_39576599" CREATED="1548023230106" MODIFIED="1548023501225" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="lien avec son fichier pi&#xe8;ce/assemblage" ID="ID_39576599" CREATED="1548023230106" MODIFIED="1548580461852" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -503,10 +537,11 @@
   </head>
   <body>
     <p>
-      C'est celien qui fait qu'ilvaut mieux exporter en pdf. Pour un dessin d'ensemble il faudrait envoyer toutes les pi&#232;ces.
+      C'est ce lien qui fait qu'il vaut mieux exporter en pdf. Pour un dessin d'ensemble il faudrait envoyer toutes les pi&#232;ces de l'assemblage.
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>
@@ -558,7 +593,10 @@
 <node TEXT="ajuster le zoom" ID="ID_1251606975" CREATED="1528384701317" MODIFIED="1528384725067"/>
 <node TEXT="d&#xe9;placer la vue" ID="ID_1685330396" CREATED="1528385984541" MODIFIED="1528385995474"/>
 </node>
-<node TEXT="ouvrir un fichier efficacement" ID="ID_1371388257" CREATED="1526381268129" MODIFIED="1528383171170" STYLE="fork"/>
+<node TEXT="ouvrir un fichier efficacement" FOLDED="true" ID="ID_1371388257" CREATED="1526381268129" MODIFIED="1528383171170" STYLE="fork">
+<node TEXT="2012" OBJECT="java.lang.Long|2012" ID="ID_761823429" CREATED="1548582008033" MODIFIED="1548582011835" STYLE="fork"/>
+<node TEXT="2015" OBJECT="java.lang.Long|2015" ID="ID_662462033" CREATED="1548582015067" MODIFIED="1548582017983" STYLE="fork"/>
+</node>
 <node TEXT="m&#xe9;canique graphique dans une mise en plan" FOLDED="true" ID="ID_634321178" CREATED="1526381154767" MODIFIED="1547849843879" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
