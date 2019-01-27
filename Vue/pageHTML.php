@@ -4,8 +4,10 @@
 </nav>
 
 <section>
-<h1><?php echo $etat->Generer_titre();?></h1>
-<?php include $etat->Generer_page();?>
+<?php
+echo '<h1>',$etat->Generer_titre(),'</h1>';
+include $etat->Generer_page();
+?>
 </section>
 
 <aside>

@@ -41,11 +41,14 @@ public function Page_article($id, $page = 0) {
 	$this->Fermer();
 	$dossier = $reponse['dossier'];
 	
-	if ($page == 0) { // article à page unique
+	if ($page == 0) // article à page unique
 		$fichier = 'page.html';
-	} else { // article de plusieurs pages: il faut rechercher le nom du fichier dans la BD
+	else { // article de plusieurs pages: il faut rechercher le nom du fichier dans la BD
 	}
-	return 'Articles/'.$dossier.'/'.$fichier;
+	$lien = 'Articles/'.$dossier.'/'.$fichier;
+	if(!file_exists('Articles/'.$dossier.'/'.$fichier))
+		$lien = 'Articles/inexistant.html';
+	return $lien;
 }
 
 public function Liste_items($onglet) { // crée un tableau qui va contenir le code des (sous-)items
