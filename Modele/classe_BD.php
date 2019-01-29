@@ -28,13 +28,6 @@ public function Cherche_article($onglet, $item = 0, $sous_item = 0) { // cherche
 	return (isset($reponse['article_ID']) ? $reponse['article_ID'] : 0);
 }
 
-public function Titre_article($id) {
-	$this->Requete('SELECT titre FROM Articles WHERE id = ?', [$id]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return (isset($reponse['titre'])) ? $reponse['titre'] : 'Pas de titre';
-}
-
 public function Page_article($id, $page = 0) {
 	$this->Requete('SELECT dossier FROM Articles WHERE id = ?', [$id]);
 	$reponse = $this->resultat->fetch();
@@ -52,11 +45,11 @@ public function Page_article($id, $page = 0) {
 }
 
 public function Liste_items($onglet) { // crée un tableau qui va contenir le code des (sous-)items
-	$this->Requete('SELECT titre FROM Articles, Items WHERE onglet=? AND item>0 AND article_ID=id', [$onglet]);
+	$this->Requete('SELECT texte FROM Items WHERE onglet=? AND item>0', [$onglet]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = Lien($ligne['titre'], $onglet, $i);
+		$tableau[$i] = Lien($ligne['texte'], $onglet, $i);
 		$i++;
 	}
 	$this->Fermer();

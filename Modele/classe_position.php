@@ -71,11 +71,6 @@ public function Generer_menu() {
 	return $code;
 }
 
-public function Generer_titre() {
-	$BD = new base2donnees;
-	return $BD->Titre_article($this->article);
-}
-
 public function Generer_page() {
 	$BD = new base2donnees;
 	return $BD->Page_article($this->article, $this->page);	
