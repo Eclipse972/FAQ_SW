@@ -1,6 +1,6 @@
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 <nav>
-<?php echo $etat->Generer_menu();,?>
+<?php echo $etat->Generer_menu(); ?>
 </nav>
 
 <section>
