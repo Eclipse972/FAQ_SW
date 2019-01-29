@@ -19,15 +19,6 @@ public function __construct($onglet, $item = 0, $sous_item = 0, $No_page = 0) {
 	$this->article = $BD->Cherche_article($onglet, $item, $sous_item);
 }
 
-public function Generer_sous_items() {
-	// recherche a faire dans la BD
-	/*$T_sous_item[1] = '<a href="#">sous-item 1</a>';
-	$T_sous_item[2] = '<a href="#">sous-item 2</a>';
-	$T_sous_item[3] = '<a href="#">sous-item 3</a>';
-	$T_sous_item[4] = '<a href="#">sous-item 4</a>';
-	return $T_sous_item;*/
-}
-
 private function Selectionner_Code($T_code, $id_actif, $etiquette) {
 // T_code: tableau contenant les lignes de code HTML
 // id_actif: No de la ligne sélectionée
@@ -68,6 +59,23 @@ public function Generer_menu() {
 		$i++;
 	}
 	$code .= "\t".'</ul>'."\n";
+	return $code;
+}
+
+public function Generer_sous_menu() {
+	$BD = new base2donnees;
+	$T_item = $BD->Liste_sous_items($this->onglet, $this->item);
+	if (!isset($T_item)) return ''; // si le sous_menu n'existe pas
+	
+	if ($this->sous_item>0) // sous-item sélectionné?
+		$T_item = $this->Selectionner_Code($T_item, $this->sous_item, 'sous_item_actif');
+	$code = "\t".'<ul>'."\n";
+	$i = 1;
+	while (isset($T_item[$i])) {
+		$code .= "\t\t".'<li>'.$T_item[$i].'</li>'."\n";
+		$i++;
+	}
+	$code .= "\t\t".'</ul>'."\n";
 	return $code;
 }
 

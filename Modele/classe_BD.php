@@ -55,4 +55,16 @@ public function Liste_items($onglet) { // crée un tableau qui va contenir le co
 	$this->Fermer();
 	return $tableau;
 }
+
+public function Liste_sous_items($onglet, $item) { // crée un tableau qui va contenir le code des (sous-)items
+	$this->Requete('SELECT texte FROM Items WHERE onglet=? AND item=? AND sous_item>0', [$onglet, $item]);
+	$i=1;
+	$tableau = null;
+	while ($ligne = $this->resultat->fetch()) {
+		$tableau[$i] = Lien($ligne['texte'], $onglet, $item, $i);
+		$i++;
+	}
+	$this->Fermer();
+	return $tableau;
+}
 }
