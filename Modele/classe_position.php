@@ -52,13 +52,15 @@ public function Generer_menu() {
 		$T_item = $this->Selectionner_Code($T_item, $this->item, 'item_actif');
 
 	// il va falloir intégrer le sous-menu à la bonne place
-	$code = "\t".'<ul>'."\n";
+	$code = '<ul>'."\n";
 	$i = 1;
 	while (isset($T_item[$i])) {
-		$code .= "\t".'<li>'.$T_item[$i].'</li>'."\n";
+		$code .= '<li>'.$T_item[$i].'</li>'."\n";
+		if ($i == $this->item) // item courant = item sélectionné
+			$code .= $this->Generer_sous_menu(); // insertion du code du sous-menu
 		$i++;
 	}
-	$code .= "\t".'</ul>'."\n";
+	$code .= '</ul>'."\n";
 	return $code;
 }
 
@@ -72,10 +74,10 @@ public function Generer_sous_menu() {
 	$code = "\t".'<ul>'."\n";
 	$i = 1;
 	while (isset($T_item[$i])) {
-		$code .= "\t\t".'<li>'.$T_item[$i].'</li>'."\n";
+		$code .= "\t".'<li>'.$T_item[$i].'</li>'."\n";
 		$i++;
 	}
-	$code .= "\t\t".'</ul>'."\n";
+	$code .= "\t".'</ul>'."\n";
 	return $code;
 }
 

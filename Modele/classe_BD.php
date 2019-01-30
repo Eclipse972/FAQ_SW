@@ -45,7 +45,7 @@ public function Page_article($id, $page = 0) {
 }
 
 public function Liste_items($onglet) { // crée un tableau qui va contenir le code des (sous-)items
-	$this->Requete('SELECT texte FROM Items WHERE onglet=? AND item>0', [$onglet]);
+	$this->Requete('SELECT texte FROM Items WHERE onglet=? AND item>0 AND sous_item=0', [$onglet]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
