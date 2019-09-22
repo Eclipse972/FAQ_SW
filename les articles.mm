@@ -1,4 +1,4 @@
-<map version="freeplane 1.7.0">
+<map version="freeplane 1.6.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1548382027812" MAX_WIDTH="1600.0 px" MIN_WIDTH="1.0 px"><richcontent TYPE="NODE">
 
@@ -17,7 +17,7 @@
 </html>
 </richcontent>
 <hook NAME="MapStyle" zoom="1.101">
-    <properties fit_to_viewport="false" show_note_icons="true"/>
+    <properties show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -182,9 +182,11 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="dessiner" ID="ID_1430719732" CREATED="1526678165535" MODIFIED="1528383171261" STYLE="fork"/>
-<node TEXT="le plan d&apos;esquisse" ID="ID_1420679796" CREATED="1548578463594" MODIFIED="1548578477912" STYLE="fork"/>
-<node TEXT="cr&#xe9;er un plan" ID="ID_650268318" CREATED="1548578512292" MODIFIED="1548578539976" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="la barre d&apos;outils d&apos;esquisse" ID="ID_1430719732" CREATED="1526678165535" MODIFIED="1550177644412" STYLE="fork"/>
+<node TEXT="le plan d&apos;esquisse" ID="ID_1420679796" CREATED="1548578463594" MODIFIED="1548578477912" STYLE="fork">
+<node TEXT="c&apos;es quoi?" ID="ID_645621312" CREATED="1550183548632" MODIFIED="1550183556461" STYLE="fork"/>
+<node TEXT="comment le modifier?" ID="ID_1337532802" CREATED="1550183559072" MODIFIED="1550183572071" STYLE="fork"/>
+<node TEXT="cr&#xe9;er un plan de toute pi&#xe8;ce" FOLDED="true" ID="ID_650268318" CREATED="1548578512292" MODIFIED="1550189174086" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -196,14 +198,135 @@
     </p>
   </body>
 </html>
+</richcontent>
+<node TEXT="parall&#xe8;le" ID="ID_1368961001" CREATED="1550188921079" MODIFIED="1550188928535"/>
+<node TEXT="par trois points" ID="ID_1134746138" CREATED="1550188930605" MODIFIED="1550188936913"/>
+<node TEXT="autres proc&#xe9;d&#xe9;" ID="ID_963040230" CREATED="1550189019545" MODIFIED="1550189025614"/>
+</node>
+</node>
+<node TEXT="une cotation intelligente" ID="ID_390488448" CREATED="1526380776449" MODIFIED="1550188106913" STYLE="fork">
+<node TEXT="sur un segment" ID="ID_1823425073" CREATED="1550188173316" MODIFIED="1550188274699"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      suivant le d&#233;placement de la souris on eut s&#233;lectionner une cote verticale, horizontale et longueur
+    </p>
+    <p>
+      DESSINS
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="entre deux entit&#xe9;s" ID="ID_1074989328" CREATED="1550188183893" MODIFIED="1550189063146"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      suivant mes entit&#233; s&#233;lectionn&#233;es le logiciel est capable de deviner
+    </p>
+    <p>
+      2 segmenrs // -&gt; distance
+    </p>
+    <p>
+      2 segment non parall&#232;le -&gt; angle
+    </p>
+    <p>
+      segemnt + cercle -&gt; distance du centre du cercle au segment
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      mettre des dessins pour illustreer chaque situation
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="coter au diam&#xe8;tre avec un axe de r&#xe9;volution" ID="ID_1333934118" CREATED="1548020131821" MODIFIED="1548020150108"/>
+</node>
+<node TEXT="contraindre une esquisse" ID="ID_8774979" CREATED="1526380750368" MODIFIED="1548578578739" STYLE="fork">
+<node TEXT="liste des contraintes les plus courantes" ID="ID_566278464" CREATED="1550188472390" MODIFIED="1561251911017"/>
+<node TEXT="utilser les contraintes" ID="ID_983031089" CREATED="1550188490962" MODIFIED="1561251956408"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="5">R&#233;aliser une croix avec seulement 2 c&#244;tes </font>
+    </p>
+    <p>
+      <font size="5">Levier arr&#234;t de portail avec une seule esquisse</font>
+    </p>
+  </body>
+</html>
 
 </richcontent>
 </node>
-<node TEXT="coter une esquisse" ID="ID_390488448" CREATED="1526380776449" MODIFIED="1528383171262" STYLE="fork"/>
-<node TEXT="contraindre une esquisse" ID="ID_8774979" CREATED="1526380750368" MODIFIED="1548578578739" STYLE="fork"/>
-<node TEXT="coter au diam&#xe8;tre avec un axe de r&#xe9;volution" ID="ID_1333934118" CREATED="1548020131821" MODIFIED="1548020150108"/>
 </node>
-<node TEXT="fonctions" FOLDED="true" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1528384514470" STYLE="fork">
+<node TEXT="utilisation des lignes de construction" ID="ID_47766112" CREATED="1550188548116" MODIFIED="1561251310157"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      fait appel aux contraintes de co&#239;ncidence
+    </p>
+    <p>
+      =&gt; article connexe
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      ex: aligner plusieurs per&#231;ages en minimisant le nombre de cote
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="code couleur" ID="ID_1501728881" CREATED="1552772803879" MODIFIED="1552772843980"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Lors de la r&#233;alisation d'esquisse Le logiciel utilise un code couleur
+    </p>
+    <p>
+      bleu
+    </p>
+    <p>
+      noir
+    </p>
+    <p>
+      rouge
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="bleu" ID="ID_1631685608" CREATED="1552772848618" MODIFIED="1552772854143"/>
+<node TEXT="noir" ID="ID_1370366640" CREATED="1552772857000" MODIFIED="1552772862331"/>
+<node TEXT="gris" ID="ID_729673675" CREATED="1552772863328" MODIFIED="1552772866968"/>
+<node TEXT="rouge" ID="ID_548746750" CREATED="1552772867663" MODIFIED="1552772870590"/>
+</node>
+</node>
+<node TEXT="fonctions" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1528384514470" STYLE="fork">
 <node TEXT="ajout et enl&#xe8;vement de mati&#xe8;re par r&#xe9;volution" FOLDED="true" ID="ID_1253846029" CREATED="1526380566286" MODIFIED="1548020111549" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -265,13 +388,69 @@
 <node TEXT="angle de d&#xe9;pouille" ID="ID_1620067152" CREATED="1547215293477" MODIFIED="1547215299651"/>
 <node TEXT="pi&#xe8;ce faite en fraisage" ID="ID_334203316" CREATED="1542232969848" MODIFIED="1542232985214"/>
 </node>
-<node TEXT="assitance pour le per&#xe7;age" FOLDED="true" ID="ID_374008902" CREATED="1526676572185" MODIFIED="1528383171247" STYLE="fork">
+<node TEXT="assitance pour le per&#xe7;age" ID="ID_374008902" CREATED="1526676572185" MODIFIED="1528383171247" STYLE="fork">
+<node TEXT="pr&#xe9;sentation" ID="ID_1607516356" CREATED="1561251447151" MODIFIED="1561251451814">
+<node TEXT="onglet caract&#xe9;ristiques" ID="ID_331269960" CREATED="1561251462818" MODIFIED="1561251471992"/>
+<node TEXT="onglet positionnement" ID="ID_1674817732" CREATED="1561251479600" MODIFIED="1561251487068"/>
+</node>
 <node TEXT="per&#xe7;age" ID="ID_1536480622" CREATED="1526380695774" MODIFIED="1526676614335"/>
 <node TEXT="trou taraud&#xe9;" ID="ID_683315570" CREATED="1526380878261" MODIFIED="1526380888854"/>
 </node>
 <node TEXT="sym&#xe9;trie" ID="ID_220502340" CREATED="1526380719455" MODIFIED="1528383171252" STYLE="fork"/>
-<node TEXT="r&#xe9;p&#xe9;tition" ID="ID_811982235" CREATED="1526380728175" MODIFIED="1528383171257" STYLE="fork"/>
+<node TEXT="r&#xe9;p&#xe9;tition" ID="ID_811982235" CREATED="1526380728175" MODIFIED="1528383171257" STYLE="fork">
+<node TEXT="lin&#xe9;aire" ID="ID_1168181442" CREATED="1561251077862" MODIFIED="1561251127756"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="5">prendre comme exemple un bloc LEGO </font>
+    </p>
+    <p>
+      <font size="5">metrre un lien vers le site LEGO? </font>
+    </p>
+    <p>
+      <font size="5">article connexe: ligne de construction</font>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="circulaire" ID="ID_997680784" CREATED="1561251085926" MODIFIED="1561251180256"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="5">r&#233;aliser une jante: r&#233;p&#233;tition circulaire</font>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+</node>
 <node TEXT="cong&#xe9; et chanfrein" ID="ID_1722356949" CREATED="1526380741104" MODIFIED="1528383171211" STYLE="fork"/>
+<node TEXT="balayage" ID="ID_1667660663" CREATED="1561251197065" MODIFIED="1561251221728"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="5">ex: un ressort</font>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 </node>
 <node TEXT="manipuler la pi&#xe8;ce" FOLDED="true" ID="ID_1827062515" CREATED="1548019937064" MODIFIED="1548022569814" STYLE="fork">
 <node TEXT="tourner et d&#xe9;placer" ID="ID_1242585190" CREATED="1548022692069" MODIFIED="1548022698662"/>
@@ -282,7 +461,7 @@
 </node>
 <node TEXT="changer sa transparence ou sa couleur" ID="ID_646139070" CREATED="1548019951468" MODIFIED="1548020301234" STYLE="fork"/>
 </node>
-<node TEXT="l&apos;arbre de cr&#xe9;ation" ID="ID_1946037529" CREATED="1528384465150" MODIFIED="1548579069107" STYLE="fork">
+<node TEXT="l&apos;arbre de cr&#xe9;ation" FOLDED="true" ID="ID_1946037529" CREATED="1528384465150" MODIFIED="1548579069107" STYLE="fork">
 <node TEXT="zone graphique -&gt; arbre" ID="ID_1762388668" CREATED="1548579074402" MODIFIED="1548579088622" STYLE="fork"/>
 <node TEXT="arbre -&gt; zone graphique" ID="ID_1573167791" CREATED="1548579092180" MODIFIED="1548579105992" STYLE="fork"/>
 </node>
@@ -305,7 +484,7 @@
 <node TEXT="le module" ID="ID_208363964" CREATED="1547849750186" MODIFIED="1547849754562"/>
 <node TEXT="liste des articles du module en vrac" ID="ID_971904087" CREATED="1547849756651" MODIFIED="1547849951957"/>
 </node>
-<node TEXT="ajouter des contraintes" FOLDED="true" ID="ID_655026047" CREATED="1526381130588" MODIFIED="1528383171181" STYLE="fork">
+<node TEXT="ajouter des contraintes" ID="ID_655026047" CREATED="1526381130588" MODIFIED="1528383171181" STYLE="fork">
 <node TEXT="appui plan" ID="ID_1129550598" CREATED="1528383207203" MODIFIED="1528383217777"/>
 <node TEXT="coaxialit&#xe9;" ID="ID_1221237526" CREATED="1528383219094" MODIFIED="1528384322538"><richcontent TYPE="NOTE">
 
@@ -321,7 +500,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="contraintes limites" ID="ID_1344669755" CREATED="1531019156463" MODIFIED="1531019352634"><richcontent TYPE="NOTE">
+<node TEXT="contraintes limites" ID="ID_1344669755" CREATED="1531019156463" MODIFIED="1561250987769"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -329,16 +508,17 @@
   </head>
   <body>
     <p>
-      elles permettent de rendre le fonctinement conforme &#224; la r&#233;alit&#233;
+      elles permettent de rendre le fonctionnement conforme &#224; la r&#233;alit&#233;
     </p>
     <p>
-      exmple1; le v&#233;rin, comment faire pour le pisont ne puisse plus sortir de la chambre en utilisant une limite lin&#233;aire
+      exemple1; le v&#233;rin, comment faire pour le piston ne puisse plus sortir de la chambre en utilisant une limite lin&#233;aire
     </p>
     <p>
-      exmple 2 la vanne sph&#233;rique comment faire pour que la manette ne d&#233;passe pas le 1/4 en uilisant une limite circulaire
+      exemple 2 la vanne sph&#233;rique comment faire pour que la manette ne d&#233;passe pas le 1/4 en uilisant une limite circulaire
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 <node TEXT="comment les choisir" ID="ID_1420334415" CREATED="1548022850390" MODIFIED="1548022987836"><richcontent TYPE="NOTE">
@@ -398,7 +578,7 @@
 </node>
 <node TEXT="Mise en plan" POSITION="left" ID="ID_1383385457" CREATED="1526380509111" MODIFIED="1528383129182" STYLE="bubble">
 <edge COLOR="#00ff00" WIDTH="3"/>
-<node TEXT="pr&#xe9;senation" FOLDED="true" ID="ID_521411569" CREATED="1547849739890" MODIFIED="1548382195973" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="pr&#xe9;senation" ID="ID_521411569" CREATED="1547849739890" MODIFIED="1548382195973" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -428,11 +608,10 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="ins&#xe9;rer des vues" FOLDED="true" ID="ID_1881392975" CREATED="1526676172592" MODIFIED="1547214949343" STYLE="fork">
+<node TEXT="ins&#xe9;rer des vues" ID="ID_1881392975" CREATED="1526676172592" MODIFIED="1547214949343" STYLE="fork">
 <node TEXT="palette de vues" ID="ID_1533769219" CREATED="1526676912106" MODIFIED="1526676926762"/>
 <node TEXT="vue projet&#xe9;e" ID="ID_949879126" CREATED="1526380989399" MODIFIED="1526380996550"/>
-<node TEXT="d&#xe9;tail agrandi" ID="ID_1789010124" CREATED="1547214964158" MODIFIED="1547214972303"/>
-<node TEXT="vue en coupe simple" FOLDED="true" ID="ID_711652150" CREATED="1526380954391" MODIFIED="1548580065692">
+<node TEXT="vue en coupe simple" ID="ID_711652150" CREATED="1526380954391" MODIFIED="1548580065692">
 <node TEXT="avec 2012" ID="ID_1384721864" CREATED="1526380964972" MODIFIED="1526380972885"/>
 <node TEXT="avec 2015" ID="ID_1111396579" CREATED="1526380973352" MODIFIED="1548580065691"/>
 </node>
@@ -442,8 +621,9 @@
 </node>
 <node TEXT="ins&#xe9;rer un &#xe9;clat&#xe9;" ID="ID_1970811189" CREATED="1548021823322" MODIFIED="1548579906109"/>
 <node TEXT="ins&#xe9;rer un &#xe9;corch&#xe9;" ID="ID_279962288" CREATED="1547214637831" MODIFIED="1548021813566"/>
+<node TEXT="d&#xe9;tail agrandi" ID="ID_1789010124" CREATED="1547214964158" MODIFIED="1547214972303"/>
 </node>
-<node TEXT="la cotation" FOLDED="true" ID="ID_683564504" CREATED="1526676301616" MODIFIED="1548021215261" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="la cotation" ID="ID_683564504" CREATED="1526676301616" MODIFIED="1548021215261" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -473,7 +653,20 @@
 </richcontent>
 </node>
 <node TEXT="nombre de d&#xe9;cimales" ID="ID_1315602142" CREATED="1528385456761" MODIFIED="1528385480533" STYLE="fork"/>
-<node TEXT="modifier les lignes de rappel" ID="ID_723380356" CREATED="1528385179132" MODIFIED="1528385198831"/>
+<node TEXT="modifier les lignes de rappel" ID="ID_723380356" CREATED="1528385179132" MODIFIED="1548809591298"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Cas du chanfrein
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 <node TEXT="rajouter du texte" ID="ID_232089914" CREATED="1548580140682" MODIFIED="1548580197960"><richcontent TYPE="NOTE">
 
 <html>
@@ -486,11 +679,17 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
+<node TEXT="les erreurs classiques" ID="ID_1065620435" CREATED="1561252045210" MODIFIED="1561252060557">
+<node TEXT="valeurs non centr&#xe9;e sur la fl&#xe8;che" ID="ID_297144823" CREATED="1561252130933" MODIFIED="1561252134685"/>
+<node TEXT="ligne de rappel dans le vide" ID="ID_1965658108" CREATED="1561252150623" MODIFIED="1561252153723"/>
+<node TEXT="cote loin de sa forme" ID="ID_215552591" CREATED="1561252167426" MODIFIED="1561252176236"/>
+<node TEXT="pointes de fl&#xe8;che au mauvais endroit" ID="ID_158019303" CREATED="1561252193895" MODIFIED="1561252196348"/>
+<node TEXT="cote en dehors de la zone de dessin" ID="ID_18285779" CREATED="1561252210103" MODIFIED="1561252212687"/>
 </node>
-<node TEXT="mise en page" FOLDED="true" ID="ID_1036880012" CREATED="1526381025610" MODIFIED="1548474460815" STYLE="fork">
+</node>
+<node TEXT="mise en page" ID="ID_1036880012" CREATED="1526381025610" MODIFIED="1548474460815" STYLE="fork">
 <node TEXT="d&#xe9;placer les vues" ID="ID_157904754" CREATED="1526381032424" MODIFIED="1526677562082"/>
 <node TEXT="modifier l&apos;&#xe9;chelle" ID="ID_496530960" CREATED="1526381042282" MODIFIED="1542233044725"/>
 </node>
@@ -541,7 +740,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -575,7 +773,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="zoom" FOLDED="true" ID="ID_1775133551" CREATED="1526381199615" MODIFIED="1548382306418" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="zoom" ID="ID_1775133551" CREATED="1526381199615" MODIFIED="1548382306418" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -593,11 +791,11 @@
 <node TEXT="ajuster le zoom" ID="ID_1251606975" CREATED="1528384701317" MODIFIED="1528384725067"/>
 <node TEXT="d&#xe9;placer la vue" ID="ID_1685330396" CREATED="1528385984541" MODIFIED="1528385995474"/>
 </node>
-<node TEXT="ouvrir un fichier efficacement" FOLDED="true" ID="ID_1371388257" CREATED="1526381268129" MODIFIED="1528383171170" STYLE="fork">
+<node TEXT="ouvrir un fichier efficacement" ID="ID_1371388257" CREATED="1526381268129" MODIFIED="1528383171170" STYLE="fork">
 <node TEXT="2012" OBJECT="java.lang.Long|2012" ID="ID_761823429" CREATED="1548582008033" MODIFIED="1548582011835" STYLE="fork"/>
 <node TEXT="2015" OBJECT="java.lang.Long|2015" ID="ID_662462033" CREATED="1548582015067" MODIFIED="1548582017983" STYLE="fork"/>
 </node>
-<node TEXT="m&#xe9;canique graphique dans une mise en plan" FOLDED="true" ID="ID_634321178" CREATED="1526381154767" MODIFIED="1547849843879" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="m&#xe9;canique graphique dans une mise en plan" ID="ID_634321178" CREATED="1526381154767" MODIFIED="1547849843879" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -611,9 +809,13 @@
 </html>
 </richcontent>
 <node TEXT="statique" ID="ID_108074444" CREATED="1526381179298" MODIFIED="1526381183037"/>
-<node TEXT="cin&#xe9;matique" ID="ID_3348707" CREATED="1526381183536" MODIFIED="1526381193229"/>
+<node TEXT="cin&#xe9;matique" ID="ID_3348707" CREATED="1526381183536" MODIFIED="1526381193229">
+<node TEXT="&#xe9;qui-projectivit&#xe9;." ID="ID_1023325957" CREATED="1561251837379" MODIFIED="1561251843026"/>
+<node TEXT="champ vecteur vitesse" ID="ID_423603951" CREATED="1561251847234" MODIFIED="1561251853792"/>
+</node>
 </node>
 <node TEXT="mettre un fichier dans mon casier num&#xe9;rique" ID="ID_188194107" CREATED="1547849870935" MODIFIED="1548382347231" STYLE="fork"/>
+<node TEXT="placer la barre d&apos;outil" ID="ID_1275691050" CREATED="1561251378035" MODIFIED="1561251386703"/>
 </node>
 </node>
 </map>
