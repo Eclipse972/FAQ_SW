@@ -270,7 +270,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -295,7 +294,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="code couleur" ID="ID_1501728881" CREATED="1552772803879" MODIFIED="1552772843980"><richcontent TYPE="NOTE">
@@ -327,7 +325,7 @@
 </node>
 </node>
 <node TEXT="fonctions" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1528384514470" STYLE="fork">
-<node TEXT="ajout et enl&#xe8;vement de mati&#xe8;re par r&#xe9;volution" FOLDED="true" ID="ID_1253846029" CREATED="1526380566286" MODIFIED="1548020111549" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="ajout et enl&#xe8;vement de mati&#xe8;re par r&#xe9;volution" ID="ID_1253846029" CREATED="1526380566286" MODIFIED="1548020111549" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -381,7 +379,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="ajout et enl&#xe8;vement par extrusion" FOLDED="true" ID="ID_1630166481" CREATED="1526380560781" MODIFIED="1542232961577" STYLE="fork">
+<node TEXT="ajout et enl&#xe8;vement par extrusion" ID="ID_1630166481" CREATED="1526380560781" MODIFIED="1542232961577" STYLE="fork">
 <node TEXT="cylindre" ID="ID_1226196671" CREATED="1526380589601" MODIFIED="1526380599553"/>
 <node TEXT="prisme" ID="ID_720558490" CREATED="1526380600178" MODIFIED="1526380605169"/>
 <node TEXT="cas g&#xe9;n&#xe9;ral" ID="ID_1635227147" CREATED="1526380605907" MODIFIED="1526380616306"/>
@@ -416,7 +414,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="circulaire" ID="ID_997680784" CREATED="1561251085926" MODIFIED="1561251180256"><richcontent TYPE="NOTE">
@@ -431,7 +428,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -448,7 +444,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -518,7 +513,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="comment les choisir" ID="ID_1420334415" CREATED="1548022850390" MODIFIED="1548022987836"><richcontent TYPE="NOTE">
@@ -682,10 +676,39 @@
 </richcontent>
 </node>
 <node TEXT="les erreurs classiques" ID="ID_1065620435" CREATED="1561252045210" MODIFIED="1561252060557">
+<node TEXT="croisement fl&#xe8;che et ligne de rappel" ID="ID_1693884730" CREATED="1569108709495" MODIFIED="1569108723277"/>
 <node TEXT="valeurs non centr&#xe9;e sur la fl&#xe8;che" ID="ID_297144823" CREATED="1561252130933" MODIFIED="1561252134685"/>
-<node TEXT="ligne de rappel dans le vide" ID="ID_1965658108" CREATED="1561252150623" MODIFIED="1561252153723"/>
+<node TEXT="ligne de rappel dans le vide" ID="ID_1965658108" CREATED="1561252150623" MODIFIED="1569108497675"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cas du chanfrein
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 <node TEXT="cote loin de sa forme" ID="ID_215552591" CREATED="1561252167426" MODIFIED="1561252176236"/>
-<node TEXT="pointes de fl&#xe8;che au mauvais endroit" ID="ID_158019303" CREATED="1561252193895" MODIFIED="1561252196348"/>
+<node TEXT="pointes de fl&#xe8;che au mauvais endroit" ID="ID_158019303" CREATED="1561252193895" MODIFIED="1569108535536"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      on peut forcer le sens des fl&#232;ches
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 <node TEXT="cote en dehors de la zone de dessin" ID="ID_18285779" CREATED="1561252210103" MODIFIED="1561252212687"/>
 </node>
 </node>
@@ -693,7 +716,7 @@
 <node TEXT="d&#xe9;placer les vues" ID="ID_157904754" CREATED="1526381032424" MODIFIED="1526677562082"/>
 <node TEXT="modifier l&apos;&#xe9;chelle" ID="ID_496530960" CREATED="1526381042282" MODIFIED="1542233044725"/>
 </node>
-<node TEXT="dessin d&apos;ensmble" FOLDED="true" ID="ID_449170022" CREATED="1547214615959" MODIFIED="1548474474045" STYLE="fork">
+<node TEXT="dessin d&apos;ensemble" FOLDED="true" ID="ID_449170022" CREATED="1547214615959" MODIFIED="1569108419832" STYLE="fork">
 <node TEXT="ajouter des rep&#xe8;res" ID="ID_1738073918" CREATED="1547214899489" MODIFIED="1548580258648"/>
 <node TEXT="nomenclature" ID="ID_315902939" CREATED="1547214906748" MODIFIED="1547214911130"/>
 <node TEXT="ins&#xe9;rer un &#xe9;clat&#xe9;" ID="ID_946703472" CREATED="1547214721106" MODIFIED="1548580248942"/>
@@ -713,7 +736,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="exporter en pdf" ID="ID_795405089" CREATED="1526381110797" MODIFIED="1548023580351" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="exporter en pdf" ID="ID_795405089" CREATED="1526381110797" MODIFIED="1561252397820" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -721,7 +744,7 @@
   </head>
   <body>
     <p>
-      article connexe: lien MEP avec son fichier pi&#232;ce/asemblage
+      article connexe: lien MEP avec son fichier pi&#232;ce/assemblage
     </p>
   </body>
 </html>
