@@ -1,4 +1,4 @@
-<map version="freeplane 1.6.0">
+<map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1548382027812" MAX_WIDTH="1600.0 px" MIN_WIDTH="1.0 px"><richcontent TYPE="NODE">
 
@@ -153,7 +153,7 @@
 <node TEXT="Pi&#xe8;ce" POSITION="left" ID="ID_141785098" CREATED="1526380491828" MODIFIED="1528383129160" STYLE="bubble">
 <edge COLOR="#0000ff" WIDTH="3"/>
 <hook NAME="AlwaysUnfoldedNode"/>
-<node TEXT="pr&#xe9;sentation" FOLDED="true" ID="ID_723766937" CREATED="1547848260870" MODIFIED="1548382165814" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="pr&#xe9;sentation" ID="ID_723766937" CREATED="1547848260870" MODIFIED="1548382165814" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -324,8 +324,7 @@
 <node TEXT="rouge" ID="ID_548746750" CREATED="1552772867663" MODIFIED="1552772870590"/>
 </node>
 </node>
-<node TEXT="fonctions" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1528384514470" STYLE="fork">
-<node TEXT="ajout et enl&#xe8;vement de mati&#xe8;re par r&#xe9;volution" ID="ID_1253846029" CREATED="1526380566286" MODIFIED="1548020111549" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="fonctions" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1584506010398" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -333,16 +332,22 @@
   </head>
   <body>
     <p>
-      l'axe de r&#233;volution peut &#234;tre une ar&#234;te ordinaire au lieu d'une ligne de construction
+      mettre l'onglet en pr&#233;sentation.
+    </p>
+    <p>
+      Aborder chacune des fonctions une par une dans le m&#234;me ordre que dans la barre d'outils
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      ID mettre l'ic&#244;ne dans le menu mais tous les menus n'auront pas forc&#233;ment d'ic&#244;ne associ&#233;e.
     </p>
   </body>
 </html>
 </richcontent>
-<node TEXT="sph&#xe8;re" ID="ID_34801564" CREATED="1526380625862" MODIFIED="1526380630185"/>
-<node TEXT="tronc de c&#xf4;ne" ID="ID_142713536" CREATED="1526380630950" MODIFIED="1526687904190"/>
-<node TEXT="cylindre" ID="ID_211439176" CREATED="1526380643897" MODIFIED="1526380647909"/>
-<node TEXT="pi&#xe8;ces de r&#xe9;volution" FOLDED="true" ID="ID_1825796774" CREATED="1526380648536" MODIFIED="1526380655847">
-<node TEXT="l&apos;esquisse" ID="ID_1002237315" CREATED="1528384904167" MODIFIED="1528385025547"><richcontent TYPE="NOTE">
+<node TEXT="extrusion" ID="ID_1630166481" CREATED="1526380560781" MODIFIED="1598325645161" STYLE="fork">
+<node TEXT="cas g&#xe9;n&#xe9;ral" ID="ID_1635227147" CREATED="1526380605907" MODIFIED="1598325489787"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -350,20 +355,79 @@
   </head>
   <body>
     <p>
-      cr&#233;ation de l'axe
-    </p>
-    <p>
-      cr&#233;ation de l'esquisse: contour ferm&#233; ou avec fermeture automatique
-    </p>
-    <p>
-      importance de l'axe pour lacotation
+      <font size="4">esquisse de forme quelconque</font>
     </p>
   </body>
 </html>
+
+</richcontent>
+<node TEXT="cylindre" ID="ID_1226196671" CREATED="1526380589601" MODIFIED="1526380599553"/>
+<node TEXT="prisme" ID="ID_720558490" CREATED="1526380600178" MODIFIED="1526380605169"/>
+</node>
+<node TEXT="angle de d&#xe9;pouille" ID="ID_1620067152" CREATED="1547215293477" MODIFIED="1547215299651"/>
+<node TEXT="enl&#xe8;vement de mati&#xe8;re par extrusion" ID="ID_1639635024" CREATED="1584504969979" MODIFIED="1584505791545">
+<node TEXT="C&apos;est le m&#xea;me principe" ID="ID_268891743" CREATED="1598325591834" MODIFIED="1598325609418"/>
+<node TEXT="pi&#xe8;ce faite en fraisage" ID="ID_334203316" CREATED="1542232969848" MODIFIED="1542232985214"/>
+</node>
+</node>
+<node TEXT="r&#xe9;volution" ID="ID_1253846029" CREATED="1526380566286" MODIFIED="1598325809722" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="4">l'axe de r&#233;volution peut &#234;tre une ar&#234;te ordinaire au lieu d'une ligne de construction. </font>
+    </p>
+    <p>
+      <font size="4">L'utilisation de la ligne construction permet l'utilisation du diam&#232;tre plut&#244;t que le rayon</font>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node TEXT="pi&#xe8;ces de r&#xe9;volution" ID="ID_1825796774" CREATED="1526380648536" MODIFIED="1526380655847">
+<node TEXT="l&apos;esquisse" ID="ID_1002237315" CREATED="1528384904167" MODIFIED="1598325938640"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="4">cr&#233;ation de l'axe </font>
+    </p>
+    <p>
+      <font size="4">cr&#233;ation de l'esquisse: contour ferm&#233; ou avec fermeture automatique </font>
+    </p>
+    <p>
+      <font size="4">importance de l'axe pour la cotation</font>
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
 <node TEXT="r&#xe9;volution" ID="ID_526768767" CREATED="1528384927468" MODIFIED="1528384935837"/>
 </node>
+<node TEXT="sph&#xe8;re" ID="ID_34801564" CREATED="1526380625862" MODIFIED="1526380630185"/>
+<node TEXT="tronc de c&#xf4;ne" ID="ID_142713536" CREATED="1526380630950" MODIFIED="1526687904190"/>
+<node TEXT="cylindre" ID="ID_211439176" CREATED="1526380643897" MODIFIED="1526380647909"/>
+<node TEXT="enl&#xe8;vement de mati&#xe8;re par r&#xe9;volution" ID="ID_80964292" CREATED="1584505822274" MODIFIED="1584505868455"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      exemple: cr&#233;ation d'une gorge
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="C&apos;est le m&#xea;me principe" ID="ID_1007707" CREATED="1598325591834" MODIFIED="1598325609418"/>
 <node TEXT="pi&#xe8;ce faite en tounage" ID="ID_408522505" CREATED="1542232890291" MODIFIED="1542232966156"><richcontent TYPE="NOTE">
 
 <html>
@@ -378,60 +442,11 @@
 </html>
 </richcontent>
 </node>
-</node>
-<node TEXT="ajout et enl&#xe8;vement par extrusion" ID="ID_1630166481" CREATED="1526380560781" MODIFIED="1542232961577" STYLE="fork">
-<node TEXT="cylindre" ID="ID_1226196671" CREATED="1526380589601" MODIFIED="1526380599553"/>
-<node TEXT="prisme" ID="ID_720558490" CREATED="1526380600178" MODIFIED="1526380605169"/>
-<node TEXT="cas g&#xe9;n&#xe9;ral" ID="ID_1635227147" CREATED="1526380605907" MODIFIED="1526380616306"/>
-<node TEXT="angle de d&#xe9;pouille" ID="ID_1620067152" CREATED="1547215293477" MODIFIED="1547215299651"/>
-<node TEXT="pi&#xe8;ce faite en fraisage" ID="ID_334203316" CREATED="1542232969848" MODIFIED="1542232985214"/>
-</node>
-<node TEXT="assitance pour le per&#xe7;age" ID="ID_374008902" CREATED="1526676572185" MODIFIED="1528383171247" STYLE="fork">
-<node TEXT="pr&#xe9;sentation" ID="ID_1607516356" CREATED="1561251447151" MODIFIED="1561251451814">
-<node TEXT="onglet caract&#xe9;ristiques" ID="ID_331269960" CREATED="1561251462818" MODIFIED="1561251471992"/>
-<node TEXT="onglet positionnement" ID="ID_1674817732" CREATED="1561251479600" MODIFIED="1561251487068"/>
-</node>
-<node TEXT="per&#xe7;age" ID="ID_1536480622" CREATED="1526380695774" MODIFIED="1526676614335"/>
-<node TEXT="trou taraud&#xe9;" ID="ID_683315570" CREATED="1526380878261" MODIFIED="1526380888854"/>
-</node>
-<node TEXT="sym&#xe9;trie" ID="ID_220502340" CREATED="1526380719455" MODIFIED="1528383171252" STYLE="fork"/>
-<node TEXT="r&#xe9;p&#xe9;tition" ID="ID_811982235" CREATED="1526380728175" MODIFIED="1528383171257" STYLE="fork">
-<node TEXT="lin&#xe9;aire" ID="ID_1168181442" CREATED="1561251077862" MODIFIED="1561251127756"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font size="5">prendre comme exemple un bloc LEGO </font>
-    </p>
-    <p>
-      <font size="5">metrre un lien vers le site LEGO? </font>
-    </p>
-    <p>
-      <font size="5">article connexe: ligne de construction</font>
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="circulaire" ID="ID_997680784" CREATED="1561251085926" MODIFIED="1561251180256"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font size="5">r&#233;aliser une jante: r&#233;p&#233;tition circulaire</font>
-    </p>
-  </body>
-</html>
-</richcontent>
+<node TEXT="per&#xe7;age borgne" ID="ID_69553318" CREATED="1598326037085" MODIFIED="1598326052338"/>
+<node TEXT="pi&#xe8;ce avec chambrage" ID="ID_108736227" CREATED="1598326059822" MODIFIED="1598326065694"/>
+<node TEXT="r&#xe9;alisation d&apos;une gorge" ID="ID_41396101" CREATED="1598326077781" MODIFIED="1598326090967"/>
 </node>
 </node>
-<node TEXT="cong&#xe9; et chanfrein" ID="ID_1722356949" CREATED="1526380741104" MODIFIED="1528383171211" STYLE="fork"/>
 <node TEXT="balayage" ID="ID_1667660663" CREATED="1561251197065" MODIFIED="1561251221728"><richcontent TYPE="NOTE">
 
 <html>
@@ -446,6 +461,51 @@
 </html>
 </richcontent>
 </node>
+<node TEXT="sym&#xe9;trie" ID="ID_220502340" CREATED="1526380719455" MODIFIED="1528383171252" STYLE="fork"/>
+<node TEXT="r&#xe9;p&#xe9;tition lin&#xe9;aire" ID="ID_1168181442" CREATED="1561251077862" MODIFIED="1598325208384"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="5">prendre comme exemple un bloc LEGO </font>
+    </p>
+    <p>
+      <font size="5">mettre un lien vers le site LEGO? </font>
+    </p>
+    <p>
+      <font size="5">article connexe: ligne de construction</font>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="r&#xe9;p&#xe9;tition circulaire" ID="ID_997680784" CREATED="1561251085926" MODIFIED="1598325228776"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="5">r&#233;aliser une jante: r&#233;p&#233;tition circulaire</font>
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="assitance pour le per&#xe7;age" ID="ID_374008902" CREATED="1526676572185" MODIFIED="1528383171247" STYLE="fork">
+<node TEXT="pr&#xe9;sentation" ID="ID_1607516356" CREATED="1561251447151" MODIFIED="1561251451814">
+<node TEXT="onglet caract&#xe9;ristiques" ID="ID_331269960" CREATED="1561251462818" MODIFIED="1561251471992"/>
+<node TEXT="onglet positionnement" ID="ID_1674817732" CREATED="1561251479600" MODIFIED="1561251487068"/>
+</node>
+<node TEXT="per&#xe7;age" ID="ID_1536480622" CREATED="1526380695774" MODIFIED="1526676614335"/>
+<node TEXT="trou taraud&#xe9;" ID="ID_683315570" CREATED="1526380878261" MODIFIED="1526380888854"/>
+</node>
+<node TEXT="cong&#xe9; et chanfrein" ID="ID_1722356949" CREATED="1526380741104" MODIFIED="1528383171211" STYLE="fork"/>
 </node>
 <node TEXT="manipuler la pi&#xe8;ce" FOLDED="true" ID="ID_1827062515" CREATED="1548019937064" MODIFIED="1548022569814" STYLE="fork">
 <node TEXT="tourner et d&#xe9;placer" ID="ID_1242585190" CREATED="1548022692069" MODIFIED="1548022698662"/>
@@ -570,7 +630,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="Mise en plan" POSITION="left" ID="ID_1383385457" CREATED="1526380509111" MODIFIED="1528383129182" STYLE="bubble">
+<node TEXT="Mise en plan" FOLDED="true" POSITION="left" ID="ID_1383385457" CREATED="1526380509111" MODIFIED="1528383129182" STYLE="bubble">
 <edge COLOR="#00ff00" WIDTH="3"/>
 <node TEXT="pr&#xe9;senation" ID="ID_521411569" CREATED="1547849739890" MODIFIED="1548382195973" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -690,7 +750,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="cote loin de sa forme" ID="ID_215552591" CREATED="1561252167426" MODIFIED="1561252176236"/>
@@ -706,7 +765,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="cote en dehors de la zone de dessin" ID="ID_18285779" CREATED="1561252210103" MODIFIED="1561252212687"/>
