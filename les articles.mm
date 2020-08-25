@@ -93,8 +93,8 @@
 <node TEXT="articles connexes" ID="ID_335950066" CREATED="1528385764692" MODIFIED="1528385773616"/>
 <node TEXT="formulaire de contact" ID="ID_614480799" CREATED="1547848574827" MODIFIED="1547848582854"/>
 </node>
-<node TEXT="trouver un article" FOLDED="true" ID="ID_957719021" CREATED="1548022294294" MODIFIED="1548022519377" STYLE="fork">
-<node TEXT="pas de moteur de recherche pour le moment" ID="ID_873594869" CREATED="1547848320376" MODIFIED="1548022247558"><richcontent TYPE="NOTE">
+<node TEXT="trouver un article" ID="ID_957719021" CREATED="1548022294294" MODIFIED="1548022519377" STYLE="fork">
+<node TEXT="pas de moteur de recherche pour le moment" ID="ID_873594869" CREATED="1547848320376" MODIFIED="1598330176366"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -102,27 +102,16 @@
   </head>
   <body>
     <p>
-      passer par google en attendant?
+      trouver comment les sites redirige la requ&#234;te vers google ou autre moteur de recherche
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 <node TEXT="liste de tous les articles en vrac" ID="ID_610165988" CREATED="1547849907098" MODIFIED="1547849921807"/>
 </node>
-<node TEXT="moi" FOLDED="true" ID="ID_140275635" CREATED="1526380804402" MODIFIED="1528386052972" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Utile?
-    </p>
-  </body>
-</html>
-</richcontent>
+<node TEXT="moi" ID="ID_140275635" CREATED="1526380804402" MODIFIED="1598330481159" STYLE="fork">
 <node TEXT="qui suis-je?" ID="ID_1223195307" CREATED="1528385690006" MODIFIED="1528385961259"/>
 <node TEXT="Pourquoi ?" ID="ID_600070468" CREATED="1528386131228" MODIFIED="1542233375246"><richcontent TYPE="NOTE">
 
@@ -324,7 +313,7 @@
 <node TEXT="rouge" ID="ID_548746750" CREATED="1552772867663" MODIFIED="1552772870590"/>
 </node>
 </node>
-<node TEXT="fonctions" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1584506010398" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="fonctions" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1598329983123" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -343,11 +332,35 @@
     <p>
       ID mettre l'ic&#244;ne dans le menu mais tous les menus n'auront pas forc&#233;ment d'ic&#244;ne associ&#233;e.
     </p>
+    <p>
+      
+    </p>
+    <p>
+      Mettre le nom de l'ic&#244;ne et son nom dans chaque article pour mermettre une recherche avec un moteur e recherche externe
+    </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="extrusion" ID="ID_1630166481" CREATED="1526380560781" MODIFIED="1598325645161" STYLE="fork">
-<node TEXT="cas g&#xe9;n&#xe9;ral" ID="ID_1635227147" CREATED="1526380605907" MODIFIED="1598325489787"><richcontent TYPE="NOTE">
+<node TEXT="nom des ic&#xf4;nes" FOLDED="true" ID="ID_619367220" CREATED="1598329862621" MODIFIED="1598329914481"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      permet une recher sur le site avec un moteur de recherche ext&#233;rieur
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node TEXT="ajout" ID="ID_1296709884" CREATED="1598329999612" MODIFIED="1598330002731"/>
+<node TEXT="enl&#xe8;vement" ID="ID_1816179897" CREATED="1598330004400" MODIFIED="1598330008630"/>
+</node>
+<node TEXT="cas g&#xe9;n&#xe9;ral" FOLDED="true" ID="ID_1635227147" CREATED="1526380605907" MODIFIED="1598325489787"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -387,6 +400,22 @@
 </html>
 
 </richcontent>
+<node TEXT="nom des ic&#xf4;nes" ID="ID_1281048006" CREATED="1598329862621" MODIFIED="1598329914481"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      permet une recher sur le site avec un moteur de recherche ext&#233;rieur
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="ajout" ID="ID_674784087" CREATED="1598329999612" MODIFIED="1598330002731"/>
+<node TEXT="enl&#xe8;vement" ID="ID_1984335720" CREATED="1598330004400" MODIFIED="1598330008630"/>
+</node>
 <node TEXT="pi&#xe8;ces de r&#xe9;volution" ID="ID_1825796774" CREATED="1526380648536" MODIFIED="1526380655847">
 <node TEXT="l&apos;esquisse" ID="ID_1002237315" CREATED="1528384904167" MODIFIED="1598325938640"><richcontent TYPE="NOTE">
 
@@ -447,7 +476,7 @@
 <node TEXT="r&#xe9;alisation d&apos;une gorge" ID="ID_41396101" CREATED="1598326077781" MODIFIED="1598326090967"/>
 </node>
 </node>
-<node TEXT="balayage" ID="ID_1667660663" CREATED="1561251197065" MODIFIED="1561251221728"><richcontent TYPE="NOTE">
+<node TEXT="balayage" ID="ID_1667660663" CREATED="1561251197065" MODIFIED="1598330429536"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -455,10 +484,14 @@
   </head>
   <body>
     <p>
-      <font size="5">ex: un ressort</font>
+      <font size="4">ex: un ressort </font>
+    </p>
+    <p>
+      <font size="4">Il existe plusieurs balayages</font>
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 <node TEXT="sym&#xe9;trie" ID="ID_220502340" CREATED="1526380719455" MODIFIED="1528383171252" STYLE="fork"/>
