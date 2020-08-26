@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Mar 25 Août 2020 à 06:38
+-- Généré le : Jeu 27 Août 2020 à 01:41
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `Articles` (
   `resume` varchar(99) collate latin1_general_ci NOT NULL COMMENT 'résumé de l''article',
   `lien` text collate latin1_general_ci NOT NULL COMMENT 'aide SW en ligne',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=46 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=50 ;
 
 --
 -- Contenu de la table `Articles`
@@ -82,7 +82,11 @@ INSERT INTO `Articles` (`id`, `dossier`, `resume`, `lien`) VALUES
 (42, 'rep_lineaire', 'Copier un volume avec une r&eacute;p&eacute;tition lin&eacute;aire', ''),
 (43, 'rep_circulaire', 'Copier un volume avec une r&eacute;p&eacute;tition circulaire', ''),
 (44, 'percage', 'Utiliser l&apos;assistance pour le per&ccedil;ge', ''),
-(45, 'chanfrein', 'Cong&eacute;s et chanfreins', '');
+(45, 'chanfrein', 'Cong&eacute;s et chanfreins', ''),
+(46, 'cotation_intelligente', 'Cotation intelligente', ''),
+(47, 'contrainteDesquisse', 'contrainte d&apos;esquisse', ''),
+(48, 'ligne2construction', 'ligne de construction', ''),
+(49, 'code_couleur', 'code couleur', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
