@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 27 Août 2020 à 01:40
+-- Généré le : Jeu 27 Août 2020 à 02:30
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -86,7 +86,10 @@ INSERT INTO `Items` (`onglet`, `item`, `sous_item`, `texte`, `article_ID`) VALUE
 (1, 1, 3, 'cotation intelligente', 46),
 (1, 1, 4, 'contrainte d&apos;esquisse', 47),
 (1, 1, 5, 'ligne de construction', 48),
-(1, 1, 6, 'code couleur', 49);
+(1, 1, 6, 'code couleur', 49),
+(1, 3, 1, 'tourner et d&eacute;placer', 50),
+(1, 3, 2, 'couper une pi&egrave;ce', 51),
+(1, 3, 3, 'transparence ou couleur', 52);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
