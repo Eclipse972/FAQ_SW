@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 27 Août 2020 à 02:30
+-- Généré le : Jeu 27 Août 2020 à 02:47
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `Articles` (
   `resume` varchar(99) collate latin1_general_ci NOT NULL COMMENT 'résumé de l''article',
   `lien` text collate latin1_general_ci NOT NULL COMMENT 'aide SW en ligne',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=53 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=55 ;
 
 --
 -- Contenu de la table `Articles`
@@ -89,7 +89,9 @@ INSERT INTO `Articles` (`id`, `dossier`, `resume`, `lien`) VALUES
 (49, 'code_couleur', 'code couleur', ''),
 (50, 'tourner_deplacer', 'tourner et d&eacute;placer une pi&eacute;ce ou un assemblage', ''),
 (51, 'couper', 'couper une pi&egrave;ce ou un assemblage', ''),
-(52, 'transparence_couleur', 'changer transparence ou couleur d&apos;une pi&egrave;ce', '');
+(52, 'transparence_couleur', 'changer transparence ou couleur d&apos;une pi&egrave;ce', ''),
+(53, 'arbre-ZG', 'liaison arbre de cr&eacute;ation - zone graphique', ''),
+(54, 'ZG-arbre', 'liaison zone graphique  - arbre de cr&eacute;ation', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
