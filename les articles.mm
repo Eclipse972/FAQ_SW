@@ -106,7 +106,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="liste de tous les articles en vrac" ID="ID_610165988" CREATED="1547849907098" MODIFIED="1547849921807"/>
@@ -142,7 +141,7 @@
 <node TEXT="Pi&#xe8;ce" POSITION="left" ID="ID_141785098" CREATED="1526380491828" MODIFIED="1528383129160" STYLE="bubble">
 <edge COLOR="#0000ff" WIDTH="3"/>
 <hook NAME="AlwaysUnfoldedNode"/>
-<node TEXT="pr&#xe9;sentation" ID="ID_723766937" CREATED="1547848260870" MODIFIED="1548382165814" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="pr&#xe9;sentation" FOLDED="true" ID="ID_723766937" CREATED="1547848260870" MODIFIED="1548382165814" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -172,7 +171,7 @@
 </html>
 </richcontent>
 <node TEXT="la barre d&apos;outils d&apos;esquisse" ID="ID_1430719732" CREATED="1526678165535" MODIFIED="1550177644412" STYLE="fork"/>
-<node TEXT="le plan d&apos;esquisse" ID="ID_1420679796" CREATED="1548578463594" MODIFIED="1548578477912" STYLE="fork">
+<node TEXT="le plan d&apos;esquisse" FOLDED="true" ID="ID_1420679796" CREATED="1548578463594" MODIFIED="1548578477912" STYLE="fork">
 <node TEXT="c&apos;es quoi?" ID="ID_645621312" CREATED="1550183548632" MODIFIED="1550183556461" STYLE="fork"/>
 <node TEXT="comment le modifier?" ID="ID_1337532802" CREATED="1550183559072" MODIFIED="1550183572071" STYLE="fork"/>
 <node TEXT="cr&#xe9;er un plan de toute pi&#xe8;ce" FOLDED="true" ID="ID_650268318" CREATED="1548578512292" MODIFIED="1550189174086" STYLE="fork"><richcontent TYPE="NOTE">
@@ -193,7 +192,7 @@
 <node TEXT="autres proc&#xe9;d&#xe9;" ID="ID_963040230" CREATED="1550189019545" MODIFIED="1550189025614"/>
 </node>
 </node>
-<node TEXT="une cotation intelligente" ID="ID_390488448" CREATED="1526380776449" MODIFIED="1550188106913" STYLE="fork">
+<node TEXT="une cotation intelligente" FOLDED="true" ID="ID_390488448" CREATED="1526380776449" MODIFIED="1550188106913" STYLE="fork">
 <node TEXT="sur un segment" ID="ID_1823425073" CREATED="1550188173316" MODIFIED="1550188274699"><richcontent TYPE="NOTE">
 
 <html>
@@ -242,7 +241,7 @@
 </node>
 <node TEXT="coter au diam&#xe8;tre avec un axe de r&#xe9;volution" ID="ID_1333934118" CREATED="1548020131821" MODIFIED="1548020150108"/>
 </node>
-<node TEXT="contraindre une esquisse" ID="ID_8774979" CREATED="1526380750368" MODIFIED="1548578578739" STYLE="fork">
+<node TEXT="contraindre une esquisse" FOLDED="true" ID="ID_8774979" CREATED="1526380750368" MODIFIED="1548578578739" STYLE="fork">
 <node TEXT="liste des contraintes les plus courantes" ID="ID_566278464" CREATED="1550188472390" MODIFIED="1561251911017"/>
 <node TEXT="utilser les contraintes" ID="ID_983031089" CREATED="1550188490962" MODIFIED="1561251956408"><richcontent TYPE="NOTE">
 
@@ -285,7 +284,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="code couleur" ID="ID_1501728881" CREATED="1552772803879" MODIFIED="1552772843980"><richcontent TYPE="NOTE">
+<node TEXT="code couleur" FOLDED="true" ID="ID_1501728881" CREATED="1552772803879" MODIFIED="1552772843980"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -313,7 +312,7 @@
 <node TEXT="rouge" ID="ID_548746750" CREATED="1552772867663" MODIFIED="1552772870590"/>
 </node>
 </node>
-<node TEXT="fonctions" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1598329983123" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="fonctions" FOLDED="true" ID="ID_1272760423" CREATED="1526675547708" MODIFIED="1598329983123" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -340,7 +339,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="extrusion" ID="ID_1630166481" CREATED="1526380560781" MODIFIED="1598325645161" STYLE="fork">
 <node TEXT="nom des ic&#xf4;nes" FOLDED="true" ID="ID_619367220" CREATED="1598329862621" MODIFIED="1598329914481"><richcontent TYPE="NOTE">
@@ -355,7 +353,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="ajout" ID="ID_1296709884" CREATED="1598329999612" MODIFIED="1598330002731"/>
 <node TEXT="enl&#xe8;vement" ID="ID_1816179897" CREATED="1598330004400" MODIFIED="1598330008630"/>
@@ -372,7 +369,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="cylindre" ID="ID_1226196671" CREATED="1526380589601" MODIFIED="1526380599553"/>
 <node TEXT="prisme" ID="ID_720558490" CREATED="1526380600178" MODIFIED="1526380605169"/>
@@ -398,7 +394,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="nom des ic&#xf4;nes" ID="ID_1281048006" CREATED="1598329862621" MODIFIED="1598329914481"><richcontent TYPE="NOTE">
 
@@ -435,7 +430,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="r&#xe9;volution" ID="ID_526768767" CREATED="1528384927468" MODIFIED="1528384935837"/>
@@ -491,7 +485,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="sym&#xe9;trie" ID="ID_220502340" CREATED="1526380719455" MODIFIED="1528383171252" STYLE="fork"/>
@@ -513,7 +506,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="r&#xe9;p&#xe9;tition circulaire" ID="ID_997680784" CREATED="1561251085926" MODIFIED="1598325228776"><richcontent TYPE="NOTE">
@@ -540,7 +532,7 @@
 </node>
 <node TEXT="cong&#xe9; et chanfrein" ID="ID_1722356949" CREATED="1526380741104" MODIFIED="1528383171211" STYLE="fork"/>
 </node>
-<node TEXT="manipuler la pi&#xe8;ce" FOLDED="true" ID="ID_1827062515" CREATED="1548019937064" MODIFIED="1548022569814" STYLE="fork">
+<node TEXT="manipuler la pi&#xe8;ce" ID="ID_1827062515" CREATED="1548019937064" MODIFIED="1548022569814" STYLE="fork">
 <node TEXT="tourner et d&#xe9;placer" ID="ID_1242585190" CREATED="1548022692069" MODIFIED="1548022698662"/>
 <node TEXT="couper la pi&#xe8;ce" FOLDED="true" ID="ID_474692404" CREATED="1528385122794" MODIFIED="1528385139798" STYLE="fork">
 <node TEXT="suivant plan de r&#xe9;f&#xe9;rence" ID="ID_695886437" CREATED="1528385277008" MODIFIED="1528385296926"/>
@@ -549,7 +541,7 @@
 </node>
 <node TEXT="changer sa transparence ou sa couleur" ID="ID_646139070" CREATED="1548019951468" MODIFIED="1548020301234" STYLE="fork"/>
 </node>
-<node TEXT="l&apos;arbre de cr&#xe9;ation" FOLDED="true" ID="ID_1946037529" CREATED="1528384465150" MODIFIED="1548579069107" STYLE="fork">
+<node TEXT="l&apos;arbre de cr&#xe9;ation" ID="ID_1946037529" CREATED="1528384465150" MODIFIED="1548579069107" STYLE="fork">
 <node TEXT="zone graphique -&gt; arbre" ID="ID_1762388668" CREATED="1548579074402" MODIFIED="1548579088622" STYLE="fork"/>
 <node TEXT="arbre -&gt; zone graphique" ID="ID_1573167791" CREATED="1548579092180" MODIFIED="1548579105992" STYLE="fork"/>
 </node>
