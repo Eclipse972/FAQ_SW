@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 27 Août 2020 à 02:47
+-- Généré le : Jeu 12 Novembre 2020 à 04:26
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -91,7 +91,13 @@ INSERT INTO `Items` (`onglet`, `item`, `sous_item`, `texte`, `article_ID`) VALUE
 (1, 3, 2, 'couper une pi&egrave;ce', 51),
 (1, 3, 3, 'transparence ou couleur', 52),
 (1, 4, 1, 'arbre de cr&eacute;ation -> zone graphique', 53),
-(1, 4, 2, 'zone graphique  -> arbre de cr&eacute;ation', 54);
+(1, 4, 2, 'zone graphique  -> arbre de cr&eacute;ation', 54),
+(1, 5, 0, 'Volumes &eacute;l&eacute;mentaires', 55),
+(1, 5, 1, 'prisme droit', 56),
+(1, 5, 2, 'cylindre', 57),
+(1, 5, 3, 'sph&egrave;re', 58),
+(1, 5, 4, 'tronc de c&ocirc;ne', 59),
+(1, 5, 5, 'tore', 60);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
