@@ -1,5 +1,16 @@
 <h1>Cr&eacute;er un cylindre</h1>
-<h2>par r&eacute;volution</h2>
-<p>En construction</p>
-<h2>par extrusion</h2>
-<p>En construction</p>
+<p>Il existe deux mani&egrave;res de cr&eacute;er un cylindre avec SolidWorks. </p>
+<?php // contrat de phase du cylindre par extrusion
+include "Controleur/contrat2phaseVE.php";
+$dossierVE = 'cylindre'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
+
+Titre("un cylindre par extrusion", "cylindre");
+PlanDesquisse();
+EsquisseCotée('uniquement de l&apos;ic&ocirc;ne cercle <img src="Articles/cylindre/cercle.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne cercle">');
+MiseEnVolume();
+
+Titre("un cylindre par r&eacute;volution", "cylindre");
+PlanDesquisse();
+EsquisseCotée('rectangle<img src="Articles/cylindre/rectangle.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne rectangle"> et ligne de construction<img src="Articles/cylindre/ligne2construction.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ligne de construction">', 'esquisse2', 'esquisse2');
+MiseEnVolume(false, 'MiseEnVolume2');
+?>

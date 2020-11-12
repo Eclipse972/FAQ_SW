@@ -57,7 +57,7 @@ global $dossierVE;
 <?php
 }
 
-function MiseEnVolume($extrusion = true, $parametres = 'parametres', $vidéo = 'miseEnVoume') {
+function MiseEnVolume($extrusion = true, $vidéo = 'miseEnVolume') {
 global $dossierVE;
 ?>
 
@@ -66,8 +66,8 @@ global $dossierVE;
 <p>Dans la barre d&apos;outils onglet Fonctions <img src="Vue/images/fonctions.png" style="vertical-align:middle" alt="Barre d&apos;outils Fonctions"></p>
 <p>Cliquez sur l&apos;ic&ocirc;ne <?=$extrusion ? 'Base/Bossage extrud&eacute;' : 'Base bossage avec r&eacute;volution'?>
 <img src="Vue/images/<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne de mise en volume"></p>
-<p>A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres: <img src="Articles/<?=$dossierVE,'/',$parametres?>.png" style="vertical-align:middle; " alt="param&egrave;tres"></p>
-<p><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm.' : 'texte pour la révolution'?></p>
+<p>A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres: <img src="Vue/images/param_<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="vertical-align:middle; " alt="param&egrave;tres"></p>
+<p><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm.' : 'On valide directement'?></p>
 <a href="Articles/<?=$dossierVE.'/'.$vidéo?>.avi">Montre moi</a>
 </div>
 <?php
