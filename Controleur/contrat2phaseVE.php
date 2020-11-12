@@ -41,23 +41,23 @@ global $dossierVE;
 <?php
 }
 
-function EsquisseCotée($liste_icones, $esquisse ='esquisse', $vidéo = 'esquisse') {
+function EsquisseCotée($liste_icones) {
 	// les 2 derniers aramètre permettent de créer plusieurs contrat de phase sur une seul page. Utile pour le tronc de cone et le cylindre
 global $dossierVE;
 ?>
 
 <div id="Phase">
 <h2>Esquisse cot&eacute;e</h2>
-<img src="Articles/<?=$dossierVE.'/'.$esquisse?>.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e">
+<img src="Articles/<?=$dossierVE?>/esquisse.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e">
 <p>Dans la barre d&apos;outils onglet Esquisse <img src="Vue/images/outilsEsquisse.png" alt="Barre d&apos;outils Esquisse"></p>
 <p>Vous aurez besoin <?=$liste_icones?></p>
 <p>Et enfin cotation intelligente<img src="Vue/images/cotation.png" style="vertical-align:middle" alt="ic&ocirc;ne cotation intelligente">pour coter votre esquisse.</p>
-<a href="Articles/<?=$dossierVE.'/'.$vidéo?>.avi">Montre moi</a>
+<a href="Articles/<?=$dossierVE?>/esquisse.avi">Montre moi</a>
 </div>
 <?php
 }
 
-function MiseEnVolume($extrusion = true, $vidéo = 'miseEnVolume') {
+function MiseEnVolume($extrusion = true) {
 global $dossierVE;
 ?>
 
@@ -67,8 +67,8 @@ global $dossierVE;
 <p>Cliquez sur l&apos;ic&ocirc;ne <?=$extrusion ? 'Base/Bossage extrud&eacute;' : 'Base bossage avec r&eacute;volution'?>
 <img src="Vue/images/<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne de mise en volume"></p>
 <p>A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres: <img src="Vue/images/param_<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="vertical-align:middle; " alt="param&egrave;tres"></p>
-<p><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm.' : 'On valide directement'?></p>
-<a href="Articles/<?=$dossierVE.'/'.$vidéo?>.avi">Montre moi</a>
+<p><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm.' : 'Si la case Axe de r&eacute;volution est renseign&eacute;e (ici ligne5) on valide directement'?></p>
+<a href="Articles/<?=$dossierVE?>/miseEnVolume.avi">Montre moi</a>
 </div>
 <?php
 }

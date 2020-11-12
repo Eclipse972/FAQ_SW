@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 12 Novembre 2020 à 04:25
+-- Généré le : Jeu 12 Novembre 2020 à 20:48
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `Articles` (
   `resume` varchar(99) collate latin1_general_ci NOT NULL COMMENT 'résumé de l''article',
   `lien` text collate latin1_general_ci NOT NULL COMMENT 'aide SW en ligne',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=61 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=62 ;
 
 --
 -- Contenu de la table `Articles`
@@ -94,10 +94,11 @@ INSERT INTO `Articles` (`id`, `dossier`, `resume`, `lien`) VALUES
 (54, 'ZG-arbre', 'liaison zone graphique  - arbre de cr&eacute;ation', ''),
 (55, 'VE', 'Les volumes &eacute;l&eacute;mentaires', ''),
 (56, 'prisme', 'Cr&eacute;er un prisme  droit', ''),
-(57, 'cylindre', 'Cr&eacute;er un cylindre', ''),
+(57, 'cylindre', 'Cr&eacute;er un cylindre par extrusion', ''),
 (58, 'sphere', 'Cr&eacute;er une sph&egrave;re', ''),
 (59, 'tronc2cone', 'Cr&eacute;er un tronc de c&ocirc;ne', ''),
-(60, 'tore', 'Cr&eacute;er un tore', '');
+(60, 'tore', 'Cr&eacute;er un tore', ''),
+(61, 'cylindre2', 'Cr&eacute;er un cylindre par r&eacute;volution', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
