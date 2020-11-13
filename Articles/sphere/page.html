@@ -1,2 +1,9 @@
-<h1>Cr&eacute;er une sph&egrave;re par r&eacute;volution</h1>
-<p>Page en construction</p>
+<?php // contrat de phase d&apo;une sphère
+include "Controleur/contrat2phaseVE.php";
+$dossierVE = 'sphere'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
+
+Titre("une sph&egrave;re", "sph&egrave;re");
+PlanDesquisse();
+EsquisseCotée('cercle', false, 'ajuster entit&eacute;');
+MiseEnVolume(false);
+?>
