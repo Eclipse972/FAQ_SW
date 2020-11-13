@@ -1,5 +1,9 @@
-<h1>Cr&eacute;er un tronc de c&ocirc;ne</h1>
-<h2>par r&eacute;volution</h2>
-<p>En construction</p>
-<h2>par extrusion</h2>
-<p>En construction</p>
+<?php // contrat de phase du tronc de cône par révolution
+include "Controleur/contrat2phaseVE.php";
+$dossierVE = 'tronc2cone'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
+
+Titre("un tronc de cône par r&eacute;volution", "tronc de c&ocirc;ne");
+PlanDesquisse();
+EsquisseCotée('ligne', false);
+MiseEnVolume(false);
+?>
