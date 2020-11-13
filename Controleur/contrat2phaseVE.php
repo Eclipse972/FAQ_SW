@@ -41,8 +41,7 @@ global $dossierVE;
 <?php
 }
 
-function EsquisseCotée($liste_icones) {
-	// les 2 derniers aramètre permettent de créer plusieurs contrat de phase sur une seul page. Utile pour le tronc de cone et le cylindre
+function EsquisseCotée($icone_principale, $extrusion = true, $icone_secondaire = '') {
 global $dossierVE;
 ?>
 
@@ -50,8 +49,19 @@ global $dossierVE;
 <h2>Esquisse cot&eacute;e</h2>
 <img src="Articles/<?=$dossierVE?>/esquisse.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e">
 <p>Dans la barre d&apos;outils onglet Esquisse <img src="Vue/images/outilsEsquisse.png" alt="Barre d&apos;outils Esquisse"></p>
-<p>Vous aurez besoin <?=$liste_icones?></p>
-<p>Et enfin cotation intelligente<img src="Vue/images/cotation.png" style="vertical-align:middle" alt="ic&ocirc;ne cotation intelligente">pour coter votre esquisse.</p>
+<p>Vous aurez besoin des ic&ocirc;nes:</p>
+<ul>
+<li>
+<?php 
+	echo $icone_principale,'<img src="Articles/',$dossierVE,'/icone.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ',icone_principale,'">';
+	if ($icone_secondaire != '')
+		echo ' et ',$icone_secondaire,'<img src="Articles/',$dossierVE,'/icone2.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ',$icone_secondaire,'">';
+?>
+</li>
+<?=$extrusion ? '' : '<li>ligne de construction<img src="Vue/images/ligne2construction.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ligne de construction"> pour cr&eacute;er l&aos;axe de r&eacute;volution.</li>'?>
+<li>cotation intelligente<img src="Vue/images/cotation.png" style="vertical-align:middle" alt="ic&ocirc;ne cotation intelligente">pour coter votre esquisse.</li>
+</ul>
+
 <a href="Articles/<?=$dossierVE?>/esquisse.avi">Montre moi</a>
 </div>
 <?php
@@ -64,10 +74,13 @@ global $dossierVE;
 <div id="Phase">
 <h2>Fonction de mise en volume</h2>
 <p>Dans la barre d&apos;outils onglet Fonctions <img src="Vue/images/fonctions.png" style="vertical-align:middle" alt="Barre d&apos;outils Fonctions"></p>
+
 <p>Cliquez sur l&apos;ic&ocirc;ne <?=$extrusion ? 'Base/Bossage extrud&eacute;' : 'Base bossage avec r&eacute;volution'?>
-<img src="Vue/images/<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne de mise en volume"></p>
+<img src="Vue/images/<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne de mise en volume">
+<?=$extrusion ? ' premi&egrave;re' : ' deuxi&egrave;me'?> ic&ocirc;ne dans la barre d&apos;outils.</p>
+
 <p>A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres: <img src="Vue/images/param_<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="vertical-align:middle; " alt="param&egrave;tres"></p>
-<p><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm.' : 'Si la case Axe de r&eacute;volution est renseign&eacute;e (ici ligne5) on valide directement'?></p>
+<p><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm.' : 'Si la case <b>Axe de r&eacute;volution</b> est renseign&eacute;e (ici ligne5) on valide directement sinon il faut sélectionner l&apos;axe de r&eacute;volution'?></p>
 <a href="Articles/<?=$dossierVE?>/miseEnVolume.avi">Montre moi</a>
 </div>
 <?php
