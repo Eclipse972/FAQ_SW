@@ -1,7 +1,5 @@
 <style type="text/css">
-#Phase {
-	padding:10px;
-}
+#Phase { padding:10px; }
 
 #Phase h2 {
 	background-color:yellow;
