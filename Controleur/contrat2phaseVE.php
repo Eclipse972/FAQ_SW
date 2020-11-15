@@ -1,18 +1,21 @@
 <style type="text/css">
 #Phase {
 	padding:10px;
-	margin:10px;
-	border:2px;
-	border-color:black
 }
 
 #Phase h2 {
 	background-color:yellow;
 	text-align:center;
+	text-decoration:none;
+	padding:10px;
+	margin:0;
 }
+#Phase ol li { margin-bottom:10px; }
 
-#Phase a {
-	text-align:right;
+.gauche { 
+	float:left;
+	margin-top:0;
+	margin-right:30px
 }
 
 </style>
@@ -79,10 +82,11 @@ global $dossierVE;
 <img src="Vue/images/<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne de mise en volume">
 <?=$extrusion ? ' premi&egrave;re' : ' deuxi&egrave;me'?> ic&ocirc;ne.</li>
 
-<li>A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres: <img src="Vue/images/param_<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="vertical-align:middle; " alt="param&egrave;tres"></li>
+<p class="gauche"><img src="Vue/images/param_<?=$extrusion ? 'extrusion' : 'revolution'?>.png" alt="param&egrave;tres"></p>
+<li style="margin-top:50px">A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres</li>
 <li><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm' : 'Si la case <b>Axe de r&eacute;volution</b> n&apos;est renseign&eacute;e (ici ligne5) il faut sélectionner l&apos;axe de r&eacute;volution'?>.</li>
 <?php if (($extrusion) && ($dépouille))
-	echo '<li>Cliquez sur l&apos;ic&ocirc;ne d&eacute;pouille <img src="Vue/images/depouille.png" style="height:30px; vertical-align:middle" alt="icocirc:ne d&eacute;pouille"> puis entrez l&apos;angle en degr&eacute;</li>';
+	echo '<li>Cliquez sur l&apos;ic&ocirc;ne d&eacute;pouille <img src="Vue/images/depouille.png" style="height:30px; vertical-align:middle" alt="icocirc:ne d&eacute;pouille"> puis entrez l&apos;angle en degr&eacute;s.</li>';
 ?>
 <li>Enfin validez en cliquant sur <img src="Vue/images/validation.png" style="height:30px; vertical-align:middle" alt="icocirc:ne d&eacute;pouille"> en haut à gauche.</li>
 </ol>
