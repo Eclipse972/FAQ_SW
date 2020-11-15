@@ -47,8 +47,8 @@ global $dossierVE;
 
 <div id="Phase">
 <h2>Esquisse cot&eacute;e</h2>
-<img src="Articles/<?=$dossierVE?>/esquisse.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e">
-<p>Dans la barre d&apos;outils onglet Esquisse <img src="Vue/images/outilsEsquisse.png" alt="Barre d&apos;outils Esquisse"></p>
+<p>Il faut dessiner :<img src="Articles/<?=$dossierVE?>/esquisse.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e"></p>
+<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<img src="Vue/images/outilsEsquisse.png" alt="Barre d&apos;outils Esquisse"></p>
 <p>Vous aurez besoin des ic&ocirc;nes:</p>
 <ul>
 <li>
@@ -67,20 +67,25 @@ global $dossierVE;
 <?php
 }
 
-function MiseEnVolume($extrusion = true) {
+function MiseEnVolume($extrusion = true, $dépouille =false) {
 global $dossierVE;
 ?>
 
 <div id="Phase">
 <h2>Fonction de mise en volume</h2>
-<p>Dans la barre d&apos;outils onglet Fonctions <img src="Vue/images/fonctions.png" style="vertical-align:middle" alt="Barre d&apos;outils Fonctions"></p>
-
-<p>Cliquez sur l&apos;ic&ocirc;ne <?=$extrusion ? 'Base/Bossage extrud&eacute;' : 'Base bossage avec r&eacute;volution'?>
+<ol>
+<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;onglet <b>Fonctions</b> (premier onglet) :<img src="Vue/images/fonctions.png" style="vertical-align:middle" alt="Barre d&apos;outils Fonctions."></li>
+<li>Cliquez sur l&apos;ic&ocirc;ne <b><?=$extrusion ? 'Base/Bossage extrud&eacute;' : 'Base bossage avec r&eacute;volution'?></b>
 <img src="Vue/images/<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne de mise en volume">
-<?=$extrusion ? ' premi&egrave;re' : ' deuxi&egrave;me'?> ic&ocirc;ne dans la barre d&apos;outils.</p>
+<?=$extrusion ? ' premi&egrave;re' : ' deuxi&egrave;me'?> ic&ocirc;ne.</li>
 
-<p>A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres: <img src="Vue/images/param_<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="vertical-align:middle; " alt="param&egrave;tres"></p>
-<p><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm.' : 'Si la case <b>Axe de r&eacute;volution</b> est renseign&eacute;e (ici ligne5) on valide directement sinon il faut sélectionner l&apos;axe de r&eacute;volution'?></p>
+<li>A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres: <img src="Vue/images/param_<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="vertical-align:middle; " alt="param&egrave;tres"></li>
+<li><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm' : 'Si la case <b>Axe de r&eacute;volution</b> n&apos;est renseign&eacute;e (ici ligne5) il faut sélectionner l&apos;axe de r&eacute;volution'?>.</li>
+<?php if (($extrusion) && ($dépouille))
+	echo '<li>Cliquez sur l&apos;ic&ocirc;ne d&eacute;pouille <img src="Vue/images/depouille.png" style="height:30px; vertical-align:middle" alt="icocirc:ne d&eacute;pouille"> puis entrez l&apos;angle en degr&eacute;</li>';
+?>
+<li>Enfin validez en cliquant sur <img src="Vue/images/validation.png" style="height:30px; vertical-align:middle" alt="icocirc:ne d&eacute;pouille"> en haut à gauche.</li>
+</ol>
 <a href="Articles/<?=$dossierVE?>/miseEnVolume.avi">Montre moi</a>
 </div>
 <?php
