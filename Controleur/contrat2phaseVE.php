@@ -37,9 +37,9 @@ global $dossierVE;
 <div id="Phase">
 <h2>Choisir le plan d&apos;esquisse</h2>
 <p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<img src="Vue/images/arbre.png" style="vertical-align:middle" alt="Arbre de cr&eacute;ation vide"></p>
-<a href="Vue/planDesquisse.avi">Montre moi</a>
+<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 </div>
-<?php
+<?php // <a href="Vue/planDesquisse.avi">Montre moi</a>
 }
 
 function EsquisseCotée($icone_principale, $extrusion = true, $icone_secondaire = '') {
@@ -62,10 +62,9 @@ global $dossierVE;
 <?=$extrusion ? '' : '<li>ligne de construction<img src="Vue/images/ligne2construction.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ligne de construction"> pour cr&eacute;er l&aos;axe de r&eacute;volution.</li>'?>
 <li>cotation intelligente<img src="Vue/images/cotation.png" style="vertical-align:middle" alt="ic&ocirc;ne cotation intelligente">pour coter votre esquisse.</li>
 </ul>
-
-<a href="Articles/<?=$dossierVE?>/esquisse.avi">Montre moi</a>
+<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 </div>
-<?php
+<?php /* <a href="Articles/<?=$dossierVE?>/esquisse.avi">Montre moi</a> */
 }
 
 function MiseEnVolume($extrusion = true, $dépouille =false) {
@@ -88,7 +87,7 @@ global $dossierVE;
 ?>
 <li>Enfin validez en cliquant sur <img src="Vue/images/validation.png" style="height:30px; vertical-align:middle" alt="icocirc:ne d&eacute;pouille"> en haut à gauche.</li>
 </ol>
-<a href="Articles/<?=$dossierVE?>/miseEnVolume.avi">Montre moi</a>
+<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 </div>
-<?php
+<?php /* <a href="Articles/<?=$dossierVE?>/miseEnVolume.avi">Montre moi</a> */
 }
