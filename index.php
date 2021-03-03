@@ -1,5 +1,5 @@
 <?php
-/*********************************************************************************************************************************** 
+/***********************************************************************************************************************************
 	contrôleur principal
 ************************************************************************************************************************************/
 require 'Modele/classe_BD.php';
@@ -50,9 +50,26 @@ $CONFIG = Configurer();
 </div>
 </header>
 
-<?php
-	include('Vue/pageHTML.php');
-?>
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+<nav>
+<?php echo $etat->Generer_menu(); ?>
+</nav>
+
+<section>
+<?php include $etat->Generer_page(); ?>
+</section>
+
+<aside>
+<h1>Articles connexes</h1>
+<ul>
+<li><a href="#">article 1</a></li>
+<li><a href="#">article 2</a></li>
+<li><a href="#">article 3</a></li>
+</ul>
+</aside>
+
+</main>
+
 
 <footer>
 <?php include 'Vue/pied2page.php'; ?>
