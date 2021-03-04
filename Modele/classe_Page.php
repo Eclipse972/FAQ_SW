@@ -55,10 +55,36 @@ abstract class Page {
 
 class PageArticle extends Page {
 
+	public function __construct() {
+		$T_paramètresURL = array('onglet'=> 0,	'item'=> 0,	'sous_item'=> 0);	// paramètres autorisés
+		// récupération des paramètres sans test de validité des valeurs
+		foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
+		switch(  (isset($T_paramètresURL['onglet'])		? 1 : 0)
+				+(isset($T_paramètresURL['item'])		? 2 : 0)
+				+(isset($T_paramètresURL['sous_item'])	? 4 : 0))	{
+			case 0: // aucun paramètre défini
+			case 1: // onglet
+			case 3: // onglet + item
+			case 7: // onglet + item + sous-item
+				foreach($T_paramètresURL as $clé => $valeur)	$_SESSION[$clé] = $T_paramètresURL[$clé];
+				break;
+			default: // toutes les autres combinaisons sont rejetées
+				header("location:?erreur=2");
+		}
+	}
+
 	public function CSS()	{ return $this->CodeCSS("article"); }
 
 	public function Section() {
-		return "<p>Page article en construction</p>";
+		$BD = new base2donnees;
+		$lienArticle = $BD->Article();
+		if(!file_exists($lienArticle))	header("location:?erreur=1");	// article non trouvé
+
+		ob_start();
+		include $lienArticle;
+		$code  = ob_get_clean();
+		ob_get_clean();
+		return $code;
 	}
 }
 
@@ -67,7 +93,27 @@ class PageErreur extends Page {
 	public function CSS() { return $this->CodeCSS("erreu"); }
 
 	public function Section() {
-		return "<p>Page Erreur en construction</p>";
+		$DICO = array(	// dictionnaire
+			// erreurs de mon application
+			0	=> 'Erreur inconnue',
+			1	=> 'L&apos;article a disparu',
+			2	=> 'Probl&egrave;me avec les paramètres de l&apos;article',
+			// erreurs serveur
+			403	=> 'Acc&egrave;s interdit',
+			404	=> 'Cette page n&apos;existe pas',
+			500	=> 'Serveur satur&eacute;: essayez de recharger la page'
+		);
+		$code_erreur = intval($_GET['erreur']);
+		$code_erreur = (isset($DICO[$code_erreur])) ? $code_erreur : 0;
+		ob_start();
+?>
+		<h1>Erreur <?=$code_erreur?>: <?=$DICO[$code_erreur]?></h1>
+		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
+		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
+<?php
+		$code = ob_get_contents();
+		ob_get_clean();
+		return $code;
 	}
 }
 
