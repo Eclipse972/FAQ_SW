@@ -34,13 +34,17 @@ abstract class Page {
 		$BD = new base2donnees;
 		$T_item = $BD->Liste_items();
 		$menu = "<ul>\n";
-		foreach($T_item as $item => $code)	{
+		foreach($T_item as $item => $code)
 			if ($item == $_SESSION['item']) {
 				$menu .= str_replace('href', 'id="item_actif" href', $code);
-				// génération sous-menu s'il existe
-				//$T_item = $BD->Liste_sous_items();
+				$T_sous_item = $BD->Liste_sous_items();
+				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
+					$menu .= "\t\t<ul>\n";
+					foreach($T_sous_item as $sous_item => $sous_code)
+						$menu .=  ($sous_item == $_SESSION['sous_item']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code;
+					$menu .= "\t\t</ul>\n";
+				}
 			} else $menu .= $code;
-		}
 		return $menu."</ul>\n";
 	}
 
