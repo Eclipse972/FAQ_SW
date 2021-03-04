@@ -45,7 +45,7 @@ abstract class Page {
 					$menu .= "\t\t</ul>\n";
 				}
 			} else $menu .= $code;
-		return $menu."</ul>\n";
+		return $menu."\t</ul>\n";
 	}
 
 	public function ArticlesConnexes() { return "<h1>Pages connexes</h1>\n"; }

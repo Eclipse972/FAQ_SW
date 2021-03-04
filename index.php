@@ -69,7 +69,9 @@ $FORMULAIRE	= $PAGE->LienFormulaire();
 </header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
-<nav><?=$MENU?></nav>
+<nav>
+	<?=$MENU?>
+</nav>
 
 <section><?=$SECTION?></section>
 
