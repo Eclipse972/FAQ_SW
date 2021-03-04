@@ -6,7 +6,7 @@ body {
 	--couleur3: #EFECCA;
 	--couleur4: #046380;
 	--couleur5: #002F2F;
-	
+
 	--largeur_1e_colonne:200px;
 	--largeur_2e_colonne:900px;
 	--largeur_3e_colonne:300px;
@@ -14,11 +14,19 @@ body {
 	background-color:var(--couleur3);
 	font-family: 'Quicksand', sans-serif;
 }
+/* Mise en page des blocs ------------------------------------------------------------------------------- */
+section { width:var(--largeur_2e_colonne); } /*on remplace la valeur définie dans commun.css*/
 
-header, footer, main { 
+nav, section, aside {
+	display:inline-block;
+	vertical-align:top;
+}
+
+header, footer, main {
 	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + var(--largeur_3e_colonne) + 12px);
 	margin:auto;
 }
+
 /* l'en-tete ---------------------------------------------------------------------------------- */
 header {
 	margin-bottom:0;
@@ -77,3 +85,95 @@ footer img {
 	font-size: 36px;
 	text-align:center;
 }
+
+/* zone centrale ------------------------------------------------------------------------------ */
+section ul { margin:0; }
+
+section a { text-decoration:none;}
+
+section a:hover { text-decoration: underline;}
+
+section img {
+	padding: 4px;
+	max-width:1100px
+}
+
+/*	--------------------------------------------------------------------------------------------
+	---------------------------------- pour les onglets  ---------------------------------------
+	-------------------------------------------------------------------------------------------- */
+header ul {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+header li {
+	display:inline-block;
+	margin-right:5px;
+}
+header a {
+	font-size:25px;
+	background-color:var(--couleur2);
+	color:black; /* le texte des onglets est noir */
+	text-decoration:none;  /* aucun lien n'est souligné */
+	padding: 10px;
+	display:block;
+	border-radius: 10px 10px 0 0;
+}
+header li a:hover, #onglet_actif { background-color:white; } /* couleur de l'onglet sélectionné et celui sous la souris */
+
+header ul img {
+	height:45px;
+	margin-right:8px;
+	vertical-align:middle;
+}
+/*	--------------------------------------------------------------------------------------------
+	---------------------------------- pour le menu  -------------------------------------------
+	-------------------------------------------------------------------------------------------- */
+nav {
+	width:var(--largeur_1e_colonne);
+	margin:0;
+	text-align:center;
+	font-size:20px;
+}
+nav a {	text-decoration:none; } /* aucun lien n'est souligné */
+
+nav ul {
+	list-style-type:none;
+	margin-bottom: 30px;
+	padding: 0;
+}
+/* menu --------------------------------------------------------------------------------------- */
+nav li {
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+nav li a {
+	display: block;
+	color: white; /* tous les items du menu sont écrits en blanc*/
+	font-weight:bold;
+	background-color:var(--couleur4);
+	border-radius:9px;
+}
+
+nav li a:hover, #item_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
+
+/* sous-menu ---------------------------------------------------------------------------------- */
+nav ul ul {	margin: 5px; }
+
+nav ul ul a {
+	color: black; 	/* tous les textes du sous-menu sont en noir */
+	background-color:white;	/* sur fond blanc */
+	border-radius:0;	/* pour avoir des coins carrés contrairement aux items arrondis*/
+}
+nav ul ul a {font-weight:normal;}
+
+#sous_item_actif{font-weight:bold;}
+
+nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
+
+/*	--------------------------------------------------------------------------------------------
+	----------------------------- pour les articles connexes  ----------------------------------
+	-------------------------------------------------------------------------------------------- */
+aside { width:var(--largeur_3e_colonne); }
+
+aside h1 { text-align:center; }
