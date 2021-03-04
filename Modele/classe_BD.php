@@ -33,7 +33,7 @@ public function Page_article($id, $page = 0) {
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	$dossier = $reponse['dossier'];
-	
+
 	if ($page == 0) // article à page unique
 		$fichier = 'page.html';
 	else { // article de plusieurs pages: il faut rechercher le nom du fichier dans la BD
@@ -44,13 +44,12 @@ public function Page_article($id, $page = 0) {
 	return $lien;
 }
 
-public function Liste_items($onglet) { // crée un tableau qui va contenir le code des (sous-)items
-	$this->Requete('SELECT texte FROM Items WHERE onglet=? AND item>0 AND sous_item=0', [$onglet]);
-	$i=1;
+public function Liste_items() { // crée un tableau qui va contenir le code des (sous-)items
+	$this->Requete('SELECT * FROM Vue_menu WHERE onglet=?', [$_SESSION['onglet']]);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = Lien($ligne['texte'], $onglet, $i);
-		$i++;
+		$i = $ligne['item'];
+		$tableau[$i] = $ligne['code'];
 	}
 	$this->Fermer();
 	return $tableau;

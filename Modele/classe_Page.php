@@ -5,7 +5,7 @@ abstract class Page {
 	abstract public function CSS();
 	abstract public function Section();
 
-	public function CodeCSS($nom)	{ return "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css />\n"; }
+	public function CodeCSS($nom)	{ return "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n"; }
 
 	public function LienFormulaire() { return " - <a href=\"?formulaire=1\">Me contacter</a>\n"; }
 
@@ -30,7 +30,19 @@ abstract class Page {
 		return $code."\t</ul>\n";
 	}
 
-	public function Menu() { return "Menu en construction"; }
+	public function Menu() {
+		$BD = new base2donnees;
+		$T_item = $BD->Liste_items();
+		$menu = "<ul>\n";
+		foreach($T_item as $item => $code)	{
+			if ($item == $_SESSION['item']) {
+				$menu .= str_replace('href', 'id="item_actif" href', $code);
+				// génération sous-menu s'il existe
+				//$T_item = $BD->Liste_sous_items();
+			} else $menu .= $code;
+		}
+		return $menu."</ul>\n";
+	}
 
 	public function ArticlesConnexes() { return "<h1>Pages connexes</h1>\n"; }
 }
@@ -57,7 +69,7 @@ class PageErreur extends Page {
 
 class PageFormulaire extends Page {
 
-	public function CSS() { $this->CodeCSS("formulaire"); }
+	public function CSS() { return $this->CodeCSS("formulaire"); }
 
 	public function Section() {
 		return "<p>Page formulaire en construction</p>";
