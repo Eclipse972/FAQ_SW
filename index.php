@@ -41,12 +41,4 @@ default: // toutes les autres combinaisons sont rejetées
 	header("location:?erreur=404");
 }
 
-// Variables pour la page HTML
-$CSS		= $PAGE->CSS();
-$ONGLETS	= $PAGE->Onglets();
-$MENU		= $PAGE->Menu();
-$SECTION	= $PAGE->Section();
-$ASIDE		= $PAGE->ArticlesConnexes();
-$FORMULAIRE	= $PAGE->LienFormulaire();
-
-include"Vue/doctype.html";
+include"Vue/doctype.html";	// utilise les métode de l'objet page

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
 	<link rel="stylesheet" href="Vue/commun.css" />
-	<?=$CSS?>
+	<?=$PAGE->CSS()?>
 	<title>La Foire Aux Questions SolidWorks de ChristopHe</title>
 </head>
 
@@ -14,25 +14,25 @@
 <div id="logo"><img src="Vue/images/logo.png" alt = "Logo"></div>
 <div id="titre">
 	<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>
-	<?=$ONGLETS?>
+	<?=$PAGE->Onglets()?>
 </div>
 </header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 <nav>
-	<?=$MENU?>
+	<?=$PAGE->Menu()?>
 </nav>
 
-<section><?=$SECTION?></section>
+<section><?=$PAGE->Section()?></section>
 
-<aside><?=$ASIDE?></aside>
+<aside><?=$PAGE->ArticlesConnexes()?></aside>
 
 </main>
 
 <footer>
 	<p>Site optimis&eacute; pour <img src="Vue/images/chrome.png" alt="Chrome"> et <img src="Vue/images/firefox.png" alt="Firefox">
 	 - <a target="_blank" href="http://dossiers.techniques.free.fr">Mes dossiers techniques en ligne</a>
-	<?=$FORMULAIRE?>
+	<?=$PAGE->LienFormulaire()?>
 	 - derni&egrave;re mise à jour: 4 mars 2021</p>
 </footer>
 
