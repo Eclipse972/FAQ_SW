@@ -1,9 +1,7 @@
 <?php // article contrat de phase du prisme
 include "Controleur/contrat2phaseVE.php";
-$dossierVE = 'prisme'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
-
-Titre("un prisme droit", "prisme");
-PlanDesquisse();
-EsquisseCotée('rectangle');
-MiseEnVolume();
+Titre('prisme',"un prisme droit", "prisme");
+PlanDesquisse('prisme');
+EsquisseCotée('prisme', 'rectangle');
+MiseEnVolume('prisme');
 ?>

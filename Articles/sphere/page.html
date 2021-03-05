@@ -1,9 +1,7 @@
 <?php // contrat de phase d&apo;une sphère
 include "Controleur/contrat2phaseVE.php";
-$dossierVE = 'sphere'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
-
-Titre("une sph&egrave;re", "sph&egrave;re");
-PlanDesquisse();
-EsquisseCotée('cercle', false, 'ajuster entit&eacute;');
-MiseEnVolume(false);
+Titre('sphere', "une sph&egrave;re", "sph&egrave;re");
+PlanDesquisse('sphere');
+EsquisseCotée('sphere', 'cercle', false, 'ajuster entit&eacute;');
+MiseEnVolume('sphere', false);
 ?>

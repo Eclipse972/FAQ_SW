@@ -1,9 +1,7 @@
 <?php // contrat de phase du cylindre par extrusion
 include "Controleur/contrat2phaseVE.php";
-$dossierVE = 'cylindre'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
-
-Titre("un cylindre par extrusion", "cylindre");
-PlanDesquisse();
-EsquisseCotée('cercle');
-MiseEnVolume();
+Titre('cylindre', "un cylindre par extrusion", "cylindre");
+PlanDesquisse('cylindre');
+EsquisseCotée('cylindre', 'cercle');
+MiseEnVolume('cylindre');
 ?>

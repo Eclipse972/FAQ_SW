@@ -1,9 +1,7 @@
 <?php // contrat de phase du cylindre par révolution
 include "Controleur/contrat2phaseVE.php";
-$dossierVE = 'cylindre2'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
-
-Titre("un cylindre par r&eacute;volution", "cylindre");
-PlanDesquisse();
-EsquisseCotée('rectangle', false);
-MiseEnVolume(false);
+Titre('cylindre2', "un cylindre par r&eacute;volution", "cylindre");
+PlanDesquisse('cylindre2');
+EsquisseCotée('cylindre2','rectangle', false);
+MiseEnVolume('cylindre2',false);
 ?>

@@ -1,9 +1,7 @@
 <?php // contrat de phase du tronc de cône par révolution
 include "Controleur/contrat2phaseVE.php";
-$dossierVE = 'tronc2cone'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
-
-Titre("un tronc de cône par r&eacute;volution", "tronc de c&ocirc;ne");
-PlanDesquisse();
-EsquisseCotée('ligne', false);
-MiseEnVolume(false);
+Titre('tronc2cone', "un tronc de cône par r&eacute;volution", "tronc de c&ocirc;ne");
+PlanDesquisse('tronc2cone');
+EsquisseCotée('tronc2cone', 'ligne', false);
+MiseEnVolume('tronc2cone', false);
 ?>

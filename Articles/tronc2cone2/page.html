@@ -1,9 +1,7 @@
 <?php // contrat de phase du tronc de cône par extrusion
 include "Controleur/contrat2phaseVE.php";
-$dossierVE = 'tronc2cone2'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
-
-Titre("un tronc de cône par extrusion", "tronc de c&ocirc;ne");
-PlanDesquisse();
-EsquisseCotée('cercle');
-MiseEnVolume(true, true);
+Titre('tronc2cone2', "un tronc de cône par extrusion", "tronc de c&ocirc;ne");
+PlanDesquisse('tronc2cone2');
+EsquisseCotée('tronc2cone2', 'cercle');
+MiseEnVolume('tronc2cone2', true, true);
 ?>

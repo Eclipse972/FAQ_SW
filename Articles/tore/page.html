@@ -1,9 +1,7 @@
 <?php // contrat de phase du tore
 include "Controleur/contrat2phaseVE.php";
-$dossierVE = 'tore'; // dossier du VE dans le dossier Articles. Variable globale utilisée par toutes les fonctions
-
-Titre("un tore", "tore");
-PlanDesquisse();
-EsquisseCotée('cercle', false);
-MiseEnVolume(false);
+Titre('tore', "un tore", "tore");
+PlanDesquisse('tore');
+EsquisseCotée('tore', 'cercle', false);
+MiseEnVolume('tore', false);
 ?>
