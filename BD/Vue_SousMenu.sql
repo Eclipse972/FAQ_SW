@@ -1,4 +1,4 @@
-DROP VIEW Vue_sous_menu;
+DROP VIEW IF EXISTS Vue_sous_menu;
 CREATE VIEW Vue_sous_menu AS
 SELECT
 	onglet,

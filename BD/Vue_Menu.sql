@@ -1,4 +1,4 @@
-DROP VIEW Vue_menu;
+DROP VIEW IF EXISTS Vue_menu;
 CREATE VIEW Vue_menu AS
 SELECT
 	onglet,
