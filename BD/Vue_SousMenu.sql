@@ -4,11 +4,7 @@ SELECT
 	onglet,
 	item,
 	sous_item,
-	CONCAT('\t\t\t<li><a href="?',
-				'onglet=',CAST(onglet AS CHAR),
-				'&item=',CAST(item AS CHAR),
-				'&sous_item=',CAST(sous_item AS CHAR),
-			'">',texte,'</a></li>\n') AS code
+	CONCAT('\t\t\t<li>',Lien(texte, onglet, item, sous_item),'</li>\n') AS code
 FROM Items
 WHERE item > 0 AND sous_item > 0
 ORDER BY onglet ASC, item ASC, sous_item ASC
