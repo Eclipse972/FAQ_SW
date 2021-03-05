@@ -20,14 +20,11 @@ private function Requete($requete, array $T_parametre) {
 
 private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
-public function Article($page = 0) {
+public function DossierArticle($page = 0) {
 	$this->Requete('SELECT * FROM Vue_articleMenu WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	$dossier = $reponse['dossier'];
-
-	$lien = "Articles/{$dossier}/page.html";
-	return $lien;
+	return $reponse['dossier'];
 }
 
 public function Liste_items() { // crée un tableau qui va contenir le code des (sous-)items

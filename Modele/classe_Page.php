@@ -54,8 +54,10 @@ abstract class Page {
 // Classes filles
 
 class PageArticle extends Page {
+	private $lienArticle;
 
 	public function __construct() {
+		$BD = new base2donnees;
 		$T_paramètresURL = array('onglet'=> 0,	'item'=> 0,	'sous_item'=> 0);	// paramètres autorisés
 		// récupération des paramètres sans test de validité des valeurs
 		foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
@@ -67,6 +69,10 @@ class PageArticle extends Page {
 			case 3: // onglet + item
 			case 7: // onglet + item + sous-item
 				foreach($T_paramètresURL as $clé => $valeur)	$_SESSION[$clé] = $T_paramètresURL[$clé];
+				$dossier = $BD->DossierArticle();
+				if (isset($dossier))
+					$this->lienArticle = file_exists("Articles/{$dossier}/page.html") ? "Articles/{$dossier}/page.html" : "Articles/inexistant.html";
+				else header("location:?erreur=404");
 				break;
 			default: // toutes les autres combinaisons sont rejetées
 				header("location:?erreur=2");
@@ -76,12 +82,8 @@ class PageArticle extends Page {
 	public function CSS()	{ return $this->CodeCSS("article"); }
 
 	public function Section() {
-		$BD = new base2donnees;
-		$lienArticle = $BD->Article();
-		if(!file_exists($lienArticle))	header("location:?erreur=1");	// article non trouvé
-
 		ob_start();
-		include $lienArticle;
+		include $this->lienArticle;
 		$code  = ob_get_clean();
 		ob_get_clean();
 		return $code;
