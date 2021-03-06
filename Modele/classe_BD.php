@@ -44,7 +44,6 @@ public function Liste_sous_items() { // crée un tableau qui va contenir le code
 	while ($ligne = $this->resultat->fetch()) {
 		$i = $ligne['sous_item'];
 		$tableau[$i] = $ligne['code'];
-		$i++;
 	}
 	$this->Fermer();
 	return $tableau;
