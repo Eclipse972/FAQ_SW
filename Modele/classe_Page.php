@@ -92,7 +92,11 @@ class PageArticle extends Page {
 
 class PageErreur extends Page {
 
-	public function CSS() { return $this->CodeCSS("erreu"); }
+	public function __construct() {
+		$_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0; // on revient à la page d'accueil
+	}
+
+	public function CSS() { return $this->CodeCSS("erreur"); }
 
 	public function Section() {
 		$DICO = array(	// dictionnaire
@@ -120,6 +124,7 @@ class PageErreur extends Page {
 }
 
 class PageFormulaire extends Page {
+	// la valeur du paramètre formulaire n'a aucune incidence car elle n'est pas lue
 
 	public function CSS() { return $this->CodeCSS("formulaire"); }
 
