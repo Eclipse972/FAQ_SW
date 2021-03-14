@@ -124,10 +124,37 @@ class PageErreur extends Page {
 class PageFormulaire extends Page {
 	// la valeur du paramètre formulaire n'a aucune incidence car elle n'est pas lue
 
+	public function __construct() {
+		if (empty($_POST)) { // préparation affichage du formulaire
+			
+		} else {	// traitement du formulaire
+			
+		}
+	}
+
+	public function Afficher_validation() {}
+
 	public function CSS() { return $this->CodeCSS("formulaire"); }
 
 	public function Section() {
-		return "<p>Page formulaire en construction</p>";
+?>
+	<form method="post" action="?formulaire=1" id=formulaire>
+		<p>Nom : <input 	 type="text" name="nom" /></p>
+		<p>Courriel : <input type="email" name="courriel" /></p>
+		<p>Objet : <input	 type="text" name="objet" /></p>
+		<p>Message : <textarea name="message" rows="6"></textarea></p>
+		<div id=validation>
+			<p>Validation du formulaire</p>
+			<ul>
+			<?php $this->Afficher_validation();?>
+			</ul>
+			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
+		</div>
+		<p style="text-align:center;">
+			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
+		</p>
+	</form>
+<?php
 	}
 
 	public function LienFormulaire() { return ""; }
