@@ -21,31 +21,30 @@ abstract class Page {
 	public function Onglets() {
 		$T_image = array('accueil',	'piece',		'MEP',			'assemblage',	'autre');
 		$T_texte = array('Accueil',	'Pi&egrave;ce',	'Mise en plan',	'Assemblage',	'Autre');
-		$code = "<ul>\n";
+		echo "<ul>\n";
 		for ($i = 0; $i<5; $i++) {
-			$code .= "\t\t<li>";
-			$code .= ($i == $_SESSION['onglet']	? "<a id=\"onglet_actif\" " : "<a ");
-			$code .= "href=\"?onglet={$i}\"><img src=\"Vue/images/{$T_image[$i]}.png\" alt=\"{$T_texte[$i]}\">{$T_texte[$i]}</a></li>\n";
+			echo "\t\t<li><a ",($i == $_SESSION['onglet'] ? "id=\"onglet_actif\" " : ""),"href=\"?onglet={$i}\">",
+				"<img src=\"Vue/images/{$T_image[$i]}.png\" alt=\"{$T_texte[$i]}\">{$T_texte[$i]}</a></li>\n";
 		}
-		return $code."\t</ul>\n";
+		echo "\t</ul>\n";
 	}
 
 	public function Menu() {
 		$BD = new base2donnees;
 		$T_item = $BD->Liste_items();
-		$menu = "<ul>\n";
+		echo "<ul>\n";
 		foreach($T_item as $item => $code)
 			if ($item == $_SESSION['item']) {
-				$menu .= str_replace('href', 'id="item_actif" href', $code);
+				echo str_replace('href', 'id="item_actif" href', $code);
 				$T_sous_item = $BD->Liste_sous_items();
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
-					$menu .= "\t\t<ul>\n";
+					echo "\t\t<ul>\n";
 					foreach($T_sous_item as $sous_item => $sous_code)
-						$menu .=  ($sous_item == $_SESSION['sous_item']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code;
-					$menu .= "\t\t</ul>\n";
+						echo ($sous_item == $_SESSION['sous_item']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code;
+					echo "\t\t</ul>\n";
 				}
-			} else $menu .= $code;
-		return $menu."\t</ul>\n";
+			} else echo $code;
+		echo "\t</ul>\n";
 	}
 
 	public function ArticlesConnexes() { return "<h1>Pages connexes</h1>\n"; }
@@ -81,13 +80,7 @@ class PageArticle extends Page {
 
 	public function CSS()	{ return $this->CodeCSS("article"); }
 
-	public function Section() {
-		ob_start();
-		include $this->lienArticle;
-		$code  = ob_get_clean();
-		ob_get_clean();
-		return $code;
-	}
+	public function Section() { include $this->lienArticle; }
 }
 
 class PageErreur extends Page {
@@ -111,15 +104,11 @@ class PageErreur extends Page {
 		);
 		$code_erreur = intval($_GET['erreur']);
 		$code_erreur = (isset($DICO[$code_erreur])) ? $code_erreur : 0;
-		ob_start();
 ?>
 		<h1>Erreur <?=$code_erreur?>: <?=$DICO[$code_erreur]?></h1>
 		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
 		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
 <?php
-		$code = ob_get_contents();
-		ob_get_clean();
-		return $code;
 	}
 }
 
