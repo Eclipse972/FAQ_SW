@@ -63,7 +63,6 @@ class PageArticle extends Page {
 		switch(  (isset($T_paramètresURL['onglet'])		? 1 : 0)
 				+(isset($T_paramètresURL['item'])		? 2 : 0)
 				+(isset($T_paramètresURL['sous_item'])	? 4 : 0))	{
-			case 0: // aucun paramètre défini
 			case 1: // onglet
 			case 3: // onglet + item
 			case 7: // onglet + item + sous-item
@@ -81,6 +80,16 @@ class PageArticle extends Page {
 	public function CSS()	{ return $this->CodeCSS("article"); }
 
 	public function Section() { include $this->lienArticle; }
+}
+
+class PageAccueil extends Page { // la page 
+	
+	public function __construct() { $_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0; }
+
+	public function CSS()	{ return $this->CodeCSS("article"); }
+
+	public function Section() { include "Articles/accueil/page.html"; }
+
 }
 
 class PageErreur extends Page {

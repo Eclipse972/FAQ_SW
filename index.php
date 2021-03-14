@@ -26,9 +26,11 @@ switch(  (isset($T_paramètresURL['onglet'])		? 1 : 0)
 		+(isset($T_paramètresURL['formulaire']) ? 2 : 0)
 		+(isset($T_paramètresURL['erreur'])		? 4 : 0))
 {
+case 0: // aucun paramètre défini
+	$PAGE = new PageAccueil();
+	break;
 case 1: // onglet défini
 	if ($T_paramètresURL['onglet'] > 4)	header("location:?erreur=404");
-case 0: // aucun paramètre défini
 	$PAGE = new PageArticle();
 	break;
 case 2: // formulaire
