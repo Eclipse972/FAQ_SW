@@ -19,15 +19,14 @@
 </header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
-<nav>
-	<?=$PAGE->Menu()?>
-</nav>
+
+<?=$PAGE->Menu()?>
 
 <section>
 	<?=$PAGE->Section()?>
 </section>
 
-<aside><?=$PAGE->ArticlesConnexes()?></aside>
+<?=$PAGE->ArticlesConnexes()?>
 
 </main>
 

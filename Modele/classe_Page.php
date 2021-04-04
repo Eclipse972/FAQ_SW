@@ -32,7 +32,7 @@ abstract class Page {
 	public function Menu() {
 		$BD = new base2donnees;
 		$T_item = $BD->Liste_items();
-		echo "<ul>\n";
+		echo "<nav>\n\t<ul>\n";
 		foreach($T_item as $item => $code)
 			if ($item == $_SESSION['item']) {
 				echo str_replace('href', 'id="item_actif" href', $code);
@@ -44,10 +44,10 @@ abstract class Page {
 					echo "\t\t</ul>\n";
 				}
 			} else echo $code;
-		echo "\t</ul>\n";
+		echo "\t</ul>\n</nav>\n";
 	}
 
-	public function ArticlesConnexes() { return "<h1>Pages connexes</h1>\n"; }
+	public function ArticlesConnexes() { return "<aside>\n\t<h1>Pages connexes</h1>\n</aside>\n"; }
 }
 
 // Classes filles
