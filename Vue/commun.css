@@ -148,12 +148,20 @@ nav li {
 	line-height: 30px;
 	margin-bottom: 10px;
 }
+
 nav li a {
 	display: block;
 	color: white; /* tous les items du menu sont écrits en blanc*/
 	font-weight:bold;
 	background-color:var(--couleur4);
 	border-radius:9px;
+}
+
+nav img {
+	max-width:80px;
+	max-height:80px;
+	float:left;
+	margin:9px;
 }
 
 nav li a:hover, #item_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
