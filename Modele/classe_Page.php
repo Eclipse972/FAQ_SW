@@ -19,12 +19,13 @@ abstract class Page {
 	}
 
 	public function Onglets() {
-		$T_image = array('accueil',	'piece',		'MEP',			'assemblage',	'autre');
-		$T_texte = array('Accueil',	'Pi&egrave;ce',	'Mise en plan',	'Assemblage',	'Autre');
+		$BD = new base2donnees;
+		$T_Onglets = $BD->Liste_onglets();
 		echo "<ul>\n";
-		for ($i = 0; $i<5; $i++) {
-			echo "\t\t<li><a ",($i == $_SESSION['onglet'] ? "id=\"onglet_actif\" " : ""),"href=\"?onglet={$i}\">",
-				"<img src=\"Vue/images/{$T_image[$i]}.png\" alt=\"{$T_texte[$i]}\">{$T_texte[$i]}</a></li>\n";
+		foreach($T_Onglets as $onglet => $code) {
+			if ($onglet == $_SESSION['onglet'])
+				echo str_replace('href', 'id="onglet_actif" href', $code);
+			else echo $code;
 		}
 		echo "\t</ul>\n";
 	}

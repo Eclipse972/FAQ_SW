@@ -27,6 +27,17 @@ public function DossierArticle($page = 0) {
 	return $reponse['dossier'];
 }
 
+public function Liste_onglets() { // crée un tableau qui va contenir le code des onglets
+	$this->Requete('SELECT * FROM Vue_onglets', []);
+	$tableau = null;
+	while ($ligne = $this->resultat->fetch()) {
+		$i = $ligne['onglet'];
+		$tableau[$i] = $ligne['code'];
+	}
+	$this->Fermer();
+	return $tableau;
+}
+
 public function Liste_items() { // crée un tableau qui va contenir le code des (sous-)items
 	$this->Requete('SELECT * FROM Vue_menu WHERE onglet=?', [$_SESSION['onglet']]);
 	$tableau = null;
