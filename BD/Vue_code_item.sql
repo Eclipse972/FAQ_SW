@@ -4,10 +4,8 @@ SELECT
 	onglet,
 	item,
 	sous_item,
-	CONCAT('\t\t<li>',
-		Lien(CONCAT(IF(image = '','',CONCAT('<img src=\"',image,'" alt="',texte,'">')), #-- code de l'image
-					texte),
-			onglet, item, sous_item),'</li>\n'
-	) AS code
+	Lien(CONCAT(IF(image = '','',CONCAT('<img src="',image,'" alt="',texte,'">')), #-- code de l'image
+				texte),
+		onglet, item, sous_item) AS code
 FROM Items
 ORDER BY onglet ASC, item ASC, sous_item ASC

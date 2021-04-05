@@ -22,11 +22,8 @@ abstract class Page {
 		$BD = new base2donnees;
 		$T_Onglets = $BD->Liste_onglets();
 		echo "<ul>\n";
-		foreach($T_Onglets as $onglet => $code) {
-			if ($onglet == $_SESSION['onglet'])
-				echo str_replace('href', 'id="onglet_actif" href', $code);
-			else echo $code;
-		}
+		foreach($T_Onglets as $onglet => $code)
+			echo "\t\t<li>", (($onglet == $_SESSION['onglet']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
 		echo "\t</ul>\n";
 	}
 
@@ -34,17 +31,18 @@ abstract class Page {
 		$BD = new base2donnees;
 		$T_item = $BD->Liste_items();
 		echo "<nav>\n\t<ul>\n";
-		foreach($T_item as $item => $code)
-			if ($item == $_SESSION['item']) {
-				echo str_replace('href', 'id="item_actif" href', $code);
+		foreach($T_item as $item => $code) {
+			echo "\t\t<li>", (($item == $_SESSION['item']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
+			if ($item == $_SESSION['item']) {	// sous-menu?
 				$T_sous_item = $BD->Liste_sous_items();
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t\t<ul>\n";
 					foreach($T_sous_item as $sous_item => $sous_code)
-						echo ($sous_item == $_SESSION['sous_item']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code;
+						echo "\t\t\t<li>", ($sous_item == $_SESSION['sous_item']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code, "</li>\n";
 					echo "\t\t</ul>\n";
 				}
-			} else echo $code;
+			}
+		}
 		echo "\t</ul>\n</nav>\n";
 	}
 
