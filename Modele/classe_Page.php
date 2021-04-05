@@ -2,8 +2,12 @@
 abstract class Page {
 /*
 */
+	protected $BD;
+
 	abstract public function CSS();
 	abstract public function Section();
+
+	public function __construct() { $this->BD = new base2donnees; }
 
 	public function CodeCSS($nom)	{ return "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n"; }
 
@@ -19,8 +23,7 @@ abstract class Page {
 	}
 
 	public function Onglets() {
-		$BD = new base2donnees;
-		$T_Onglets = $BD->Liste_onglets();
+		$T_Onglets = $this->BD->Liste_onglets();
 		echo "<ul>\n";
 		foreach($T_Onglets as $onglet => $code)
 			echo "\t\t<li>", (($onglet == $_SESSION['onglet']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
@@ -28,13 +31,12 @@ abstract class Page {
 	}
 
 	public function Menu() {
-		$BD = new base2donnees;
-		$T_item = $BD->Liste_items();
+		$T_item = $this->BD->Liste_items();
 		echo "<nav>\n\t<ul>\n";
 		foreach($T_item as $item => $code) {
 			echo "\t\t<li>", (($item == $_SESSION['item']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
 			if ($item == $_SESSION['item']) {	// sous-menu?
-				$T_sous_item = $BD->Liste_sous_items();
+				$T_sous_item = $this->BD->Liste_sous_items();
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t\t<ul>\n";
 					foreach($T_sous_item as $sous_item => $sous_code)
@@ -55,7 +57,7 @@ class PageArticle extends Page {
 	private $lienArticle;
 
 	public function __construct() {
-		$BD = new base2donnees;
+		parent::__construct();
 		$T_paramètresURL = array('onglet'=> 0,	'item'=> 0,	'sous_item'=> 0);	// paramètres autorisés
 		// récupération des paramètres sans test de validité des valeurs
 		foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
@@ -66,7 +68,7 @@ class PageArticle extends Page {
 			case 3: // onglet + item
 			case 7: // onglet + item + sous-item
 				foreach($T_paramètresURL as $clé => $valeur)	$_SESSION[$clé] = $T_paramètresURL[$clé];
-				$dossier = $BD->DossierArticle();
+				$dossier = $this->BD->DossierArticle();
 				if (isset($dossier))
 					$this->lienArticle = file_exists("Articles/{$dossier}/page.html") ? "Articles/{$dossier}/page.html" : "Articles/inexistant.html";
 				else header("location:?erreur=404");
@@ -83,7 +85,10 @@ class PageArticle extends Page {
 
 class PageAccueil extends Page { // la page 
 	
-	public function __construct() { $_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0; }
+	public function __construct() {
+		parent::__construct();
+		$_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0;
+	}
 
 	public function CSS()	{ return $this->CodeCSS("article"); }
 
@@ -94,6 +99,7 @@ class PageAccueil extends Page { // la page
 class PageErreur extends Page {
 
 	public function __construct() {
+		parent::__construct();
 		$_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0; // on revient à la page d'accueil
 	}
 
@@ -124,6 +130,7 @@ class PageFormulaire extends Page {
 	// la valeur du paramètre formulaire n'a aucune incidence car elle n'est pas lue
 
 	public function __construct() {
+		parent::__construct();
 		if (empty($_POST)) { // préparation affichage du formulaire
 			
 		} else {	// traitement du formulaire
