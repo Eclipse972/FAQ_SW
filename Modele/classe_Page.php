@@ -116,6 +116,7 @@ class PageFormulaire extends Page {
 
 	public function __construct() {
 		parent::__construct();
+		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
 		if (empty($_POST)) { // préparation affichage du formulaire
 			
 		} else {	// traitement du formulaire
