@@ -100,28 +100,23 @@ class PageErreur extends Page {
 
 	public function __construct() {
 		parent::__construct();
-		$_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0; // on revient à la page d'accueil
+		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
+		//$_SESSION['item'] = $_SESSION['sous_item'] = 0;
 	}
+
+	public function Menu() { echo "<nav></nav>"; }
+	
+	public function ArticlesConnexes() { return ""; }
 
 	public function CSS() { return $this->CodeCSS("erreur"); }
 
 	public function Section() {
-		$DICO = array(	// dictionnaire
-			// erreurs de mon application
-			0	=> 'Erreur inconnue',
-			1	=> 'L&apos;article a disparu',
-			2	=> 'Probl&egrave;me avec les paramètres de l&apos;article',
-			// erreurs serveur
-			403	=> 'Acc&egrave;s interdit',
-			404	=> 'Cette page n&apos;existe pas',
-			500	=> 'Serveur satur&eacute;: essayez de recharger la page'
-		);
 		$code_erreur = intval($_GET['erreur']);
-		$code_erreur = (isset($DICO[$code_erreur])) ? $code_erreur : 0;
+		$code_erreur = ($this->BD->TexteErreur($code_erreur) == '') ? 0 : $code_erreur;
 ?>
-		<h1>Erreur <?=$code_erreur?>: <?=$DICO[$code_erreur]?></h1>
-		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
-		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
+	<h1>Erreur <?=$code_erreur?>: <?=$this->BD->TexteErreur($code_erreur)?></h1>
+	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
+	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
 <?php
 	}
 }

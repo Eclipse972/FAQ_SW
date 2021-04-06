@@ -27,6 +27,13 @@ public function DossierArticle($page = 0) {
 	return $reponse['dossier'];
 }
 
+public function TexteErreur($code) {
+	$this->Requete('SELECT texte FROM Erreur WHERE code= ?', [$code]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return $reponse['texte'];
+}
+
 public function Liste_onglets() { // crée un tableau qui va contenir le code des onglets
 	$this->Requete('SELECT * FROM Vue_onglets', []);
 	$tableau = null;
