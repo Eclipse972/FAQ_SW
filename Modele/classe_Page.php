@@ -9,9 +9,9 @@ abstract class Page {
 
 	public function __construct() { $this->BD = new base2donnees; }
 
-	public function CodeCSS($nom)	{ return "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n"; }
+	public function CodeCSS($nom)	{ echo "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n"; }
 
-	public function LienFormulaire() { return " - <a href=\"?formulaire=1\">Me contacter</a>\n"; }
+	public function LienFormulaire() { echo " - <a href=\"?formulaire=1\">Me contacter</a>\n"; }
 
 	public function Lien($texte, $onglet, $item = null, $sous_item = null, $page = null) { // l'existence de la page correpondante doit être vérifiée en amont
 		$url = "?onglet={$onglet}";
@@ -48,7 +48,7 @@ abstract class Page {
 		echo "\t</ul>\n</nav>\n";
 	}
 
-	public function ArticlesConnexes() { return "<aside>\n\t<h1>Pages connexes</h1>\n</aside>\n"; }
+	public function ArticlesConnexes() { echo "<aside>\n\t<h1>Pages connexes</h1>\n</aside>\n"; }
 }
 
 // Classes filles
@@ -90,7 +90,7 @@ class PageAccueil extends Page { // la page
 		$_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0;
 	}
 
-	public function CSS()	{ return $this->CodeCSS("article"); }
+	public function CSS()	{ $this->CodeCSS("article"); }
 
 	public function Section() { include "Articles/accueil/page.html"; }
 
@@ -101,14 +101,13 @@ class PageErreur extends Page {
 	public function __construct() {
 		parent::__construct();
 		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
-		//$_SESSION['item'] = $_SESSION['sous_item'] = 0;
 	}
 
 	public function Menu() { echo "<nav></nav>"; }
 	
-	public function ArticlesConnexes() { return ""; }
+	public function ArticlesConnexes() { echo ""; }
 
-	public function CSS() { return $this->CodeCSS("erreur"); }
+	public function CSS() { $this->CodeCSS("erreur"); }
 
 	public function Section() {
 		$code_erreur = intval($_GET['erreur']);
@@ -133,9 +132,13 @@ class PageFormulaire extends Page {
 		}
 	}
 
+	public function Menu() { echo "<nav></nav>"; }
+	
+	public function ArticlesConnexes() { echo ""; }
+
 	public function Afficher_validation() {}
 
-	public function CSS() { return $this->CodeCSS("formulaire"); }
+	public function CSS() { $this->CodeCSS("formulaire"); }
 
 	public function Section() {
 ?>
@@ -158,6 +161,6 @@ class PageFormulaire extends Page {
 <?php
 	}
 
-	public function LienFormulaire() { return ""; }
+	public function LienFormulaire() { echo ""; }
 }
 
