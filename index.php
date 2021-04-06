@@ -30,7 +30,6 @@ case 0: // aucun paramètre défini
 	$PAGE = new PageAccueil();
 	break;
 case 1: // onglet défini
-	if ($T_paramètresURL['onglet'] > 4)	header("location:?erreur=404");
 	$PAGE = new PageArticle();
 	break;
 case 2: // formulaire
