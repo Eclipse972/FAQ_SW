@@ -13,15 +13,6 @@ abstract class Page {
 
 	public function LienFormulaire() { echo " - <a href=\"?formulaire=1\">Me contacter</a>\n"; }
 
-	public function Lien($texte, $onglet, $item = null, $sous_item = null, $page = null) { // l'existence de la page correpondante doit être vérifiée en amont
-		$url = "?onglet={$onglet}";
-		if (isset($item)) {
-			$url .= "&item={$item}";
-			if (isset($sous_item))	$url .= "&sous_item={$sous_item}";
-		}
-		return "<a href=\"{$url}\">{$texte}</a>\n";
-	}
-
 	public function Onglets() {
 		$T_Onglets = $this->BD->Liste_onglets();
 		echo "<ul>\n";
