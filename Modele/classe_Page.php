@@ -142,6 +142,7 @@ class PageFormulaire extends Page {
 
 	public function Section() {
 ?>
+	<h1>Formulaire en construction</h1>
 	<form method="post" action="?formulaire=1" id=formulaire>
 		<p>Nom : <input 	 type="text" name="nom" /></p>
 		<p>Courriel : <input type="email" name="courriel" /></p>
