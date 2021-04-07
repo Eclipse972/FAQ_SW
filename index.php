@@ -30,7 +30,6 @@ case 0: // aucun paramètre défini
 	$PAGE = new PageAccueil();
 	break;
 case 1: // onglet défini
-/////////////////////////////////////////////////////////////////////////
 	$T_paramètresURL = array('onglet'=> 0,	'item'=> 0,	'sous_item'=> 0);	// paramètres autorisés
 	// récupération des paramètres sans test de validité des valeurs
 	foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
@@ -50,7 +49,6 @@ case 1: // onglet défini
 		default: // toutes les autres combinaisons sont rejetées
 			header("location:?erreur=2");
 	}
-/////////////////////////////////////////////////////////////////////////
 	break;
 case 2: // formulaire
 	$PAGE = new PageFormulaire();// le contexte reste inchangé
