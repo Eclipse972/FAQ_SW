@@ -85,7 +85,7 @@ class PageVE extends PageArticle {
 	}
 
 	public function SetDossier($dossier) { $this->dossier = $dossier; }
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public function Titre($titre, $VE) { // VE et dossierVE ne sont pas forcément identiques.Exemple: tronc de cône et tronc2cone
 		?>
 		<h1>Cr&eacute;er <?=$titre?> </h1>
@@ -149,8 +149,6 @@ class PageVE extends PageArticle {
 		</div>
 		<?php /* <a href="Articles/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a> */
 	}
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 }
 
 class PageErreur extends Page {
