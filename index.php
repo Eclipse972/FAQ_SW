@@ -30,7 +30,27 @@ case 0: // aucun paramètre défini
 	$PAGE = new PageAccueil();
 	break;
 case 1: // onglet défini
-	$PAGE = new PageArticle();
+/////////////////////////////////////////////////////////////////////////
+	$T_paramètresURL = array('onglet'=> 0,	'item'=> 0,	'sous_item'=> 0);	// paramètres autorisés
+	// récupération des paramètres sans test de validité des valeurs
+	foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
+	switch(  (isset($T_paramètresURL['onglet'])		? 1 : 0)
+			+(isset($T_paramètresURL['item'])		? 2 : 0)
+			+(isset($T_paramètresURL['sous_item'])	? 4 : 0))	{
+		case 1: // onglet
+		case 3: // onglet + item
+		case 7: // onglet + item + sous-item
+			foreach($T_paramètresURL as $clé => $valeur)	$_SESSION[$clé] = $T_paramètresURL[$clé];
+			$BD = new base2donnees;
+			$classePage = $BD->ClassePage();
+			if (isset($classePage))
+				$PAGE = new $classePage;
+			else header("location:?erreur=404");
+			break;
+		default: // toutes les autres combinaisons sont rejetées
+			header("location:?erreur=2");
+	}
+/////////////////////////////////////////////////////////////////////////
 	break;
 case 2: // formulaire
 	$PAGE = new PageFormulaire();// le contexte reste inchangé

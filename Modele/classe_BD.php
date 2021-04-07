@@ -20,6 +20,13 @@ private function Requete($requete, array $T_parametre) {
 
 private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
+public function ClassePage() {
+	$this->Requete('SELECT * FROM Vue_classePage WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return $reponse['nom'];
+}
+
 public function DossierArticle($page = 0) {
 	$this->Requete('SELECT * FROM Vue_articleMenu WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
 	$reponse = $this->resultat->fetch();

@@ -49,27 +49,16 @@ class PageArticle extends Page {
 
 	public function __construct() {
 		parent::__construct();
-		$T_paramètresURL = array('onglet'=> 0,	'item'=> 0,	'sous_item'=> 0);	// paramètres autorisés
-		// récupération des paramètres sans test de validité des valeurs
-		foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
-		switch(  (isset($T_paramètresURL['onglet'])		? 1 : 0)
-				+(isset($T_paramètresURL['item'])		? 2 : 0)
-				+(isset($T_paramètresURL['sous_item'])	? 4 : 0))	{
-			case 1: // onglet
-			case 3: // onglet + item
-			case 7: // onglet + item + sous-item
-				foreach($T_paramètresURL as $clé => $valeur)	$_SESSION[$clé] = $T_paramètresURL[$clé];
-				$dossier = $this->BD->DossierArticle();
-				if (isset($dossier))
-					$this->lienArticle = file_exists("Articles/{$dossier}/page.html") ? "Articles/{$dossier}/page.html" : "Articles/inexistant.html";
-				else header("location:?erreur=404");
-				break;
-			default: // toutes les autres combinaisons sont rejetées
-				header("location:?erreur=2");
-		}
+		$dossier = $this->BD->DossierArticle();
+		if (isset($dossier)) {
+			$chemin = "Articles/{$dossier}/page.html";
+			if (file_exists($chemin))
+				$this->lienArticle = $chemin;
+			else header("location:?erreur=1");
+		} else header("location:?erreur=404");
 	}
 
-	public function CSS()	{ return $this->CodeCSS("article"); }
+	public function CSS()	{ $this->CodeCSS("article"); }
 
 	public function Section() { include $this->lienArticle; }
 }
