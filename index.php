@@ -51,10 +51,10 @@ case 1: // onglet défini
 	}
 	break;
 case 2: // formulaire
-	$PAGE = new PageFormulaire();// le contexte reste inchangé
+	$PAGE = new PageFormulaire();
 	break;
 case 4: // erreur
-	$PAGE = new PageErreur();	// le contexte reste inchangé
+	$PAGE = new PageErreur();
 	break;
 default: // toutes les autres combinaisons sont rejetées
 	header("location:?erreur=404");

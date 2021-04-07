@@ -1,7 +1,8 @@
 <?php // article contrat de phase du prisme
-include "Controleur/contrat2phaseVE.php";
-Titre('prisme',"un prisme droit", "prisme");
-PlanDesquisse('prisme');
-EsquisseCotée('prisme', 'rectangle');
-MiseEnVolume('prisme');
+global $PAGE;
+$PAGE->SetDossier('prisme');
+$PAGE->Titre('prisme',"un prisme droit", "prisme");
+$PAGE->PlanDesquisse();
+$PAGE->EsquisseCotée('rectangle');
+$PAGE->MiseEnVolume('prisme');
 ?>

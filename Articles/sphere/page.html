@@ -1,7 +1,8 @@
 <?php // contrat de phase d&apo;une sphère
-include "Controleur/contrat2phaseVE.php";
-Titre('sphere', "une sph&egrave;re", "sph&egrave;re");
-PlanDesquisse('sphere');
-EsquisseCotée('sphere', 'cercle', false, 'ajuster entit&eacute;');
-MiseEnVolume('sphere', false);
+global $PAGE;
+$PAGE->SetDossier('sphere');
+$PAGE->Titre("une sph&egrave;re", "sph&egrave;re");
+$PAGE->PlanDesquisse();
+$PAGE->EsquisseCotée('cercle', false, 'ajuster entit&eacute;');
+$PAGE->MiseEnVolume(false);
 ?>

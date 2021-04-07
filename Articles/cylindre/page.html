@@ -1,7 +1,8 @@
 <?php // contrat de phase du cylindre par extrusion
-include "Controleur/contrat2phaseVE.php";
-Titre('cylindre', "un cylindre par extrusion", "cylindre");
-PlanDesquisse('cylindre');
-EsquisseCotée('cylindre', 'cercle');
-MiseEnVolume('cylindre');
+global $PAGE;
+$PAGE->SetDossier('cylindre');
+$PAGE->Titre("un cylindre par extrusion", "cylindre");
+$PAGE->PlanDesquisse();
+$PAGE->EsquisseCotée('cercle');
+$PAGE->MiseEnVolume('cylindre');
 ?>

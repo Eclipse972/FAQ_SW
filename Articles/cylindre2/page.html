@@ -1,7 +1,8 @@
 <?php // contrat de phase du cylindre par révolution
-include "Controleur/contrat2phaseVE.php";
-Titre('cylindre2', "un cylindre par r&eacute;volution", "cylindre");
-PlanDesquisse('cylindre2');
-EsquisseCotée('cylindre2','rectangle', false);
-MiseEnVolume('cylindre2',false);
+global $PAGE;
+$PAGE->SetDossier('cylindre2');
+$PAGE->Titre("un cylindre par r&eacute;volution", "cylindre");
+$PAGE->PlanDesquisse();
+$PAGE->EsquisseCotée('rectangle', false);
+$PAGE->MiseEnVolume(false);
 ?>

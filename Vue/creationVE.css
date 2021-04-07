@@ -1,0 +1,16 @@
+#Phase { padding:10px; }
+
+#Phase h2 {
+	background-color:yellow;
+	text-align:center;
+	text-decoration:none;
+	padding:10px;
+	margin:0;
+}
+#Phase ol li { margin-bottom:10px; }
+
+.gauche {
+	float:left;
+	margin-top:0;
+	margin-right:30px
+}

@@ -1,7 +1,8 @@
 <?php // contrat de phase du tronc de cône par révolution
-include "Controleur/contrat2phaseVE.php";
-Titre('tronc2cone', "un tronc de cône par r&eacute;volution", "tronc de c&ocirc;ne");
-PlanDesquisse('tronc2cone');
-EsquisseCotée('tronc2cone', 'ligne', false);
-MiseEnVolume('tronc2cone', false);
+global $PAGE;
+$PAGE->SetDossier('tronc2cone');
+$PAGE->Titre("un tronc de cône par r&eacute;volution", "tronc de c&ocirc;ne");
+$PAGE->PlanDesquisse();
+$PAGE->EsquisseCotée('ligne', false);
+$PAGE->MiseEnVolume(false);
 ?>
