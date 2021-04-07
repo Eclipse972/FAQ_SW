@@ -41,36 +41,27 @@ public function TexteErreur($code) {
 	return $reponse['texte'];
 }
 
-public function Liste_onglets() { // crée un tableau qui va contenir le code des onglets
-	$this->Requete('SELECT * FROM Vue_onglets', []);
+public function Liste_niveau($niveau) {
+	switch ($niveau) {
+		case 1:	$index = 'onglet';		$expOnglet = '>=0';						$expItem = '= 0';					$signe = '=';	break;
+		case 2:	$index = 'item';		$expOnglet = "= {$_SESSION['onglet']}";	$expItem = '> 0';					$signe = '=';	break;
+		case 3:	$index = 'sous_item';	$expOnglet = "= {$_SESSION['onglet']}";	$expItem = "= {$_SESSION['item']}";	$signe = '>';	break;
+		default: header("location:?erreur=3");	// tout autre valeur est rejetée
+	}
+	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE onglet {$expOnglet} AND item {$expItem} AND sous_item {$signe} 0";
+	$this->Requete($sql, []);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
-		$i = $ligne['onglet'];
+		$i = $ligne['i'];
 		$tableau[$i] = $ligne['code'];
 	}
 	$this->Fermer();
 	return $tableau;
 }
 
-public function Liste_items() { // crée un tableau qui va contenir le code des (sous-)items
-	$this->Requete('SELECT * FROM Vue_menu WHERE onglet=?', [$_SESSION['onglet']]);
-	$tableau = null;
-	while ($ligne = $this->resultat->fetch()) {
-		$i = $ligne['item'];
-		$tableau[$i] = $ligne['code'];
-	}
-	$this->Fermer();
-	return $tableau;
-}
+public function Liste_onglets()		{ return $this->Liste_niveau(1); } // tableau contenant le code des onglets
 
-public function Liste_sous_items() { // crée un tableau qui va contenir le code des (sous-)items
-	$this->Requete('SELECT * FROM Vue_sous_menu WHERE onglet=? AND item=?', [$_SESSION['onglet'], $_SESSION['item']]);
-	$tableau = null;
-	while ($ligne = $this->resultat->fetch()) {
-		$i = $ligne['sous_item'];
-		$tableau[$i] = $ligne['code'];
-	}
-	$this->Fermer();
-	return $tableau;
-}
+public function Liste_items()		{ return $this->Liste_niveau(2); } // tableau contenant le code des items
+
+public function Liste_sous_items()	{ return $this->Liste_niveau(3); } // tableau contenant le code des sous-items
 }
