@@ -6,6 +6,8 @@ abstract class Page {
 
 	abstract public function CSS();
 	abstract public function Section();
+	abstract public function AideSW();			// aide en ligne de SW 2015
+	abstract public function PagesConnexes();	// page en lien sur le site
 
 	public function __construct() { $this->BD = new base2donnees; }
 
@@ -39,7 +41,12 @@ abstract class Page {
 		echo "\t</ul>\n</nav>\n";
 	}
 
-	public function ArticlesConnexes() { echo "<aside>\n\t<h1>Pages connexes</h1>\n</aside>\n"; }
+	public function ArticlesConnexes() {
+		echo "<aside>\n";
+		$this->PagesConnexes();
+		$this->AideSW();
+		echo "</aside>\n";
+	}
 }
 
 // Classes filles
@@ -57,23 +64,23 @@ class PageArticle extends Page {
 			else header("location:?erreur=1");
 		} else header("location:?erreur=404");
 	}
-
+	// fonctions obligatoires
 	public function CSS()	{ $this->CodeCSS("article"); }
 
 	public function Section() { include $this->lienArticle; }
+
+	public function AideSW() {}
+
+	public function PagesConnexes() {}
+	// fin des fonctions obligatoire
 }
 
-class PageAccueil extends Page {
+class PageAccueil extends PageArticle {
 	
 	public function __construct() {
-		parent::__construct();
 		$_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0;
+		parent::__construct();
 	}
-
-	public function CSS()	{ $this->CodeCSS("article"); }
-
-	public function Section() { include "Articles/accueil/page.html"; }
-
 }
 
 class PageVE extends PageArticle {
@@ -157,12 +164,14 @@ class PageErreur extends Page {
 		parent::__construct();
 		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
 	}
+	// fonctions obligatoires
+	public function CSS() { $this->CodeCSS("erreur"); }
 
 	public function Menu() { echo "<nav></nav>"; }
-	
-	public function ArticlesConnexes() { echo ""; }
 
-	public function CSS() { $this->CodeCSS("erreur"); }
+	public function AideSW() {}
+
+	public function PagesConnexes() {}
 
 	public function Section() {
 		$code_erreur = intval($_GET['erreur']);
@@ -173,6 +182,7 @@ class PageErreur extends Page {
 	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
 <?php
 	}
+	// fin de fonctions obligatoires
 }
 
 class PageFormulaire extends Page {
@@ -187,14 +197,14 @@ class PageFormulaire extends Page {
 			
 		}
 	}
+	// fonctions obligatoires
+	public function CSS() { $this->CodeCSS("formulaire"); }
 
 	public function Menu() { echo "<nav></nav>"; }
-	
-	public function ArticlesConnexes() { echo ""; }
 
-	public function Afficher_validation() {}
+	public function AideSW() {}
 
-	public function CSS() { $this->CodeCSS("formulaire"); }
+	public function PagesConnexes() {}
 
 	public function Section() {
 ?>
@@ -217,6 +227,8 @@ class PageFormulaire extends Page {
 	</form>
 <?php
 	}
+	// fin de fonctions obligatoires
+	public function Afficher_validation() {}
 
 	public function LienFormulaire() { echo ""; }
 }
