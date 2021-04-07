@@ -50,6 +50,80 @@ abstract class Page {
 }
 
 // Classes filles
+class PageErreur extends Page {
+
+	public function __construct() {
+		parent::__construct();
+		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
+	}
+	// fonctions obligatoires
+	public function CSS() { $this->CodeCSS("erreur"); }
+
+	public function Menu() { echo "<nav></nav>"; }
+
+	public function AideSW() {}
+
+	public function PagesConnexes() {}
+
+	public function Section() {
+		$code_erreur = intval($_GET['erreur']);
+		$code_erreur = ($this->BD->TexteErreur($code_erreur) == '') ? 0 : $code_erreur;
+?>
+	<h1>Erreur <?=$code_erreur?>: <?=$this->BD->TexteErreur($code_erreur)?></h1>
+	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
+	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
+<?php
+	}
+	// fin de fonctions obligatoires
+}
+
+class PageFormulaire extends Page {
+	// la valeur du paramètre formulaire n'a aucune incidence car elle n'est pas lue
+
+	public function __construct() {
+		parent::__construct();
+		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
+		if (empty($_POST)) { // préparation affichage du formulaire
+			
+		} else {	// traitement du formulaire
+			
+		}
+	}
+	// fonctions obligatoires
+	public function CSS() { $this->CodeCSS("formulaire"); }
+
+	public function Menu() { echo "<nav></nav>"; }
+
+	public function AideSW() {}
+
+	public function PagesConnexes() {}
+
+	public function Section() {
+?>
+	<h1>Formulaire en construction</h1>
+	<form method="post" action="?formulaire=1" id=formulaire>
+		<p>Nom : <input 	 type="text" name="nom" /></p>
+		<p>Courriel : <input type="email" name="courriel" /></p>
+		<p>Objet : <input	 type="text" name="objet" /></p>
+		<p>Message : <textarea name="message" rows="6"></textarea></p>
+		<div id=validation>
+			<p>Validation du formulaire</p>
+			<ul>
+			<?php $this->Afficher_validation();?>
+			</ul>
+			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
+		</div>
+		<p style="text-align:center;">
+			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
+		</p>
+	</form>
+<?php
+	}
+	// fin de fonctions obligatoires
+	public function Afficher_validation() {}
+
+	public function LienFormulaire() { echo ""; }
+}
 
 class PageArticle extends Page {
 	protected $lienArticle;
@@ -75,6 +149,7 @@ class PageArticle extends Page {
 	// fin des fonctions obligatoire
 }
 
+// Classes petites-filles
 class PageAccueil extends PageArticle {
 	
 	public function __construct() {
@@ -157,79 +232,3 @@ class PageVE extends PageArticle {
 		<?php /* <a href="Articles/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a> */
 	}
 }
-
-class PageErreur extends Page {
-
-	public function __construct() {
-		parent::__construct();
-		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
-	}
-	// fonctions obligatoires
-	public function CSS() { $this->CodeCSS("erreur"); }
-
-	public function Menu() { echo "<nav></nav>"; }
-
-	public function AideSW() {}
-
-	public function PagesConnexes() {}
-
-	public function Section() {
-		$code_erreur = intval($_GET['erreur']);
-		$code_erreur = ($this->BD->TexteErreur($code_erreur) == '') ? 0 : $code_erreur;
-?>
-	<h1>Erreur <?=$code_erreur?>: <?=$this->BD->TexteErreur($code_erreur)?></h1>
-	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
-	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
-<?php
-	}
-	// fin de fonctions obligatoires
-}
-
-class PageFormulaire extends Page {
-	// la valeur du paramètre formulaire n'a aucune incidence car elle n'est pas lue
-
-	public function __construct() {
-		parent::__construct();
-		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
-		if (empty($_POST)) { // préparation affichage du formulaire
-			
-		} else {	// traitement du formulaire
-			
-		}
-	}
-	// fonctions obligatoires
-	public function CSS() { $this->CodeCSS("formulaire"); }
-
-	public function Menu() { echo "<nav></nav>"; }
-
-	public function AideSW() {}
-
-	public function PagesConnexes() {}
-
-	public function Section() {
-?>
-	<h1>Formulaire en construction</h1>
-	<form method="post" action="?formulaire=1" id=formulaire>
-		<p>Nom : <input 	 type="text" name="nom" /></p>
-		<p>Courriel : <input type="email" name="courriel" /></p>
-		<p>Objet : <input	 type="text" name="objet" /></p>
-		<p>Message : <textarea name="message" rows="6"></textarea></p>
-		<div id=validation>
-			<p>Validation du formulaire</p>
-			<ul>
-			<?php $this->Afficher_validation();?>
-			</ul>
-			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
-		</div>
-		<p style="text-align:center;">
-			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
-		</p>
-	</form>
-<?php
-	}
-	// fin de fonctions obligatoires
-	public function Afficher_validation() {}
-
-	public function LienFormulaire() { echo ""; }
-}
-
