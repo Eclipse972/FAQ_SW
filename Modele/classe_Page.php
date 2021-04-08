@@ -6,7 +6,6 @@ abstract class Page {
 
 	abstract public function CSS();
 	abstract public function Section();
-	abstract public function AideSW();			// aide en ligne de SW 2015
 	abstract public function PagesConnexes();	// page en lien sur le site
 
 	public function __construct() { $this->BD = new base2donnees; }
@@ -44,7 +43,6 @@ abstract class Page {
 	public function ArticlesConnexes() {
 		echo "<aside>\n";
 		$this->PagesConnexes();
-		$this->AideSW();
 		echo "</aside>\n";
 	}
 }
@@ -60,8 +58,6 @@ class PageErreur extends Page {
 	public function CSS() { $this->CodeCSS("erreur"); }
 
 	public function Menu() { echo "<nav></nav>"; }
-
-	public function AideSW() {}
 
 	public function PagesConnexes() {}
 
@@ -93,8 +89,6 @@ class PageFormulaire extends Page {
 	public function CSS() { $this->CodeCSS("formulaire"); }
 
 	public function Menu() { echo "<nav></nav>"; }
-
-	public function AideSW() {}
 
 	public function PagesConnexes() {}
 
@@ -143,9 +137,19 @@ class PageArticle extends Page {
 
 	public function Section() { include $this->lienArticle; }
 
-	public function AideSW() {}
-
-	public function PagesConnexes() {}
+	public function PagesConnexes() {
+		$Tableau = $this->BD->PagesConnexes();
+		switch(count($Tableau)) {
+			case 0: break;
+			case 1:
+				echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";
+				break;
+			default:
+				echo "<h1>Pages connexes</h1>\n<ul>\n";
+				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
+				echo "</ul>\n";
+		}
+	}
 	// fin des fonctions obligatoire
 }
 

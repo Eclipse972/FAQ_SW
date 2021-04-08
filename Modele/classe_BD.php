@@ -27,7 +27,7 @@ public function ClassePage() {
 	return $reponse['nom'];
 }
 
-public function DossierArticle($page = 0) {
+public function DossierArticle() {
 	$this->Requete('SELECT * FROM Vue_articleMenu WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
@@ -64,4 +64,12 @@ public function Liste_onglets()		{ return $this->Liste_niveau(1); } // tableau c
 public function Liste_items()		{ return $this->Liste_niveau(2); } // tableau contenant le code des items
 
 public function Liste_sous_items()	{ return $this->Liste_niveau(3); } // tableau contenant le code des sous-items
+
+public function PagesConnexes() {
+	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
+	$reponse = $this->resultat->fetchAll();
+	$this->Fermer();
+	return $reponse;
+}
+
 }
