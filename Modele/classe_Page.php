@@ -3,14 +3,24 @@ abstract class Page {
 /*
 */
 	protected $BD;
+	protected $logo;
+	protected $titre;
 
 	abstract public function CSS();
 	abstract public function Section();
 	abstract public function PagesConnexes();	// page en lien sur le site
 
-	public function __construct() { $this->BD = new base2donnees; }
+	public function __construct() {
+		$this->BD = new base2donnees;
+		$this->logo = "Vue/images/logo.png";
+		$this->titre = "Foire Aux Questions SolidWorks de ChristopHe";
+	}
 
 	public function CodeCSS($nom)	{ echo "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n"; }
+
+	public function Logo() { echo $this->logo; }
+	
+	public function Titre() { echo $this->titre; }
 
 	public function LienFormulaire() { echo " - <a href=\"?formulaire=1\">Me contacter</a>\n"; }
 
