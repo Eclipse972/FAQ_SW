@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Mer 07 Avril 2021 à 23:00
+-- Généré le : Jeu 08 Avril 2021 à 22:25
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 

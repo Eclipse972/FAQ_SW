@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Mer 07 Avril 2021 à 00:08
+-- Généré le : Jeu 08 Avril 2021 à 22:26
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -36,11 +36,12 @@ CREATE TABLE IF NOT EXISTS `Erreur` (
 
 INSERT INTO `Erreur` (`code`, `texte`) VALUES
 (0, 'Erreur inconnue'),
-(1, 'L&apos;article a disparu'),
+(1, 'L&apos;article inexistant ou disparu'),
 (2, 'Probl&egrave;me avec les paramètres de l&apos;article'),
 (403, 'Acc&egrave;s interdit'),
 (404, 'Cette page n&apos;existe pas'),
-(500, 'Serveur satur&eacute;, essayez de recharger la page.');
+(500, 'Serveur satur&eacute;, essayez de recharger la page.'),
+(3, 'variable niveau incorrecte dans la BD');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
