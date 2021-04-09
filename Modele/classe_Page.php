@@ -41,8 +41,8 @@ abstract class Page {
 				$T_sous_item = $this->BD->Liste_sous_items();
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t\t<ul>\n";
-					foreach($T_sous_item as $sous_item => $sous_code)
-						echo "\t\t\t<li>", ($sous_item == $_SESSION['sous_item']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code, "</li>\n";
+					foreach($T_sous_item as $gamma => $sous_code)
+						echo "\t\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code, "</li>\n";
 					echo "\t\t</ul>\n";
 				}
 			}
@@ -166,7 +166,7 @@ class PageArticle extends Page {
 class PageAccueil extends PageArticle {
 	
 	public function __construct() {
-		$_SESSION['alpha'] = $_SESSION['alpha'] = $_SESSION['sous_item'] = 0;
+		$_SESSION['alpha'] = $_SESSION['alpha'] = $_SESSION['gamma'] = 0;
 		parent::__construct();
 	}
 }

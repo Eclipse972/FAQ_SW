@@ -3,7 +3,7 @@ CREATE VIEW Vue_pagesConnexes AS
 SELECT
 	alpha,
 	beta,
-	sous_item,
+	gamma,
 	CONCAT(
 		'<a href="',
 		IF (Connexes.type = 1,'http://help.solidworks.com/2015/french/SolidWorks/',''),
@@ -20,4 +20,4 @@ SELECT
 	) AS URL
 FROM Items
 INNER JOIN Connexes ON Items.article_ID = Connexes.article_ID
-ORDER BY alpha ASC, beta ASC, sous_item ASC, type ASC
+ORDER BY alpha ASC, beta ASC, gamma ASC, type ASC

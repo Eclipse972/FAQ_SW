@@ -3,7 +3,7 @@ CREATE VIEW Vue_articleMenu AS
 SELECT
 	alpha,
 	beta,
-	sous_item,
+	gamma,
 	dossier
 FROM Items
 INNER JOIN Articles ON Articles.ID = Items.article_ID

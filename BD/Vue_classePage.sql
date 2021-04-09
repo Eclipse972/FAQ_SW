@@ -3,7 +3,7 @@ CREATE VIEW Vue_classePage AS
 SELECT
 	alpha,
 	beta,
-	sous_item,
+	gamma,
 	nom
 FROM Items
 INNER JOIN ClassePage ON ClassePage.ID = Items.classePageID
