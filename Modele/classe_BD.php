@@ -3,9 +3,9 @@ class base2donnees { // chaque requête doit commencer par une nouvelle connexio
 private $resultat;
 private $BD; // PDO initialisé dans connexion.php
 
-public function __construct($chemin = '') { // chemin de la forme 'chemin/'. Cette classe peut être demandé de plusiers endroits du site
+public function __construct() { // chemin de la forme 'chemin/'. Cette classe peut être demandé de plusiers endroits du site
 	try	{// On se connecte à MySQL grâce au script non suivi par git
-		include $chemin.'connexion.php'; // la config free ne permet pas d'adressage absolu
+		include 'connexion.php';
 	} // contient: $this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe');
 	catch (Exception $e)	{ // En cas d'erreur, on affiche un message et on arrête tout
 		die('Erreur : '.$e->getMessage());
@@ -25,13 +25,6 @@ public function ClassePage() {
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['nom'];
-}
-
-public function DossierArticle() {
-	$this->Requete('SELECT * FROM Vue_articleMenu WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return $reponse['dossier'];
 }
 
 public function TexteErreur($code) {
@@ -65,11 +58,19 @@ public function Liste_items()		{ return $this->Liste_niveau(2); } // tableau con
 
 public function Liste_sous_items()	{ return $this->Liste_niveau(3); } // tableau contenant le code des sous-items
 
+// fin du code PEUNC
 public function PagesConnexes() {
 	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
 	$reponse = $this->resultat->fetchAll();
 	$this->Fermer();
 	return $reponse;
+}
+
+public function DossierArticle() {
+	$this->Requete('SELECT * FROM Vue_articleMenu WHERE onglet= ? AND item= ? AND sous_item= ?', [$_SESSION['onglet'], $_SESSION['item'], $_SESSION['sous_item']]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return $reponse['dossier'];
 }
 
 }
