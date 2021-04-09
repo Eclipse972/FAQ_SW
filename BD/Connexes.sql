@@ -52,10 +52,10 @@ INSERT INTO `Connexes` (`article_ID`, `texte`, `URL`, `type`) VALUES
 (45, 'Vue d''ensemble des congés', 'sldworks/c_Fillet_Overview.htm', 1),
 (45, 'Création d''une fonction de chanfrein', 'sldworks/HIDD_DVE_FEAT_CHAMFER.htm', 1),
 (51, 'Vues en coupe dans les modèles', 'sldworks/t_section_views_models.htm', 1),
-(57, 'Créer un cylindre par révolution', '/onglet=1&item=5&sous_item=3', 0),
-(61, 'Créer un cylindre par extrusion', '/onglet=1&item=5&sous_item=2', 0),
-(59, 'Créer un tronc de cône par extrusion', '?onglet=1&item=5&sous_item=6', 0),
-(62, 'Créer un tronc de cône par r&eacute;volution', '?onglet=1&item=5&sous_item=5', 0);
+(57, 'Créer un cylindre par révolution', '/alpha=1&item=5&sous_item=3', 0),
+(61, 'Créer un cylindre par extrusion', '/alpha=1&item=5&sous_item=2', 0),
+(59, 'Créer un tronc de cône par extrusion', '?alpha=1&item=5&sous_item=6', 0),
+(62, 'Créer un tronc de cône par r&eacute;volution', '?alpha=1&item=5&sous_item=5', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

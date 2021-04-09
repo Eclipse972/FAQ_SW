@@ -1,7 +1,7 @@
 DROP VIEW IF EXISTS Vue_classePage;
 CREATE VIEW Vue_classePage AS
 SELECT
-	onglet,
+	alpha,
 	item,
 	sous_item,
 	nom

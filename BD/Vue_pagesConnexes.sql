@@ -1,7 +1,7 @@
 DROP VIEW IF EXISTS Vue_pagesConnexes;
 CREATE VIEW Vue_pagesConnexes AS
 SELECT
-	onglet,
+	alpha,
 	item,
 	sous_item,
 	CONCAT(
@@ -20,4 +20,4 @@ SELECT
 	) AS URL
 FROM Items
 INNER JOIN Connexes ON Items.article_ID = Connexes.article_ID
-ORDER BY onglet ASC, item ASC, sous_item ASC, type ASC
+ORDER BY alpha ASC, item ASC, sous_item ASC, type ASC

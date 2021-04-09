@@ -22,13 +22,13 @@ abstract class Page {
 	
 	public function Titre() { echo $this->titre; }
 
-	public function LienFormulaire() { echo " - <a href=\"?onglet=-2\">Me contacter</a>\n"; }
+	public function LienFormulaire() { echo " - <a href=\"?alpha=-2\">Me contacter</a>\n"; }
 
 	public function Onglets() {
 		$T_Onglets = $this->BD->Liste_onglets();
 		echo "<ul>\n";
-		foreach($T_Onglets as $onglet => $code)
-			echo "\t\t<li>", (($onglet == $_SESSION['onglet']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
+		foreach($T_Onglets as $alpha => $code)
+			echo "\t\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
 		echo "\t</ul>\n";
 	}
 
@@ -62,7 +62,7 @@ class PageErreur extends Page {
 
 	public function __construct() {
 		parent::__construct();
-		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
+		$_SESSION['alpha'] = -1;	// aucun alpha sélectionné
 	}
 	// fonctions obligatoires
 	public function CSS() { $this->CodeCSS("erreur"); }
@@ -88,7 +88,6 @@ class PageFormulaire extends Page {
 
 	public function __construct() {
 		parent::__construct();
-		//$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
 		if (empty($_POST)) { // préparation affichage du formulaire
 			
 		} else {	// traitement du formulaire
@@ -167,7 +166,7 @@ class PageArticle extends Page {
 class PageAccueil extends PageArticle {
 	
 	public function __construct() {
-		$_SESSION['onglet'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0;
+		$_SESSION['alpha'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0;
 		parent::__construct();
 	}
 }
@@ -182,7 +181,7 @@ class PageVE extends PageArticle {
 
 	public function SetDossier($dossier) { $this->dossier = $dossier; }
 
-	public function Titre($titre, $VE) { // VE et dossierVE ne sont pas forcément identiques.Exemple: tronc de cône et tronc2cone
+	public function TitreVE($titre, $VE) { // VE et dossierVE ne sont pas forcément identiques.Exemple: tronc de cône et tronc2cone
 		?>
 		<h1>Cr&eacute;er <?=$titre?> </h1>
 		<p>On veut r&eacute;aliser : <img src="Articles/<?=$this->dossier?>/VEcote.png" style="vertical-align:middle; height:300px" alt="<?=$VE?> cot&eacute;"></p>
@@ -204,7 +203,7 @@ class PageVE extends PageArticle {
 		<div id="Phase">
 		<h2>Esquisse cot&eacute;e</h2>
 		<p>Il faut dessiner :<img src="Articles/<?=$this->dossier?>/esquisse.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e"></p>
-		<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<img src="Vue/images/outilsEsquisse.png" alt="Barre d&apos;outils Esquisse"></p>
+		<p>Dans la barre d&apos;outils, cliquez sur l&apos;alpha <b>Esquisse</b> (deuxi&egrave;me alpha) :<img src="Vue/images/outilsEsquisse.png" alt="Barre d&apos;outils Esquisse"></p>
 		<p>Vous aurez besoin des ic&ocirc;nes:</p>
 		<ul>
 		<li>
@@ -228,7 +227,7 @@ class PageVE extends PageArticle {
 		<div id="Phase">
 		<h2>Fonction de mise en volume</h2>
 		<ol>
-		<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;onglet <b>Fonctions</b> (premier onglet) :<img src="Vue/images/fonctions.png" style="vertical-align:middle" alt="Barre d&apos;outils Fonctions."></li>
+		<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;alpha <b>Fonctions</b> (premier alpha) :<img src="Vue/images/fonctions.png" style="vertical-align:middle" alt="Barre d&apos;outils Fonctions."></li>
 		<li>Cliquez sur l&apos;ic&ocirc;ne <b><?=$extrusion ? 'Base/Bossage extrud&eacute;' : 'Base bossage avec r&eacute;volution'?></b>
 		<img src="Vue/images/<?=$extrusion ? 'extrusion' : 'revolution'?>.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne de mise en volume">
 		<?=$extrusion ? ' premi&egrave;re' : ' deuxi&egrave;me'?> ic&ocirc;ne.</li>

@@ -1,7 +1,7 @@
 DROP VIEW IF EXISTS Vue_articleMenu;
 CREATE VIEW Vue_articleMenu AS
 SELECT
-	onglet,
+	alpha,
 	item,
 	sous_item,
 	dossier
