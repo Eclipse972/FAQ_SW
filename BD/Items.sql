@@ -27,21 +27,21 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `Items` (
   `alpha` int(11) NOT NULL,
-  `item` int(11) NOT NULL default '0',
+  `alpha` int(11) NOT NULL default '0',
   `sous_item` int(11) NOT NULL default '0',
   `texte` varchar(50) collate latin1_general_ci NOT NULL,
   `image` varchar(99) collate latin1_general_ci NOT NULL,
   `ptiNom` varchar(99) collate latin1_general_ci NOT NULL,
   `classePageID` int(11) NOT NULL default '1' COMMENT 'identifiant de la classe page',
   `article_ID` int(11) default NULL,
-  UNIQUE KEY `navigation` (`alpha`,`item`,`sous_item`)
+  UNIQUE KEY `navigation` (`alpha`,`alpha`,`sous_item`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Items`
 --
 
-INSERT INTO `Items` (`alpha`, `item`, `sous_item`, `texte`, `image`, `ptiNom`, `classePageID`, `article_ID`) VALUES
+INSERT INTO `Items` (`alpha`, `alpha`, `sous_item`, `texte`, `image`, `ptiNom`, `classePageID`, `article_ID`) VALUES
 (3, 0, 0, 'Assemblage', 'Vue/images/assemblage.png', 'Assemblage', 1, 4),
 (2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'MEP', 1, 3),
 (4, 0, 0, 'Autre', 'Vue/images/autre.png', 'Autre', 1, 5),

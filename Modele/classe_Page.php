@@ -35,9 +35,9 @@ abstract class Page {
 	public function Menu() {
 		$T_item = $this->BD->Liste_items();
 		echo "<nav>\n\t<ul>\n";
-		foreach($T_item as $item => $code) {
-			echo "\t\t<li>", (($item == $_SESSION['item']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
-			if ($item == $_SESSION['item']) {	// sous-menu?
+		foreach($T_item as $beta => $code) {
+			echo "\t\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
+			if ($beta == $_SESSION['beta']) {	// sous-menu?
 				$T_sous_item = $this->BD->Liste_sous_items();
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t\t<ul>\n";
@@ -166,7 +166,7 @@ class PageArticle extends Page {
 class PageAccueil extends PageArticle {
 	
 	public function __construct() {
-		$_SESSION['alpha'] = $_SESSION['item'] = $_SESSION['sous_item'] = 0;
+		$_SESSION['alpha'] = $_SESSION['alpha'] = $_SESSION['sous_item'] = 0;
 		parent::__construct();
 	}
 }

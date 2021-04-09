@@ -21,7 +21,7 @@ private function Requete($requete, array $T_parametre) {
 private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
 public function ClassePage() {
-	$this->Requete('SELECT * FROM Vue_classePage WHERE alpha= ? AND item= ? AND sous_item= ?', [$_SESSION['alpha'], $_SESSION['item'], $_SESSION['sous_item']]);
+	$this->Requete('SELECT * FROM Vue_classePage WHERE alpha= ? AND beta= ? AND sous_item= ?', [$_SESSION['alpha'], $_SESSION['beta'], $_SESSION['sous_item']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['nom'];
@@ -36,12 +36,12 @@ public function TexteErreur($code) {
 
 public function Liste_niveau($niveau) {
 	switch ($niveau) {
-		case 1:	$index = 'alpha';		$expOnglet = '>=0';						$expItem = '= 0';					$signe = '=';	break;
-		case 2:	$index = 'item';		$expOnglet = "= {$_SESSION['alpha']}";	$expItem = '> 0';					$signe = '=';	break;
-		case 3:	$index = 'sous_item';	$expOnglet = "= {$_SESSION['alpha']}";	$expItem = "= {$_SESSION['item']}";	$signe = '>';	break;
+		case 1:	$index = 'alpha';		$expAlpha = '>=0';						$expBeta = '= 0';					$signe = '=';	break;
+		case 2:	$index = 'beta';		$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = '> 0';					$signe = '=';	break;
+		case 3:	$index = 'sous_item';	$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = "= {$_SESSION['beta']}";	$signe = '>';	break;
 		default: header("location:?erreur=3");	// tout autre valeur est rejetée
 	}
-	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE alpha {$expOnglet} AND item {$expItem} AND sous_item {$signe} 0";
+	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE alpha {$expAlpha} AND beta {$expBeta} AND sous_item {$signe} 0";
 	$this->Requete($sql, []);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
@@ -60,14 +60,14 @@ public function Liste_sous_items()	{ return $this->Liste_niveau(3); } // tableau
 
 // fin du code PEUNC
 public function PagesConnexes() {
-	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND item= ? AND sous_item= ?', [$_SESSION['alpha'], $_SESSION['item'], $_SESSION['sous_item']]);
+	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND sous_item= ?', [$_SESSION['alpha'], $_SESSION['beta'], $_SESSION['sous_item']]);
 	$reponse = $this->resultat->fetchAll();
 	$this->Fermer();
 	return $reponse;
 }
 
 public function DossierArticle() {
-	$this->Requete('SELECT * FROM Vue_articleMenu WHERE alpha= ? AND item= ? AND sous_item= ?', [$_SESSION['alpha'], $_SESSION['item'], $_SESSION['sous_item']]);
+	$this->Requete('SELECT * FROM Vue_articleMenu WHERE alpha= ? AND beta= ? AND sous_item= ?', [$_SESSION['alpha'], $_SESSION['beta'], $_SESSION['sous_item']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['dossier'];

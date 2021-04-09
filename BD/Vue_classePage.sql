@@ -2,7 +2,7 @@ DROP VIEW IF EXISTS Vue_classePage;
 CREATE VIEW Vue_classePage AS
 SELECT
 	alpha,
-	item,
+	beta,
 	sous_item,
 	nom
 FROM Items

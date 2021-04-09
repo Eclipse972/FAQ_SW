@@ -10,8 +10,8 @@ require 'Modele/classe_valideur.php';
 session_start();
 /* contexte sauvegardé dans la session
  * alpha		0 => alpha accueil
- * item			0 => pas d'item sélectionné
- * sous_item	0 => pas de sous-item sélectionné
+ * beta			0 => pas d'beta sélectionné
+ * sous_item	0 => pas de sous-beta sélectionné
  *
  * fonctionnalité à venir: article de plusieurs pages
  * page;		0 => page unique
@@ -29,15 +29,15 @@ case 0: // aucun paramètre défini
 	$PAGE = new PageAccueil();
 	break;
 case 1: // alpha défini
-	$T_paramètresURL = array('alpha'=> 0,	'item'=> 0,	'sous_item'=> 0);	// paramètres autorisés
+	$T_paramètresURL = array('alpha'=> 0,	'beta'=> 0,	'sous_item'=> 0);	// paramètres autorisés
 	// récupération des paramètres sans test de validité des valeurs
 	foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
 	switch(  (isset($T_paramètresURL['alpha'])		? 1 : 0)
-			+(isset($T_paramètresURL['item'])		? 2 : 0)
+			+(isset($T_paramètresURL['beta'])		? 2 : 0)
 			+(isset($T_paramètresURL['sous_item'])	? 4 : 0))	{
 		case 1: // alpha
-		case 3: // alpha + item
-		case 7: // alpha + item + sous-item
+		case 3: // alpha + beta
+		case 7: // alpha + beta + sous-item
 			foreach($T_paramètresURL as $clé => $valeur)	$_SESSION[$clé] = $T_paramètresURL[$clé];
 			$BD = new base2donnees;
 			$classePage = $BD->ClassePage();

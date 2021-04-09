@@ -2,7 +2,7 @@ DROP VIEW IF EXISTS Vue_pagesConnexes;
 CREATE VIEW Vue_pagesConnexes AS
 SELECT
 	alpha,
-	item,
+	beta,
 	sous_item,
 	CONCAT(
 		'<a href="',
@@ -20,4 +20,4 @@ SELECT
 	) AS URL
 FROM Items
 INNER JOIN Connexes ON Items.article_ID = Connexes.article_ID
-ORDER BY alpha ASC, item ASC, sous_item ASC, type ASC
+ORDER BY alpha ASC, beta ASC, sous_item ASC, type ASC
