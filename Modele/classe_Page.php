@@ -22,7 +22,7 @@ abstract class Page {
 	
 	public function Titre() { echo $this->titre; }
 
-	public function LienFormulaire() { echo " - <a href=\"?formulaire=1\">Me contacter</a>\n"; }
+	public function LienFormulaire() { echo " - <a href=\"?onglet=-2\">Me contacter</a>\n"; }
 
 	public function Onglets() {
 		$T_Onglets = $this->BD->Liste_onglets();
@@ -88,7 +88,7 @@ class PageFormulaire extends Page {
 
 	public function __construct() {
 		parent::__construct();
-		$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
+		//$_SESSION['onglet'] = -1;	// aucun onglet sélectionné
 		if (empty($_POST)) { // préparation affichage du formulaire
 			
 		} else {	// traitement du formulaire

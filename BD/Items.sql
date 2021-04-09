@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 08 Avril 2021 à 22:26
+-- Généré le : Ven 09 Avril 2021 à 20:25
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -27,13 +27,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `Items` (
   `onglet` int(11) NOT NULL,
-  `item` int(11) NOT NULL,
-  `sous_item` int(11) NOT NULL,
+  `item` int(11) NOT NULL default '0',
+  `sous_item` int(11) NOT NULL default '0',
   `texte` varchar(50) collate latin1_general_ci NOT NULL,
   `image` varchar(99) collate latin1_general_ci NOT NULL,
   `ptiNom` varchar(99) collate latin1_general_ci NOT NULL,
   `classePageID` int(11) NOT NULL default '1' COMMENT 'identifiant de la classe page',
-  `article_ID` int(11) NOT NULL,
+  `article_ID` int(11) default NULL,
   UNIQUE KEY `navigation` (`onglet`,`item`,`sous_item`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -102,7 +102,10 @@ INSERT INTO `Items` (`onglet`, `item`, `sous_item`, `texte`, `image`, `ptiNom`, 
 (1, 5, 5, 'tronc de c&ocirc;ne par r&eacute;volution', 'Vue/images/tronc2cone.png', 'tronc2cone_revolution', 2, 59),
 (1, 5, 7, 'tore', 'Vue/images/tore.png', 'tore', 2, 60),
 (1, 5, 3, 'cylindre par r&eacute;volution', 'Vue/images/cylindre.png', 'cylindre_revolution', 2, 61),
-(1, 5, 6, 'tronc de c&ocirc;ne par extrusion', 'Vue/images/tronc2cone.png', 'tronc2cone_extrusion', 2, 62);
+(1, 5, 6, 'tronc de c&ocirc;ne par extrusion', 'Vue/images/tronc2cone.png', 'tronc2cone_extrusion', 2, 62),
+(-1, 0, 0, 'erreur', '', 'Erreur', 1, 0),
+(-1, 1, 0, '', '', '', 1, NULL),
+(-2, 0, 0, 'Formulaire de contact', '', '', -2, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

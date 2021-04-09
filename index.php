@@ -18,13 +18,12 @@ session_start();
  * */
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 
-$T_paramètresURL = array('onglet'=> 0,	'formulaire'=> 0,	'erreur'=> 0);	// paramètres principaux
+$T_paramètresURL = array('onglet'=> 0,	'erreur'=> 0);	// paramètres principaux
 // récupération des paramètres sans test de validité des valeurs
 foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : null;
 
-switch(  (isset($T_paramètresURL['onglet'])		? 1 : 0)
-		+(isset($T_paramètresURL['formulaire']) ? 2 : 0)
-		+(isset($T_paramètresURL['erreur'])		? 4 : 0))
+switch(  (isset($T_paramètresURL['onglet'])	? 1 : 0)
+		+(isset($T_paramètresURL['erreur'])	? 4 : 0))
 {
 case 0: // aucun paramètre défini
 	$PAGE = new PageAccueil();
@@ -49,9 +48,6 @@ case 1: // onglet défini
 		default: // toutes les autres combinaisons sont rejetées
 			header("location:?erreur=2");
 	}
-	break;
-case 2: // formulaire
-	$PAGE = new PageFormulaire();
 	break;
 case 4: // erreur
 	$PAGE = new PageErreur();

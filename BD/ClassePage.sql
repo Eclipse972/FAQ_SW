@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 08 Avril 2021 à 22:25
+-- Généré le : Ven 09 Avril 2021 à 20:25
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -39,7 +39,10 @@ CREATE TABLE IF NOT EXISTS `ClassePage` (
 INSERT INTO `ClassePage` (`ID`, `nom`, `description`) VALUES
 (1, 'PageArticle', 'Article d''une page'),
 (2, 'PageVE', 'article sur les volumes élémentaires'),
-(0, 'PageAccueil', 'Page sur laquelle on arrive lors de l''absence de paramètre');
+(0, 'PageAccueil', 'Page sur laquelle on arrive lors de l''absence de paramètre'),
+(-1, 'PageErreur', 'Page d''erreur du site'),
+(-2, 'PageFormulaire', 'Formulaire de contact'),
+(-3, 'PageMembre', 'gestion des membres');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
