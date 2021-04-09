@@ -72,10 +72,8 @@ class PageErreur extends Page {
 	public function PagesConnexes() {}
 
 	public function Section() {
-		$code_erreur = intval($_GET['erreur']);
-		$code_erreur = ($this->BD->TexteErreur($code_erreur) == '') ? 0 : $code_erreur;
 ?>
-	<h1>Erreur <?=$code_erreur?>: <?=$this->BD->TexteErreur($code_erreur)?></h1>
+	<h1>Erreur <?=$$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1>
 	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
 	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
 <?php
@@ -138,8 +136,8 @@ class PageArticle extends Page {
 			$chemin = "Articles/{$dossier}/page.html";
 			if (file_exists($chemin))
 				$this->lienArticle = $chemin;
-			else header("location:?erreur=1");
-		} else header("location:?erreur=404");
+			else header("location:?alpha=-1&beta=1");
+		} else header("location:?alpha=-1&beta=404");
 	}
 	// fonctions obligatoires
 	public function CSS()	{ $this->CodeCSS("article"); }

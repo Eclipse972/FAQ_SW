@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Ven 09 Avril 2021 à 20:25
+-- Généré le : Sam 10 Avril 2021 à 00:52
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -27,21 +27,21 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `Items` (
   `alpha` int(11) NOT NULL,
-  `alpha` int(11) NOT NULL default '0',
-  `sous_item` int(11) NOT NULL default '0',
-  `texte` varchar(50) collate latin1_general_ci NOT NULL,
+  `beta` int(11) NOT NULL default '0',
+  `gamma` int(11) NOT NULL default '0',
+  `texte` varchar(99) collate latin1_general_ci NOT NULL,
   `image` varchar(99) collate latin1_general_ci NOT NULL,
   `ptiNom` varchar(99) collate latin1_general_ci NOT NULL,
   `classePageID` int(11) NOT NULL default '1' COMMENT 'identifiant de la classe page',
   `article_ID` int(11) default NULL,
-  UNIQUE KEY `navigation` (`alpha`,`alpha`,`sous_item`)
+  UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Contenu de la table `Items`
 --
 
-INSERT INTO `Items` (`alpha`, `alpha`, `sous_item`, `texte`, `image`, `ptiNom`, `classePageID`, `article_ID`) VALUES
+INSERT INTO `Items` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `classePageID`, `article_ID`) VALUES
 (3, 0, 0, 'Assemblage', 'Vue/images/assemblage.png', 'Assemblage', 1, 4),
 (2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'MEP', 1, 3),
 (4, 0, 0, 'Autre', 'Vue/images/autre.png', 'Autre', 1, 5),
@@ -103,9 +103,14 @@ INSERT INTO `Items` (`alpha`, `alpha`, `sous_item`, `texte`, `image`, `ptiNom`, 
 (1, 5, 7, 'tore', 'Vue/images/tore.png', 'tore', 2, 60),
 (1, 5, 3, 'cylindre par r&eacute;volution', 'Vue/images/cylindre.png', 'cylindre_revolution', 2, 61),
 (1, 5, 6, 'tronc de c&ocirc;ne par extrusion', 'Vue/images/tronc2cone.png', 'tronc2cone_extrusion', 2, 62),
-(-1, 0, 0, 'erreur', '', 'Erreur', 1, 0),
-(-1, 1, 0, '', '', '', 1, NULL),
-(-2, 0, 0, 'Formulaire de contact', '', '', -2, NULL);
+(-1, 0, 0, 'Erreur inconnue', '', 'Erreur', 1, 0),
+(-1, 1, 0, 'Article inexistant ou disparu', '', '', 1, NULL),
+(-2, 0, 0, 'Formulaire de contact', '', '', -2, NULL),
+(-1, 2, 0, 'Param&egrave;tres de l&apos;article incorrects', '', '', 1, NULL),
+(-1, 403, 0, 'Acc&egrave;s interdit', '', '', 1, NULL),
+(-1, 404, 0, 'Cette page n&apos;existe pas', '', '', 1, NULL),
+(-1, 500, 0, 'Serveur satur&eacute;, essayez de recharger la page', '', '', 1, NULL),
+(-1, 30, 0, 'variable niveau incorrecte dans la BD', '', '', 1, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

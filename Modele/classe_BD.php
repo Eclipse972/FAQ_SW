@@ -27,8 +27,8 @@ public function ClassePage() {
 	return $reponse['nom'];
 }
 
-public function TexteErreur($code) {
-	$this->Requete('SELECT texte FROM Erreur WHERE code= ?', [$code]);
+public function TexteErreur() {
+	$this->Requete('SELECT texte FROM Items WHERE alpha=-1 AND beta= ?', [$_SESSION['beta']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['texte'];
@@ -39,7 +39,7 @@ public function Liste_niveau($niveau) {
 		case 1:	$index = 'alpha';	$expAlpha = '>=0';						$expBeta = '= 0';					$signe = '=';	break;
 		case 2:	$index = 'beta';	$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = '> 0';					$signe = '=';	break;
 		case 3:	$index = 'gamma';	$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = "= {$_SESSION['beta']}";	$signe = '>';	break;
-		default: header("location:?erreur=3");	// tout autre valeur est rejetée
+		default: header("location:?alpha=-1&beta=3");	// tout autre valeur est rejetée
 	}
 	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE alpha {$expAlpha} AND beta {$expBeta} AND gamma {$signe} 0";
 	$this->Requete($sql, []);

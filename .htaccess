@@ -1,6 +1,6 @@
-ErrorDocument 403 http://faq.sw.free.fr/?erreur=403
-ErrorDocument 404 http://faq.sw.free.fr/?erreur=404
-ErrorDocument 500 http://faq.sw.free.fr/?erreur=500
+ErrorDocument 403 http://faq.sw.free.fr/?alpha=-1&beta=403
+ErrorDocument 404 http://faq.sw.free.fr/?alpha=-1&beta=404
+ErrorDocument 500 http://faq.sw.free.fr/?alpha=-1&beta=500
 
 <IfDefine Free>
 php56 1

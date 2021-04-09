@@ -17,43 +17,15 @@ session_start();
  * page;		0 => page unique
  * */
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
+$T_paramètresURL = array('alpha', 'beta', 'gamma');	// paramètres principaux
 
-$T_paramètresURL = array('alpha'=> 0,	'erreur'=> 0);	// paramètres principaux
-// récupération des paramètres sans test de validité des valeurs
-foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : null;
+foreach($T_paramètresURL as $valeur)								// récupération des paramètres
+	$_SESSION[$valeur] = (isset($_GET[$valeur])) ? intval($_GET[$valeur]) : 0;// sans test de validité des valeurs
 
-switch(  (isset($T_paramètresURL['alpha'])	? 1 : 0)
-		+(isset($T_paramètresURL['erreur'])	? 4 : 0))
-{
-case 0: // aucun paramètre défini
-	$PAGE = new PageAccueil();
-	break;
-case 1: // alpha défini
-	$T_paramètresURL = array('alpha'=> 0,	'beta'=> 0,	'gamma'=> 0);	// paramètres autorisés
-	// récupération des paramètres sans test de validité des valeurs
-	foreach($T_paramètresURL as $clé => $valeur)	$T_paramètresURL[$clé] = (isset($_GET[$clé])) ? intval($_GET[$clé]) : 0;
-	switch(  (isset($T_paramètresURL['alpha'])	? 1 : 0)
-			+(isset($T_paramètresURL['beta'])	? 2 : 0)
-			+(isset($T_paramètresURL['gamma'])	? 4 : 0))	{
-		case 1: // alpha
-		case 3: // alpha + beta
-		case 7: // alpha + beta + gamma
-			foreach($T_paramètresURL as $clé => $valeur)	$_SESSION[$clé] = $T_paramètresURL[$clé];
-			$BD = new base2donnees;
-			$classePage = $BD->ClassePage();
-			if (isset($classePage))
-				$PAGE = new $classePage;
-			else header("location:?erreur=404");
-			break;
-		default: // toutes les autres combinaisons sont rejetées
-			header("location:?erreur=2");
-	}
-	break;
-case 4: // erreur
-	$PAGE = new PageErreur();
-	break;
-default: // toutes les autres combinaisons sont rejetées
-	header("location:?erreur=404");
-}
+$BD = new base2donnees;
+$classePage = $BD->ClassePage();
+if (isset($classePage))
+	$PAGE = new $classePage;
+else header("location:?alpha=-1&beta=404");
 
-include"Vue/doctype.html";	// utilise les métode de l'objet page
+include"Vue/doctype.html";	// utilise les méthodes de l'objet page
