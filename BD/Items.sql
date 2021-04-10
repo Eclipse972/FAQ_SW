@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Sam 10 Avril 2021 à 00:52
+-- Généré le : Sam 10 Avril 2021 à 01:59
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -103,14 +103,14 @@ INSERT INTO `Items` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `clas
 (1, 5, 7, 'tore', 'Vue/images/tore.png', 'tore', 2, 60),
 (1, 5, 3, 'cylindre par r&eacute;volution', 'Vue/images/cylindre.png', 'cylindre_revolution', 2, 61),
 (1, 5, 6, 'tronc de c&ocirc;ne par extrusion', 'Vue/images/tronc2cone.png', 'tronc2cone_extrusion', 2, 62),
-(-1, 0, 0, 'Erreur inconnue', '', 'Erreur', 1, 0),
-(-1, 1, 0, 'Article inexistant ou disparu', '', '', 1, NULL),
-(-2, 0, 0, 'Formulaire de contact', '', '', -2, NULL),
-(-1, 2, 0, 'Param&egrave;tres de l&apos;article incorrects', '', '', 1, NULL),
-(-1, 403, 0, 'Acc&egrave;s interdit', '', '', 1, NULL),
-(-1, 404, 0, 'Cette page n&apos;existe pas', '', '', 1, NULL),
-(-1, 500, 0, 'Serveur satur&eacute;, essayez de recharger la page', '', '', 1, NULL),
-(-1, 30, 0, 'variable niveau incorrecte dans la BD', '', '', 1, NULL);
+(-1, 0, 0, 'Erreur inconnue', '', 'Erreur', -1, NULL),
+(-1, 1, 0, 'Article inexistant ou disparu', '', 'Article_inexistant', -1, NULL),
+(-2, 0, 0, 'Formulaire de contact', '', 'Contact', -2, NULL),
+(-1, 2, 0, 'Param&egrave;tres de l&apos;article incorrects', '', 'Parametres_article', -1, NULL),
+(-1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', -1, NULL),
+(-1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', -1, NULL),
+(-1, 500, 0, 'Serveur satur&eacute;, essayez de recharger la page', '', 'Serveur_sature', -1, NULL),
+(-1, 30, 0, 'variable niveau incorrecte dans la BD', '', 'Niveau_incorrect', -1, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
