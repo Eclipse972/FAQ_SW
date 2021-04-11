@@ -18,6 +18,6 @@ SELECT
 		IF (Connexes.type = 0,'','target="_blank"'),
 		'>',Connexes.texte,'</a>'
 	) AS URL
-FROM Items
-INNER JOIN Connexes ON Items.article_ID = Connexes.article_ID
+FROM Squelette
+INNER JOIN Connexes ON Squelette.article_ID = Connexes.article_ID
 ORDER BY alpha ASC, beta ASC, gamma ASC, type ASC

@@ -7,5 +7,5 @@ SELECT
 	Lien(CONCAT(IF(image = '','',CONCAT('<img src="',image,'" alt="',texte,'">')), #-- code de l'image
 				texte),
 		alpha, beta, gamma) AS code
-FROM Items
+FROM Squelette
 ORDER BY alpha ASC, beta ASC, gamma ASC

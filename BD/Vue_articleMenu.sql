@@ -5,5 +5,5 @@ SELECT
 	beta,
 	gamma,
 	dossier
-FROM Items
-INNER JOIN Articles ON Articles.ID = Items.article_ID
+FROM Squelette
+INNER JOIN Articles ON Articles.ID = Squelette.article_ID

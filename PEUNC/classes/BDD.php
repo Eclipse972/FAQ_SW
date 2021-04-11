@@ -30,7 +30,7 @@ public function ClassePage() {
 }
 
 public function TexteErreur() {
-	$this->Requete('SELECT texte FROM Items WHERE alpha=-1 AND beta= ?', [$_SESSION['beta']]);
+	$this->Requete('SELECT texte FROM Squelette WHERE alpha=-1 AND beta= ?', [$_SESSION['beta']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['texte'];

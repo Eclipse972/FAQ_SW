@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 11 Avril 2021 à 14:45
+-- Généré le : Dim 11 Avril 2021 à 16:05
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -22,10 +22,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Items`
+-- Structure de la table `Squelette`
 --
 
-CREATE TABLE IF NOT EXISTS `Items` (
+CREATE TABLE IF NOT EXISTS `Squelette` (
   `alpha` int(11) NOT NULL,
   `beta` int(11) NOT NULL default '0',
   `gamma` int(11) NOT NULL default '0',
@@ -38,10 +38,10 @@ CREATE TABLE IF NOT EXISTS `Items` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Contenu de la table `Items`
+-- Contenu de la table `Squelette`
 --
 
-INSERT INTO `Items` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `classePageID`, `article_ID`) VALUES
+INSERT INTO `Squelette` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `classePageID`, `article_ID`) VALUES
 (3, 0, 0, 'Assemblage', 'Vue/images/assemblage.png', 'Assemblage', 1, 4),
 (2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'MEP', 1, 3),
 (4, 0, 0, 'Autre', 'Vue/images/autre.png', 'Autre', 1, 5),

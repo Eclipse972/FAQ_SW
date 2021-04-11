@@ -5,5 +5,5 @@ SELECT
 	beta,
 	gamma,
 	nom
-FROM Items
-INNER JOIN ClassePage ON ClassePage.ID = Items.classePageID
+FROM Squelette
+INNER JOIN ClassePage ON ClassePage.ID = Squelette.classePageID
