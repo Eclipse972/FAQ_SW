@@ -1,6 +1,7 @@
 <?php
 // classes pages de PEUNC
-abstract class Page {
+abstract class PagePEUNC
+{
 
 	protected $BD;
 	protected $logo;
@@ -58,30 +59,22 @@ abstract class Page {
 }
 
 // Classes filles
-class PageErreur extends Page {
-
-	public function __construct() {
-		parent::__construct();
-		$_SESSION['alpha'] = -1;	// aucun alpha sélectionné
-	}
-	// fonctions obligatoires
+class ErreurPEUNC extends PagePEUNC
+{
 	public function CSS() { $this->CodeCSS("erreur"); }
 
 	public function Menu() { echo "<nav></nav>"; }
 
 	public function PagesConnexes() {}
 
-	public function Section() {
-?>
-	<h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1>
-	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
-	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
-<?php
+	public function Section()
+	{
+		?><h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1><?php
 	}
-	// fin de fonctions obligatoires
 }
 
-class PageFormulaire extends Page {
+class FormulairePEUNC extends PagePEUNC
+{
 	// la valeur du paramètre formulaire n'a aucune incidence car elle n'est pas lue
 
 	public function __construct() {

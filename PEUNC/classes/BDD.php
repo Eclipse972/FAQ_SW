@@ -1,7 +1,8 @@
 <?php
 // BDD de PEUNC
 
-class BDD {
+class BDD_PEUNC
+{
 protected $resultat;
 protected $BD; // PDO initialisé dans connexion.php
 

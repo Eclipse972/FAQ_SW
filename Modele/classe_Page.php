@@ -1,5 +1,6 @@
 <?php
-class PageArticle extends Page {
+class PageArticle extends PagePEUNC
+{
 	protected $lienArticle;
 
 	public function __construct() {
@@ -33,7 +34,8 @@ class PageArticle extends Page {
 	// fin des fonctions obligatoire
 }
 
-class PageVE extends PageArticle {
+class PageVE extends PageArticle
+{
 	private $dossier;
 
 	public function CSS()	{
@@ -105,5 +107,17 @@ class PageVE extends PageArticle {
 		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 		</div>
 		<?php /* <a href="Articles/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a> */
+	}
+}
+
+class PageErreur extends ErreurPEUNC
+{
+	public function Section()
+	{
+		parent::Section();
+		?>
+		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
+		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
+		<?php
 	}
 }
