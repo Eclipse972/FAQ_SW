@@ -4,6 +4,7 @@
 ************************************************************************************************************************************/
 // PEUNC
 require 'PEUNC/classes/Page.php';
+require 'PEUNC/classes/BDD.php';
 // fin PEUNC
 
 require 'Modele/classe_BD.php';
