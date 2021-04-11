@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Sam 10 Avril 2021 à 01:59
+-- Généré le : Dim 11 Avril 2021 à 14:45
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -45,7 +45,7 @@ INSERT INTO `Items` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `clas
 (3, 0, 0, 'Assemblage', 'Vue/images/assemblage.png', 'Assemblage', 1, 4),
 (2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'MEP', 1, 3),
 (4, 0, 0, 'Autre', 'Vue/images/autre.png', 'Autre', 1, 5),
-(0, 0, 0, 'Accueil', 'Vue/images/accueil.png', 'Accueil', 0, 1),
+(0, 0, 0, 'Accueil', 'Vue/images/accueil.png', 'Accueil', 1, 1),
 (1, 0, 0, 'Pi&egrave;ce', 'Vue/images/piece.png', 'Piece', 1, 2),
 (0, 1, 0, 'Qui suis-je?', '', 'moi', 1, 6),
 (0, 2, 0, 'Retrouver un article', '', 'rechercher', 1, 7),
@@ -67,15 +67,15 @@ INSERT INTO `Items` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `clas
 (3, 4, 0, 'Cr&eacute;er un &eacute;clat&eacute;', 'Vue/images/icone_eclater_rassembler.png', 'eclater', 1, 23),
 (3, 5, 0, 'Cr&eacute;er un &eacute;corch&eacute;', '', 'ecorcher', 1, 24),
 (4, 1, 0, 'Les zooms', '', 'zoom', 1, 25),
-(4, 2, 0, 'Ouvrir un fichier', 'Vue/images/icone_ouvrir.png', 'ouvrif_fichier', 1, 26),
+(4, 2, 0, 'Ouvrir un fichier', 'Vue/images/icone_ouvrir.png', 'ouvrir_fichier', 1, 26),
 (4, 3, 0, 'M&eacute;canique graphique', '', 'meca', 1, 27),
-(4, 4, 0, 'Mon casier nm&eacute;rique', 'Vue/images/casier.png', 'monCasier', 1, 28),
-(4, 1, 1, 'zoom fen&ecirc;tre', 'Vue/images/zoomFenetre.png', 'zoomFenetre', 1, 32),
-(4, 1, 2, 'ajuster le zoom', '', 'ajusterZoom', 1, 29),
-(4, 1, 3, 'zoom au mieux', 'Vue/images/zoomOmieux.png', 'zoomOmieux', 1, 31),
+(4, 4, 0, 'Mon casier nm&eacute;rique', 'Vue/images/casier.png', 'Casier_numerique', 1, 28),
+(4, 1, 1, 'zoom fen&ecirc;tre', 'Vue/images/zoomFenetre.png', 'Fenetre', 1, 32),
+(4, 1, 2, 'ajuster le zoom', '', 'ajuster', 1, 29),
+(4, 1, 3, 'zoom au mieux', 'Vue/images/zoomOmieux.png', 'au_mieux', 1, 31),
 (1, 1, 1, 'outils d&apos;esquisse', '', 'outilDesquisse', 1, 33),
 (1, 1, 2, 'plan d&apos;esquisse', '', 'planDesuisse', 1, 34),
-(2, 2, 1, 'les vues standards', '', 'vueStandard', 1, 35),
+(2, 2, 1, 'les vues standards', '', 'vue_standard', 1, 35),
 (2, 2, 2, 'vue en coupe', '', 'coupe', 1, 36),
 (2, 2, 3, 'perspective personnalis&eacute;e', '', '3Dperso', 1, 37),
 (1, 2, 1, 'Extrusion', 'Vue/images/extrusion.png', 'extrusion', 1, 38),
@@ -84,12 +84,12 @@ INSERT INTO `Items` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `clas
 (1, 2, 4, 'Symétrie', 'Vue/images/symetrie.png', 'symetrie', 1, 41),
 (1, 2, 7, 'Assistance pour le per&ccedil;age', 'Vue/images/percage.png', 'percage', 1, 44),
 (1, 2, 8, 'Cong&eacute et chanfrein', 'Vue/images/conge.png', 'conge_chanfrein', 1, 45),
-(1, 2, 5, 'R&eacute;p&eacute;tition lin&eacute;aire', 'Vue/images/repetition_lineaire.png', 'repetitionLineaire', 1, 42),
-(1, 2, 6, 'R&eacute;p&eacute;tition circulaire', 'Vue/images/repetition_circulaire.png', 'repetitionCirculaire', 1, 43),
-(1, 1, 3, 'cotation intelligente', 'Vue/images/cotation.png', 'cotationIntelligente', 1, 46),
+(1, 2, 5, 'R&eacute;p&eacute;tition lin&eacute;aire', 'Vue/images/repetition_lineaire.png', 'repetition_lineaire', 1, 42),
+(1, 2, 6, 'R&eacute;p&eacute;tition circulaire', 'Vue/images/repetition_circulaire.png', 'repetition_circulaire', 1, 43),
+(1, 1, 3, 'cotation intelligente', 'Vue/images/cotation.png', 'cotation_intelligente', 1, 46),
 (1, 1, 4, 'contrainte d&apos;esquisse', '', 'contrainteDesquisse', 1, 47),
 (1, 1, 5, 'ligne de construction', 'Vue/images/ligne2construction.png', 'ligne2construction', 1, 48),
-(1, 1, 6, 'code couleur', '', 'codeCouleur', 1, 49),
+(1, 1, 6, 'code couleur', '', 'code_couleur', 1, 49),
 (1, 3, 1, 'tourner et d&eacute;placer', '', 'tourner_deplacer', 1, 50),
 (1, 3, 2, 'couper une pi&egrave;ce', 'Vue/images/couper_piece.png', 'couper_piece', 1, 51),
 (1, 3, 3, 'transparence ou couleur', '', 'transparence_couleur', 1, 52),
@@ -110,7 +110,7 @@ INSERT INTO `Items` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `clas
 (-1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', -1, NULL),
 (-1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', -1, NULL),
 (-1, 500, 0, 'Serveur satur&eacute;, essayez de recharger la page', '', 'Serveur_sature', -1, NULL),
-(-1, 30, 0, 'variable niveau incorrecte dans la BD', '', 'Niveau_incorrect', -1, NULL);
+(-1, 3, 0, 'variable niveau incorrecte dans la BD', '', 'Niveau_incorrect', -1, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
