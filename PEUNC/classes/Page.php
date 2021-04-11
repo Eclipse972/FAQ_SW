@@ -2,7 +2,6 @@
 // classes pages de PEUNC
 abstract class PagePEUNC
 {
-
 	protected $BD;
 	protected $logo;
 	protected $titre;
@@ -11,7 +10,8 @@ abstract class PagePEUNC
 	abstract public function Section();
 	abstract public function PagesConnexes();	// page en lien sur le site
 
-	public function __construct() {
+	public function __construct()
+	{
 		$this->BD = new base2donnees;
 		$this->logo = "Vue/images/logo.png";
 		$this->titre = "Foire Aux Questions SolidWorks de ChristopHe";
@@ -25,7 +25,8 @@ abstract class PagePEUNC
 
 	public function LienFormulaire() { echo " - <a href=\"?alpha=-2\">Me contacter</a>\n"; }
 
-	public function Onglets() {
+	public function Onglets()
+	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
@@ -33,7 +34,8 @@ abstract class PagePEUNC
 		echo "\t</ul>\n";
 	}
 
-	public function Menu() {
+	public function Menu()
+	{
 		$T_item = $this->BD->Liste_niveau(2);
 		echo "<nav>\n\t<ul>\n";
 		foreach($T_item as $beta => $code) {
@@ -51,7 +53,8 @@ abstract class PagePEUNC
 		echo "\t</ul>\n</nav>\n";
 	}
 
-	public function ArticlesConnexes() {
+	public function ArticlesConnexes()
+	{
 		echo "<aside>\n";
 		$this->PagesConnexes();
 		echo "</aside>\n";
@@ -63,23 +66,18 @@ class ErreurPEUNC extends PagePEUNC
 {
 	public function CSS() { $this->CodeCSS("erreur"); }
 
-	public function Menu() { echo "<nav></nav>"; }
+	public function Menu()	{ ?><nav></nav><?php } // génère une colonne vide
 
 	public function PagesConnexes() {}
 
-	public function Section()
-	{
-		?><h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1><?php
-	}
+	public function Section()	{ ?><h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1><?php	}
 }
 
 class FormulairePEUNC extends PagePEUNC
 {
-	// la valeur du paramètre formulaire n'a aucune incidence car elle n'est pas lue
-
 	public function __construct() {
 		parent::__construct();
-		if (empty($_POST)) { // préparation affichage du formulaire
+		if (empty($_POST))	{ // préparation affichage du formulaire
 
 		} else {	// traitement du formulaire
 
@@ -88,33 +86,38 @@ class FormulairePEUNC extends PagePEUNC
 	// fonctions obligatoires
 	public function CSS() { $this->CodeCSS("formulaire"); }
 
-	public function Menu() { echo "<nav></nav>"; }
+	public function Menu()	{ ?><nav></nav><?php } // génère une colonne vide
 
 	public function PagesConnexes() {}
 
-	public function Section() {
-?>
+	public function Section()
+	{
+	?>
 	<h1>Formulaire en construction</h1>
 	<form method="post" action="?formulaire=1" id=formulaire>
-		<p>Nom : <input 	 type="text" name="nom" /></p>
-		<p>Courriel : <input type="email" name="courriel" /></p>
-		<p>Objet : <input	 type="text" name="objet" /></p>
-		<p>Message : <textarea name="message" rows="6"></textarea></p>
-		<div id=validation>
-			<p>Validation du formulaire</p>
-			<ul>
-			<?php $this->Afficher_validation();?>
-			</ul>
-			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
-		</div>
+		<p>Nom		<input type="text"	name="nom"		/></p>
+		<p>Courriel	<input type="email" name="courriel" /></p>
+		<p>Objet	<input type="text"	name="objet"	/></p>
+		<p>Message	<textarea name="message" rows="6"></textarea></p>
+		<?=$this->Afficher_validation();?>
 		<p style="text-align:center;">
 			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
 		</p>
 	</form>
-<?php
+	<?php
 	}
 	// fin de fonctions obligatoires
-	public function Afficher_validation() {}
+	public function Afficher_validation()
+	{
+	?><div id=validation>
+			<p>Validation du formulaire</p>
+			<ul>
 
-	public function LienFormulaire() { echo ""; }
+			</ul>
+			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
+		</div>
+	<?php
+	}
+
+	public function LienFormulaire() {}
 }
