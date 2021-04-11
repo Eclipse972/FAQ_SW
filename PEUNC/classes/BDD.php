@@ -1,5 +1,7 @@
 <?php
-class BDD { // chaque requête doit commencer par une nouvelle connexion. =< utilisation de new à chaque appael
+// BDD de PEUNC
+
+class BDD {
 protected $resultat;
 protected $BD; // PDO initialisé dans connexion.php
 
