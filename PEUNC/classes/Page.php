@@ -92,33 +92,29 @@ class ContactPEUNC extends PagePEUNC
 
 	public function Section()
 	{
-	?>
-	<h1>Formulaire en construction</h1>
+?><h1>Formulaire en construction</h1>
 	<form method="post" action="?formulaire=1" id=formulaire>
 		<p>Nom		<input type="text"	name="nom"		/></p>
 		<p>Courriel	<input type="email" name="courriel" /></p>
 		<p>Objet	<input type="text"	name="objet"	/></p>
 		<p>Message	<textarea name="message" rows="6"></textarea></p>
-		<?=$this->Afficher_validation()?>
+		<div id=validation>
+			<p>Validation du formulaire</p>
+			<ol><?=$this->Afficher_validation()?>
+			</ol>
+			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
+		</div>
 		<p style="text-align:center;">
 			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
 		</p>
 	</form>
-	<?php
+<?php
 	}
 
 	public function Afficher_validation()
 	{
-	?><div id=validation>
-			<p>Validation du formulaire</p>
-			<ol>
-			<?php
-				for($i=0;$i<5;$i++)	echo "<li>critère</li>\n";
-			?>
-			</ol>
-			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
-		</div>
-	<?php
+		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
+		echo "\n";
 	}
 
 	public function LienFormulaire() {}
