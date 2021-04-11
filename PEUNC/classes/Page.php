@@ -73,7 +73,7 @@ class ErreurPEUNC extends PagePEUNC
 	public function Section()	{ ?><h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1><?php	}
 }
 
-class FormulairePEUNC extends PagePEUNC
+class ContactPEUNC extends PagePEUNC
 {
 	public function __construct() {
 		parent::__construct();
@@ -83,7 +83,7 @@ class FormulairePEUNC extends PagePEUNC
 
 		}
 	}
-	// fonctions obligatoires
+
 	public function CSS() { $this->CodeCSS("formulaire"); }
 
 	public function Menu()	{ ?><nav></nav><?php } // génère une colonne vide
@@ -99,21 +99,23 @@ class FormulairePEUNC extends PagePEUNC
 		<p>Courriel	<input type="email" name="courriel" /></p>
 		<p>Objet	<input type="text"	name="objet"	/></p>
 		<p>Message	<textarea name="message" rows="6"></textarea></p>
-		<?=$this->Afficher_validation();?>
+		<?=$this->Afficher_validation()?>
 		<p style="text-align:center;">
 			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
 		</p>
 	</form>
 	<?php
 	}
-	// fin de fonctions obligatoires
+
 	public function Afficher_validation()
 	{
 	?><div id=validation>
 			<p>Validation du formulaire</p>
-			<ul>
-
-			</ul>
+			<ol>
+			<?php
+				for($i=0;$i<5;$i++)	echo "<li>critère</li>\n";
+			?>
+			</ol>
 			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
 		</div>
 	<?php
