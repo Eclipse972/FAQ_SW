@@ -17,13 +17,13 @@ abstract class PagePEUNC
 		$this->titre = "Foire Aux Questions SolidWorks de ChristopHe";
 	}
 
-	public function CodeCSS($nom)	{ echo "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n"; }
+	public function CodeCSS($nom)	{	?><link rel="stylesheet" href="Vue/<?=$nom?>.css" /><?php	}
 
 	public function hearderLogo() { echo $this->logo; }
 
 	public function headerTitre() { echo $this->titre; }
 
-	public function LienFormulaire() { echo " - <a href=\"?alpha=-2\">Me contacter</a>\n"; }
+	public function LienFormulaire()	{	?> - <a href="?alpha=-2">Me contacter</a><?php	}
 
 	public function Onglets()
 	{
