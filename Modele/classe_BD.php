@@ -51,13 +51,6 @@ public function Liste_niveau($niveau) {
 	$this->Fermer();
 	return $tableau;
 }
-
-public function Liste_onglets()		{ return $this->Liste_niveau(1); } // tableau contenant le code des onglets
-
-public function Liste_items()		{ return $this->Liste_niveau(2); } // tableau contenant le code des items
-
-public function Liste_sous_items()	{ return $this->Liste_niveau(3); } // tableau contenant le code des sous-items
-
 // fin du code PEUNC
 public function PagesConnexes() {
 	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']]);

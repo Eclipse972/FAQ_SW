@@ -25,7 +25,7 @@ abstract class Page {
 	public function LienFormulaire() { echo " - <a href=\"?alpha=-2\">Me contacter</a>\n"; }
 
 	public function Onglets() {
-		$T_Onglets = $this->BD->Liste_onglets();
+		$T_Onglets = $this->BD->Liste_niveau(1);
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
 			echo "\t\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
@@ -33,12 +33,12 @@ abstract class Page {
 	}
 
 	public function Menu() {
-		$T_item = $this->BD->Liste_items();
+		$T_item = $this->BD->Liste_niveau(2);
 		echo "<nav>\n\t<ul>\n";
 		foreach($T_item as $beta => $code) {
 			echo "\t\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
 			if ($beta == $_SESSION['beta']) {	// sous-menu?
-				$T_sous_item = $this->BD->Liste_sous_items();
+				$T_sous_item = $this->BD->Liste_niveau(3);
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
