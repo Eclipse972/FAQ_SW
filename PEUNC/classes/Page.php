@@ -18,9 +18,9 @@ abstract class Page {
 
 	public function CodeCSS($nom)	{ echo "<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n"; }
 
-	public function Logo() { echo $this->logo; }
+	public function hearderLogo() { echo $this->logo; }
 
-	public function Titre() { echo $this->titre; }
+	public function headerTitre() { echo $this->titre; }
 
 	public function LienFormulaire() { echo " - <a href=\"?alpha=-2\">Me contacter</a>\n"; }
 
