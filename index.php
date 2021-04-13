@@ -1,5 +1,8 @@
 <?php
-require 'PEUNC/classes/Page.php';	require 'PEUNC/classes/BDD.php'; // utilisation de PEUNC
+ // contrôleur principal de PEUNC
+ 
+require 'PEUNC/classes/Page.php';
+require 'PEUNC/classes/BDD.php';
 
 include "classesUtilisateur.php";
 
@@ -14,7 +17,6 @@ session_start();
 	(X;Y;Z) avec Z>0 => page de 3e niveau
 	Toute autre configuration provoque une erreur 404
 */
-$TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 $T_paramètresURL = array('alpha', 'beta', 'gamma');	// paramètres principaux
 
 foreach($T_paramètresURL as $valeur)								// récupération des paramètres
