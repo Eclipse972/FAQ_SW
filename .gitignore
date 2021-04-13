@@ -5,3 +5,6 @@ connexion.php
 
 # les archives zip dont certaines dépassent les 100Mo. Limite de github
 *.zip
+
+# les copies de sauvegarde
+*~
