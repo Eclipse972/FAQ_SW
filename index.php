@@ -1,9 +1,7 @@
 <?php
 require 'PEUNC/classes/Page.php';	require 'PEUNC/classes/BDD.php'; // utilisation de PEUNC
 
-require 'Modele/classe_BD.php';
-require 'Modele/classe_traceur.php';
-require 'Modele/classe_Page.php';
+include "classesUtilisateur.php";
 
 session_start();
 /* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
