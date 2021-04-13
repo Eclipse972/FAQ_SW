@@ -10,7 +10,6 @@ require 'PEUNC/classes/BDD.php';
 require 'Modele/classe_BD.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_Page.php';
-require 'Modele/classe_valideur.php';
 
 session_start();
 /* contexte sauvegardé dans la session

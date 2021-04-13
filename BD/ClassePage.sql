@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 11 Avril 2021 à 17:10
+-- Généré le : Mar 13 Avril 2021 à 10:35
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -40,7 +40,7 @@ INSERT INTO `ClassePage` (`ID`, `nom`, `description`) VALUES
 (1, 'PageArticle', 'Article d''une page'),
 (2, 'PageVE', 'article sur les volumes élémentaires'),
 (-1, 'PageErreur', 'Page d''erreur du site'),
-(-2, 'ContactPEUNC', 'Formulaire de contact'),
+(-2, 'PageContact', 'Formulaire de contact'),
 (-3, 'PageMembre', 'gestion des membres');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

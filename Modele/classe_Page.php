@@ -1,10 +1,14 @@
 <?php
-class PageArticle extends PagePEUNC
-{
+use PEUNC\classes\Page			as PagePEUNC;
+use PEUNC\classes\PageErreur	as PageErreurPEUNC;
+use PEUNC\classes\PageContact	as PageContactPEUNC;
+
+class PageArticle extends PagePEUNC {
 	protected $lienArticle;
 
 	public function __construct() {
 		parent::__construct();
+		$this->BD = new base2donnees;	// pour utiliser les nouvelles méthodes de la classe fille
 		$dossier = $this->BD->DossierArticle();
 		if (isset($dossier)) {
 			$chemin = "Articles/{$dossier}/page.html";
@@ -31,7 +35,6 @@ class PageArticle extends PagePEUNC
 				echo "</ul>\n";
 		}
 	}
-	// fin des fonctions obligatoire
 }
 
 class PageVE extends PageArticle
@@ -110,7 +113,7 @@ class PageVE extends PageArticle
 	}
 }
 
-class PageErreur extends ErreurPEUNC
+class PageErreur extends PageErreurPEUNC
 {
 	public function Section()
 	{
@@ -119,5 +122,12 @@ class PageErreur extends ErreurPEUNC
 		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
 		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
 		<?php
+	}
+}
+
+class PageContact extends PageContactPEUNC {
+	public function __construct() {
+		parent::__construct();
+		$this->titre = 'Formulaire en construction';
 	}
 }

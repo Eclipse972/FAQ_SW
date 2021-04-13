@@ -1,7 +1,8 @@
 <?php
 // classes pages de PEUNC
-abstract class PagePEUNC
-{
+namespace PEUNC\classes;
+
+abstract class Page {
 	protected $BD;
 	protected $logo;
 	protected $titre;
@@ -10,9 +11,8 @@ abstract class PagePEUNC
 	abstract public function Section();
 	abstract public function PagesConnexes();	// page en lien sur le site
 
-	public function __construct()
-	{
-		$this->BD = new base2donnees;
+	public function __construct()	{
+		$this->BD = new BDD;
 		$this->logo = "Vue/images/logo.png";
 		$this->titre = "Foire Aux Questions SolidWorks de ChristopHe";
 	}
@@ -25,8 +25,7 @@ abstract class PagePEUNC
 
 	public function LienFormulaire()	{	?> - <a href="?alpha=-2">Me contacter</a><?php	}
 
-	public function Onglets()
-	{
+	public function Onglets()	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
@@ -34,8 +33,7 @@ abstract class PagePEUNC
 		echo "\t</ul>\n";
 	}
 
-	public function Menu()
-	{
+	public function Menu()	{
 		$T_item = $this->BD->Liste_niveau(2);
 		echo "<nav>\n\t<ul>\n";
 		foreach($T_item as $beta => $code) {
@@ -53,8 +51,7 @@ abstract class PagePEUNC
 		echo "\t</ul>\n</nav>\n";
 	}
 
-	public function ArticlesConnexes()
-	{
+	public function ArticlesConnexes()	{
 		echo "<aside>\n";
 		$this->PagesConnexes();
 		echo "</aside>\n";
@@ -62,8 +59,7 @@ abstract class PagePEUNC
 }
 
 // Classes filles
-class ErreurPEUNC extends PagePEUNC
-{
+class PageErreur extends Page {
 	public function CSS() { $this->CodeCSS("erreur"); }
 
 	public function Menu()	{ ?><nav></nav><?php } // génère une colonne vide
@@ -73,8 +69,9 @@ class ErreurPEUNC extends PagePEUNC
 	public function Section()	{ ?><h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1><?php	}
 }
 
-class ContactPEUNC extends PagePEUNC
-{
+class PageContact extends Page {
+	protected $titre;
+
 	public function __construct() {
 		parent::__construct();
 		if (empty($_POST))	{ // préparation affichage du formulaire
@@ -88,11 +85,10 @@ class ContactPEUNC extends PagePEUNC
 
 	public function Menu()	{ ?><nav></nav><?php } // génère une colonne vide
 
-	public function PagesConnexes() {}
+	public function PagesConnexes()	{}
 
-	public function Section()
-	{
-?><h1>Formulaire en construction</h1>
+	public function Section()	{
+?><h1><?=$this->titre?></h1>
 	<form method="post" action="?formulaire=1" id=formulaire>
 		<p>Nom		<input type="text"	name="nom"		/></p>
 		<p>Courriel	<input type="email" name="courriel" /></p>
@@ -111,11 +107,10 @@ class ContactPEUNC extends PagePEUNC
 <?php
 	}
 
-	public function Afficher_validation()
-	{
+	public function Afficher_validation()	{
 		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
 		echo "\n";
 	}
 
-	public function LienFormulaire() {}
+	public function LienFormulaire()	{}	// normal pour le formulaire de contact!
 }
