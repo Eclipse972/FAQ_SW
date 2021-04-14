@@ -72,7 +72,7 @@ class PageErreur extends Page {
 }
 
 class PageContact extends Page {
-	protected $titre;
+	protected $titreFormulaire;
 
 	public function __construct() {
 		parent::__construct();
@@ -90,8 +90,8 @@ class PageContact extends Page {
 	public function PagesConnexes()	{}
 
 	public function Section()	{
-?><h1><?=$this->titre?></h1>
-	<form method="post" action="?formulaire=1" id=formulaire>
+?><h1><?=$this->titreFormulaire?></h1>
+	<form method="post" action="#" id=formulaire>
 		<p>Nom		<input type="text"	name="nom"		/></p>
 		<p>Courriel	<input type="email" name="courriel" /></p>
 		<p>Objet	<input type="text"	name="objet"	/></p>

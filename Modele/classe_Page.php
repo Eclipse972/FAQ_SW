@@ -125,6 +125,6 @@ class PageErreur extends PageErreurPEUNC	{
 class PageContact extends PageContactPEUNC {
 	public function __construct() {
 		parent::__construct();
-		$this->titre = 'Formulaire en construction';
+		$this->titreFormulaire = 'Formulaire en construction';
 	}
 }
