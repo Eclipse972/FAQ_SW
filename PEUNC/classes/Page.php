@@ -7,7 +7,7 @@ include"API_page.php";
 abstract class Page implements iPage	{
 	protected $BD;
 	protected $logo;
-	protected $titre;
+	protected $titrePage;
 
 	abstract public function CSS();
 	abstract public function Section();
@@ -16,14 +16,14 @@ abstract class Page implements iPage	{
 	public function __construct()	{
 		$this->BD = new BDD;
 		$this->logo = "Vue/images/logo.png";
-		$this->titre = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
+		$this->titrePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
 	}
 
 	public function CodeCSS($nom)	{	echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />";	}
 
 	public function headerLogo() { echo $this->logo; }
 
-	public function headerTitre() { echo $this->titre; }
+	public function headerTitre() { echo $this->titrePage; }
 
 	public function PiedDePage()	{	echo" - <a href=\"?alpha=-2\">Me contacter</a>";	}
 
