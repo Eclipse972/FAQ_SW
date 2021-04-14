@@ -16,7 +16,7 @@ abstract class Page implements iPage	{
 	public function __construct()	{
 		$this->BD = new BDD;
 		$this->logo = "Vue/images/logo.png";
-		$this->titre = "Foire Aux Questions SolidWorks de ChristopHe";
+		$this->titre = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
 	}
 
 	public function CodeCSS($nom)	{	echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />";	}
