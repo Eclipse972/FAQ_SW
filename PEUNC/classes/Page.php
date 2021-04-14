@@ -2,7 +2,9 @@
 // classes pages de PEUNC
 namespace PEUNC\classes;
 
-abstract class Page {
+include"API_page.php";
+
+abstract class Page implements iPage	{
 	protected $BD;
 	protected $logo;
 	protected $titre;
@@ -17,13 +19,13 @@ abstract class Page {
 		$this->titre = "Foire Aux Questions SolidWorks de ChristopHe";
 	}
 
-	public function CodeCSS($nom)	{	?><link rel="stylesheet" href="Vue/<?=$nom?>.css" /><?php	}
+	public function CodeCSS($nom)	{	echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />";	}
 
-	public function hearderLogo() { echo $this->logo; }
+	public function headerLogo() { echo $this->logo; }
 
 	public function headerTitre() { echo $this->titre; }
 
-	public function LienFormulaire()	{	?> - <a href="?alpha=-2">Me contacter</a><?php	}
+	public function PiedDePage()	{	echo" - <a href=\"?alpha=-2\">Me contacter</a>";	}
 
 	public function Onglets()	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
@@ -62,11 +64,11 @@ abstract class Page {
 class PageErreur extends Page {
 	public function CSS() { $this->CodeCSS("erreur"); }
 
-	public function Menu()	{ ?><nav></nav><?php } // génère une colonne vide
+	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
 
 	public function PagesConnexes() {}
 
-	public function Section()	{ ?><h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur()?></h1><?php	}
+	public function Section()	{ echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";	}
 }
 
 class PageContact extends Page {
@@ -83,7 +85,7 @@ class PageContact extends Page {
 
 	public function CSS() { $this->CodeCSS("formulaire"); }
 
-	public function Menu()	{ ?><nav></nav><?php } // génère une colonne vide
+	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
 
 	public function PagesConnexes()	{}
 
@@ -112,5 +114,5 @@ class PageContact extends Page {
 		echo "\n";
 	}
 
-	public function LienFormulaire()	{}	// normal pour le formulaire de contact!
+	public function PiedDePage()	{}	// normal pour le formulaire de contact!
 }

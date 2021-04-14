@@ -37,8 +37,7 @@ class PageArticle extends PagePEUNC {
 	}
 }
 
-class PageVE extends PageArticle
-{
+class PageVE extends PageArticle	{
 	private $dossier;
 
 	public function CSS()	{
@@ -113,10 +112,8 @@ class PageVE extends PageArticle
 	}
 }
 
-class PageErreur extends PageErreurPEUNC
-{
-	public function Section()
-	{
+class PageErreur extends PageErreurPEUNC	{
+	public function Section()	{
 		parent::Section();
 		?>
 		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
