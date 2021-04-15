@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 15 Avril 2021 à 02:52
+-- Généré le : Jeu 15 Avril 2021 à 11:39
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -108,12 +108,10 @@ INSERT INTO `Squelette` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `
 (-1, 0, 0, 'Erreur inconnue', '', 'Erreur', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
 (-1, 1, 0, 'Article inexistant ou disparu', '', 'Article_inexistant', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
 (-2, 0, 0, 'Formulaire de contact', '', 'Contact', -2, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
-(-1, 2, 0, 'Param&egrave;tres de l&apos;article incorrects', '', 'Parametres_article', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
 (-1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
 (-1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
 (-1, 500, 0, 'Serveur satur&eacute;, essayez de recharger la page', '', 'Serveur_sature', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
-(-4, 4, 0, 'la classe page n&apos;existe as', '', '', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL),
-(-1, 4, 0, 'La classe de page n&apos;existe pas', '', 'classe_page', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL);
+(-4, 4, 0, 'la classe page n&apos;existe as', '', '', -1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
