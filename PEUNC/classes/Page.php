@@ -15,6 +15,8 @@ abstract class Page implements iPage	{
 
 	public function __construct()	{
 		$this->BD = new BDD;
+		
+		// hydratation de la page
 		$this->logo = "Vue/images/logo.png";
 		$this->titrePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
 	}
