@@ -1,3 +1,4 @@
+# génère la totalité des URLvalides du site
 DROP VIEW IF EXISTS Vue_URLvalides;
 CREATE VIEW Vue_URLvalides AS
 SELECT

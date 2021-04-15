@@ -1,3 +1,4 @@
+# génère le code html qui agrège image+texte
 DROP VIEW IF EXISTS Vue_code_item;
 CREATE VIEW Vue_code_item AS
 SELECT

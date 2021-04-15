@@ -1,3 +1,4 @@
+# permet de trouver la classe de chaque page
 DROP VIEW IF EXISTS Vue_classePage;
 CREATE VIEW Vue_classePage AS
 SELECT

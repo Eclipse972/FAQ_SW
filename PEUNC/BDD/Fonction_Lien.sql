@@ -1,3 +1,4 @@
+# automatise la création des liens
 DROP FUNCTION IF EXISTS Lien;
 CREATE FUNCTION Lien(texte TEXT, alpha INT, beta INT, gamma INT) RETURNS TEXT
 RETURN CONCAT(	'<a href="?alpha=',CAST(alpha AS CHAR),
