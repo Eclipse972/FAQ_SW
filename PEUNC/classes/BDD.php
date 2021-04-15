@@ -42,7 +42,7 @@ public function Liste_niveau($niveau) {
 		case 1:	$index = 'alpha';	$expAlpha = '>=0';						$expBeta = '= 0';					$signe = '=';	break;
 		case 2:	$index = 'beta';	$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = '> 0';					$signe = '=';	break;
 		case 3:	$index = 'gamma';	$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = "= {$_SESSION['beta']}";	$signe = '>';	break;
-		default: header("location:?alpha=-1&beta=3");	// tout autre valeur est rejetée
+		default: die("variable niveau incorrecte dans la BD");
 	}
 	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE alpha {$expAlpha} AND beta {$expBeta} AND gamma {$signe} 0";
 	$this->Requete($sql, []);

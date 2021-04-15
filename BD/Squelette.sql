@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 11 Avril 2021 à 16:05
+-- Généré le : Jeu 15 Avril 2021 à 02:37
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -110,7 +110,8 @@ INSERT INTO `Squelette` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `
 (-1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', -1, NULL),
 (-1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', -1, NULL),
 (-1, 500, 0, 'Serveur satur&eacute;, essayez de recharger la page', '', 'Serveur_sature', -1, NULL),
-(-1, 3, 0, 'variable niveau incorrecte dans la BD', '', 'Niveau_incorrect', -1, NULL);
+(-4, 4, 0, 'la classe page n&apos;existe as', '', '', -1, NULL),
+(-1, 4, 0, 'La classe de page n&apos;existe pas', '', 'classe_page', -1, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
