@@ -17,8 +17,9 @@ abstract class Page implements iPage	{
 		$this->BD = new BDD;
 		
 		// hydratation de la page
-		$this->logo = "Vue/images/logo.png";
-		$this->titrePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
+		list($this->logo, $this->titrePage) = $this->BD->HydratePage();
+		
+		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
 	}
 
 	public function CodeCSS($nom)	{	echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />";	}

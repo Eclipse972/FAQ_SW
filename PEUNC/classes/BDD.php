@@ -6,7 +6,7 @@ class BDD {
 protected $resultat;
 protected $BD; // PDO initialisé dans connexion.php
 
-public function __construct() { // chemin de la forme 'chemin/'. Cette classe peut être demandé de plusiers endroits du site
+public function __construct() {
 	try	{// On se connecte à MySQL grâce au script non suivi par git
 		include 'connexion.php';
 	} // contient: $this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe');
@@ -53,6 +53,13 @@ public function Liste_niveau($niveau) {
 	}
 	$this->Fermer();
 	return $tableau;
+}
+
+public function HydratePage() {
+	$this->Requete('SELECT logoPage, titrePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return $reponse;
 }
 
 }
