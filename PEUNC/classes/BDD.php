@@ -56,7 +56,7 @@ public function Liste_niveau($niveau) {
 }
 
 public function HydratePage() {
-	$this->Requete('SELECT logoPage, entetePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?',
+	$this->Requete('SELECT titrePage, logoPage, entetePage FROM Vue_hydratePage WHERE alpha= ? AND beta= ? AND gamma= ?',
 						[$_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();

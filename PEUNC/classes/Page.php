@@ -6,6 +6,7 @@ include"API_page.php";
 
 abstract class Page implements iPage	{
 	protected $BD;
+	protected $titrePage;
 	protected $logo;
 	protected $entetePage;
 
@@ -15,14 +16,16 @@ abstract class Page implements iPage	{
 
 	public function __construct()	{
 		$this->BD = new BDD;
-		
+
 		// hydratation de la page
-		list($this->logo, $this->entetePage) = $this->BD->HydratePage();
-		
+		list($this->titrePage, $this->logo, $this->entetePage) = $this->BD->HydratePage();
+
 		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
 	}
 
 	public function CodeCSS($nom)	{	echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />";	}
+
+	public function TitrePage() { echo $this->titrePage; }
 
 	public function LogoPage() { echo $this->logo; }
 
