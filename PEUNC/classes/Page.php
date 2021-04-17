@@ -10,15 +10,20 @@ class Page implements iPage	{
 	protected $CSS;
 	protected $logo;
 	protected $entetePage;
+	protected $scriptSection;
 
 	public function __construct()	{
 		$this->BD = new BDD;
 
 		// hydratation de la page
-		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage) = $this->BD->HydratePage();
+		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
 
 		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
-		if(!file_exists('Vue/'.$this->CSS.'.css'))	die('la feuille de style n&apos;existe pas !');
+		if(!file_exists('Vue/'.$this->CSS.'.css'))	die("Vue/{$this->CSS}.css n&apos;existe pas !");
+		if ($this->scriptSection != '')	{			// champ non vide?
+			if (!file_exists($this->scriptSection))	// script n'existe pas?
+				header("location:?alpha=-1&beta=1");// erreur: article disparu ou n'existe pas
+		}
 	}
 
 	public function TitrePage()	{ echo $this->titrePage; }
@@ -44,7 +49,8 @@ class Page implements iPage	{
 	}
 
 	public function Section()	{
-
+		include $this->scriptSection;
+		//echo "\n";
 	}
 
 	public function Menu()	{

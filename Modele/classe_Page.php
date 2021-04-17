@@ -4,21 +4,10 @@ use PEUNC\classes\PageErreur	as PageErreurPEUNC;
 use PEUNC\classes\PageContact	as PageContactPEUNC;
 
 class PageArticle extends PagePEUNC {
-	protected $lienArticle;
-
 	public function __construct() {
 		parent::__construct();
 		$this->BD = new base2donnees;	// pour utiliser les nouvelles méthodes de la classe fille
-		$dossier = $this->BD->DossierArticle();
-		if (isset($dossier)) {
-			$chemin = "Articles/{$dossier}/page.html";
-			if (file_exists($chemin))
-				$this->lienArticle = $chemin;
-			else header("location:?alpha=-1&beta=1");
-		} else header("location:?alpha=-1&beta=404");
 	}
-
-	public function Section() { include $this->lienArticle; }
 
 	public function PagesConnexes() {
 		$Tableau = $this->BD->PagesConnexes();

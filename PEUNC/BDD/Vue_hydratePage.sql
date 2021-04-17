@@ -9,7 +9,8 @@ SELECT
 	CSS,
 	titrePage,
 	logoPage,
-	entetePage
+	entetePage,
+	scriptSection
 FROM Squelette
 INNER JOIN ClassePage ON ClassePage.ID = Squelette.classePageID
 ORDER BY alpha ASC , beta ASC , gamma ASC

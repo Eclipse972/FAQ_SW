@@ -9,11 +9,4 @@ public function PagesConnexes() {
 	return $reponse;
 }
 
-public function DossierArticle() {
-	$this->Requete('SELECT * FROM Vue_articleMenu WHERE alpha= ? AND beta= ? AND gamma= ?', [$_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return $reponse['dossier'];
-}
-
 }
