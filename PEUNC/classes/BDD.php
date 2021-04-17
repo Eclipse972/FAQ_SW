@@ -31,10 +31,10 @@ public function ClassePage() {
 }
 
 public function TexteErreur() {
-	$this->Requete('SELECT texte FROM Squelette WHERE alpha=-1 AND beta= ?', [$_SESSION['beta']]);
+	$this->Requete('SELECT texteMenu FROM Squelette WHERE alpha=-1 AND beta= ?', [$_SESSION['beta']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $reponse['texte'];
+	return $reponse['texteMenu'];
 }
 
 public function Liste_niveau($niveau) {
@@ -56,7 +56,7 @@ public function Liste_niveau($niveau) {
 }
 
 public function HydratePage() {
-	$this->Requete('SELECT titrePage, logoPage, entetePage FROM Vue_hydratePage WHERE alpha= ? AND beta= ? AND gamma= ?',
+	$this->Requete('SELECT CSS, titrePage, logoPage, entetePage FROM Vue_hydratePage WHERE alpha= ? AND beta= ? AND gamma= ?',
 						[$_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
