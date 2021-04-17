@@ -19,5 +19,5 @@ SELECT
 		'>',Connexes.texte,'</a>'
 	) AS URL
 FROM Squelette
-INNER JOIN Connexes ON Squelette.article_ID = Connexes.article_ID
+INNER JOIN Connexes ON Squelette.ID = Connexes.Squelette_ID
 ORDER BY alpha ASC, beta ASC, gamma ASC, type ASC
