@@ -17,8 +17,6 @@ class PageArticle extends PagePEUNC {
 			else header("location:?alpha=-1&beta=1");
 		} else header("location:?alpha=-1&beta=404");
 	}
-	// fonctions obligatoires
-	public function CSS()	{ $this->CodeCSS("article"); }
 
 	public function Section() { include $this->lienArticle; }
 

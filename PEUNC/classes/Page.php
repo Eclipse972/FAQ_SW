@@ -4,34 +4,36 @@ namespace PEUNC\classes;
 
 include"API_page.php";
 
-abstract class Page implements iPage	{
+class Page implements iPage	{
 	protected $BD;
 	protected $titrePage;
+	protected $CSS;
 	protected $logo;
 	protected $entetePage;
-
-	abstract public function CSS();
-	abstract public function Section();
-	abstract public function PagesConnexes();	// page en lien sur le site
 
 	public function __construct()	{
 		$this->BD = new BDD;
 
 		// hydratation de la page
-		list($this->titrePage, $this->logo, $this->entetePage) = $this->BD->HydratePage();
+		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage) = $this->BD->HydratePage();
 
 		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
+		if(!file_exists('Vue/'.$this->CSS.'.css'))	die('la feuille de style n&apos;existe pas !');
 	}
 
-	public function CodeCSS($nom)	{	echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />";	}
+	public function TitrePage()	{ echo $this->titrePage; }
 
-	public function TitrePage() { echo $this->titrePage; }
+	public function CSS()	{ $this->CodeCSS($this->CSS); }
+
+	public function CodeCSS($nom)	{	// permet de créer une ligne de code pour insérer une feuille de style.
+		// Cette fonction servira si vous voulez redéfinr la méthode CSS()
+		// exemple: public function CSS() {  $this->CodeCSS("fichier1"); $this->CodeCSS("fichier1"); }
+		echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n";
+	}
 
 	public function LogoPage() { echo $this->logo; }
 
-	public function EntetePage() { echo $this->entetePage; }
-
-	public function PiedDePage()	{	echo" - <a href=\"?alpha=-2\">Me contacter</a>";	}
+	public function EntetePage() { echo $this->entetePage,"\n"; }
 
 	public function Onglets()	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
@@ -39,6 +41,10 @@ abstract class Page implements iPage	{
 		foreach($T_Onglets as $alpha => $code)
 			echo "\t\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
 		echo "\t</ul>\n";
+	}
+
+	public function Section()	{
+
 	}
 
 	public function Menu()	{
@@ -64,15 +70,16 @@ abstract class Page implements iPage	{
 		$this->PagesConnexes();
 		echo "</aside>\n";
 	}
+
+	public function PagesConnexes()	{}	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
+
+	public function PiedDePage()	{	echo" - <a href=\"?alpha=-2\">Me contacter</a>";	}
 }
 
 // Classes filles
 class PageErreur extends Page {
-	public function CSS() { $this->CodeCSS("erreur"); }
 
 	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
-
-	public function PagesConnexes() {}
 
 	public function Section()	{ echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";	}
 }
@@ -88,8 +95,6 @@ class PageContact extends Page {
 
 		}
 	}
-
-	public function CSS() { $this->CodeCSS("formulaire"); }
 
 	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
 
