@@ -77,7 +77,19 @@ class Page implements iPage	{
 		echo "</aside>\n";
 	}
 
-	public function PagesConnexes()	{}	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
+	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
+		$Tableau = $this->BD->PagesConnexes();
+		switch(count($Tableau)) {
+			case 0: break;
+			case 1:
+				echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";
+				break;
+			default:
+				echo "<h1>Pages connexes</h1>\n<ul>\n";
+				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
+				echo "</ul>\n";
+		}
+	}
 
 	public function PiedDePage()	{	echo" - <a href=\"?alpha=-2\">Me contacter</a>";	}
 }
@@ -88,6 +100,8 @@ class PageErreur extends Page {
 	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
 
 	public function Section()	{ echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";	}
+
+	public function PagesConnexes()	{}
 }
 
 class PageContact extends Page {

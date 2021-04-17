@@ -63,4 +63,11 @@ public function HydratePage() {
 	return $reponse;
 }
 
+public function PagesConnexes() {
+	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']]);
+	$reponse = $this->resultat->fetchAll();
+	$this->Fermer();
+	return $reponse;
+}
+
 }

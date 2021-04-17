@@ -3,26 +3,7 @@ use PEUNC\classes\Page			as PagePEUNC;
 use PEUNC\classes\PageErreur	as PageErreurPEUNC;
 use PEUNC\classes\PageContact	as PageContactPEUNC;
 
-class PageArticle extends PagePEUNC {
-	public function __construct() {
-		parent::__construct();
-		$this->BD = new base2donnees;	// pour utiliser les nouvelles méthodes de la classe fille
-	}
-
-	public function PagesConnexes() {
-		$Tableau = $this->BD->PagesConnexes();
-		switch(count($Tableau)) {
-			case 0: break;
-			case 1:
-				echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";
-				break;
-			default:
-				echo "<h1>Pages connexes</h1>\n<ul>\n";
-				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
-				echo "</ul>\n";
-		}
-	}
-}
+class PageArticle extends PagePEUNC {}
 
 class PageVE extends PageArticle	{
 	private $dossier;

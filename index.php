@@ -4,7 +4,9 @@
 require 'PEUNC/classes/Page.php';
 require 'PEUNC/classes/BDD.php';
 
-include "classesUtilisateur.php";
+use PEUNC\classes\BDD	as base2donnees;
+
+require 'Modele/classe_Page.php';
 
 session_start();
 /* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
@@ -28,7 +30,7 @@ foreach($T_paramètresURL as $valeur)								// récupération des paramètres
 $BD = new base2donnees;
 $classePage = $BD->ClassePage();
 if (!		isset($classePage))	header("location:?alpha=-1&beta=404");
-if (!class_exists($classePage))	die('La classe page demand&eacute; n&apos;existe pas.');
+if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
 
 include"Vue/doctype.html";	// utilise les méthodes de l'objet page
