@@ -5,8 +5,8 @@ SELECT
 	alpha,
 	beta,
 	gamma,
-	Lien(CONCAT(IF(image = '','',CONCAT('<img src="',image,'" alt="',texte,'">')), #-- code de l'image
-				texte),
+	Lien(CONCAT(IF(imageMenu = '','',CONCAT('<img src="',imageMenu,'" alt="',texteMenu,'">')), #-- code de l'image
+				texteMenu),
 		alpha, beta, gamma) AS code
 FROM Squelette
 ORDER BY alpha ASC, beta ASC, gamma ASC
