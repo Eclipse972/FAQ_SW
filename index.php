@@ -8,13 +8,16 @@ include "classesUtilisateur.php";
 
 session_start();
 /* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
-	(X;0;0) => page de 1er niveau.
- 		X=0 -> page d'accueil.
- 		Si X<0 on tombe sur les pages spéciales de PEUNC
- 		(-2;0;0) formulaire de contact
+	Si alpha >=0 => pages du site
+	(X;0;0) => page de 1er niveau. 	(0;0;0) -> page d'accueil.
+
 	(X;Y;0) avec Y>0 => page de 2e niveau
-		(-1;code;0) -> page d'erreur avec son code
+		
 	(X;Y;Z) avec Z>0 => page de 3e niveau
+	
+	si alpha<0 => page spéciales PEUNC
+	(-1;code;0) -> page d'erreur avec son code
+	(-2;0;0) formulaire de contact
 	Toute autre configuration provoque une erreur 404
 */
 $T_paramètresURL = array('alpha', 'beta', 'gamma');	// paramètres principaux

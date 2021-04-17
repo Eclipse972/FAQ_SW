@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Jeu 15 Avril 2021 à 11:39
+-- Généré le : Jeu 15 Avril 2021 à 19:59
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `ptiNom` varchar(99) collate latin1_general_ci NOT NULL,
   `classePageID` int(11) NOT NULL default '1' COMMENT 'identifiant de la classe page',
   `logoPage` varchar(99) collate latin1_general_ci NOT NULL,
-  `titrePage` varchar(99) collate latin1_general_ci NOT NULL,
+  `entetePage` varchar(99) collate latin1_general_ci NOT NULL,
   `article_ID` int(11) default NULL,
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
 -- Contenu de la table `Squelette`
 --
 
-INSERT INTO `Squelette` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `classePageID`, `logoPage`, `titrePage`, `article_ID`) VALUES
+INSERT INTO `Squelette` (`alpha`, `beta`, `gamma`, `texte`, `image`, `ptiNom`, `classePageID`, `logoPage`, `entetePage`, `article_ID`) VALUES
 (3, 0, 0, 'Assemblage', 'Vue/images/assemblage.png', 'Assemblage', 1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 4),
 (2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'MEP', 1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 3),
 (4, 0, 0, 'Autre', 'Vue/images/autre.png', 'Autre', 1, 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 5),

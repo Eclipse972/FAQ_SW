@@ -7,7 +7,7 @@ include"API_page.php";
 abstract class Page implements iPage	{
 	protected $BD;
 	protected $logo;
-	protected $titrePage;
+	protected $entetePage;
 
 	abstract public function CSS();
 	abstract public function Section();
@@ -17,16 +17,16 @@ abstract class Page implements iPage	{
 		$this->BD = new BDD;
 		
 		// hydratation de la page
-		list($this->logo, $this->titrePage) = $this->BD->HydratePage();
+		list($this->logo, $this->entetePage) = $this->BD->HydratePage();
 		
 		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
 	}
 
 	public function CodeCSS($nom)	{	echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />";	}
 
-	public function headerLogo() { echo $this->logo; }
+	public function LogoPage() { echo $this->logo; }
 
-	public function headerTitre() { echo $this->titrePage; }
+	public function EntetePage() { echo $this->entetePage; }
 
 	public function PiedDePage()	{	echo" - <a href=\"?alpha=-2\">Me contacter</a>";	}
 
