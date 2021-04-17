@@ -4,7 +4,7 @@
 require 'PEUNC/classes/Page.php';
 require 'PEUNC/classes/BDD.php';
 
-use PEUNC\classes\BDD	as base2donnees;
+use PEUNC\classes\BDD as base2donnees;	// pas de d'extension de la classe de BDD de PEUNC
 
 require 'Modele/classe_Page.php';
 
