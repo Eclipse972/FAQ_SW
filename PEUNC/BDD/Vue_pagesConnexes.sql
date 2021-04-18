@@ -5,7 +5,7 @@ SELECT
 	beta,
 	gamma,
 	CONCAT('<a href="',URL,'" ',
-		IF(LEFT(URL,4) = 'http','target="_blank"',''), # liens externes dans un nouvel onglet
+		IF(LEFT(URL,4) = 'http','target="_blank"',''), # URLs externes dans un nouvel onglet
 		'>',Connexes.texte,'</a>'
 	) AS URL
 FROM Squelette
