@@ -5,7 +5,7 @@ use PEUNC\classes\PageContact	as PageContactPEUNC;
 
 /* Impossible d'utiliser use PEUNC\classes\Page	as PageArticle; pour éviter d'utiliser une classe vide.
  * Dans la BDD le nom dnas la table est PageArticle. Je subodore que le parseur remplace dans le code PageArticle par PEUNC\classes\Page.
- * Du coup le nom est différent de celui enregistré dans le BDD
+ * Du coup le nom est différent de celui enregistré dans le BDD.
  * */
 class PageArticle extends PagePEUNC {}
 
