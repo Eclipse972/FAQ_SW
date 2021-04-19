@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 18 Avril 2021 à 02:27
+-- Généré le : Lun 19 Avril 2021 à 22:40
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -55,7 +55,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (6, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', -1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', ''),
 (7, 0, 0, 0, 'Accueil', 'Vue/images/accueil.png', 'Accueil', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/accueil/page.html'),
 (8, 1, 0, 0, 'Pi&egrave;ce', 'Vue/images/piece.png', 'Piece', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/piece/page.html'),
-(9, 2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'MEP', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/MEP/page.html'),
+(9, 2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'Mise_en_plan', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/MEP/page.html'),
 (10, 3, 0, 0, 'Assemblage', 'Vue/images/assemblage.png', 'Assemblage', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/assemblage/page.html'),
 (11, 4, 0, 0, 'Autre', 'Vue/images/autre.png', 'Autre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/divers/page.html'),
 (12, 0, 1, 0, 'Qui suis-je?', '', 'moi', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/moi/page.html'),
