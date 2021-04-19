@@ -25,10 +25,10 @@ $BD = new PEUNC\classes\BDD;
 
 switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
 	case 403:
-		list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 403, 0];
+		header("location:/Erreur-Acces_interdit");
 		break;
 	case 500:
-		list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 500, 0];
+		header("location:/Erreur-Serveur_sature");
 		break;
 	case 200:
 		$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
