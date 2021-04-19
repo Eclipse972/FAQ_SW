@@ -46,7 +46,7 @@ switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ic
 }
 
 $classePage = $BD->ClassePage();
-if (!		isset($classePage))	header("location:/Erreur-Page_inexistante");
+if (!		isset($classePage))	header("location:/Erreur>Page_inexistante");
 if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
 

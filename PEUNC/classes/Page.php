@@ -22,7 +22,7 @@ class Page implements iPage	{
 		if(!file_exists('Vue/'.$this->CSS.'.css'))	die("Vue/{$this->CSS}.css n&apos;existe pas !");
 		if ($this->scriptSection != '')	{			// champ non vide?
 			if (!file_exists($this->scriptSection))	// script n'existe pas?
-				header("location:/Erreur-Article_inexistant");
+				header("location:/Erreur>Article_inexistant");
 		}
 	}
 
