@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Lun 19 Avril 2021 à 21:33
+-- Généré le : Lun 19 Avril 2021 à 21:53
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -51,10 +51,10 @@ INSERT INTO `Connexes` (`squelette_ID`, `texte`, `URL`) VALUES
 (51, 'Vue d''ensemble des congés', 'http://help.solidworks.com/2015/french/SolidWorks/sldworks/c_Fillet_Overview.htm'),
 (51, 'Création d''une fonction de chanfrein', 'http://help.solidworks.com/2015/french/SolidWorks/sldworks/HIDD_DVE_FEAT_CHAMFER.htm'),
 (57, 'Vues en coupe dans les modèles', 'http://help.solidworks.com/2015/french/SolidWorks/sldworks/t_section_views_models.htm'),
-(63, 'Créer un cylindre par révolution', '/Piece-VE-cylindre_revolution'),
-(67, 'Créer un cylindre par extrusion', '/Piece-VE-cylindre_extrusion'),
-(65, 'Créer un tronc de cône par extrusion', '/Piece-VE-tronc2cone_extrusion'),
-(68, 'Créer un tronc de cône par r&eacute;volution', '/Piece-VE-tronc2cone_revolution');
+(63, 'Créer un cylindre par révolution', '/Piece>VE>cylindre_revolution'),
+(67, 'Créer un cylindre par extrusion', '/Piece>VE>cylindre_extrusion'),
+(65, 'Créer un tronc de cône par extrusion', '/Piece>VE>tronc2cone_extrusion'),
+(68, 'Créer un tronc de cône par r&eacute;volution', '/Piece>VE>tronc2cone_revolution');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
