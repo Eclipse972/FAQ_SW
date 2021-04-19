@@ -1,6 +1,6 @@
-ErrorDocument 403 /Erreur/Acces_interdit
-ErrorDocument 404 /erreur404.php
-ErrorDocument 500 /Erreur/Serveur_sature
+ErrorDocument 403 /index.php
+ErrorDocument 404 /index.php
+ErrorDocument 500 /index.php
 
 <IfDefine Free>
 php56 1

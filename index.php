@@ -1,12 +1,10 @@
-<?php
- // contrôleur principal de PEUNC
+<?php	// contrôleur principal de PEUNC
+require 'PEUNC/classes/Page.php';
+require 'PEUNC/classes/BDD.php';
 
-require_once 'PEUNC/classes/Page.php';
-require_once 'PEUNC/classes/BDD.php';
-
-use PEUNC\classes\BDD as base2donnees;	// pas de d'extension de la classe de BDD de PEUNC
-
+// classes utilisateur
 require 'Modele/classe_Page.php';
+//require 'Modele/classe_BDD.php';
 
 session_start();
 /* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
@@ -22,14 +20,33 @@ session_start();
 	(-2;0;0) formulaire de contact
 	Toute autre configuration provoque une erreur 404
 */
-$T_paramètresURL = array('alpha', 'beta', 'gamma');	// paramètres principaux
 
-foreach($T_paramètresURL as $valeur)								// récupération des paramètres
-	$_SESSION[$valeur] = (isset($_GET[$valeur])) ? intval($_GET[$valeur]) : 0;// sans test de validité des valeurs
+$BD = new PEUNC\classes\BDD;
 
-$BD = new base2donnees;
+switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
+	case 403:
+		list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 403, 0];
+		break;
+	case 500:
+		list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 500, 0];
+		break;
+	case 200:
+		$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
+		break;
+	case 404:// Ma source d'inspiration pour détourner l'erreur 404. Merci à son auteur
+			// http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm
+		list($alpha, $beta, $gamma) = $BD->CherchePosition();
+		IF (isset($alpha))	{	// adresse valide, on ne touche à rien
+			header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
+			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$alpha, $beta, $gamma];	// $_SESSION = array('alpha' => $alpha, 'beta' = $beta, 'gamma' => $gamma) détruirait les autres éventuels paramètres
+		} else	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 404, 0];	// l''adresse invalide reste affichée dans la barre d'adresse'
+		break;
+	default:
+		header("location:/Erreur");
+}
+
 $classePage = $BD->ClassePage();
-if (!		isset($classePage))	header("location:?alpha=-1&beta=404");
+if (!		isset($classePage))	header("location:/Erreur-Page_inexistante");
 if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
 
