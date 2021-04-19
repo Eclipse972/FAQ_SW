@@ -91,7 +91,7 @@ class Page implements iPage	{
 		}
 	}
 
-	public function PiedDePage()	{	echo" - <a href=\"?alpha=-2\">Me contacter</a>";	}
+	public function PiedDePage()	{	echo" - <a href=\"/Contact\">Me contacter</a>";	}
 }
 
 // Classes filles

@@ -30,6 +30,13 @@ public function ClassePage() {
 	return $reponse['nom'];
 }
 
+public function CherchePosition() {
+	$this->Requete('SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ?', [$_SERVER['REDIRECT_URL']]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return array($reponse['niveau1'], $reponse['niveau2'], $reponse['niveau3']);
+}
+
 public function TexteErreur() {
 	$this->Requete('SELECT texteMenu FROM Squelette WHERE alpha=-1 AND beta= ?', [$_SESSION['beta']]);
 	$reponse = $this->resultat->fetch();

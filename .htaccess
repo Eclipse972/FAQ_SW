@@ -1,6 +1,6 @@
-ErrorDocument 403 http://faq.sw.free.fr/?alpha=-1&beta=403
-ErrorDocument 404 http://faq.sw.free.fr/?alpha=-1&beta=404
-ErrorDocument 500 http://faq.sw.free.fr/?alpha=-1&beta=500
+ErrorDocument 403 /Erreur/Acces_interdit
+ErrorDocument 404 /erreur404.php
+ErrorDocument 500 /Erreur/Serveur_sature
 
 <IfDefine Free>
 php56 1

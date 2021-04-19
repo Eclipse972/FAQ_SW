@@ -1,8 +1,8 @@
 <?php
  // contrôleur principal de PEUNC
 
-require 'PEUNC/classes/Page.php';
-require 'PEUNC/classes/BDD.php';
+require_once 'PEUNC/classes/Page.php';
+require_once 'PEUNC/classes/BDD.php';
 
 use PEUNC\classes\BDD as base2donnees;	// pas de d'extension de la classe de BDD de PEUNC
 
