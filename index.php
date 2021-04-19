@@ -33,10 +33,9 @@ switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ic
 	case 200:
 		$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
 		break;
-	case 404:// Ma source d'inspiration pour détourner l'erreur 404. Merci à son auteur
-			// http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm
+	case 404:// Ma source d'inspiration pour détourner l'erreur 404: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
 		list($alpha, $beta, $gamma) = $BD->CherchePosition();
-		IF (isset($alpha))	{	// adresse valide, on ne touche à rien
+		if (isset($alpha))	{	// adresse valide, on ne touche à rien
 			header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
 			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$alpha, $beta, $gamma];	// $_SESSION = array('alpha' => $alpha, 'beta' = $beta, 'gamma' => $gamma) détruirait les autres éventuels paramètres
 		} else	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 404, 0];	// l''adresse invalide reste affichée dans la barre d'adresse'
