@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 18 Avril 2021 à 02:27
+-- Généré le : Mar 20 Avril 2021 à 17:33
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -26,21 +26,21 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `Squelette` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL auto_increment,
   `alpha` int(11) NOT NULL,
   `beta` int(11) NOT NULL default '0',
   `gamma` int(11) NOT NULL default '0',
   `texteMenu` varchar(99) collate latin1_general_ci NOT NULL,
-  `imageMenu` varchar(99) collate latin1_general_ci NOT NULL COMMENT 'associée à la page',
+  `imageMenu` varchar(99) collate latin1_general_ci NOT NULL default 'Vue/images/nom_du_fichier.png' COMMENT 'associée à la page',
   `ptiNom` varchar(99) collate latin1_general_ci NOT NULL,
   `classePageID` int(11) NOT NULL default '1' COMMENT 'identifiant de la classe page',
-  `titrePage` varchar(99) collate latin1_general_ci NOT NULL,
-  `logoPage` varchar(99) collate latin1_general_ci NOT NULL,
-  `entetePage` varchar(99) collate latin1_general_ci NOT NULL,
+  `titrePage` varchar(99) collate latin1_general_ci NOT NULL default 'La Foire Aux Questions sur SolidWorks de ChristopHe',
+  `logoPage` varchar(99) collate latin1_general_ci NOT NULL default 'Vue/images/logo.png',
+  `entetePage` varchar(99) collate latin1_general_ci NOT NULL default '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>',
   `scriptSection` varchar(99) collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=73 ;
 
 --
 -- Contenu de la table `Squelette`
@@ -55,7 +55,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (6, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', -1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', ''),
 (7, 0, 0, 0, 'Accueil', 'Vue/images/accueil.png', 'Accueil', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/accueil/page.html'),
 (8, 1, 0, 0, 'Pi&egrave;ce', 'Vue/images/piece.png', 'Piece', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/piece/page.html'),
-(9, 2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'MEP', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/MEP/page.html'),
+(9, 2, 0, 0, 'Mise en plan', 'Vue/images/MEP.png', 'Mise_en_plan', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/MEP/page.html'),
 (10, 3, 0, 0, 'Assemblage', 'Vue/images/assemblage.png', 'Assemblage', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/assemblage/page.html'),
 (11, 4, 0, 0, 'Autre', 'Vue/images/autre.png', 'Autre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/divers/page.html'),
 (12, 0, 1, 0, 'Qui suis-je?', '', 'moi', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/moi/page.html'),
@@ -63,17 +63,17 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (14, 1, 1, 0, 'Esquisse 2D', 'Vue/images/esquisse.png', 'esquisse', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/esquisse2D/page.html'),
 (15, 1, 2, 0, 'Les fonctions', '', 'fonctions', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/fonctions/page.html'),
 (16, 1, 3, 0, 'Manipuler la pi&egrave;ce', '', 'manipuler_piece', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/manipuler_piece/page.html'),
-(17, 1, 4, 0, 'Arbre de cr&eacute;ation', '', 'arbre2creation', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre_piece/page.html'),
+(17, 1, 4, 0, 'Arbre de cr&eacute;ation', '', 'arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre/page.html'),
 (18, 2, 1, 0, 'Les fonds de plan', '', 'fond2plan', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/fond2plan/page.html'),
 (19, 2, 2, 0, 'Ins&eacute;rer des vues', 'Vue/images/3vues.png', 'vues', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/inserer_vues/page.html'),
 (20, 2, 3, 0, 'Ajouter la cotation', '', 'cotation', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/ajouter_cotation/page.html'),
 (21, 2, 4, 0, 'Mise en page', 'Vue/images/deplacement_vue.png', 'MEP', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/mise_en_page/page.html'),
 (22, 2, 5, 0, 'Remplir le Cartouche', '', 'cartouche', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/cartouche/page.html'),
 (23, 2, 6, 0, 'Export en PDF', 'Vue/images/Pdf.png', 'PDF', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/exportPDF/page.html'),
-(24, 2, 7, 0, 'Arbre de cr&eacute;ation', '', 'arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre_MEP/page.html'),
+(24, 2, 7, 0, 'Arbre de cr&eacute;ation', '', 'arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre/page2.html'),
 (25, 2, 8, 0, 'Liaison mise en plan-fichier', '', 'MEP_fichier', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/lien_MEP_fichier/page.html'),
 (26, 3, 1, 0, 'Les contraintes', '', 'contraintes', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/contrainte_assemblage/page.html'),
-(27, 3, 2, 0, 'Arbre de cr&eacute;ation', '', 'arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre_assemblage/page.html'),
+(27, 3, 2, 0, 'Arbre de cr&eacute;ation', '', 'arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre/page3.html'),
 (28, 3, 3, 0, 'Les configurations', '', 'configurations', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/config_assemblage/page.html'),
 (29, 3, 4, 0, 'Cr&eacute;er un &eacute;clat&eacute;', 'Vue/images/icone_eclater_rassembler.png', 'eclater', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/eclater_assemblage/page.html'),
 (30, 3, 5, 0, 'Cr&eacute;er un &eacute;corch&eacute;', '', 'ecorcher', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/ecorcher_assemblage/page.html'),
@@ -104,8 +104,8 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (56, 1, 3, 1, 'tourner et d&eacute;placer', '', 'tourner_deplacer', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/tourner_deplacer/page.html'),
 (57, 1, 3, 2, 'couper une pi&egrave;ce', 'Vue/images/couper_piece.png', 'couper_piece', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/couper/page.html'),
 (58, 1, 3, 3, 'transparence ou couleur', '', 'transparence_couleur', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/transparence_couleur/page.html'),
-(59, 1, 4, 1, 'arbre de cr&eacute;ation -> zone graphique', '', 'arbre_ZG', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre-ZG/page.html'),
-(60, 1, 4, 2, 'zone graphique  -> arbre de cr&eacute;ation', '', 'ZG_arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/ZG-arbre/page.html'),
+(59, 1, 4, 1, 'arbre -> ZG', '', 'arbre_ZG', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre-ZG/page.html'),
+(60, 1, 4, 2, 'ZG -> arbre', '', 'ZG_arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/ZG-arbre/page.html'),
 (61, 1, 5, 0, 'Volumes &eacute;l&eacute;mentaires', '', 'VE', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/VE/page.html'),
 (62, 1, 5, 1, 'prisme droit', 'Vue/images/prisme.png', 'prisme', 2, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/prisme/page.html'),
 (63, 1, 5, 2, 'cylindre par extrusion', 'Vue/images/cylindre.png', 'cylindre_extrusion', 2, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/cylindre/page.html'),
@@ -113,7 +113,11 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (65, 1, 5, 5, 'tronc de c&ocirc;ne par r&eacute;volution', 'Vue/images/tronc2cone.png', 'tronc2cone_revolution', 2, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/tronc2cone/page.html'),
 (66, 1, 5, 7, 'tore', 'Vue/images/tore.png', 'tore', 2, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/tore/page.html'),
 (67, 1, 5, 3, 'cylindre par r&eacute;volution', 'Vue/images/cylindre.png', 'cylindre_revolution', 2, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/cylindre2/page.html'),
-(68, 1, 5, 6, 'tronc de c&ocirc;ne par extrusion', 'Vue/images/tronc2cone.png', 'tronc2cone_extrusion', 2, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/tronc2cone2/page.html');
+(68, 1, 5, 6, 'tronc de c&ocirc;ne par extrusion', 'Vue/images/tronc2cone.png', 'tronc2cone_extrusion', 2, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/tronc2cone2/page.html'),
+(69, 2, 7, 1, 'arbre -> ZG', '', 'arbre-ZG', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre-ZG/page2.html'),
+(70, 2, 7, 2, 'ZG -> arbre', '', 'ZG-arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/ZG-arbre/page2.html'),
+(71, 3, 2, 1, 'arbre -> ZG', '', 'arbre-ZG', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/arbre-ZG/page3.html'),
+(72, 3, 2, 2, 'ZG -> arbre', '', 'ZG-arbre', 1, 'La Foire Aux Questions sur SolidWorks de ChristopHe', 'Vue/images/logo.png', '<p class="font-effect-outline">Foire Aux Questions SolidWorks de ChristopHe</p>', 'Articles/ZG-arbre/page3.html');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
