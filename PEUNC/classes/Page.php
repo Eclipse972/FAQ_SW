@@ -147,3 +147,9 @@ class PageContact extends Page {
 
 	public function PiedDePage()	{}	// normal pour le formulaire de contact!
 }
+
+class PageAdministrateur extends Page {
+	public function Onglets() {}	// pas d'onglet pour ce type de page
+
+	public function PiedDePage()	{}
+}
