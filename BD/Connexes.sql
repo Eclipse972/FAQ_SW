@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Lun 19 Avril 2021 à 21:53
+-- Généré le : Mar 20 Avril 2021 à 15:49
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -28,8 +28,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `Connexes` (
   `squelette_ID` int(11) NOT NULL,
   `texte` varchar(99) collate latin1_general_ci NOT NULL,
-  `URL` varchar(255) collate latin1_general_ci NOT NULL,
-  UNIQUE KEY `articles_connexes` (`texte`)
+  `URL` varchar(255) collate latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
@@ -54,7 +53,13 @@ INSERT INTO `Connexes` (`squelette_ID`, `texte`, `URL`) VALUES
 (63, 'Créer un cylindre par révolution', '/Piece>VE>cylindre_revolution'),
 (67, 'Créer un cylindre par extrusion', '/Piece>VE>cylindre_extrusion'),
 (65, 'Créer un tronc de cône par extrusion', '/Piece>VE>tronc2cone_extrusion'),
-(68, 'Créer un tronc de cône par r&eacute;volution', '/Piece>VE>tronc2cone_revolution');
+(68, 'Créer un tronc de cône par r&eacute;volution', '/Piece>VE>tronc2cone_revolution'),
+(17, 'arbre de cr&eacute;ation pour une mise en plan', 'Mise_en_plan>arbre'),
+(17, 'arbre de cr&eacute;ation pour un assemblage', 'Assemblage>arbre'),
+(24, 'arbre de cr&eacute;ation d&apos;une pi&egrave;ce', 'Piece>arbre'),
+(24, 'arbre de cr&eacute;tion d&apos; un assemblage', 'Assemblage>arbre'),
+(27, 'arbre de cr&eacute;ation d&apos;une pi&egrave;ce', 'Piece>arbre'),
+(27, 'arbre de cr&eacute;tion d&apos; une mise en plan', 'Mise_en_plan>arbre');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
