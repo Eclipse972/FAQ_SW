@@ -25,15 +25,15 @@ $BD = new PEUNC\classes\BDD;
 switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
 	case 403:	header("location:/Erreur>Acces_interdit");	break;
 	case 500:	header("location:/Erreur>Serveur_sature");	break;
-	case 200:	// le script est lancé sans redirection
+	case 200:	// le script est lancé sans redirection => page d'accueil
 		$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
 		break;
 	case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
-		list($alpha, $beta, $gamma) = $BD->CherchePosition();
+		list($alpha, $beta, $gamma) = $BD->CherchePosition();	// comparaison de $_SERVER['REDIRECT_URL'] avec toutes les URL valides du site
 		if (isset($alpha))	{	// adresse valide, on ne touche à rien
 			header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
 			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$alpha, $beta, $gamma];	// $_SESSION = array('alpha' => $alpha, 'beta' = $beta, 'gamma' => $gamma) détruirait les autres éventuels paramètres
-		} else	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 404, 0];	// l''adresse invalide reste affichée dans la barre d'adresse'
+		} else	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 404, 0];	// l'adresse invalide reste affichée dans la barre d'adresse'
 		break;
 	default:
 		header("location:/Erreur");	// erreur inconnue
