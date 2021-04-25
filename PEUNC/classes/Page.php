@@ -20,8 +20,8 @@ class Page implements iPage	{
 
 		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
 		if(!file_exists('Vue/'.$this->CSS.'.css'))	die("Vue/{$this->CSS}.css n&apos;existe pas !");
-		if ($this->scriptSection != '')	{			// champ non vide?
-			if (!file_exists($this->scriptSection))	// script n'existe pas?
+		if ($this->scriptSection != '')	{	// champ non vide?
+			if (!file_exists('Controleur/' . $this->scriptSection))	// script n'existe pas?
 				header("location:/Erreur>Article_inexistant");
 		}
 	}
@@ -49,7 +49,7 @@ class Page implements iPage	{
 	}
 
 	public function Section()	{
-		include $this->scriptSection;
+		include 'Controleur/' . $this->scriptSection;
 		//echo "\n";
 	}
 
