@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
+	<link rel="stylesheet" href="Vue/commun.css" />
+	<?=$PAGE->CSS()?>
+	<title><?=$PAGE->TitrePage()?></title>
+</head>
+
+<body>
+
+<header>
+<div id="logo"><img src="<?=$PAGE->LogoPage()?>" alt = "Logo"></div>
+<div id="titre">
+	<?=$PAGE->EntetePage()?>
+	<?=$PAGE->Onglets()?>
+</div>
+</header>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<?=$PAGE->Menu()?>
+
+<section>
+<?=$PAGE->Section()?>
+</section>
+
+<?=$PAGE->ArticlesConnexes()?>
+
+</main>
+
+<footer>
+	<p>Site optimis&eacute; pour <img src="Vue/images/chrome.png" alt="Chrome"> et <img src="Vue/images/firefox.png" alt="Firefox">
+	 - <a target="_blank" href="http://dossiers.techniques.free.fr">Mes dossiers techniques en ligne</a>
+	<?=$PAGE->PiedDePage()?>
+	 - derni&egrave;re mise à jour: 18 avril 2021</p>
+</footer>
+
+</body>
+</html>
+
