@@ -25,7 +25,7 @@ class PageVE extends PageArticle	{
 	public function TitreVE($titre, $VE) { // VE et dossierVE ne sont pas forcément identiques.Exemple: tronc de cône et tronc2cone
 		?>
 		<h1>Cr&eacute;er <?=$titre?> </h1>
-		<p>On veut r&eacute;aliser : <img src="Controleur/<?=$this->dossier?>/VEcote.png" style="vertical-align:middle; height:300px" alt="<?=$VE?> cot&eacute;"></p>
+		<p>On veut r&eacute;aliser : <img src="Controleur/Piece/<?=$this->dossier?>/VEcote.png" style="vertical-align:middle; height:300px" alt="<?=$VE?> cot&eacute;"></p>
 		<?php
 	}
 
