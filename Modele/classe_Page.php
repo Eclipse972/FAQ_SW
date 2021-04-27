@@ -15,9 +15,15 @@ class PageAdministrateur extends PageAdminPEUNC {}
 class PageVE extends PageArticle	{
 	private $dossier;
 
-	public function CSS()	{
-		$this->CodeCSS("article");
-		$this->CodeCSS("creationVE");
+	public function __construct()	{
+		parent::__construct();
+		// bug: il faudra modifier ce code dès que les nouveaux controleurs seront implémenté
+		$this->T_CSS = [
+			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
+			"commun",
+			"article",
+			"creationVE"
+		];
 	}
 
 	public function SetDossier($dossier) { $this->dossier = $dossier; }
