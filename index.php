@@ -23,8 +23,8 @@ session_start();
 $BD = new PEUNC\classes\BDD;
 
 switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
-	case 403:	header("location:/Erreur>Acces_interdit");	break;
-	case 500:	header("location:/Erreur>Serveur_sature");	break;
+	case 403:	header("location:/Erreur/Acces_interdit");	break;
+	case 500:	header("location:/Erreur/Serveur_sature");	break;
 	case 200:	// le script est lancé sans redirection => page d'accueil. Les éventuels paramètres sont ignorés
 		$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
 		break;
@@ -40,7 +40,7 @@ switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ic
 }
 
 $classePage = $BD->ClassePage();
-if (!		isset($classePage))	header("location:/Erreur>Page_inexistante");
+if (!		isset($classePage))	header("location:/Erreur/Page_inexistante");
 if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
 include"Vue/doctype.html"; // insertion de la vue
