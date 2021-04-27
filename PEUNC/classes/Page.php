@@ -23,20 +23,17 @@ class Page implements iPage	{
 
 	public function __construct()	{
 		$this->BD = new BDD;
+		$this->logo = 'logo.png';
+		$this->titrePage = "Titre de la page affiché dans la barre du haut du navigateur";
+		$this->entetePage = "En-tête de la page affichée";
 
-		// hydratation de la page
-		list($CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
+		$this->scriptSection = $this->BD->HydratePage();	// section de la page
 
 		// définition du logo
 		if($this->logo == '')	$this->logo = 'logo.png';
 		$this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';	// vérification du logo
 
-		// liste des feuilles CSS
-		$this->T_CSS = [
-			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
-			"commun",
-			$CSS
-		];
+		$this->T_CSS = [];	// liste des feuilles CSS à définir dans le controleur
 
 		if ($this->scriptSection != '')	{	// champ non vide?
 			if (!file_exists('Controleur/' . $this->scriptSection))	// script n'existe pas?

@@ -8,7 +8,19 @@ use PEUNC\classes\PageAdministrateur	as PageAdminPEUNC;
  * Dans la BDD le nom dnas la table est PageArticle. Je subodore que le parseur remplace dans le code PageArticle par PEUNC\classes\Page.
  * Du coup le nom est différent de celui enregistré dans le BDD.
  * */
-class PageArticle extends PagePEUNC {}
+class PageArticle extends PagePEUNC {
+	public function __construct()	{
+		parent::__construct();
+		// liste des feuilles CSS
+		$this->T_CSS = [
+			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
+			"commun",
+			"article"
+		];
+		$this->titrePage = "La Foire Aux Questions sur SolidWorks de ChristopHe";
+		$this->entetePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
+	}
+}
 
 class PageAdministrateur extends PageAdminPEUNC {}
 
