@@ -48,8 +48,8 @@ class Page implements iPage	{
 
 	public function CSS()	{
 		foreach($this->T_CSS as $feuilleCSS)	{
-			if(substr($feuilleCSS,0,4) != 'http')	$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
-			echo"\t<link rel=\"stylesheet\" href=\"/", $feuilleCSS,"\" />\n";
+			if(substr($feuilleCSS,0,4) != 'http')	$feuilleCSS = "/" . self::DOSSIER_CSS . $feuilleCSS . ".css";
+			echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";
 		}
 	}
 
