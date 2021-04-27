@@ -26,9 +26,8 @@ class Page implements iPage	{
 		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
 
 		// vérification du logo
-		if($this->logo == '')
-			$this->logo = self::DOSSIER_IMAGE . 'logo.png';
-		else $this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
+		if($this->logo == '')	$this->logo = 'logo.png';
+		$this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
 
 		if(!file_exists('Vue/'.$this->CSS.'.css'))	die("Vue/{$this->CSS}.css n&apos;existe pas !");
 		if ($this->scriptSection != '')	{	// champ non vide?
