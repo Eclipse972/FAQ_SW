@@ -12,13 +12,24 @@ class Page implements iPage	{
 	protected $entetePage;
 	protected $scriptSection;
 
+	// dossiers pas défaut
+	const DOSSIER_MODEL		= 'Modele/';
+	const DOSSIER_VUE		= 'Vue/';
+	const DOSSIER_CONTROLEUR= 'Controleur/';
+	const DOSSIER_IMAGE		= 'images/';
+	const DOSSIER_CSS		= 'CSS/';
+
 	public function __construct()	{
 		$this->BD = new BDD;
 
 		// hydratation de la page
 		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
 
-		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
+		// vérification du logo
+		if($this->logo == '')
+			$this->logo = self::DOSSIER_IMAGE . 'logo.png';
+		else $this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
+
 		if(!file_exists('Vue/'.$this->CSS.'.css'))	die("Vue/{$this->CSS}.css n&apos;existe pas !");
 		if ($this->scriptSection != '')	{	// champ non vide?
 			if (!file_exists('Controleur/' . $this->scriptSection))	// script n'existe pas?
@@ -50,7 +61,6 @@ class Page implements iPage	{
 
 	public function Section()	{
 		include 'Controleur/' . $this->scriptSection;
-		//echo "\n";
 	}
 
 	public function Menu()	{
