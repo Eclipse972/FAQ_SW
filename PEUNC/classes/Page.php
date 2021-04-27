@@ -25,11 +25,11 @@ class Page implements iPage	{
 		// hydratation de la page
 		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
 
-		// vérification du logo
 		if($this->logo == '')	$this->logo = 'logo.png';
-		$this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
+		$this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';	// vérification du logo
 
-		if(!file_exists('Vue/'.$this->CSS.'.css'))	die("Vue/{$this->CSS}.css n&apos;existe pas !");
+		if(!file_exists(self::DOSSIER_CSS . $this->CSS.'.css'))	die(self::DOSSIER_CSS . $this->CSS.".css n&apos;existe pas !");
+
 		if ($this->scriptSection != '')	{	// champ non vide?
 			if (!file_exists('Controleur/' . $this->scriptSection))	// script n'existe pas?
 				header("location:/Erreur/Article_inexistant");
@@ -43,7 +43,7 @@ class Page implements iPage	{
 	public function CodeCSS($nom)	{	// permet de créer une ligne de code pour insérer une feuille de style.
 		// Cette fonction servira si vous voulez redéfinr la méthode CSS()
 		// exemple: public function CSS() {  $this->CodeCSS("fichier1"); $this->CodeCSS("fichier1"); }
-		echo"<link rel=\"stylesheet\" href=\"/Vue/{$nom}.css\" />\n";
+		echo"<link rel=\"stylesheet\" href=\"/", self::DOSSIER_CSS, $nom,".css\" />\n";
 	}
 
 	public function LogoPage() { echo $this->logo; }
