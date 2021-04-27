@@ -7,7 +7,9 @@ include"API_page.php";
 class Page implements iPage	{
 	protected $BD;
 	protected $titrePage;
-	protected $CSS;
+	protected $T_CSS;				// tableau contenant les noms des feuille de style.
+	// Soit externe comme https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline
+	// soit interne: commun pour /CSS/commun.css
 	protected $logo;
 	protected $entetePage;
 	protected $scriptSection;
@@ -23,12 +25,18 @@ class Page implements iPage	{
 		$this->BD = new BDD;
 
 		// hydratation de la page
-		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
+		list($CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
 
+		// définition du logo
 		if($this->logo == '')	$this->logo = 'logo.png';
 		$this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';	// vérification du logo
 
-		if(!file_exists(self::DOSSIER_CSS . $this->CSS.'.css'))	die(self::DOSSIER_CSS . $this->CSS.".css n&apos;existe pas !");
+		// liste des feuilles CSS
+		$this->T_CSS = [
+			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
+			"commun",
+			$CSS
+		];
 
 		if ($this->scriptSection != '')	{	// champ non vide?
 			if (!file_exists('Controleur/' . $this->scriptSection))	// script n'existe pas?
@@ -38,12 +46,11 @@ class Page implements iPage	{
 
 	public function TitrePage()	{ echo $this->titrePage; }
 
-	public function CSS()	{ $this->CodeCSS($this->CSS); }
-
-	public function CodeCSS($nom)	{	// permet de créer une ligne de code pour insérer une feuille de style.
-		// Cette fonction servira si vous voulez redéfinr la méthode CSS()
-		// exemple: public function CSS() {  $this->CodeCSS("fichier1"); $this->CodeCSS("fichier1"); }
-		echo"<link rel=\"stylesheet\" href=\"/", self::DOSSIER_CSS, $nom,".css\" />\n";
+	public function CSS()	{
+		foreach($this->T_CSS as $feuilleCSS)	{
+			if(substr($feuilleCSS,0,4) != 'http')	$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
+			echo"\t<link rel=\"stylesheet\" href=\"/", $feuilleCSS,"\" />\n";
+		}
 	}
 
 	public function LogoPage() { echo $this->logo; }
