@@ -1,14 +1,5 @@
 <?php
-use PEUNC\classes\Page					as PagePEUNC;
-use PEUNC\classes\PageErreur			as PageErreurPEUNC;
-use PEUNC\classes\PageContact			as PageContactPEUNC;
-use PEUNC\classes\PageAdministrateur	as PageAdminPEUNC;
-
-/* Impossible d'utiliser use PEUNC\classes\Page	as PageArticle; pour éviter d'utiliser une classe vide.
- * Dans la BDD le nom dnas la table est PageArticle. Je subodore que le parseur remplace dans le code PageArticle par PEUNC\classes\Page.
- * Du coup le nom est différent de celui enregistré dans le BDD.
- * */
-class PageArticle extends PagePEUNC {
+class PageArticle extends PEUNC\classes\Page {
 	public function __construct()	{
 		parent::__construct();
 		// liste des feuilles CSS
@@ -22,7 +13,7 @@ class PageArticle extends PagePEUNC {
 	}
 }
 
-class PageAdministrateur extends PageAdminPEUNC {}
+class PageAdministrateur extends PEUNC\classes\PageAdministrateur {}
 
 class PageVE extends PageArticle	{
 	private $dossier;
@@ -105,7 +96,7 @@ class PageVE extends PageArticle	{
 	}
 }
 
-class PageErreur extends PageErreurPEUNC	{
+class PageErreur extends PEUNC\classes\PageErreur	{
 	public function Section()	{
 		parent::Section();
 		?>
@@ -115,7 +106,7 @@ class PageErreur extends PageErreurPEUNC	{
 	}
 }
 
-class PageContact extends PageContactPEUNC {
+class PageContact extends PEUNC\classes\PageContact {
 	public function __construct() {
 		parent::__construct();
 		$this->titreFormulaire = 'Formulaire en construction';
