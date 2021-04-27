@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Mar 20 Avril 2021 à 15:49
+-- Généré le : Mar 27 Avril 2021 à 15:45
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -50,16 +50,16 @@ INSERT INTO `Connexes` (`squelette_ID`, `texte`, `URL`) VALUES
 (51, 'Vue d''ensemble des congés', 'http://help.solidworks.com/2015/french/SolidWorks/sldworks/c_Fillet_Overview.htm'),
 (51, 'Création d''une fonction de chanfrein', 'http://help.solidworks.com/2015/french/SolidWorks/sldworks/HIDD_DVE_FEAT_CHAMFER.htm'),
 (57, 'Vues en coupe dans les modèles', 'http://help.solidworks.com/2015/french/SolidWorks/sldworks/t_section_views_models.htm'),
-(63, 'Créer un cylindre par révolution', '/Piece>VE>cylindre_revolution'),
-(67, 'Créer un cylindre par extrusion', '/Piece>VE>cylindre_extrusion'),
-(65, 'Créer un tronc de cône par extrusion', '/Piece>VE>tronc2cone_extrusion'),
-(68, 'Créer un tronc de cône par r&eacute;volution', '/Piece>VE>tronc2cone_revolution'),
-(17, 'arbre de cr&eacute;ation pour une mise en plan', 'Mise_en_plan>arbre'),
-(17, 'arbre de cr&eacute;ation pour un assemblage', 'Assemblage>arbre'),
-(24, 'arbre de cr&eacute;ation d&apos;une pi&egrave;ce', 'Piece>arbre'),
-(24, 'arbre de cr&eacute;tion d&apos; un assemblage', 'Assemblage>arbre'),
-(27, 'arbre de cr&eacute;ation d&apos;une pi&egrave;ce', 'Piece>arbre'),
-(27, 'arbre de cr&eacute;tion d&apos; une mise en plan', 'Mise_en_plan>arbre');
+(63, 'Créer un cylindre par révolution', '/Piece/VE/cylindre_revolution'),
+(67, 'Créer un cylindre par extrusion', '/Piece/VE/cylindre_extrusion'),
+(65, 'Créer un tronc de cône par extrusion', '/Piece/VE/tronc2cone_extrusion'),
+(68, 'Créer un tronc de cône par r&eacute;volution', '/Piece/VE/tronc2cone_revolution'),
+(17, 'arbre pour une mise en plan', 'Mise_en_plan/arbre'),
+(17, 'arbre pour un assemblage', 'Assemblage/arbre'),
+(24, 'arbre pour une pi&egrave;ce', 'Piece/arbre'),
+(24, 'arbre pour un assemblage', 'Assemblage/arbre'),
+(27, 'arbre pour une pi&egrave;ce', 'Piece/arbre'),
+(27, 'arbre pour une mise en plan', 'Mise_en_plan/arbre');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

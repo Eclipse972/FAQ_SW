@@ -33,7 +33,7 @@ class Page implements iPage	{
 	public function CodeCSS($nom)	{	// permet de créer une ligne de code pour insérer une feuille de style.
 		// Cette fonction servira si vous voulez redéfinr la méthode CSS()
 		// exemple: public function CSS() {  $this->CodeCSS("fichier1"); $this->CodeCSS("fichier1"); }
-		echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n";
+		echo"<link rel=\"stylesheet\" href=\"/Vue/{$nom}.css\" />\n";
 	}
 
 	public function LogoPage() { echo $this->logo; }
