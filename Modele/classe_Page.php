@@ -34,7 +34,7 @@ class PageVE extends PageArticle	{
 	public function TitreVE($titre, $VE) { // VE et dossierVE ne sont pas forcément identiques.Exemple: tronc de cône et tronc2cone
 		?>
 		<h1>Cr&eacute;er <?=$titre?> </h1>
-		<p>On veut r&eacute;aliser : <img src="/Controleur/Piece/<?=$this->dossier?>/VEcote.png" style="vertical-align:middle; height:300px" alt="<?=$VE?> cot&eacute;"></p>
+		<p>On veut r&eacute;aliser : <img src="/images/Piece/<?=$this->dossier?>/VEcote.png" style="vertical-align:middle; height:300px" alt="<?=$VE?> cot&eacute;"></p>
 		<?php
 	}
 
@@ -52,15 +52,15 @@ class PageVE extends PageArticle	{
 		?>
 		<div id="Phase">
 		<h2>Esquisse cot&eacute;e</h2>
-		<p>Il faut dessiner :<img src="/Controleur/<?=$this->dossier?>/esquisse.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e"></p>
+		<p>Il faut dessiner :<img src="/images/<?=$this->dossier?>/esquisse.png" style="vertical-align:middle; height:300px" alt="esquisse cot&eacute;e"></p>
 		<p>Dans la barre d&apos;outils, cliquez sur l&apos;alpha <b>Esquisse</b> (deuxi&egrave;me alpha) :<img src="/images/outilsEsquisse.png" alt="Barre d&apos;outils Esquisse"></p>
 		<p>Vous aurez besoin des ic&ocirc;nes:</p>
 		<ul>
 		<li>
 		<?php
-			echo $icone_principale,'<img src="/Controleur/',$this->dossier,'/icone.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ',icone_principale,'">';
+			echo $icone_principale,'<img src="/images/',$this->dossier,'/icone.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ',icone_principale,'">';
 			if ($icone_secondaire != '')
-				echo ' et ',$icone_secondaire,'<img src="/Controleur/',$this->dossier,'/icone2.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ',$icone_secondaire,'">';
+				echo ' et ',$icone_secondaire,'<img src="/images/',$this->dossier,'/icone2.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ',$icone_secondaire,'">';
 		?>
 		</li>
 		<?=$extrusion ? '' : '<li>ligne de construction<img src="/images/ligne2construction.png" style="height:30px; vertical-align:middle" alt="ic&ocirc;ne ligne de construction"> pour cr&eacute;er l&aos;axe de r&eacute;volution.</li>'?>
@@ -68,7 +68,7 @@ class PageVE extends PageArticle	{
 		</ul>
 		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 		</div>
-		<?php /* <a href="Controleur/<?=$this->dossier?>/esquisse.avi">Montre moi</a> */
+		<?php /* <a href="images/<?=$this->dossier?>/esquisse.avi">Montre moi</a> */
 	}
 
 	public function MiseEnVolume($extrusion = true, $dépouille =false) {
@@ -92,7 +92,7 @@ class PageVE extends PageArticle	{
 		</ol>
 		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 		</div>
-		<?php /* <a href="Controleur/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a> */
+		<?php /* <a href="images/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a> */
 	}
 }
 
