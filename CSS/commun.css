@@ -70,7 +70,7 @@ footer img {
 #logo { width:var(--largeur_1e_colonne); }
 
 #logo img {
-	max-height: 80px;
+	max-height: 140px;
 	max-width: 170px;
 	padding: 4px;
 	display: block;

@@ -97,6 +97,17 @@ class PageVE extends PageArticle	{
 }
 
 class PageErreur extends PEUNC\classes\PageErreur	{
+	public function __construct() {
+		parent::__construct();
+		$this->T_CSS = [
+			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
+			"commun",
+			"erreur"
+		];
+		$this->titrePage = "La Foire Aux Questions sur SolidWorks de ChristopHe";
+		$this->entetePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
+	}
+
 	public function Section()	{
 		parent::Section();
 		?>
@@ -109,6 +120,13 @@ class PageErreur extends PEUNC\classes\PageErreur	{
 class PageContact extends PEUNC\classes\PageContact {
 	public function __construct() {
 		parent::__construct();
+		$this->T_CSS = [
+			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
+			"commun",
+			"formulaire"
+		];
+		$this->titrePage = "La Foire Aux Questions sur SolidWorks de ChristopHe";
+		$this->entetePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
 		$this->titreFormulaire = 'Formulaire en construction';
 	}
 }
