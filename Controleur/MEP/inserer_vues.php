@@ -11,7 +11,7 @@ ob_start();	// début du code <section>
 	<li>une nomenclature</li>
 	<li>un cartouche</li>
 	</ul>
-	<img src="/Controleur/MEP/dessin.png" width=800px>
+	<img src="/images/MEP/dessin.png" width=800px>
 <?php
 $this->scriptSection = ob_get_contents();
 ob_end_clean();
