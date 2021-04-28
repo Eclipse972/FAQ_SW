@@ -1,7 +1,7 @@
 <?php
 ob_start();	// début du code <section>
 ?>
-	<h1>Bienvenue sur mon site ! V2</h1>
+	<h1>Bienvenue sur mon site !</h1>
 	<p>Je d&eacute;veloppe ce site d&apos;abord pour l&apos;exploiter avec mes &eacute;l&egrave;ves mais pas seulement. <br>
 	Cette FAQ (Foire Aux Questions) est con&ccedil;ue pour la version 2015 que j&apos;utilise en classe qui soit dit en passant
 	est largement suffisante pour l&apos;usage que j&apos;en ai.</p>

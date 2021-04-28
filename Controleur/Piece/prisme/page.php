@@ -1,0 +1,12 @@
+<?php // article contrat de phase du prisme
+ob_start();	// début du code <section>
+
+$this->SetDossier('prisme');
+$this->TitreVE('prisme',"un prisme droit", "prisme");
+$this->PlanDesquisse();
+$this->EsquisseCotée('rectangle');
+$this->MiseEnVolume('prisme');
+
+$this->scriptSection = ob_get_contents();
+ob_end_clean();
+

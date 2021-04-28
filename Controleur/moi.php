@@ -1,4 +1,7 @@
 <?php
+
+$this->logo	= 'caricature.png';// changement de logo de la page
+
 ob_start();	// début du code <section>
 ?>
 	<h1>A propos de moi</h1>
