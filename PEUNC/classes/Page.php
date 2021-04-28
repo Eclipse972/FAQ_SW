@@ -22,22 +22,20 @@ class Page implements iPage	{
 	const DOSSIER_CSS		= 'CSS/';
 
 	public function __construct()	{
-		$this->BD = new BDD;
-		$this->logo = 'logo.png';
-		$this->titrePage = "Titre de la page affiché dans la barre du haut du navigateur";
-		$this->entetePage = "En-tête de la page affichée";
+		$this->BD			= new BDD;
+		$this->titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
+		$this->T_CSS		= [];	// liste des feuilles CSS à définir dans le controleur
+		$this->logo			= 'logo.png';
+		$this->entetePage	= "En-tête de la page affichée";
+		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
+	}
 
-		$this->scriptSection = $this->BD->HydratePage();	// section de la page
-
-		// définition du logo
-		if($this->logo == '')	$this->logo = 'logo.png';
-		$this->logo = (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';	// vérification du logo
-
-		$this->T_CSS = [];	// liste des feuilles CSS à définir dans le controleur
-
-		if ($this->scriptSection != '')	{	// champ non vide?
-			if (!file_exists('Controleur/' . $this->scriptSection))	// script n'existe pas?
-				header("location:/Erreur/Article_inexistant");
+	public function Hydrate()	{
+		$script = $this->BD->Controleur();
+		if($script != '')	{
+			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
+				require(self::DOSSIER_CONTROLEUR . $script);
+			else die("Controleur inexistant");
 		}
 	}
 
@@ -46,11 +44,14 @@ class Page implements iPage	{
 	public function CSS()	{
 		foreach($this->T_CSS as $feuilleCSS)	{
 			if(substr($feuilleCSS,0,4) != 'http')	$feuilleCSS = "/" . self::DOSSIER_CSS . $feuilleCSS . ".css";
+			// à faire: test de l'existence de la feuille sur le site
 			echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";
 		}
 	}
 
-	public function LogoPage() { echo $this->logo; }
+	public function LogoPage() {
+		echo (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
+	}
 
 	public function EntetePage() { echo $this->entetePage,"\n"; }
 
@@ -62,9 +63,7 @@ class Page implements iPage	{
 		echo "\t</ul>\n";
 	}
 
-	public function Section()	{
-		include 'Controleur/' . $this->scriptSection;
-	}
+	public function Section()	{ echo $this->scriptSection; }
 
 	public function Menu()	{
 		$T_item = $this->BD->Liste_niveau(2);
