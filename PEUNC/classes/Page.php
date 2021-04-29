@@ -63,7 +63,7 @@ class Page implements iPage	{
 	}
 
 	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->Logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/Vue/logo_manquant.png";
+		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/Vue/logo_manquant.png";
 	}
 
 	public function setSection($code)	{
@@ -87,7 +87,7 @@ class Page implements iPage	{
 	}
 
 	public function getLogo() {
-		echo (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
+		echo $this->logo;
 	}
 
 	public function getHeaderText() {
@@ -172,7 +172,6 @@ class PageErreur extends Page {
 }
 
 class PageContact extends Page {
-	protected $titreFormulaire;
 
 	public function __construct() {
 		parent::__construct();
@@ -183,6 +182,10 @@ class PageContact extends Page {
 		}
 	}
 
+	public function setFormTitle($titre) {
+		$this->titreFormulaire = $titre;
+	}
+
 	public function AfficherMenu()	{
 		echo"<nav></nav>\n";	// génère une colonne vide
 	}
@@ -190,7 +193,7 @@ class PageContact extends Page {
 	public function PagesConnexes()	{}
 
 	public function getSection()	{
-?><h1><?=$this->titreFormulaire?></h1>
+?><h1>Formulaire de contact</h1>
 	<form method="post" action="#" id=formulaire>
 		<p>Nom		<input type="text"	name="nom"		/></p>
 		<p>Courriel	<input type="email" name="courriel" /></p>

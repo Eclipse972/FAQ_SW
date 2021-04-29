@@ -7,6 +7,7 @@ class PageArticle extends PEUNC\classes\Page {
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 		$this->setFooter(" - <a href=\"/Contact\">Me contacter</a>");
+		$this->setLogo("logo.png");
 	}
 }
 
@@ -20,7 +21,7 @@ class PageVE extends PageArticle	{
 		// configuration par défaut
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE"]);
 		$this->setTitle("Page d&apos;administration de ma FAQ SW");
-		$this->setHeaderText("<p class=\"font-effect-outline\">Page d&apos;administration Foire Aux Questions SolidWorks/p>");
+		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 	}
 
 	public function SetDossier($dossier) { $this->dossier = $dossier; }
@@ -96,6 +97,7 @@ class PageErreur extends PEUNC\classes\PageErreur	{
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"erreur"]);
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
+		$this->setLogo("logo.png");
 	}
 
 	public function getSection()	{
@@ -113,6 +115,6 @@ class PageContact extends PEUNC\classes\PageContact {
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"formulaire"]);
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
-		$this->titreFormulaire = 'Formulaire en construction';
+		$this->setLogo("logo.png");
 	}
 }

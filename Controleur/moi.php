@@ -1,7 +1,4 @@
 <?php
-
-$this->logo	= 'caricature.png';// changement de logo de la page
-
 ob_start();	// début du code <section>
 ?>
 	<h1>A propos de moi</h1>
@@ -25,5 +22,8 @@ ob_start();	// début du code <section>
 	Ce lien est proposé dans tous les pieds de page.
 	</p>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+
+$this->setSection($tampon);
+$this->setLogo('caricature.png');// changement de logo de la page
