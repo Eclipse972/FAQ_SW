@@ -5,15 +5,6 @@ namespace PEUNC\classes;
 include"API_page.php";
 
 class Page implements iPage	{
-	protected $BD;
-	protected $titrePage;
-	protected $T_CSS;				// tableau contenant les noms des feuille de style.
-	// Soit externe comme https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline
-	// soit interne: commun pour /CSS/commun.css
-	protected $logo;
-	protected $entetePage;
-	protected $scriptSection;
-
 	// dossiers pas défaut
 	const DOSSIER_MODEL		= 'Modele/';
 	const DOSSIER_VUE		= 'Vue/';
@@ -21,10 +12,17 @@ class Page implements iPage	{
 	const DOSSIER_IMAGE		= 'images/';
 	const DOSSIER_CSS		= 'CSS/';
 
+	protected $BD;
+	protected $titrePage;
+	protected $T_CSS;
+	protected $logo;
+	protected $entetePage;
+	protected $scriptSection;
+
 	public function __construct()	{
 		$this->BD			= new BDD;
 		$this->titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
-		$this->T_CSS		= [];	// liste des feuilles CSS à définir dans le controleur
+		$this->T_CSS		= [];
 		$this->logo			= 'logo.png';
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
@@ -38,8 +36,16 @@ class Page implements iPage	{
 			else die("Controleur inexistant");
 		}
 	}
+	/* ***************************
+	 * MUTATEURS (SETTER)
+	 * ***************************/
 
-	public function TitrePage()	{ echo $this->titrePage; }
+	/* ***************************
+	 * ASSESSURS (GETTER)
+	 * ***************************/
+	public function TitrePage()	{
+		echo $this->titrePage;
+	}
 
 	public function CSS()	{
 		foreach($this->T_CSS as $feuilleCSS)	{
@@ -53,7 +59,21 @@ class Page implements iPage	{
 		echo (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
 	}
 
-	public function EntetePage() { echo $this->entetePage,"\n"; }
+	public function EntetePage() {
+		echo $this->entetePage,"\n";
+	}
+
+	public function Section()	{
+		echo $this->scriptSection;
+	}
+
+	public function PiedDePage()	{
+		echo" - <a href=\"/Contact\">Me contacter</a>";
+	}
+
+	/* ***************************
+	 * AUTRES MÉTHODES
+	 * ***************************/
 
 	public function Onglets()	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
@@ -62,8 +82,6 @@ class Page implements iPage	{
 			echo "\t\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
 		echo "\t</ul>\n";
 	}
-
-	public function Section()	{ echo $this->scriptSection; }
 
 	public function Menu()	{
 		$T_item = $this->BD->Liste_niveau(2);
@@ -103,7 +121,6 @@ class Page implements iPage	{
 		}
 	}
 
-	public function PiedDePage()	{	echo" - <a href=\"/Contact\">Me contacter</a>";	}
 }
 
 // Classes filles
