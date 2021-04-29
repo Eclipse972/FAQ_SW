@@ -3,13 +3,10 @@ class PageArticle extends PEUNC\classes\Page {
 	public function __construct()	{
 		parent::__construct();
 		// configuration par défaut
-		$this->T_CSS = [
-			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
-			"commun",
-			"article"
-		];
-		$this->titrePage = "La Foire Aux Questions sur SolidWorks de ChristopHe";
-		$this->entetePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
+		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article"]);
+		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
+		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
+		$this->setFooter(" - <a href=\"/Contact\">Me contacter</a>");
 	}
 }
 
@@ -21,12 +18,9 @@ class PageVE extends PageArticle	{
 	public function __construct()	{
 		parent::__construct();
 		// configuration par défaut
-		$this->T_CSS = [
-			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
-			"commun",
-			"article",
-			"creationVE"
-		];
+		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE"]);
+		$this->setTitle("Page d&apos;administration de ma FAQ SW");
+		$this->setHeaderText("<p class=\"font-effect-outline\">Page d&apos;administration Foire Aux Questions SolidWorks/p>");
 	}
 
 	public function SetDossier($dossier) { $this->dossier = $dossier; }
@@ -99,17 +93,13 @@ class PageVE extends PageArticle	{
 class PageErreur extends PEUNC\classes\PageErreur	{
 	public function __construct() {
 		parent::__construct();
-		$this->T_CSS = [
-			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
-			"commun",
-			"erreur"
-		];
-		$this->titrePage = "La Foire Aux Questions sur SolidWorks de ChristopHe";
-		$this->entetePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
+		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"erreur"]);
+		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
+		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 	}
 
-	public function Section()	{
-		parent::Section();
+	public function getSection()	{
+		parent::getSection();
 		?>
 		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
 		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
@@ -120,13 +110,9 @@ class PageErreur extends PEUNC\classes\PageErreur	{
 class PageContact extends PEUNC\classes\PageContact {
 	public function __construct() {
 		parent::__construct();
-		$this->T_CSS = [
-			"https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",
-			"commun",
-			"formulaire"
-		];
-		$this->titrePage = "La Foire Aux Questions sur SolidWorks de ChristopHe";
-		$this->entetePage = "<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>";
+		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"formulaire"]);
+		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
+		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 		$this->titreFormulaire = 'Formulaire en construction';
 	}
 }

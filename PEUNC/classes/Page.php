@@ -18,6 +18,7 @@ class Page implements iPage	{
 	protected $logo;
 	protected $entetePage;
 	protected $scriptSection;
+	protected $PiedDePage;
 
 	public function __construct()	{
 		$this->BD			= new BDD;
@@ -35,47 +36,76 @@ class Page implements iPage	{
 				require(self::DOSSIER_CONTROLEUR . $script);
 			else die("Controleur inexistant");
 		}
-	}
-	/* ***************************
-	 * MUTATEURS (SETTER)
-	 * ***************************/
+}
 
-	/* ***************************
-	 * ASSESSURS (GETTER)
-	 * ***************************/
-	public function TitrePage()	{
-		echo $this->titrePage;
-	}
-
-	public function CSS()	{
-		foreach($this->T_CSS as $feuilleCSS)	{
-			if(substr($feuilleCSS,0,4) != 'http')	$feuilleCSS = "/" . self::DOSSIER_CSS . $feuilleCSS . ".css";
-			// à faire: test de l'existence de la feuille sur le site
-			echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";
+/* ***************************
+ * MUTATEURS (SETTER)
+ * ***************************/
+	public function setCSS($Tableau)	{
+		foreach($Tableau as $feuilleCSS)	{
+			if(substr($feuilleCSS,0,4) == 'http')
+				$this->T_CSS[] = $feuilleCSS;	// pas de vérification
+			else {
+				$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
+				if(file_exists($feuilleCSS))
+					$this->T_CSS[] = '/' . $feuilleCSS;
+				else { /* À faire: traitement en cas d'inexistence' */ }
+			}
 		}
 	}
 
-	public function LogoPage() {
+	public function setTitle($titre)	{
+		$this->titrePage = $titre;
+	}
+
+	public function setHeaderText($texte)	{
+			$this->entetePage = $texte;
+	}
+
+	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
+		$this->Logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/Vue/logo_manquant.png";
+	}
+
+	public function setSection($code)	{
+		$this->scriptSection = $code;
+	}
+
+	public function setFooter($code)	{
+		$this->PiedDePage = $code;
+	}
+
+/* ***************************
+ * ASSESSURS (GETTER)
+ * ***************************/
+	public function getTitle()	{
+		echo $this->titrePage;
+	}
+
+	public function getCSS()	{
+		foreach($this->T_CSS as $feuilleCSS)
+			echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";
+	}
+
+	public function getLogo() {
 		echo (file_exists(self::DOSSIER_IMAGE . $this->logo)) ? self::DOSSIER_IMAGE . $this->logo : 'PEUNC/Vue/logo_manquant.png';
 	}
 
-	public function EntetePage() {
+	public function getHeaderText() {
 		echo $this->entetePage,"\n";
 	}
 
-	public function Section()	{
+	public function getSection()	{
 		echo $this->scriptSection;
 	}
 
-	public function PiedDePage()	{
-		echo" - <a href=\"/Contact\">Me contacter</a>";
+	public function getFooter()	{
+		echo $this->PiedDePage;
 	}
 
-	/* ***************************
-	 * AUTRES MÉTHODES
-	 * ***************************/
-
-	public function Onglets()	{
+/* ***************************
+ * AFFICHAGE
+ * ***************************/
+	public function AfficherOnglets()	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
@@ -83,7 +113,7 @@ class Page implements iPage	{
 		echo "\t</ul>\n";
 	}
 
-	public function Menu()	{
+	public function AfficherMenu()	{
 		$T_item = $this->BD->Liste_niveau(2);
 		echo "<nav>\n<ul>\n";
 		foreach($T_item as $beta => $code) {
@@ -101,11 +131,15 @@ class Page implements iPage	{
 		echo "</ul>\n</nav>\n";
 	}
 
-	public function ArticlesConnexes()	{
+	public function AfficherURLConnexes()	{
 		echo "<aside>\n";
 		$this->PagesConnexes();
 		echo "</aside>\n";
 	}
+
+/* ***************************
+ * AUTRES MÉTHODES
+ * ***************************/
 
 	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
 		$Tableau = $this->BD->PagesConnexes();
@@ -126,9 +160,13 @@ class Page implements iPage	{
 // Classes filles
 class PageErreur extends Page {
 
-	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
+	public function AfficherMenu()	{
+		echo"<nav></nav>\n";// génère une colonne vide
+	}
 
-	public function Section()	{ echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";	}
+	public function getSection()	{
+		echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";
+	}
 
 	public function PagesConnexes()	{}
 }
@@ -145,11 +183,13 @@ class PageContact extends Page {
 		}
 	}
 
-	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
+	public function AfficherMenu()	{
+		echo"<nav></nav>\n";	// génère une colonne vide
+	}
 
 	public function PagesConnexes()	{}
 
-	public function Section()	{
+	public function getSection()	{
 ?><h1><?=$this->titreFormulaire?></h1>
 	<form method="post" action="#" id=formulaire>
 		<p>Nom		<input type="text"	name="nom"		/></p>
@@ -174,11 +214,11 @@ class PageContact extends Page {
 		echo "\n";
 	}
 
-	public function PiedDePage()	{}	// normal pour le formulaire de contact!
+	public function getFooter()	{}	// normal pour le formulaire de contact!
 }
 
 class PageAdministrateur extends Page {
-	public function Onglets() {}	// pas d'onglet pour ce type de page
+	public function AfficherOnglets() {}	// pas d'onglet pour ce type de page
 
-	public function PiedDePage()	{}
+	public function getFooter()	{}
 }

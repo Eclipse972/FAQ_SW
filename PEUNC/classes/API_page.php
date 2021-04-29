@@ -2,43 +2,33 @@
 namespace PEUNC\classes;
 
 interface iPage	{
-// Chaque page est entièrement construite avant le moindre affichage. L'hydratation de l'objet page se fait à partir de a BDD principalement. Une fois la page construite on injecte le code dans le fichier doctype.html. Ce fichier ne fait qu'utiliser les différentes méthodes de la classe page (getter).
+/* Chaque page est entièrement construite avant le moindre affichage. L'hydratation de la page se fait à partir d'un controleur.
+ * Une fois la page construite on injecte le code dans le fichier doctype.html. Ce fichier ne fait qu'utiliser les différentes
+ * assesseurs (getter)) de la classe.
+*/
 
-// Présentation dans l'ordre d'apparition dans le code de doctype.html. Ce sont uniquement des méthodes de sortie (getter).
-// Cf PEUNC/classes/Page.php pour plus de précisions.
+// Mutateur (getters)
+	public function getCSS();			// affiche le code pour utiliser toutes les feuilles CSS associée à la page
+	public function getTitle();			// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
+	public function getHeaderText();	// en-tête de la page
+	public function getLogo();			// logo
+	public function getSection();		// affiche le code du corps de la page
+	public function getFooter();		//	pied de page
 
-// <head>
-	public function CSS();				// affiche le code pour utiliser toutes les feuilles CSS associée à la page
-	//public function headTitre();		// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
+// Assesseurs (setters)
+	public function setCSS($tableau);		// affiche le code pour utiliser toutes les feuilles CSS associée à la page
+	public function setTitle($titre);		// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
+	public function setHeaderText($texte);	// en-tête de la page
+	public function setLogo($logo);			// logo
+	public function setSection($code);		// affiche le code du corps de la page
+	public function setFooter($code);		//	pied de page
 
-// <header>
-	public function EntetePage();		// en-tête de la page
-	public function LogoPage();			// logo
+// Affichage
+	public function AfficherOnglets();
+	public function AfficherMenu();			// génère le menu sur 2 niveaux avec les pages de niveau 2 et 3.
+	public function AfficherURLConnexes();	// affiche le code des URL connexes. Cette méthode est optionnelle.
 
-// <nav>
-	public function Menu();				// génère le menu sur 2 niveaux avec les pages de niveau 2 et 3.
-
-// <section>
-	public function Section();			// affiche le code du corps de la page
-
-// <aside>
-	public function ArticlesConnexes();	// affiche le code. Cette méthode est optionnelle.
-
-// <footer>
-	public function PiedDePage();		//
-
-// Présentation de méthodes d'entrée (setter) dans l'ordre d'apparition dans le code de doctype.html.
-// <head>
-
-// <header>
-
-// <nav>
-
-// <section>
-
-// <aside>
+// Autre
 	public function PagesConnexes();	// génère le code pour les pages connexes
-
-// <footer>
 
 }
