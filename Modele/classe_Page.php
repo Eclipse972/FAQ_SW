@@ -11,8 +11,6 @@ class PageArticle extends PEUNC\classes\Page {
 	}
 }
 
-class PageAdministrateur extends PEUNC\classes\PageAdministrateur {}
-
 class PageVE extends PageArticle	{
 	private $dossier;
 
@@ -98,6 +96,7 @@ class PageErreur extends PEUNC\classes\PageErreur	{
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 		$this->setLogo("logo.png");
+		$this->setFooter("");
 	}
 
 	public function getSection()	{
@@ -116,5 +115,8 @@ class PageContact extends PEUNC\classes\PageContact {
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 		$this->setLogo("logo.png");
+		$this->setFooter("");
 	}
 }
+
+class PageAdministrateur extends PEUNC\classes\PageAdministrateur {}

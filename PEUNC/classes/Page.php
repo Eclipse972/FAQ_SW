@@ -24,9 +24,10 @@ class Page implements iPage	{
 		$this->BD			= new BDD;
 		$this->titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
 		$this->T_CSS		= [];
-		$this->logo			= 'logo.png';
+		$this->logo			= "nom du fichier dans le dossier image";
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
+		$this->PiedDePage	= "code pide de page"
 	}
 
 	public function Hydrate()	{
@@ -216,12 +217,8 @@ class PageContact extends Page {
 		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
 		echo "\n";
 	}
-
-	public function getFooter()	{}	// normal pour le formulaire de contact!
 }
 
 class PageAdministrateur extends Page {
 	public function AfficherOnglets() {}	// pas d'onglet pour ce type de page
-
-	public function getFooter()	{}
 }
