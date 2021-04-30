@@ -18,5 +18,6 @@ ob_start();	// début du code <section>
 	<img src="/images/MEP/menu_contextuel.png" alt="extrait du menu contextuel pour suppression" width=300px>
 	<p>Moyen plus rapide: cliquer dessus et presser la touche supprimer du clavier</p>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+$this->setSection($tampon);

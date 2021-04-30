@@ -16,5 +16,6 @@ ob_start();	// début du code <section>
 	<img src="/images/Piece/surface.png" alt="plan de Face" width="300">
 	<p>A venir: changer le plan d&apos;esquisse</p>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+$this->setSection($tampon);

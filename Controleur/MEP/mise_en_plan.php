@@ -23,5 +23,6 @@ ob_start();	// début du code <section>
 	<li>dans le menu &agrave; gauche en haut de cette page, cliquez sur <b>Les fonds de plan</b> pour conna&icirc;tre la suite</li>
 	</ol>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+$this->setSection($tampon);

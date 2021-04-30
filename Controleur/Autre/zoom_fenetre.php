@@ -13,6 +13,6 @@ ob_start();	// début du code <section>
 	</ol>
 	<img style="width:500px" src="/images/Autre/siege.png">
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
-
+$this->setSection($tampon);

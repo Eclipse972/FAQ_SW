@@ -25,5 +25,6 @@ ob_start();	// début du code <section>
 	<li>le dessinateur</li>
 	</ul>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+$this->setSection($tampon);

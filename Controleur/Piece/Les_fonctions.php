@@ -42,5 +42,6 @@ ob_start();	// début du code <section>
 		<img src="/images/Piece/repetition_circ.png" width=25% alt="R&eacute;p&eacute;tition circulaire">
 	</div>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+$this->setSection($tampon);

@@ -4,5 +4,6 @@ ob_start();	// début du code <section>
 	<h1>Contrainte d&apos;esquisse</h1>
 	<p>Page en construction</p>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+$this->setSection($tampon);

@@ -7,6 +7,6 @@ $this->PlanDesquisse();
 $this->EsquisseCotée('cercle');
 $this->MiseEnVolume(true, true);
 
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
-
+$this->setSection($tampon);

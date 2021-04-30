@@ -21,5 +21,6 @@ ob_start();	// début du code <section>
 	</ol>
 	<p>Dans le menu s&eacute;lectionnez le volume que vous voulez cr&eacute;er.</p>
 <?php
-$this->scriptSection = ob_get_contents();
+$tampon = ob_get_contents();
 ob_end_clean();
+$this->setSection($tampon);
