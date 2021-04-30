@@ -143,7 +143,7 @@ class Page implements iPage	{
  * ***************************/
 
 	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
-		$Tableau = $this->BD->PagesConnexes();
+		$Tableau = $this->BD->PagesConnexes($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
 		switch(count($Tableau)) {
 			case 0: break;
 			case 1:

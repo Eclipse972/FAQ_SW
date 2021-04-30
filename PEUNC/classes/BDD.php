@@ -79,8 +79,8 @@ public function Controleur($alpha, $beta, $gamma) {
 	return $reponse[0];
 }
 
-public function PagesConnexes() {
-	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']]);
+public function PagesConnexes($alpha, $beta, $gamma) {
+	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
 	$reponse = $this->resultat->fetchAll();
 	$this->Fermer();
 	return $reponse;
