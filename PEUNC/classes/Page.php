@@ -64,7 +64,7 @@ class Page implements iPage	{
 	}
 
 	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/Vue/logo_manquant.png";
+		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/images/logo_manquant.png";
 	}
 
 	public function setSection($code)	{
