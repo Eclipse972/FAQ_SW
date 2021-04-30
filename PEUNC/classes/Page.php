@@ -31,7 +31,7 @@ class Page implements iPage	{
 	}
 
 	public function Hydrate()	{
-		$script = $this->BD->Controleur();
+		$script = $this->BD->Controleur($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
 		if($script != '')	{
 			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
 				require(self::DOSSIER_CONTROLEUR . $script);

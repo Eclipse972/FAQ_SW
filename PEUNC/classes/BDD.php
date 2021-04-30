@@ -72,9 +72,8 @@ public function Liste_niveau($alpha = null, $beta = null) {
 	return $tableau;
 }
 
-public function Controleur() {
-	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?',
-						[$_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']]);
+public function Controleur($alpha, $beta, $gamma) {
+	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse[0];
