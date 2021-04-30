@@ -166,7 +166,7 @@ class PageErreur extends Page {
 	}
 
 	public function getSection()	{
-		echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";
+		echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur($_SESSION['beta'])}</h1>\n";
 	}
 
 	public function PagesConnexes()	{}

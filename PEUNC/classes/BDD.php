@@ -37,8 +37,8 @@ public function CherchePosition() {
 	return array($reponse['niveau1'], $reponse['niveau2'], $reponse['niveau3']);
 }
 
-public function TexteErreur() {
-	$this->Requete('SELECT texteMenu FROM Squelette WHERE alpha=-1 AND beta= ?', [$_SESSION['beta']]);
+public function TexteErreur($code) {
+	$this->Requete('SELECT texteMenu FROM Squelette WHERE alpha=-1 AND beta= ?', [$code]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['texteMenu'];
