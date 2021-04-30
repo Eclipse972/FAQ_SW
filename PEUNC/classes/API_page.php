@@ -16,7 +16,7 @@ interface iPage	{
 	public function getFooter();		//	pied de page
 
 // Assesseurs (setters)
-	public function setCSS($tableau);		// affiche le code pour utiliser toutes les feuilles CSS associée à la page
+	public function setCSS(array $tableau);	// affiche le code pour utiliser toutes les feuilles CSS associée à la page
 	public function setTitle($titre);		// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
 	public function setHeaderText($texte);	// en-tête de la page
 	public function setLogo($logo);			// logo

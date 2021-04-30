@@ -42,7 +42,7 @@ class Page implements iPage	{
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
-	public function setCSS($Tableau)	{
+	public function setCSS(array $Tableau)	{
 		foreach($Tableau as $feuilleCSS)	{
 			if(substr($feuilleCSS,0,4) == 'http')
 				$this->T_CSS[] = $feuilleCSS;	// pas de vérification
