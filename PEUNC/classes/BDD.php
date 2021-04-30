@@ -62,12 +62,12 @@ public function Liste_niveau($niveau) {
 	return $tableau;
 }
 
-public function HydratePage() {
-	$this->Requete('SELECT CSS, titrePage, logoPage, entetePage, scriptSection FROM Vue_hydratePage WHERE alpha= ? AND beta= ? AND gamma= ?',
+public function Controleur() {
+	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?',
 						[$_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $reponse;
+	return $reponse[0];
 }
 
 public function PagesConnexes() {

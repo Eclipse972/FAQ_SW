@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
+<<<<<<< HEAD
 -- Généré le : Lun 19 Avril 2021 à 22:39
+=======
+-- Généré le : Ven 30 Avril 2021 à 02:06
+>>>>>>> convergencePEUNC
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -28,21 +32,21 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `ClassePage` (
   `ID` int(11) NOT NULL auto_increment,
   `nom` varchar(99) collate latin1_general_ci NOT NULL,
-  `CSS` varchar(99) collate latin1_general_ci NOT NULL COMMENT 'sans extension',
   `description` text collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `ClassePage`
 --
 
-INSERT INTO `ClassePage` (`ID`, `nom`, `CSS`, `description`) VALUES
-(1, 'PageArticle', 'article', 'Article d''une page'),
-(2, 'PageVE', 'creationVE', 'article sur les volumes élémentaires'),
-(-1, 'PageErreur', 'erreur', 'Page d''erreur du site'),
-(-2, 'PageContact', 'formulaire', 'Formulaire de contact'),
-(-3, 'PageMembre', 'membre', 'gestion des membres');
+INSERT INTO `ClassePage` (`ID`, `nom`, `description`) VALUES
+(1, 'PageArticle', 'Article d''une page'),
+(2, 'PageVE', 'article sur les volumes élémentaires'),
+(-1, 'PageErreur', 'Page d''erreur du site'),
+(-2, 'PageContact', 'Formulaire de contact'),
+(-3, 'PageMembre', 'gestion des membres'),
+(-4, 'PageAdministrateur', 'Page de l''administrateur du site');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

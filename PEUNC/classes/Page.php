@@ -5,42 +5,108 @@ namespace PEUNC\classes;
 include"API_page.php";
 
 class Page implements iPage	{
+	// dossiers pas défaut
+	const DOSSIER_MODEL		= 'Modele/';
+	const DOSSIER_VUE		= 'Vue/';
+	const DOSSIER_CONTROLEUR= 'Controleur/';
+	const DOSSIER_IMAGE		= 'images/';
+	const DOSSIER_CSS		= 'CSS/';
+
 	protected $BD;
 	protected $titrePage;
-	protected $CSS;
+	protected $T_CSS;
 	protected $logo;
 	protected $entetePage;
 	protected $scriptSection;
+	protected $PiedDePage;
 
 	public function __construct()	{
-		$this->BD = new BDD;
+		$this->BD			= new BDD;
+		$this->titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
+		$this->T_CSS		= [];
+		$this->logo			= "nom du fichier dans le dossier image";
+		$this->entetePage	= "En-tête de la page affichée";
+		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
+		$this->PiedDePage	= "code pide de page"
+	}
 
-		// hydratation de la page
-		list($this->CSS, $this->titrePage, $this->logo, $this->entetePage, $this->scriptSection) = $this->BD->HydratePage();
+	public function Hydrate()	{
+		$script = $this->BD->Controleur();
+		if($script != '')	{
+			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
+				require(self::DOSSIER_CONTROLEUR . $script);
+			else die("Controleur inexistant");
+		}
+}
 
-		if(!file_exists($this->logo))	$this->logo = 'PEUNC/Vue/logo_manquant.png';
-		if(!file_exists('Vue/'.$this->CSS.'.css'))	die("Vue/{$this->CSS}.css n&apos;existe pas !");
-		if ($this->scriptSection != '')	{			// champ non vide?
-			if (!file_exists($this->scriptSection))	// script n'existe pas?
-				header("location:/Erreur>Article_inexistant");
+/* ***************************
+ * MUTATEURS (SETTER)
+ * ***************************/
+	public function setCSS($Tableau)	{
+		foreach($Tableau as $feuilleCSS)	{
+			if(substr($feuilleCSS,0,4) == 'http')
+				$this->T_CSS[] = $feuilleCSS;	// pas de vérification
+			else {
+				$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
+				if(file_exists($feuilleCSS))
+					$this->T_CSS[] = '/' . $feuilleCSS;
+				else { /* À faire: traitement en cas d'inexistence' */ }
+			}
 		}
 	}
 
-	public function TitrePage()	{ echo $this->titrePage; }
-
-	public function CSS()	{ $this->CodeCSS($this->CSS); }
-
-	public function CodeCSS($nom)	{	// permet de créer une ligne de code pour insérer une feuille de style.
-		// Cette fonction servira si vous voulez redéfinr la méthode CSS()
-		// exemple: public function CSS() {  $this->CodeCSS("fichier1"); $this->CodeCSS("fichier1"); }
-		echo"<link rel=\"stylesheet\" href=\"Vue/{$nom}.css\" />\n";
+	public function setTitle($titre)	{
+		$this->titrePage = $titre;
 	}
 
-	public function LogoPage() { echo $this->logo; }
+	public function setHeaderText($texte)	{
+			$this->entetePage = $texte;
+	}
 
-	public function EntetePage() { echo $this->entetePage,"\n"; }
+	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
+		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/Vue/logo_manquant.png";
+	}
 
-	public function Onglets()	{
+	public function setSection($code)	{
+		$this->scriptSection = $code;
+	}
+
+	public function setFooter($code)	{
+		$this->PiedDePage = $code;
+	}
+
+/* ***************************
+ * ASSESSURS (GETTER)
+ * ***************************/
+	public function getTitle()	{
+		echo $this->titrePage;
+	}
+
+	public function getCSS()	{
+		foreach($this->T_CSS as $feuilleCSS)
+			echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";
+	}
+
+	public function getLogo() {
+		echo $this->logo;
+	}
+
+	public function getHeaderText() {
+		echo $this->entetePage,"\n";
+	}
+
+	public function getSection()	{
+		echo $this->scriptSection;
+	}
+
+	public function getFooter()	{
+		echo $this->PiedDePage;
+	}
+
+/* ***************************
+ * AFFICHAGE
+ * ***************************/
+	public function AfficherOnglets()	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
@@ -48,34 +114,33 @@ class Page implements iPage	{
 		echo "\t</ul>\n";
 	}
 
-	public function Section()	{
-		include $this->scriptSection;
-		//echo "\n";
-	}
-
-	public function Menu()	{
+	public function AfficherMenu()	{
 		$T_item = $this->BD->Liste_niveau(2);
-		echo "<nav>\n\t<ul>\n";
+		echo "<nav>\n<ul>\n";
 		foreach($T_item as $beta => $code) {
-			echo "\t\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
+			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
 			if ($beta == $_SESSION['beta']) {	// sous-menu?
 				$T_sous_item = $this->BD->Liste_niveau(3);
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
-					echo "\t\t<ul>\n";
+					echo "\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code, "</li>\n";
-					echo "\t\t</ul>\n";
+						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code, "</li>\n";
+					echo "\t</ul>\n";
 				}
 			}
 		}
-		echo "\t</ul>\n</nav>\n";
+		echo "</ul>\n</nav>\n";
 	}
 
-	public function ArticlesConnexes()	{
+	public function AfficherURLConnexes()	{
 		echo "<aside>\n";
 		$this->PagesConnexes();
 		echo "</aside>\n";
 	}
+
+/* ***************************
+ * AUTRES MÉTHODES
+ * ***************************/
 
 	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
 		$Tableau = $this->BD->PagesConnexes();
@@ -91,21 +156,23 @@ class Page implements iPage	{
 		}
 	}
 
-	public function PiedDePage()	{	echo" - <a href=\"/Contact\">Me contacter</a>";	}
 }
 
 // Classes filles
 class PageErreur extends Page {
 
-	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
+	public function AfficherMenu()	{
+		echo"<nav></nav>\n";// génère une colonne vide
+	}
 
-	public function Section()	{ echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";	}
+	public function getSection()	{
+		echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";
+	}
 
 	public function PagesConnexes()	{}
 }
 
 class PageContact extends Page {
-	protected $titreFormulaire;
 
 	public function __construct() {
 		parent::__construct();
@@ -116,12 +183,18 @@ class PageContact extends Page {
 		}
 	}
 
-	public function Menu()	{ echo"<nav></nav>\n"; } // génère une colonne vide
+	public function setFormTitle($titre) {
+		$this->titreFormulaire = $titre;
+	}
+
+	public function AfficherMenu()	{
+		echo"<nav></nav>\n";	// génère une colonne vide
+	}
 
 	public function PagesConnexes()	{}
 
-	public function Section()	{
-?><h1><?=$this->titreFormulaire?></h1>
+	public function getSection()	{
+?><h1>Formulaire de contact</h1>
 	<form method="post" action="#" id=formulaire>
 		<p>Nom		<input type="text"	name="nom"		/></p>
 		<p>Courriel	<input type="email" name="courriel" /></p>
@@ -144,6 +217,8 @@ class PageContact extends Page {
 		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
 		echo "\n";
 	}
+}
 
-	public function PiedDePage()	{}	// normal pour le formulaire de contact!
+class PageAdministrateur extends Page {
+	public function AfficherOnglets() {}	// pas d'onglet pour ce type de page
 }
