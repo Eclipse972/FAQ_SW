@@ -27,7 +27,7 @@ class Page implements iPage	{
 		$this->logo			= "nom du fichier dans le dossier image";
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
-		$this->PiedDePage	= "code pide de page"
+		$this->PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
 	}
 
 	public function Hydrate()	{
@@ -110,7 +110,7 @@ class Page implements iPage	{
 		$T_Onglets = $this->BD->Liste_niveau(1);
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
-			echo "\t\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
+			echo "\t\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code), "</li>\n";
 		echo "\t</ul>\n";
 	}
 
@@ -118,13 +118,13 @@ class Page implements iPage	{
 		$T_item = $this->BD->Liste_niveau(2);
 		echo "<nav>\n<ul>\n";
 		foreach($T_item as $beta => $code) {
-			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
+			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
 			if ($beta == $_SESSION['beta']) {	// sous-menu?
 				$T_sous_item = $this->BD->Liste_niveau(3);
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code, "</li>\n";
+						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
 					echo "\t</ul>\n";
 				}
 			}

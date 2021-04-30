@@ -119,7 +119,7 @@ header a {
 	display:block;
 	border-radius: 10px 10px 0 0;
 }
-header li a:hover, #onglet_actif { background-color:white; } /* couleur de l'onglet sélectionné et celui sous la souris */
+header li a:hover, #alpha_actif { background-color:white; } /* couleur de l'onglet sélectionné et celui sous la souris */
 
 header ul img {
 	height:45px;
@@ -163,7 +163,7 @@ nav img {
 	margin:0 9px 0 9px;
 }
 
-nav li a:hover, #item_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
+nav li a:hover, #beta_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ---------------------------------------------------------------------------------- */
 nav ul ul {	margin: 5px; }
@@ -175,7 +175,7 @@ nav ul ul a {
 }
 nav ul ul a {font-weight:normal;}
 
-#sous_item_actif{font-weight:bold;}
+#gamma_actif{font-weight:bold;}
 
 nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
 
