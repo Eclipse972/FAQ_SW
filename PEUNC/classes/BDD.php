@@ -44,14 +44,24 @@ public function TexteErreur($code) {
 	return $reponse['texteMenu'];
 }
 
-public function Liste_niveau($niveau) {
-	switch ($niveau) {
-		case 1:	$index = 'alpha';	$expAlpha = '>=0';						$expBeta = '= 0';					$signe = '=';	break;
-		case 2:	$index = 'beta';	$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = '> 0';					$signe = '=';	break;
-		case 3:	$index = 'gamma';	$expAlpha = "= {$_SESSION['alpha']}";	$expBeta = "= {$_SESSION['beta']}";	$signe = '>';	break;
-		default: die("variable niveau incorrecte dans la BD");
+public function Liste_niveau($alpha = null, $beta = null) {
+	if(!isset($alpha))	{	// pour les onglets
+		$index			= 'alpha';
+		$expresionAlpha = '>=0';
+		$expresionBeta	= '= 0';
+		$signeGamma		= '=';
+	} elseif(!isset($beta))	{	// pour le menu
+		$index			= 'beta';
+		$expresionAlpha = "= {$alpha}";
+		$expresionBeta	= '> 0';
+		$signeGamma		= '=';
+	} else {	// pour le sous-menu
+		$index			= 'gamma';
+		$expresionAlpha = "= {$alpha}";
+		$expresionBeta	= "= {$beta}";
+		$signeGamma		= '>';
 	}
-	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE alpha {$expAlpha} AND beta {$expBeta} AND gamma {$signe} 0";
+	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE alpha {$expresionAlpha} AND beta {$expresionBeta} AND gamma {$signeGamma} 0";
 	$this->Requete($sql, []);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
