@@ -64,7 +64,7 @@ class Page implements iPage	{
 	}
 
 	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? '/' . self::DOSSIER_IMAGE . $logo : "/PEUNC/images/image_manquante.png";
+		$this->logo = $logo;
 	}
 
 	public function setSection($code)	{
@@ -88,7 +88,7 @@ class Page implements iPage	{
 	}
 
 	public function getLogo() {
-		echo $this->logo;
+		echo $this->BaliseImage($this->logo,'Logo');
 	}
 
 	public function getHeaderText() {
