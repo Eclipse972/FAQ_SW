@@ -1,7 +1,7 @@
 <?php
 ob_start();	// début du code <section>
 ?>
-	<img style="float:right" src="/images/Autre/pelleteuse.png">
+	<?=$this->BaliseImage("Autre/pelleteuse.png" ,"pelleteuse", 'style="float:right"')?>
 	<h1>Zoom fen&ecirc;tre</h1>
 	<p>On souhaite, par exemple, voir le si&egrave;ge de la pelleteuse de plus pr&egrave;s.</p>
 	<ol>
@@ -11,7 +11,7 @@ ob_start();	// début du code <section>
 	entourant la zone &agrave; zoomer.</li>
 	<li>L&acirc;chez le bouton de la souris et la zone &agrave; zoomer remplit la zone graphique.</li>
 	</ol>
-	<img style="width:500px" src="/images/Autre/siege.png">
+	<?=$this->BaliseImage("Autre/siege.png", "siège", 'style="width:500px"')?>
 <?php
 $tampon = ob_get_contents();
 ob_end_clean();
