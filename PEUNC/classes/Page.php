@@ -64,7 +64,7 @@ class Page implements iPage	{
 	}
 
 	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/images/logo_manquant.png";
+		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/images/image_manquante.png";
 	}
 
 	public function setSection($code)	{
@@ -138,6 +138,20 @@ class Page implements iPage	{
 		echo "</aside>\n";
 	}
 
+	public function BaliseImage($src, $alt = null, $code = null)	{
+		$balise = "<img src=\"";
+		// src = ...
+		if(substr($src,0,4) == 'http')
+			$balise .= $src;
+		elseif(file_exists(self::DOSSIER_IMAGE . $src))
+			$balise .= '/' . self::DOSSIER_IMAGE . $src;
+		else $balise .= "/PEUNC/images/image_absente.png";
+		// alt = ...
+		$balise .= "\" alt=\"" . (isset($alt) ? $alt : '**IMAGE**') . "\"";
+		// ajout de code
+		if(isset($code))	$balise .= " ".$code;
+		return $balise . ">";
+	}
 /* ***************************
  * AUTRES MÉTHODES
  * ***************************/
@@ -146,9 +160,7 @@ class Page implements iPage	{
 		$Tableau = $this->BD->PagesConnexes($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
 		switch(count($Tableau)) {
 			case 0: break;
-			case 1:
-				echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";
-				break;
+			case 1:	echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";break;
 			default:
 				echo "<h1>Pages connexes</h1>\n<ul>\n";
 				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
