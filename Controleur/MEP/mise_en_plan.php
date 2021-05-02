@@ -18,7 +18,7 @@ ob_start();	// début du code <section>
 	<ol>
 	<li>dans le bandeau sup&eacute;rieur de SolidWorks, cliquez sur le petit triangle noir à cot&eacute; de l&apos;ic&ocirc;ne nouveau document.
 	Le menu ci-dessous appara&icirc;t.
-	<br><?=$this->BaliseImage("MEP/menu.png")?></li>
+	<br><?=\PEUNC\classes\Page::BaliseImage("MEP/menu.png")?></li>
 	<li>cliquez sur <b>cr&eacute;er un mise en plan &agrave; partir de la pi&egrave;ce/assemblage</b></li>
 	<li>dans le menu &agrave; gauche en haut de cette page, cliquez sur <b>Les fonds de plan</b> pour conna&icirc;tre la suite</li>
 	</ol>
