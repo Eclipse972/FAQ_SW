@@ -11,7 +11,7 @@ ob_start();	// début du code <section>
 	<li>une nomenclature</li>
 	<li>un cartouche</li>
 	</ul>
-	<img src="/images/MEP/dessin.png" width=800px>
+	<?=\PEUNC\classes\Page::BaliseImage("MEP/dessin.png",'dessin','width=800px')?>
 <?php
 $tampon = ob_get_contents();
 ob_end_clean();

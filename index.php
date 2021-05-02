@@ -39,7 +39,7 @@ switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ic
 		header("location:/Erreur");	// erreur inconnue
 }
 
-$classePage = $BD->ClassePage();
+$classePage = $BD->ClassePage($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
 if (!		isset($classePage))	header("location:/Erreur/Page_inexistante");
 if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;

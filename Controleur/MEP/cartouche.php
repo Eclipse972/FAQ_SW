@@ -3,9 +3,9 @@ ob_start();	// début du code <section>
 ?>
 	<h1>Remplir le cartouche</h1>
 	<p>Le cartouche est la fiche d&apos;identit&eacute; du dessin. Le cartouche par d&eacute;faut que je propose est pr&eacute;rempli.</p>
-	<img src="/images/MEP/cartouche.png">
+	<?=\PEUNC\classes\Page::BaliseImage("MEP/cartouche.png")?>
 	<h2>Acc&eacute;der au cartouche</h2>
-	<img src="/images/MEP/acces.png">
+	<?=\PEUNC\classes\Page::BaliseImage("MEP/acces.png")?>
 	<ol>
 	<li>faites un clic droit sur Feuille1 dans l'arbre de création à gauche. Un menu contextuel apparaît</li>
 	<li>cliquez sur « Éditer le fond de plan ».</li>

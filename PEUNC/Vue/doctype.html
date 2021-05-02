@@ -9,7 +9,7 @@
 <body>
 
 <header>
-<div id="logo"><?=$PAGE->getLogo()?></div>
+<div id="logo"><img src="/<?=$PAGE->getLogo()?>" alt = "Logo"></div>
 <div id="titre">
 	<?=$PAGE->getHeaderText()?>
 	<?=$PAGE->AfficherOnglets()?>
@@ -29,11 +29,11 @@
 </main>
 
 <footer>
-	<p>Site optimis&eacute; pour <?=$PAGE->BaliseImage("chrome.png","Logo Chrome")?> et <?=$PAGE->BaliseImage("firefox.png","Logo Firefox")?>
-	 - <a target="_blank" href="http://dossiers.techniques.free.fr">Mes dossiers techniques en ligne</a>
+	<!-- code commun à toutes les pages -->
 	<?=$PAGE->getFooter()?>
-	- derni&egrave;re mise à jour 1er mai 2021</p>
+	<!-- code commun à toutes les pages -->
 </footer>
 
 </body>
 </html>
+

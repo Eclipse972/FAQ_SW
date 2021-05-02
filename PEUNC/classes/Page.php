@@ -27,11 +27,11 @@ class Page implements iPage	{
 		$this->logo			= "nom du fichier dans le dossier image";
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
-		$this->PiedDePage	= "code pide de page"
+		$this->PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
 	}
 
 	public function Hydrate()	{
-		$script = $this->BD->Controleur();
+		$script = $this->BD->Controleur($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
 		if($script != '')	{
 			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
 				require(self::DOSSIER_CONTROLEUR . $script);
@@ -42,7 +42,7 @@ class Page implements iPage	{
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
-	public function setCSS($Tableau)	{
+	public function setCSS(array $Tableau)	{
 		foreach($Tableau as $feuilleCSS)	{
 			if(substr($feuilleCSS,0,4) == 'http')
 				$this->T_CSS[] = $feuilleCSS;	// pas de vérification
@@ -64,7 +64,7 @@ class Page implements iPage	{
 	}
 
 	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->logo = file_exists(self::DOSSIER_IMAGE . $logo) ? self::DOSSIER_IMAGE . $logo : "PEUNC/Vue/logo_manquant.png";
+		$this->logo = $logo;
 	}
 
 	public function setSection($code)	{
@@ -88,7 +88,7 @@ class Page implements iPage	{
 	}
 
 	public function getLogo() {
-		echo $this->logo;
+		echo $this->BaliseImage($this->logo,'Logo');
 	}
 
 	public function getHeaderText() {
@@ -106,25 +106,26 @@ class Page implements iPage	{
 /* ***************************
  * AFFICHAGE
  * ***************************/
-	public function AfficherOnglets()	{
-		$T_Onglets = $this->BD->Liste_niveau(1);
+	public function AfficherOnglets($imageAvantTexte = true)	{
+		$T_Onglets = $this->BD->Liste_niveau();
 		echo "<ul>\n";
-		foreach($T_Onglets as $alpha => $code)
-			echo "\t\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="onglet_actif" href', $code) : $code), "</li>\n";
+		foreach($T_Onglets as $alpha => $code)	{
+			echo "\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code), "</li>\n";
+		}
 		echo "\t</ul>\n";
 	}
 
 	public function AfficherMenu()	{
-		$T_item = $this->BD->Liste_niveau(2);
+		$T_item = $this->BD->Liste_niveau($_SESSION['alpha']);
 		echo "<nav>\n<ul>\n";
 		foreach($T_item as $beta => $code) {
-			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="item_actif" href', $code) : $code), "</li>\n";
+			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
 			if ($beta == $_SESSION['beta']) {	// sous-menu?
-				$T_sous_item = $this->BD->Liste_niveau(3);
+				$T_sous_item = $this->BD->Liste_niveau($_SESSION['alpha'], $_SESSION['beta']);
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="sous_item_actif" href', $sous_code) : $sous_code, "</li>\n";
+						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
 					echo "\t</ul>\n";
 				}
 			}
@@ -138,17 +139,21 @@ class Page implements iPage	{
 		echo "</aside>\n";
 	}
 
+	public function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
+		if(substr($src,0,4) != 'http')	// recherche d'existence si fichier interne
+			$src = (file_exists(self::DOSSIER_IMAGE . $src)) ? '/' . self::DOSSIER_IMAGE . $src : "/PEUNC/images/image_absente.png";
+		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
+	}
+
 /* ***************************
  * AUTRES MÉTHODES
  * ***************************/
 
 	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
-		$Tableau = $this->BD->PagesConnexes();
+		$Tableau = $this->BD->PagesConnexes($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
 		switch(count($Tableau)) {
 			case 0: break;
-			case 1:
-				echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";
-				break;
+			case 1:	echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";break;
 			default:
 				echo "<h1>Pages connexes</h1>\n<ul>\n";
 				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
@@ -166,7 +171,7 @@ class PageErreur extends Page {
 	}
 
 	public function getSection()	{
-		echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur()}</h1>\n";
+		echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur($_SESSION['beta'])}</h1>\n";
 	}
 
 	public function PagesConnexes()	{}

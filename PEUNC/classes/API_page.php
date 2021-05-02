@@ -11,12 +11,12 @@ interface iPage	{
 	public function getCSS();			// affiche le code pour utiliser toutes les feuilles CSS associée à la page
 	public function getTitle();			// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
 	public function getHeaderText();	// en-tête de la page
-	public function getLogo();			// logo
+	public function getLogo();			// affiche l'adresse du logo
 	public function getSection();		// affiche le code du corps de la page
 	public function getFooter();		//	pied de page
 
 // Assesseurs (setters)
-	public function setCSS($tableau);		// affiche le code pour utiliser toutes les feuilles CSS associée à la page
+	public function setCSS(array $tableau);	// affiche le code pour utiliser toutes les feuilles CSS associée à la page
 	public function setTitle($titre);		// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
 	public function setHeaderText($texte);	// en-tête de la page
 	public function setLogo($logo);			// logo
@@ -25,8 +25,9 @@ interface iPage	{
 
 // Affichage
 	public function AfficherOnglets();
-	public function AfficherMenu();			// génère le menu sur 2 niveaux avec les pages de niveau 2 et 3.
-	public function AfficherURLConnexes();	// affiche le code des URL connexes. Cette méthode est optionnelle.
+	public function AfficherMenu();					// génère le menu sur 2 niveaux avec les pages de niveau 2 et 3.
+	public function AfficherURLConnexes();			// affiche le code des URL connexes. Cette méthode est optionnelle.
+	public function BaliseImage($src, $alt, $code);	// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
 
 // Autre
 	public function PagesConnexes();	// génère le code pour les pages connexes

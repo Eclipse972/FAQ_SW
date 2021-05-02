@@ -4,9 +4,13 @@
 --
 -- Serveur: faq.sw.sql.free.fr
 <<<<<<< HEAD
+<<<<<<< HEAD
 -- Généré le : Lun 19 Avril 2021 à 22:40
 =======
 -- Généré le : Mar 27 Avril 2021 à 15:45
+>>>>>>> convergencePEUNC
+=======
+-- Généré le : Ven 30 Avril 2021 à 22:53
 >>>>>>> convergencePEUNC
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
@@ -58,12 +62,12 @@ INSERT INTO `Connexes` (`squelette_ID`, `texte`, `URL`) VALUES
 (67, 'Créer un cylindre par extrusion', '/Piece/VE/cylindre_extrusion'),
 (65, 'Créer un tronc de cône par extrusion', '/Piece/VE/tronc2cone_extrusion'),
 (68, 'Créer un tronc de cône par r&eacute;volution', '/Piece/VE/tronc2cone_revolution'),
-(17, 'arbre pour une mise en plan', 'Mise_en_plan/arbre'),
-(17, 'arbre pour un assemblage', 'Assemblage/arbre'),
-(24, 'arbre pour une pi&egrave;ce', 'Piece/arbre'),
-(24, 'arbre pour un assemblage', 'Assemblage/arbre'),
-(27, 'arbre pour une pi&egrave;ce', 'Piece/arbre'),
-(27, 'arbre pour une mise en plan', 'Mise_en_plan/arbre');
+(17, 'arbre pour une mise en plan', '/Mise_en_plan/arbre'),
+(17, 'arbre pour un assemblage', '/Assemblage/arbre'),
+(24, 'arbre pour une pi&egrave;ce', '/Piece/arbre'),
+(24, 'arbre pour un assemblage', '/Assemblage/arbre'),
+(27, 'arbre pour une pi&egrave;ce', '/Piece/arbre'),
+(27, 'arbre pour une mise en plan', '/Mise_en_plan/arbre');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
