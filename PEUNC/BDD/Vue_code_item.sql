@@ -5,6 +5,9 @@ SELECT
 	alpha,
 	beta,
 	gamma,
+	(SELECT URL FROM Vue_URLvalides WHERE niveau1 = alpha AND niveau2 = beta AND niveau3 = gamma) AS URL,
+	imageMenu AS image,
+	texteMenu AS texte,
 	CONCAT(
 		'<a href="',(SELECT URL FROM Vue_URLvalides WHERE niveau1 = alpha AND niveau2 = beta AND niveau3 = gamma),'">',
 		IF(imageMenu = '','',CONCAT('<img src="/images/',imageMenu,'" alt="',texteMenu,'">')), #-- code de l'image si elle est définie

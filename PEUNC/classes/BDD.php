@@ -62,12 +62,14 @@ public function Liste_niveau($alpha = null, $beta = null) {
 		$expresionBeta	= "= {$beta}";
 		$signeGamma		= '>';
 	}
-	$sql = "SELECT {$index} AS i, code FROM Vue_code_item WHERE alpha {$expresionAlpha} AND beta {$expresionBeta} AND gamma {$signeGamma} 0";
+	$sql = "SELECT {$index} AS i, URL, image, texte FROM Vue_code_item WHERE alpha {$expresionAlpha} AND beta {$expresionBeta} AND gamma {$signeGamma} 0";
 	$this->Requete($sql, []);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
 		$i = $ligne['i'];
-		$tableau[$i] = $ligne['code'];
+		$tableau[$i] = '<a href="' . $ligne['URL'] . '">';
+		$tableau[$i] .= ($ligne['image'] == '') ? '' : \PEUNC\classes\Page::BaliseImage($ligne['image'], $ligne['texte']);
+		$tableau[$i] .= $ligne['texte'] . '</a>';
 	}
 	$this->Fermer();
 	return $tableau;
