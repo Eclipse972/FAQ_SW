@@ -7,9 +7,10 @@ protected $resultat;
 protected $BD; // PDO initialisé dans connexion.php
 
 public function __construct() {
-	try	{// On se connecte à MySQL grâce au script non suivi par git
-		include 'connexion.php';
-	} // contient: $this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe');
+	try	{
+		require"connexion.php";
+		$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
+	}
 	catch (Exception $e)	{ // En cas d'erreur, on affiche un message et on arrête tout
 		die('Erreur : '.$e->getMessage());
 	}
