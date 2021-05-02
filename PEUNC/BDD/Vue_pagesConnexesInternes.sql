@@ -8,8 +8,7 @@ SELECT
 	Vue_URLvalides.URL AS départ,
 	Vue_URLvalides.ID AS départID,
 	Vue_URLvalidesBis.URL AS arrivée,
-	Vue_URLvalidesBis.ID AS arrivéeID,
-	CONCAT('<a href="',Vue_URLvalidesBis.URL,'">',ConnexesInternes.texte,'</a>' ) AS URL
+	Vue_URLvalidesBis.ID AS arrivéeID
 FROM ConnexesInternes
 INNER JOIN  Vue_URLvalides ON Vue_URLvalides.ID = ConnexesInternes.squelette_ID
 INNER JOIN  Vue_URLvalides AS Vue_URLvalidesBis ON Vue_URLvalidesBis.ID = ConnexesInternes.lien
