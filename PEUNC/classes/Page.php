@@ -139,7 +139,7 @@ class Page implements iPage	{
 		echo "</aside>\n";
 	}
 
-	public function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
+	public static function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
 		if(substr($src,0,4) != 'http')	// recherche d'existence si fichier interne
 			$src = (file_exists(self::DOSSIER_IMAGE . $src)) ? '/' . self::DOSSIER_IMAGE . $src : "/PEUNC/images/image_absente.png";
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
