@@ -57,7 +57,7 @@ class PageVE extends PageArticle	{
 				?>
 			</li>
 			<?=$extrusion ? '' : '<li>ligne de construction' . \PEUNC\classes\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'style="height:30px; vertical-align:middle"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n\t"?>
-			<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
+			<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
 		</ul>
 		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 		</div>
