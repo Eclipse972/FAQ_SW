@@ -18,6 +18,7 @@ class Page implements iPage	{
 	protected $entetePage;
 	protected $scriptSection;
 	protected $PiedDePage;
+	protected $vue;
 
 	public function __construct()	{
 		$this->BD			= new BDD;
@@ -70,6 +71,12 @@ class Page implements iPage	{
 		$this->PiedDePage = $code;
 	}
 
+	public function setView($fichier)	{
+		if (file_exists(self::DOSSIER_VUE . $fichier))
+			$this->vue = self::DOSSIER_CONTROLEUR . $fichier;
+		else die("Vue inexistante");
+	}
+
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
@@ -92,6 +99,10 @@ class Page implements iPage	{
 
 	public function getFooter()	{
 		echo $this->PiedDePage;
+	}
+
+	public function getView()	{
+		return $this->vue;
 	}
 
 /* ***************************
