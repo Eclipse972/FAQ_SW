@@ -176,23 +176,18 @@ class PageErreur extends Page	{
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 		$this->setLogo("logo.png");
 		$this->setFooter("");
+		$this->setView("erreur.html");
 	}
 
-	public function PagesConnexes()	{}
+	//public function PagesConnexes()	{}
 
-	public function getSection()	{
-?>
-	<h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur($_SESSION['beta'])?></h1>
-	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
-	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
-<?php
+	//public function getSection()	{}
+
+	//public function AfficherMenu()	{}
+
+	public function TexteErreur() {
+		return $this->BD->TexteErreur($_SESSION['beta']);
 	}
-
-	public function AfficherMenu()	{
-		echo"<nav></nav>\n";// génère une colonne vide
-	}
-
-
 }
 
 class PageContact extends Page {
