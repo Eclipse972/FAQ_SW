@@ -106,32 +106,14 @@ class Page implements iPage	{
 /* ***************************
  * AFFICHAGE
  * ***************************/
-	public function AfficherURLConnexes()	{
-		echo "<aside>\n";
-		$this->PagesConnexes();
-		echo "</aside>\n";
-	}
-
 	public static function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
 		if(substr($src,0,4) != 'http')	// recherche d'existence si fichier interne
 			$src = (file_exists(self::DOSSIER_IMAGE . $src)) ? '/' . self::DOSSIER_IMAGE . $src : "/PEUNC/images/image_absente.png";
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
+}
 
-/* ***************************
- * AUTRES MÉTHODES
- * ***************************/
-
-	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
-		$Tableau = $this->BD->PagesConnexes($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
-		switch(count($Tableau)) {
-			case 0: break;
-			case 1:	echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";break;
-			default:
-				echo "<h1>Pages connexes</h1>\n<ul>\n";
-				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
-				echo "</ul>\n";
-		}
-	}
-
+// Classes filles
+class PageAdministrateur extends Page {
+	public function AfficherOnglets() {}	// pas d'onglet pour ce type de page
 }

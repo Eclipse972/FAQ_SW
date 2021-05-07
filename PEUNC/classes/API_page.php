@@ -24,10 +24,6 @@ interface iPage	{
 	public function setFooter($code);		//	pied de page
 
 // Affichage
-	public function AfficherURLConnexes();	// affiche le code des URL connexes. Cette méthode est optionnelle.
 	public static function BaliseImage($src, $alt, $code);	// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
-
-// Autre
-	public function PagesConnexes();	// génère le code pour les pages connexes
 
 }

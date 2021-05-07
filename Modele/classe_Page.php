@@ -38,6 +38,23 @@ class Page extends PEUNC\classes\Page {
 		echo "</ul>\n</nav>\n";
 	}
 
+	public function AfficherURLConnexes()	{
+		echo "<aside>\n";
+		$this->PagesConnexes();
+		echo "</aside>\n";
+	}
+
+	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
+		$Tableau = $this->BD->PagesConnexes($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
+		switch(count($Tableau)) {
+			case 0: break;
+			case 1:	echo "<h1>Page connexe</h1>\n<p>{$Tableau[0]['URL']}</p>\n";break;
+			default:
+				echo "<h1>Pages connexes</h1>\n<ul>\n";
+				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
+				echo "</ul>\n";
+		}
+	}
 
  /* ***************************
  * AUTRES MÉTHODES
