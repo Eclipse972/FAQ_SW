@@ -15,7 +15,6 @@ class Page implements iPage	{
 	protected $BD;
 	protected $titrePage;
 	protected $T_CSS;
-	protected $logo;
 	protected $entetePage;
 	protected $scriptSection;
 	protected $PiedDePage;

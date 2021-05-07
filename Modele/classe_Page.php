@@ -1,5 +1,7 @@
 <?php
 class Page extends PEUNC\classes\Page {
+	protected $logo;
+
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
