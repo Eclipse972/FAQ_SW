@@ -1,14 +1,5 @@
 <?php
-class PageArticle extends PEUNC\classes\Page {
-	public function __construct()	{
-		parent::__construct();
-		// configuration par défaut
-		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article"]);
-		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
-		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
-		$this->setFooter(" - <a href=\"/Contact\">Me contacter</a>");
-		$this->setLogo("logo.png");
-	}
+class Page extends PEUNC\classes\Page {
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
@@ -29,10 +20,41 @@ class PageArticle extends PEUNC\classes\Page {
 		echo "\t</ul>\n";
 	}
 
+	public function AfficherMenu()	{
+		$T_item = $this->BD->Liste_niveau($_SESSION['alpha']);
+		echo "<nav>\n<ul>\n";
+		foreach($T_item as $beta => $code) {
+			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
+			if ($beta == $_SESSION['beta']) {	// sous-menu?
+				$T_sous_item = $this->BD->Liste_niveau($_SESSION['alpha'], $_SESSION['beta']);
+				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
+					echo "\t<ul>\n";
+					foreach($T_sous_item as $gamma => $sous_code)
+						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
+					echo "\t</ul>\n";
+				}
+			}
+		}
+		echo "</ul>\n</nav>\n";
+	}
+
 
  /* ***************************
  * AUTRES MÉTHODES
  * ***************************/
+
+}
+
+class PageArticle extends Page {
+	public function __construct()	{
+		parent::__construct();
+		// configuration par défaut
+		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article"]);
+		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
+		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
+		$this->setFooter(" - <a href=\"/Contact\">Me contacter</a>");
+		$this->setLogo("logo.png");
+	}
 
 }
 
@@ -133,6 +155,12 @@ class PageErreur extends PEUNC\classes\PageErreur	{
 		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
 		<?php
 	}
+
+	public function AfficherMenu()	{
+		echo"<nav></nav>\n";// génère une colonne vide
+	}
+
+
 }
 
 class PageContact extends PEUNC\classes\PageContact {
@@ -144,6 +172,11 @@ class PageContact extends PEUNC\classes\PageContact {
 		$this->setLogo("logo.png");
 		$this->setFooter("");
 	}
+
+	public function AfficherMenu()	{
+		echo"<nav></nav>\n";	// génère une colonne vide
+	}
+
 }
 
 class PageAdministrateur extends PEUNC\classes\PageAdministrateur {}
