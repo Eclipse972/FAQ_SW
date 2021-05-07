@@ -3,10 +3,17 @@ class Page extends PEUNC\classes\Page {
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
+	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
+		$this->logo = $logo;
+	}
+
 
  /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
+	public function getLogo() {
+		echo $this->BaliseImage($this->logo,'Logo');
+	}
 
  /* ***************************
  * AFFICHAGE

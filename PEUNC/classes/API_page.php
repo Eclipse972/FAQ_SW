@@ -11,7 +11,6 @@ interface iPage	{
 	public function getCSS();			// affiche le code pour utiliser toutes les feuilles CSS associée à la page
 	public function getTitle();			// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
 	public function getHeaderText();	// en-tête de la page
-	public function getLogo();			// affiche l'adresse du logo
 	public function getSection();		// affiche le code du corps de la page
 	public function getFooter();		//	pied de page
 
@@ -19,7 +18,6 @@ interface iPage	{
 	public function setCSS(array $tableau);	// affiche le code pour utiliser toutes les feuilles CSS associée à la page
 	public function setTitle($titre);		// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
 	public function setHeaderText($texte);	// en-tête de la page
-	public function setLogo($logo);			// logo
 	public function setSection($code);		// affiche le code du corps de la page
 	public function setFooter($code);		//	pied de page
 

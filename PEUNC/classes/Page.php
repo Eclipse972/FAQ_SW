@@ -63,10 +63,6 @@ class Page implements iPage	{
 			$this->entetePage = $texte;
 	}
 
-	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->logo = $logo;
-	}
-
 	public function setSection($code)	{
 		$this->scriptSection = $code;
 	}
@@ -85,10 +81,6 @@ class Page implements iPage	{
 	public function getCSS()	{
 		foreach($this->T_CSS as $feuilleCSS)
 			echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";
-	}
-
-	public function getLogo() {
-		echo $this->BaliseImage($this->logo,'Logo');
 	}
 
 	public function getHeaderText() {
