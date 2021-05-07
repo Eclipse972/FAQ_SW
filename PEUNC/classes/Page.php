@@ -106,15 +106,6 @@ class Page implements iPage	{
 /* ***************************
  * AFFICHAGE
  * ***************************/
-	public function AfficherOnglets($imageAvantTexte = true)	{
-		$T_Onglets = $this->BD->Liste_niveau();
-		echo "<ul>\n";
-		foreach($T_Onglets as $alpha => $code)	{
-			echo "\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code), "</li>\n";
-		}
-		echo "\t</ul>\n";
-	}
-
 	public function AfficherMenu()	{
 		$T_item = $this->BD->Liste_niveau($_SESSION['alpha']);
 		echo "<nav>\n<ul>\n";

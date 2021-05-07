@@ -24,7 +24,6 @@ interface iPage	{
 	public function setFooter($code);		//	pied de page
 
 // Affichage
-	public function AfficherOnglets();
 	public function AfficherMenu();			// génère le menu sur 2 niveaux avec les pages de niveau 2 et 3.
 	public function AfficherURLConnexes();	// affiche le code des URL connexes. Cette méthode est optionnelle.
 	public static function BaliseImage($src, $alt, $code);	// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
