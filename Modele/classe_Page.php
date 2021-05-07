@@ -234,5 +234,3 @@ class PageContact extends Page {
 	}
 
 }
-
-class PageAdministrateur extends PEUNC\classes\PageAdministrateur {}

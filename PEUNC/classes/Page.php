@@ -112,8 +112,3 @@ class Page implements iPage	{
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 }
-
-// Classes filles
-class PageAdministrateur extends Page {
-	public function AfficherOnglets() {}	// pas d'onglet pour ce type de page
-}
