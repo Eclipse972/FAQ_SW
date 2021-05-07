@@ -166,6 +166,8 @@ class PageErreur extends Page	{
 }
 
 class PageContact extends Page {
+	protected $titreFormulaire;
+
 	public function __construct() {
 		parent::__construct();
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"formulaire"]);
@@ -173,10 +175,45 @@ class PageContact extends Page {
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 		$this->setLogo("logo.png");
 		$this->setFooter("");
+		if (empty($_POST))	{ // préparation affichage du formulaire
+
+		} else {	// traitement du formulaire
+
+		}
+	}
+
+	public function setFormTitle($titre) {
+		$this->titreFormulaire = $titre;
 	}
 
 	public function AfficherMenu()	{
 		echo"<nav></nav>\n";	// génère une colonne vide
+	}
+
+	public function PagesConnexes()	{}
+	public function getSection()	{
+?><h1>Formulaire de contact</h1>
+	<form method="post" action="#" id=formulaire>
+		<p>Nom		<input type="text"	name="nom"		/></p>
+		<p>Courriel	<input type="email" name="courriel" /></p>
+		<p>Objet	<input type="text"	name="objet"	/></p>
+		<p>Message	<textarea name="message" rows="6"></textarea></p>
+		<div id=validation>
+			<p>Validation du formulaire</p>
+			<ol><?=$this->Afficher_validation()?>
+			</ol>
+			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
+		</div>
+		<p style="text-align:center;">
+			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
+		</p>
+	</form>
+<?php
+	}
+
+	public function Afficher_validation()	{
+		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
+		echo "\n";
 	}
 
 }
