@@ -4,9 +4,12 @@ class Page extends PEUNC\classes\Page {
 
 	public function __construct() {
 		parent::__construct();
-		// vue par défaut $this->setView("doctype.html");
+		// valeurs par défaut
+		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
+		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
+		$this->setLogo("logo.png");
+		$this->setFooter("");
 	}
-
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
@@ -33,10 +36,42 @@ class Page extends PEUNC\classes\Page {
 		echo "\t</ul>\n";
 	}
 
-	public function AfficherURLConnexes()	{
-		echo "<aside>\n";
-		$this->PagesConnexes();
-		echo "</aside>\n";
+ /* ***************************
+ * AUTRES MÉTHODES
+ * ***************************/
+
+}
+
+ /* ***************************
+ * CLASSES FILLES
+ * ne oublier le contructeur
+ * ***************************/
+
+class PageArticle extends Page {
+	public function __construct()	{
+		parent::__construct();
+		// configuration par défaut
+		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article"]);
+		$this->setFooter(" - <a href=\"/Contact\">Me contacter</a>");
+		$this->setView("doctype.html");
+	}
+
+	public function AfficherMenu()	{
+		$T_item = $this->BD->Liste_niveau($_SESSION['alpha']);
+		echo "\t<ul>\n";
+		foreach($T_item as $beta => $code) {
+			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
+			if ($beta == $_SESSION['beta']) {	// sous-menu?
+				$T_sous_item = $this->BD->Liste_niveau($_SESSION['alpha'], $_SESSION['beta']);
+				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
+					echo "\t<ul>\n";
+					foreach($T_sous_item as $gamma => $sous_code)
+						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
+					echo "\t</ul>\n";
+				}
+			}
+		}
+		echo "\t</ul>\n";
 	}
 
 	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
@@ -51,42 +86,6 @@ class Page extends PEUNC\classes\Page {
 		}
 	}
 
- /* ***************************
- * AUTRES MÉTHODES
- * ***************************/
-
-}
-
-class PageArticle extends Page {
-	public function __construct()	{
-		parent::__construct();
-		// configuration par défaut
-		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article"]);
-		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
-		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
-		$this->setFooter(" - <a href=\"/Contact\">Me contacter</a>");
-		$this->setLogo("logo.png");
-		$this->setView("doctype.html");
-	}
-
-	public function AfficherMenu()	{
-		$T_item = $this->BD->Liste_niveau($_SESSION['alpha']);
-		echo "<nav>\n<ul>\n";
-		foreach($T_item as $beta => $code) {
-			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
-			if ($beta == $_SESSION['beta']) {	// sous-menu?
-				$T_sous_item = $this->BD->Liste_niveau($_SESSION['alpha'], $_SESSION['beta']);
-				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
-					echo "\t<ul>\n";
-					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
-					echo "\t</ul>\n";
-				}
-			}
-		}
-		echo "</ul>\n</nav>\n";
-	}
-
 }
 
 class PageVE extends PageArticle	{
@@ -96,8 +95,6 @@ class PageVE extends PageArticle	{
 		parent::__construct();
 		// configuration par défaut
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE"]);
-		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
-		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
 	}
 
 	public function SetDossier($dossier) { $this->dossier = $dossier; }
@@ -173,16 +170,8 @@ class PageErreur extends Page	{
 	public function __construct() {
 		parent::__construct();
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"erreur"]);
-		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
-		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
-		$this->setLogo("logo.png");
-		$this->setFooter("");
 		$this->setView("erreur.html");
 	}
-
-	//public function PagesConnexes()	{}
-
-	//public function getSection()	{}
 
 	public function TexteErreur() {
 		return $this->BD->TexteErreur($_SESSION['beta']);
@@ -195,10 +184,6 @@ class PageContact extends Page {
 	public function __construct() {
 		parent::__construct();
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"formulaire"]);
-		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
-		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
-		$this->setLogo("logo.png");
-		$this->setFooter("");
 		$this->setView("contact.html");
 		if (empty($_POST))	{ // préparation affichage du formulaire
 
@@ -210,9 +195,6 @@ class PageContact extends Page {
 	public function setFormTitle($titre) {
 		$this->titreFormulaire = $titre;
 	}
-
-	//public function PagesConnexes()	{}
-	//public function getSection()	{}
 
 	public function Afficher_validation()	{
 		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
