@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+<?=$PAGE->getCSS()?>
+	<title><?=$PAGE->getTitle()?></title>
+</head>
+
+<body>
+
+<header>
+<div id="logo"><?=$PAGE->getLogo()?></div>
+<div id="titre">
+	<?=$PAGE->getHeaderText()?>
+	<?=$PAGE->AfficherOnglets()?>
+</div>
+</header>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<nav></nav>	<!-- génère une colonne vide -->
+
+<section>
+	<h1>Formulaire de contact</h1>
+	<form method="post" action="#" id=formulaire>
+		<p>Nom		<input type="text"	name="nom"		/></p>
+		<p>Courriel	<input type="email" name="courriel" /></p>
+		<p>Objet	<input type="text"	name="objet"	/></p>
+		<p>Message	<textarea name="message" rows="6"></textarea></p>
+		<div id=validation>
+			<p>Validation du formulaire</p>
+			<ol><?=$PAGE->Afficher_validation()?>
+			</ol>
+			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
+		</div>
+		<p style="text-align:center;">
+			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
+		</p>
+	</form>
+</section>
+
+<aside></aside>	<!-- génère une colonne vide -->
+
+</main>
+
+<footer>
+	<p>Site optimis&eacute; pour <?=$PAGE->BaliseImage("chrome.png","Logo Chrome")?> et <?=$PAGE->BaliseImage("firefox.png","Logo Firefox")?>
+	 - <a target="_blank" href="http://dossiers.techniques.free.fr">Mes dossiers techniques en ligne</a>
+	<?=$PAGE->getFooter()?>
+	- derni&egrave;re mise à jour 2 mai 2021</p>
+</footer>
+
+</body>
+</html>
