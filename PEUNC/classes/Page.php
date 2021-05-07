@@ -137,15 +137,6 @@ class Page implements iPage	{
 }
 
 // Classes filles
-class PageErreur extends Page {
-
-	public function getSection()	{
-		echo"<h1>Erreur {$_SESSION['beta']}: {$this->BD->TexteErreur($_SESSION['beta'])}</h1>\n";
-	}
-
-	public function PagesConnexes()	{}
-}
-
 class PageContact extends Page {
 
 	public function __construct() {

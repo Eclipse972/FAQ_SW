@@ -138,7 +138,7 @@ class PageVE extends PageArticle	{
 	}
 }
 
-class PageErreur extends PEUNC\classes\PageErreur	{
+class PageErreur extends Page	{
 	public function __construct() {
 		parent::__construct();
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"erreur"]);
@@ -148,12 +148,14 @@ class PageErreur extends PEUNC\classes\PageErreur	{
 		$this->setFooter("");
 	}
 
+	public function PagesConnexes()	{}
+
 	public function getSection()	{
-		parent::getSection();
-		?>
-		<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
-		<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
-		<?php
+?>
+	<h1>Erreur <?=$_SESSION['beta']?>: <?=$this->BD->TexteErreur($_SESSION['beta'])?></h1>
+	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
+	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
+<?php
 	}
 
 	public function AfficherMenu()	{
@@ -163,7 +165,7 @@ class PageErreur extends PEUNC\classes\PageErreur	{
 
 }
 
-class PageContact extends PEUNC\classes\PageContact {
+class PageContact extends Page {
 	public function __construct() {
 		parent::__construct();
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"formulaire"]);
