@@ -2,13 +2,17 @@
 class Page extends PEUNC\classes\Page {
 	protected $logo;
 
+	public function __construct() {
+		parent::__construct();
+		$this->setView("doctype.html");	// vue par défaut
+	}
+
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
 	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
 		$this->logo = $logo;
 	}
-
 
  /* ***************************
  * ASSESSURS (GETTER)

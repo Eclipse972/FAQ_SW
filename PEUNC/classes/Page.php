@@ -22,9 +22,9 @@ class Page implements iPage	{
 
 	public function __construct()	{
 		$this->BD			= new BDD;
+		// valeurs par défaut
 		$this->titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
 		$this->T_CSS		= [];
-		$this->logo			= "nom du fichier dans le dossier image";
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
 		$this->PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
@@ -50,7 +50,7 @@ class Page implements iPage	{
 				$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
 				if(file_exists($feuilleCSS))
 					$this->T_CSS[] = '/' . $feuilleCSS;
-				else { /* À faire: traitement en cas d'inexistence' */ }
+				else { /* À faire: traitement en cas d'inexistence */ }
 			}
 		}
 	}
@@ -60,7 +60,7 @@ class Page implements iPage	{
 	}
 
 	public function setHeaderText($texte)	{
-			$this->entetePage = $texte;
+		$this->entetePage = $texte;
 	}
 
 	public function setSection($code)	{
@@ -73,7 +73,7 @@ class Page implements iPage	{
 
 	public function setView($fichier)	{
 		if (file_exists(self::DOSSIER_VUE . $fichier))
-			$this->vue = self::DOSSIER_CONTROLEUR . $fichier;
+			$this->vue = self::DOSSIER_VUE . $fichier;
 		else die("Vue inexistante");
 	}
 

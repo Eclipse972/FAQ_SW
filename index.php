@@ -44,4 +44,4 @@ if (!		isset($classePage))	header("location:/Erreur/Page_inexistante");
 if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
 $PAGE->Hydrate();
-include"Vue/doctype.html"; // insertion de la vue
+include $PAGE->getView(); // insertion de la vue
