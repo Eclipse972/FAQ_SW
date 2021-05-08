@@ -130,31 +130,23 @@ class PageVE extends PageArticle	{
 		echo ($this->parRévolution) ? '<li>ligne de construction' . \PEUNC\classes\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'style="height:30px; vertical-align:middle"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n\t" : '';
 	}
 
-/*	public function MiseEnVolume($extrusion = true, $dépouille =false) {
-		?>
+	public function IconeMiseEnVolume() {
+		 echo"<b>", (($this->parRévolution) ? 'Bossage/Base avec r&eacute;volution' : 'Base/Bossage extrud&eacute;'), "</b>";
+		 echo \PEUNC\classes\Page::BaliseImage(($this->parRévolution ? 'revolution.png': 'extrusion.png'),
+												"ic&ocirc;ne de mise en volume",
+												'style="height:30px; vertical-align:middle"');
+		 echo ($this->parRévolution ? ' deuxi&egrave;me' : ' premi&egrave;re'), ' ic&ocirc;ne.';
+	}
+	public function ParamètresVolume() {
+		echo \PEUNC\classes\Page::BaliseImage(($this->parRévolution  ? 'param_revolution.png' : 'param_extrusion.png' ),"param&egrave;tres");
+	}
 
-		<div id="Phase">
-		<h2>Fonction de mise en volume</h2>
-		<ol>
-			<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;alpha <b>Fonctions</b> (premier alpha) :<?=\PEUNC\classes\Page::BaliseImage("fonctions.png","Barre d&apos;outils Fonctions.",'style="vertical-align:middle"')?></li>
-			<li>Cliquez sur l&apos;ic&ocirc;ne <b><?=$extrusion ? 'Base/Bossage extrud&eacute;' : 'Base bossage avec r&eacute;volution'?></b>
-				<?=\PEUNC\classes\Page::BaliseImage(($extrusion ? 'extrusion.png' : 'revolution.png'),"ic&ocirc;ne de mise en volume",'style="height:30px; vertical-align:middle"')?>
-				<?=$extrusion ? ' premi&egrave;re' : ' deuxi&egrave;me'?> ic&ocirc;ne.
-			</li>
-
-			<p class="gauche"><?=\PEUNC\classes\Page::BaliseImage(($extrusion ? 'param_extrusion.png' : 'param_revolution.png'),"param&egrave;tres")?></p>
-
-			<li style="margin-top:50px">A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres</li>
-			<li><?=$extrusion ? 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm' : 'Si la case <b>Axe de r&eacute;volution</b> n&apos;est renseign&eacute;e (ici ligne5) il faut sélectionner l&apos;axe de r&eacute;volution'?>.</li>
-			<?php if (($extrusion) && ($dépouille))
-				echo "<li>Cliquez sur l&apos;ic&ocirc;ne d&eacute;pouille ", \PEUNC\classes\Page::BaliseImage("depouille.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"'), "puis entrez l&apos;angle en degr&eacute;s.</li>";
-			?>
-			<li>Enfin validez en cliquant sur <?=\PEUNC\classes\Page::BaliseImage("validation.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"')?> en haut à gauche.</li>
-		</ol>
-		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
-		</div>
-		<?php //<a href="images/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a>
-	}*/
+	public function RemplissageParamètres() {
+		echo $this->parRévolution ? 'Si la case <b>Axe de r&eacute;volution</b> n&apos;est renseign&eacute;e (ici ligne5) il faut sélectionner l&apos;axe de r&eacute;volution' : 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm';
+	}
+	public function Dépouille() {
+		echo ($this->dossier == "Piece/tronc2cone2/") ? "<li>Cliquez sur l&apos;ic&ocirc;ne d&eacute;pouille " . \PEUNC\classes\Page::BaliseImage("depouille.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"') . "puis entrez l&apos;angle en degr&eacute;s.</li>" : '';
+	}
 }
 
 class PageErreur extends Page	{
