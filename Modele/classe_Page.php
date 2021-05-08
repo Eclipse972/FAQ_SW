@@ -157,7 +157,6 @@ class PageErreur extends Page	{
 }
 
 class PageContact extends Page {
-	protected $titreFormulaire;
 
 	public function __construct() {
 		parent::__construct();
@@ -168,10 +167,6 @@ class PageContact extends Page {
 		} else {	// traitement du formulaire
 
 		}
-	}
-
-	public function setFormTitle($titre) {
-		$this->titreFormulaire = $titre;
 	}
 
 	public function Afficher_validation()	{
