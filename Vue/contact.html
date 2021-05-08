@@ -47,7 +47,9 @@
 	<p>Site optimis&eacute; pour <?=$PAGE->BaliseImage("chrome.png","Logo Chrome")?> et <?=$PAGE->BaliseImage("firefox.png","Logo Firefox")?>
 	 - <a target="_blank" href="http://dossiers.techniques.free.fr">Mes dossiers techniques en ligne</a>
 	<?=$PAGE->getFooter()?>
-	- derni&egrave;re mise à jour 2 mai 2021</p>
+<?php
+	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+?>
 </footer>
 
 </body>
