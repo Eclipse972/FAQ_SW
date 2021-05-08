@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+<?=$PAGE->getCSS()?>
+	<title><?=$PAGE->getTitle()?></title>
+</head>
+
+<body>
+
+<header>
+<div id="logo"><?=$PAGE->getLogo()?></div>
+<div id="titre">
+	<?=$PAGE->getHeaderText()?>
+	<?=$PAGE->AfficherOnglets()?>
+</div>
+</header>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<nav>
+<?=$PAGE->AfficherMenu()?>
+</nav>
+
+<section>
+	<h1><?=$PAGE->getTitre()?></h1>
+	<p>On veut r&eacute;aliser : <?=$PAGE->ImageCotée()?></p>
+</section>
+
+<aside>
+<?=$PAGE->PagesConnexes()?>
+</aside>
+
+</main>
+
+<footer>
+	<p>Site optimis&eacute; pour <?=$PAGE->BaliseImage("chrome.png","Logo Chrome")?> et <?=$PAGE->BaliseImage("firefox.png","Logo Firefox")?>
+	 - <a target="_blank" href="http://dossiers.techniques.free.fr">Mes dossiers techniques en ligne</a>
+	<?=$PAGE->getFooter()?>
+	- derni&egrave;re mise à jour 2 mai 2021</p>
+</footer>
+
+</body>
+</html>

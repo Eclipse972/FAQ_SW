@@ -90,23 +90,25 @@ class PageArticle extends Page {
 
 class PageVE extends PageArticle	{
 	private $dossier;
+	private $titre;
 
 	public function __construct()	{
 		parent::__construct();
-		// configuration par défaut
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE"]);
+		$this->setView("pageVE.html");
 	}
 
-	public function SetDossier($dossier) { $this->dossier = $dossier; }
+	public function SetDossier($dossier) { $this->dossier = "Piece/" . $dossier . "/"; }
+	public function getDossier()	{ echo $this->dossier; }
 
-	public function TitreVE($titre, $VE) { // VE et dossierVE ne sont pas forcément identiques.Exemple: tronc de cône et tronc2cone
-		?>
-		<h1>Cr&eacute;er <?=$titre?> </h1>
-		<p>On veut r&eacute;aliser : <?=\PEUNC\classes\Page::BaliseImage("Piece/{$this->dossier}/VEcote.png","{$VE} cot&eacute;",'style="vertical-align:middle; height:300px"')?></p>
-		<?php
+	public function SetTitre($titre) { $this->titre = $titre; }
+	public function getTitre()	{ echo"Cr&eacute;er ",$this->titre; }
+
+	public function ImageCotée() {
+		return \PEUNC\classes\Page::BaliseImage($this->dossier . "/VEcote.png","{$VE} cot&eacute;",'style="vertical-align:middle; height:300px"');
 	}
 
-	public function PlanDesquisse() {
+/*	public function PlanDesquisse() {
 		?>
 		<div id="Phase">
 		<h2>Choisir le plan d&apos;esquisse</h2>
@@ -114,9 +116,9 @@ class PageVE extends PageArticle	{
 		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 		</div>
 		<?php // <a href="Vue/planDesquisse.avi">Montre moi</a>
-	}
+	}*/
 
-	public function EsquisseCotée($icone_principale, $extrusion = true, $icone_secondaire = '') {
+/*	public function EsquisseCotée($icone_principale, $extrusion = true, $icone_secondaire = '') {
 		?>
 		<div id="Phase">
 		<h2>Esquisse cot&eacute;e</h2>
@@ -136,10 +138,10 @@ class PageVE extends PageArticle	{
 		</ul>
 		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 		</div>
-		<?php /* <a href="images/<?=$this->dossier?>/esquisse.avi">Montre moi</a> */
-	}
+		<?php // <a href="images/<?=$this->dossier?>/esquisse.avi">Montre moi</a>
+	}*/
 
-	public function MiseEnVolume($extrusion = true, $dépouille =false) {
+/*	public function MiseEnVolume($extrusion = true, $dépouille =false) {
 		?>
 
 		<div id="Phase">
@@ -162,8 +164,8 @@ class PageVE extends PageArticle	{
 		</ol>
 		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 		</div>
-		<?php /* <a href="images/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a> */
-	}
+		<?php //<a href="images/<?=$this->dossier?>/miseEnVolume.avi">Montre moi</a>
+	}*/
 }
 
 class PageErreur extends Page	{
