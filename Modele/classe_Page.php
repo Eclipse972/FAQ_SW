@@ -91,6 +91,8 @@ class PageArticle extends Page {
 class PageVE extends PageArticle	{
 	private $dossier;
 	private $titre;
+	private $icone_principale;
+	private $parRévolution;
 
 	public function __construct()	{
 		parent::__construct();
@@ -104,32 +106,29 @@ class PageVE extends PageArticle	{
 	public function SetTitre($titre) { $this->titre = $titre; }
 	public function getTitre()	{ echo"Cr&eacute;er ",$this->titre; }
 
-	public function ImageCotée() {
-		return \PEUNC\classes\Page::BaliseImage($this->dossier . "/VEcote.png",$this->titre . " avec ses cotes",'style="vertical-align:middle; height:300px"');
+	public function VEcoté() {
+		return \PEUNC\classes\Page::BaliseImage($this->dossier . "/VEcote.png",
+												$this->titre . " avec ses cotes",
+												'style="vertical-align:middle; height:300px"');
 	}
 
-/*	public function EsquisseCotée($icone_principale, $extrusion = true, $icone_secondaire = '') {
-		?>
-		<div id="Phase">
-		<h2>Esquisse cot&eacute;e</h2>
-		<p>Il faut dessiner :<?=\PEUNC\classes\Page::BaliseImage("Piece/{$this->dossier}/esquisse.png","esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"')?></p>
-		<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=\PEUNC\classes\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
-		<p>Vous aurez besoin des ic&ocirc;nes:</p>
-		<ul>
-			<li>
-				<?php
-				echo $icone_principale,\PEUNC\classes\Page::BaliseImage("Piece/{$this->dossier}/icone.png", "ic&ocirc;ne {$icone_principale}",'style="height:30px; vertical-align:middle"');
-				if ($icone_secondaire != '')
-					echo " et {$icone_secondaire}", \PEUNC\classes\Page::BaliseImage("Piece/{$this->dossier}/icone2.png","ic&ocirc;ne {$icone_secondaire}",'style="height:30px; vertical-align:middle"');
-				?>
-			</li>
-			<?=$extrusion ? '' : '<li>ligne de construction' . \PEUNC\classes\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'style="height:30px; vertical-align:middle"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n\t"?>
-			<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
-		</ul>
-		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
-		</div>
-		<?php // <a href="images/<?=$this->dossier?>/esquisse.avi">Montre moi</a>
-	}*/
+	public function EsquisseCotée() {
+		return \PEUNC\classes\Page::BaliseImage($this->dossier . "esquisse.png", "esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"');
+	}
+
+	public function setIconePrincipale($icone_principale) { $this->icone_principale = $icone_principale; }
+	public function getIconePrincipale() {
+		echo $this->icone_principale,
+			\PEUNC\classes\Page::BaliseImage(	$this->dossier . "icone.png",
+												"ic&ocirc;ne " . $this->icone_principale,
+												'style="height:30px; vertical-align:middle"');
+		echo ($this->dossier == "Piece/sphere/") ? " et d&eacute;couper" . \PEUNC\classes\Page::BaliseImage("Piece/sphere/icone2.png","ic&ocirc;ne d&eacute;couper",'style="height:30px; vertical-align:middle"') : '';
+	}
+
+	public function setObtenuParRévolution($flag) { $this->parRévolution = $flag; }
+	public function AxeDeRévolution() {
+		echo ($this->parRévolution) ? '<li>ligne de construction' . \PEUNC\classes\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'style="height:30px; vertical-align:middle"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n\t" : '';
+	}
 
 /*	public function MiseEnVolume($extrusion = true, $dépouille =false) {
 		?>

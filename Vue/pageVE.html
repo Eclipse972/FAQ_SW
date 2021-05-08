@@ -24,12 +24,25 @@
 
 <section>
 	<h1><?=$PAGE->getTitre()?></h1>
-	<p>On veut r&eacute;aliser : <?=$PAGE->ImageCotée()?></p>
+	<p>On veut r&eacute;aliser : <?=$PAGE->VEcoté()?></p>
 
 	<div id="Phase">
-	<h2>Choisir le plan d&apos;esquisse</h2>
-	<p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<?=\PEUNC\classes\Page::BaliseImage("arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></p>
-	<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
+		<h2>Choisir le plan d&apos;esquisse</h2>
+		<p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<?=\PEUNC\classes\Page::BaliseImage("arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></p>
+		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
+	</div>
+
+	<div id="Phase">
+		<h2>Esquisse cot&eacute;e</h2>
+		<p>Il faut dessiner :<?=$PAGE->EsquisseCotée()?></p>
+		<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=\PEUNC\classes\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
+		<p>Vous aurez besoin des ic&ocirc;nes:</p>
+		<ul>
+			<li><?=$PAGE->getIconePrincipale()?></li>
+			<?=$PAGE->AxeDeRévolution()?>
+			<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
+		</ul>
+		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 	</div>
 
 </section>
