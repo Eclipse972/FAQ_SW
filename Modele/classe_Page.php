@@ -101,7 +101,7 @@ class PageVE extends PageArticle	{
 	public function getTitre()	{ echo"Cr&eacute;er ",$this->titre; }
 
 	public function VEcoté() {
-		return \PEUNC\classes\Page::BaliseImage($this->dossier . "/VEcote.png",
+		return \PEUNC\classes\Page::BaliseImage($this->dossier . "VEcote.png",
 												$this->titre . " avec ses cotes",
 												'style="vertical-align:middle; height:300px"');
 	}
