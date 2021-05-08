@@ -10,16 +10,10 @@ class Page extends PEUNC\classes\Page {
 		$this->setLogo("logo.png");
 		$this->setFooter("");
 	}
-/* ***************************
- * MUTATEURS (SETTER)
- * ***************************/
+// Méthodes pour la nouvelle variable-membre logo
 	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
 		$this->logo = $logo;
 	}
-
- /* ***************************
- * ASSESSURS (GETTER)
- * ***************************/
 	public function getLogo() {
 		echo $this->BaliseImage($this->logo,'Logo');
 	}
