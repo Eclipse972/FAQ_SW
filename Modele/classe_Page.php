@@ -105,18 +105,8 @@ class PageVE extends PageArticle	{
 	public function getTitre()	{ echo"Cr&eacute;er ",$this->titre; }
 
 	public function ImageCotée() {
-		return \PEUNC\classes\Page::BaliseImage($this->dossier . "/VEcote.png","{$VE} cot&eacute;",'style="vertical-align:middle; height:300px"');
+		return \PEUNC\classes\Page::BaliseImage($this->dossier . "/VEcote.png",$this->titre . " avec ses cotes",'style="vertical-align:middle; height:300px"');
 	}
-
-/*	public function PlanDesquisse() {
-		?>
-		<div id="Phase">
-		<h2>Choisir le plan d&apos;esquisse</h2>
-		<p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<?=\PEUNC\classes\Page::BaliseImage("arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></p>
-		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
-		</div>
-		<?php // <a href="Vue/planDesquisse.avi">Montre moi</a>
-	}*/
 
 /*	public function EsquisseCotée($icone_principale, $extrusion = true, $icone_secondaire = '') {
 		?>
