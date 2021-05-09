@@ -11,6 +11,8 @@ class Page implements iPage	{
 	const DOSSIER_CONTROLEUR= 'Controleur/';
 	const DOSSIER_IMAGE		= 'images/';
 	const DOSSIER_CSS		= 'CSS/';
+	const DOSSIER_JS		= 'js/';
+	const DOSSIER_VIDEO		= 'video/';
 
 	protected $BD;
 	protected $titrePage;
