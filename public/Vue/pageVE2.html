@@ -16,7 +16,15 @@
 	<p>On veut r&eacute;aliser : <?=$PAGE->VEcoté()?></p>
 
 	<div id="Phase">
-	<h2><?=$PAGE->TitrePageVE()?></h2>
+	<h2><?php	// titre à géométrie variable
+			switch($PAGE->getParamURL())	{
+				case 1: $titre = 'Esquisse cot&eacute;e';	break;
+				case 2: $titre = 'Fonction de mise en volume';	break;
+				default:$titre = 'Choisir le plan d&apos;esquisse';
+			}
+			echo $titre;
+		?>
+	</h2>
 <?=$PAGE->ContenuPageVE()?>
 	<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 	</div>

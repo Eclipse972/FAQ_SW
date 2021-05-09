@@ -106,15 +106,6 @@ class PageVE extends PageArticle	{
 												'style="vertical-align:middle; height:300px"');
 	}
 
-	public function TitrePageVE()	{
-		switch($this->getParamURL())	{
-			case 1: $titre = 'Esquisse cot&eacute;e';	break;
-			case 2: $titre = 'Fonction de mise en volume';	break;
-			default:$titre = 'Choisir le plan d&apos;esquisse';
-		}
-		return $titre;
-	}
-
 	public function ContenuPageVE()	{
 		ob_start();
 		switch($this->getParamURL())	{
