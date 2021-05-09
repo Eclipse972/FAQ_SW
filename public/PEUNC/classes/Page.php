@@ -31,6 +31,7 @@ class Page implements iPage	{
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
 		$this->PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
+		$this->T_param		= [];
 	}
 
 	public function Hydrate()	{
@@ -81,7 +82,6 @@ class Page implements iPage	{
 	}
 
 	public function setParamURL(array $T_param)	{
-		$this->T_param = [];
 		foreach($T_param as $valeur)
 			$this->T_param[] = htmlspecialchars($valeur);
 	}
@@ -115,7 +115,7 @@ class Page implements iPage	{
 	}
 
 	public function getParamURL($i = 0)	{
-		return isset($this->T_param[$i]) ? $this->T_param[$i] : null;
+		return (isset($this->T_param[$i])) ? $this->T_param[$i] : null;
 	}
 
 /* ***************************

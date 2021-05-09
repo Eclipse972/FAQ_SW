@@ -45,6 +45,7 @@ $classePage = $BD->ClassePage($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['
 if (!		isset($classePage))	header("location:/Erreur/Page_inexistante");
 if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
-$PAGE->Hydrate();
 if(isset($paramPage))	$PAGE->setParamURL(explode("/", $paramPage));	// les paramètres ne sont pas nommés ils sont ordonés et sépara par un /. Seul l'objet sait à quoi ils orrspondent
+$PAGE->Hydrate();
+
 include $PAGE->getView(); // insertion de la vue

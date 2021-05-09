@@ -3,3 +3,4 @@ $this->SetDossier('prisme');
 $this->setTitre("un prisme");
 $this->setIconePrincipale('rectangle');
 $this->setObtenuParRévolution(false);
+$this->setView("pageVE2.html");
