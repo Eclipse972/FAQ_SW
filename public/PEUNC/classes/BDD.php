@@ -31,8 +31,8 @@ public function ClassePage($alpha, $beta, $gamma) {
 	return $reponse['nom'];
 }
 
-public function CherchePosition() {
-	$this->Requete('SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ?', [$_SERVER['REDIRECT_URL']]);
+public function CherchePosition($URL) {
+	$this->Requete('SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ?', [$URL]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return array($reponse['niveau1'], $reponse['niveau2'], $reponse['niveau3']);

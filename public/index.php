@@ -29,7 +29,7 @@ switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ic
 		$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
 		break;
 	case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
-		list($alpha, $beta, $gamma) = $BD->CherchePosition();	// comparaison de $_SERVER['REDIRECT_URL'] avec toutes les URL valides du site
+		list($alpha, $beta, $gamma) = $BD->CherchePosition($_SERVER['REDIRECT_URL']);	// comparaison avec toutes les URL valides du site
 		if (isset($alpha))	{	// adresse valide, on ne touche à rien
 			header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
 			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$alpha, $beta, $gamma];	// $_SESSION = array('alpha' => $alpha, 'beta' = $beta, 'gamma' => $gamma) détruirait les autres éventuels paramètres
