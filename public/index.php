@@ -22,14 +22,16 @@ session_start();
 
 $BD = new PEUNC\classes\BDD;
 
-switch($_SERVER["REDIRECT_STATUS"]) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
+switch($_SERVER['REDIRECT_STATUS']) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
 	case 403:	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 403, 0];	break;
 	case 500:	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 500, 0];	break;
 	case 200:	// le script est lancé sans redirection => page d'accueil. Les éventuels paramètres sont ignorés
 		$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
 		break;
 	case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
-		list($alpha, $beta, $gamma) = $BD->CherchePosition($_SERVER['REDIRECT_URL']);	// comparaison avec toutes les URL valides du site
+		list($URL, $paramPage, $problem) = explode("?", $_SERVER['REQUEST_URI'], 3);
+		if(isset($problem))	die("problème de paramètres");
+		list($alpha, $beta, $gamma) = $BD->CherchePosition($URL);	// compare avec toutes les URL valides du site
 		if (isset($alpha))	{	// adresse valide, on ne touche à rien
 			header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
 			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$alpha, $beta, $gamma];	// $_SESSION = array('alpha' => $alpha, 'beta' = $beta, 'gamma' => $gamma) détruirait les autres éventuels paramètres
@@ -44,4 +46,5 @@ if (!		isset($classePage))	header("location:/Erreur/Page_inexistante");
 if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
 $PAGE->Hydrate();
+if(isset($paramPage))	$PAGE->setParamURL(explode("/", $paramPage));	// les paramètres ne sont pas nommés ils sont ordonés et sépara par un /. Seul l'objet sait à quoi ils orrspondent
 include $PAGE->getView(); // insertion de la vue

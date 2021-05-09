@@ -21,6 +21,7 @@ class Page implements iPage	{
 	protected $scriptSection;
 	protected $PiedDePage;
 	protected $vue;
+	protected $T_param;
 
 	public function __construct()	{
 		$this->BD			= new BDD;
@@ -79,6 +80,12 @@ class Page implements iPage	{
 		else die("Vue inexistante");
 	}
 
+	public function setParamURL(array $T_param)	{
+		$this->T_param = [];
+		foreach($T_param as $valeur)
+			$this->T_param[] = htmlspecialchars($valeur);
+	}
+
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
@@ -105,6 +112,10 @@ class Page implements iPage	{
 
 	public function getView()	{
 		return $this->vue;
+	}
+
+	public function getParamURL($i = 0)	{
+		return isset($this->T_param[$i]) ? $this->T_param[$i] : null;
 	}
 
 /* ***************************
