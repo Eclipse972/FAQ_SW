@@ -106,42 +106,6 @@ class PageVE extends PageArticle	{
 												'style="vertical-align:middle; height:300px"');
 	}
 
-	public function ContenuPageVE()	{
-		ob_start();
-		switch($this->getParamURL())	{
-		case 1:
-?>			<p>Il faut dessiner :<?=$this->EsquisseCotée()?></p>
-			<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=\PEUNC\classes\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
-			<p>Vous aurez besoin des ic&ocirc;nes:</p>
-			<ul>
-				<li><?=$this->getIconePrincipale()?></li>
-				<?=$this->AxeDeRévolution()?>
-				<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
-			</ul>
-			<a href="<?=$_SERVER['REDIRECT_URL']?>">Etape pr&eacute;c&eacute;dente</a> - <a href="<?=$_SERVER['REDIRECT_URL']?>?2">Etape suivante</a>
-<?php		break;
-		case 2:
-?>			<ol>
-				<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;onglet <b>Fonctions</b> (premier onglet) :<?=\PEUNC\classes\Page::BaliseImage("fonctions.png","Barre d&apos;outils Fonctions.",'style="vertical-align:middle"')?></li>
-				<li>Cliquez sur l&apos;ic&ocirc;ne <?=$this->IconeMiseEnVolume()?></li>
-				<p class="gauche"><?=$this->ParamètresVolume()?></p>
-				<li style="margin-top:50px">A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres</li>
-				<li><?=$this->RemplissageParamètres() ?></li>
-				<?=$this->Dépouille()?>
-				<li>Enfin validez en cliquant sur <?=\PEUNC\classes\Page::BaliseImage("validation.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"')?> en haut à gauche.</li>
-			</ol>
-			<a href="<?=$_SERVER['REDIRECT_URL']?>?1">Etape pr&eacute;c&eacute;dente</a>
-<?php		break;
-			default:
-?>			<p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<?=\PEUNC\classes\Page::BaliseImage("arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></p>
-			<a href="<?=$_SERVER['REDIRECT_URL']?>?1">Etape suivante</a>
-<?php		break;
-		} // switch
-		$contenu = ob_get_contents();
-		ob_get_clean();
-		return $contenu;
-	}
-
 	public function EsquisseCotée() {
 		return \PEUNC\classes\Page::BaliseImage($this->dossier . "esquisse.png", "esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"');
 	}
