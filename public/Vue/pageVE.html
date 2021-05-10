@@ -14,40 +14,45 @@
 <section>
 	<h1><?=$PAGE->getTitre()?></h1>
 	<p>On veut r&eacute;aliser : <?=$PAGE->VEcoté()?></p>
-
 	<div id="Phase">
-		<h2>Choisir le plan d&apos;esquisse</h2>
-		<p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<?=\PEUNC\classes\Page::BaliseImage("arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></p>
-		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
+<?php	ob_start();
+		switch($PAGE->getParamURL())	{
+		case 1:
+?>			<h2>Esquisse cot&eacute;e</h2>
+			<p>Il faut dessiner :<?=$PAGE->EsquisseCotée()?></p>
+			<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=\PEUNC\classes\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
+			<p>Vous aurez besoin des ic&ocirc;nes:</p>
+			<ul>
+				<li><?=$PAGE->getIconePrincipale()?></li>
+				<?=$PAGE->AxeDeRévolution()?>
+				<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
+			</ul>
+			<a href="<?=$_SERVER['REDIRECT_URL']?>">Etape pr&eacute;c&eacute;dente</a> - <a href="<?=$_SERVER['REDIRECT_URL']?>?2">Etape suivante</a>
+<?php		break;
+		case 2:
+?>			<h2>Fonction de mise en volume</h2>
+			<ol>
+				<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;onglet <b>Fonctions</b> (premier onglet) :<?=\PEUNC\classes\Page::BaliseImage("fonctions.png","Barre d&apos;outils Fonctions.",'style="vertical-align:middle"')?></li>
+				<li>Cliquez sur l&apos;ic&ocirc;ne <?=$PAGE->IconeMiseEnVolume()?></li>
+				<p class="gauche"><?=$PAGE->ParamètresVolume()?></p>
+				<li style="margin-top:50px">A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres</li>
+				<li><?=$PAGE->RemplissageParamètres() ?></li>
+				<?=$PAGE->Dépouille()?>
+				<li>Enfin validez en cliquant sur <?=\PEUNC\classes\Page::BaliseImage("validation.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"')?> en haut à gauche.</li>
+			</ol>
+			<a href="<?=$_SERVER['REDIRECT_URL']?>?1">Etape pr&eacute;c&eacute;dente</a>
+<?php		break;
+		default:
+?>			<h2>Choisir le plan d&apos;esquisse</h2>
+			<p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<?=\PEUNC\classes\Page::BaliseImage("arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></p>
+			<a href="<?=$_SERVER['REDIRECT_URL']?>?1">Etape suivante</a>
+<?php	} // switch
+		$contenu = ob_get_contents();
+		ob_get_clean();
+		echo $contenu;
+?>
+	<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 	</div>
-
-	<div id="Phase">
-		<h2>Esquisse cot&eacute;e</h2>
-		<p>Il faut dessiner :<?=$PAGE->EsquisseCotée()?></p>
-		<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=\PEUNC\classes\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
-		<p>Vous aurez besoin des ic&ocirc;nes:</p>
-		<ul>
-			<li><?=$PAGE->getIconePrincipale()?></li>
-			<?=$PAGE->AxeDeRévolution()?>
-			<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
-		</ul>
-		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
-	</div>
-
-	<div id="Phase">
-		<h2>Fonction de mise en volume</h2>
-		<ol>
-			<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;onglet <b>Fonctions</b> (premier onglet) :<?=\PEUNC\classes\Page::BaliseImage("fonctions.png","Barre d&apos;outils Fonctions.",'style="vertical-align:middle"')?></li>
-			<li>Cliquez sur l&apos;ic&ocirc;ne <?=$PAGE->IconeMiseEnVolume()?></li>
-			<p class="gauche"><?=$PAGE->ParamètresVolume()?></p>
-			<li style="margin-top:50px">A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres</li>
-			<li><?=$PAGE->RemplissageParamètres() ?></li>
-			<?=$PAGE->Dépouille()?>
-			<li>Enfin validez en cliquant sur <?=\PEUNC\classes\Page::BaliseImage("validation.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"')?> en haut à gauche.</li>
-		</ol>
-		<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
-	</div>
-
 </section>
 
 <aside>
