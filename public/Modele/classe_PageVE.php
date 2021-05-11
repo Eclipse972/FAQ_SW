@@ -29,17 +29,8 @@ class PageVE extends PageArticle	{
 	}
 
 	public function setObtenuParRévolution($flag) { $this->parRévolution = $flag; }
-	public function AxeDeRévolution() {
-		echo ($this->parRévolution) ? '<li>ligne de construction' . \PEUNC\classes\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'style="height:30px; vertical-align:middle"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n\t" : '';
-	}
+	public function getObtenuParRévolution() { return $this->parRévolution; }
 
-	public function IconeMiseEnVolume() {
-		 echo"<b>", (($this->parRévolution) ? 'Bossage/Base avec r&eacute;volution' : 'Base/Bossage extrud&eacute;'), "</b>";
-		 echo \PEUNC\classes\Page::BaliseImage(($this->parRévolution ? 'revolution.png': 'extrusion.png'),
-												"ic&ocirc;ne de mise en volume",
-												'style="height:30px; vertical-align:middle"');
-		 echo ($this->parRévolution ? ' deuxi&egrave;me' : ' premi&egrave;re'), ' ic&ocirc;ne.';
-	}
 	public function ParamètresVolume() {
 		echo \PEUNC\classes\Page::BaliseImage(($this->parRévolution  ? 'param_revolution.png' : 'param_extrusion.png' ),"param&egrave;tres");
 	}
