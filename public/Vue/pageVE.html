@@ -13,7 +13,9 @@
 
 <section>
 	<h1><?=$PAGE->getTitre()?></h1>
-	<p>On veut r&eacute;aliser : <?=$PAGE->VEcoté()?></p>
+	<p>On veut r&eacute;aliser : <?=\PEUNC\classes\Page::BaliseImage($PAGE->getDossier() . "VEcote.png",
+												$PAGE->getTitre() . " avec ses cotes",
+												'style="vertical-align:middle; height:300px"')?></p>
 	<div id="Phase">
 <?php	ob_start();
 		switch($PAGE->getParamURL())	{

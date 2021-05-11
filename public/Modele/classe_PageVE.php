@@ -1,5 +1,5 @@
 <?php
-require"/Modele/classe_PageArticle.php";
+require"Modele/classe_PageArticle.php";
 
 class PageVE extends PageArticle	{
 	private $dossier;
@@ -18,12 +18,6 @@ class PageVE extends PageArticle	{
 
 	public function SetTitre($titre) { $this->titre = $titre; }
 	public function getTitre()	{ return"Cr&eacute;er " . $this->titre; }
-
-	public function VEcoté() {
-		return \PEUNC\classes\Page::BaliseImage($this->dossier . "VEcote.png",
-												$this->titre . " avec ses cotes",
-												'style="vertical-align:middle; height:300px"');
-	}
 
 	public function EsquisseCotée() {
 		return \PEUNC\classes\Page::BaliseImage($this->dossier . "esquisse.png", "esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"');
