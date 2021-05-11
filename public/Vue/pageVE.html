@@ -2,6 +2,11 @@
 <html lang="fr">
 <head>
 <?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/head.html";?>
+
+  <link rel="stylesheet" type="text/css" href="/essaiWink/planDesquisse-wink-files/winkPlayer.css" />
+  <script type="text/javascript" src="/essaiWink/planDesquisse-wink-files/winkPlayer.js"></script>
+  <script type="text/javascript" src="/essaiWink/planDesquisse.js"></script>
+
 </head>
 
 <body>
@@ -61,6 +66,24 @@
 ?>
 	<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
 	</div>
+
+  <div class="winkVideoContainerClass">
+    <video class="winkVideoClass" data-varname="winkVideoData" data-dirname="/essaiWink/planDesquisse-wink-files">
+      <source src="/essaiWink/planDesquisse.mp4" type="video/mp4">
+    </video>
+    <div class="winkVideoOverlayClass"></div>
+    <div class="winkVideoControlBarClass">
+      <button class="winkVideoControlBarPlayButtonClass"></button>
+      <button class="winkVideoControlBarPauseButtonClass"></button>
+      <div class="winkVideoControlBarProgressLeftClass"></div>
+      <div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+      <div class="winkVideoControlBarProgressRightClass"></div>
+      <div class="winkVideoControlBarProgressFilledMiddleClass"></div>
+      <div class="winkVideoControlBarProgressThumbClass"></div>
+    </div>
+    <div class="winkVideoPlayOverlayClass"></div>
+  </div>
+
 </section>
 
 <aside>
