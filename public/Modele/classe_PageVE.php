@@ -14,10 +14,10 @@ class PageVE extends PageArticle	{
 	}
 
 	public function SetDossier($dossier) { $this->dossier = "Piece/" . $dossier . "/"; }
-	public function getDossier()	{ echo $this->dossier; }
+	public function getDossier()	{ return $this->dossier; }
 
 	public function SetTitre($titre) { $this->titre = $titre; }
-	public function getTitre()	{ echo"Cr&eacute;er ",$this->titre; }
+	public function getTitre()	{ return"Cr&eacute;er " . $this->titre; }
 
 	public function VEcoté() {
 		return \PEUNC\classes\Page::BaliseImage($this->dossier . "VEcote.png",
