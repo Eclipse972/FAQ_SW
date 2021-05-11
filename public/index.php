@@ -42,10 +42,10 @@ switch($_SERVER['REDIRECT_STATUS']) {	// Toutes les erreurs serveur renvoient ic
 }
 
 $classePage = $BD->ClassePage($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
-if (!		isset($classePage))	header("location:/Erreur/Page_inexistante");
+if (!isset($classePage))	die("La classe {$classePage} n&apos;est pas d&eacute;finie dans le squelette.");
 require"Modele/classe_{$classePage}.php";
-if (!class_exists($classePage))	die("La classe {$classePage} n&apos;existe pas.");
 $PAGE = new $classePage;
+
 if(isset($paramPage))	$PAGE->setParamURL(explode("/", $paramPage));	// les paramètres ne sont pas nommés ils sont ordonés et sépara par un /. Seul l'objet sait à quoi ils orrspondent
 $PAGE->Hydrate();
 
