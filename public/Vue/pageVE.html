@@ -40,7 +40,7 @@
 				<p class="gauche"><?=$PAGE->ParamètresVolume()?></p>
 				<li style="margin-top:50px">A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres</li>
 				<li><?=$PAGE->RemplissageParamètres() ?></li>
-				<?=$PAGE->Dépouille()?>
+				<?=($PAGE->getDossier() == "Piece/tronc2cone2/") ? "<li>Cliquez sur l&apos;ic&ocirc;ne d&eacute;pouille " . \PEUNC\classes\Page::BaliseImage("depouille.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"') . "puis entrez l&apos;angle en degr&eacute;s.</li>" : ''?>
 				<li>Enfin validez en cliquant sur <?=\PEUNC\classes\Page::BaliseImage("validation.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"')?> en haut à gauche.</li>
 			</ol>
 			<a href="<?=$_SERVER['REDIRECT_URL']?>?1">Etape pr&eacute;c&eacute;dente</a>
