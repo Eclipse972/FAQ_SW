@@ -21,7 +21,8 @@
 		switch($PAGE->getParamURL())	{
 		case 1:
 ?>			<h2>Esquisse cot&eacute;e</h2>
-			<p>Il faut dessiner :<?=$PAGE->EsquisseCotée()?></p>
+			<p>Il faut dessiner :
+			<?=\PEUNC\classes\Page::BaliseImage($PAGE->getDossier() . "esquisse.png", "esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"')?></p>
 			<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=\PEUNC\classes\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
 			<p>Vous aurez besoin des ic&ocirc;nes:</p>
 			<ul>

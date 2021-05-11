@@ -19,10 +19,6 @@ class PageVE extends PageArticle	{
 	public function SetTitre($titre) { $this->titre = $titre; }
 	public function getTitre()	{ return"Cr&eacute;er " . $this->titre; }
 
-	public function EsquisseCotée() {
-		return \PEUNC\classes\Page::BaliseImage($this->dossier . "esquisse.png", "esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"');
-	}
-
 	public function setIconePrincipale($icone_principale) { $this->icone_principale = $icone_principale; }
 	public function getIconePrincipale() {
 		echo $this->icone_principale,
