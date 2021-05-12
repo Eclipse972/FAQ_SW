@@ -6,7 +6,7 @@
 		<li>
 			<?=$PAGE->getIconePrincipale()?>
 			<?=\PEUNC\classes\Page::BaliseImage($PAGE->getDossier() . "icone.png", "ic&ocirc;ne principale", 'style="height:30px; vertical-align:middle"')?>
-			<?=($PAGE->getObtenuParRévolution() == "Piece/sphere/") ? " et d&eacute;couper" . \PEUNC\classes\Page::BaliseImage("Piece/sphere/icone2.png","ic&ocirc;ne d&eacute;couper",'style="height:30px; vertical-align:middle"') : ''?>
+			<?=($PAGE->getObtenuParRévolution() == "Piece/sphere/") ? " et ajuster les entit&eacute;s" . \PEUNC\classes\Page::BaliseImage("Piece/sphere/icone2.png","ic&ocirc;ne d&eacute;couper",'style="height:30px; vertical-align:middle"') : ''?>
 		</li>
 		<?=($PAGE->getObtenuParRévolution()) ? '<li>ligne de construction' . \PEUNC\classes\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'style="height:30px; vertical-align:middle"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n" : ''?>
 		<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
