@@ -1,0 +1,16 @@
+	<h2>Esquisse cot&eacute;e</h2>
+	<p>Il faut dessiner: <?=\PEUNC\classes\Page::BaliseImage($PAGE->getDossier() . "esquisse.png", "esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"')?></p>
+	<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=\PEUNC\classes\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
+	<p>Vous aurez besoin des ic&ocirc;nes:</p>
+	<ul>
+		<li>
+			<?=$PAGE->getIconePrincipale()?>
+			<?=\PEUNC\classes\Page::BaliseImage($PAGE->getDossier() . "icone.png", "ic&ocirc;ne principale", 'style="height:30px; vertical-align:middle"')?>
+			<?=($PAGE->getObtenuParRévolution() == "Piece/sphere/") ? " et d&eacute;couper" . \PEUNC\classes\Page::BaliseImage("Piece/sphere/icone2.png","ic&ocirc;ne d&eacute;couper",'style="height:30px; vertical-align:middle"') : ''?>
+		</li>
+		<?=($PAGE->getObtenuParRévolution()) ? '<li>ligne de construction' . \PEUNC\classes\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'style="height:30px; vertical-align:middle"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n" : ''?>
+		<li>cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png", "ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?> . pour coter votre esquisse.</li>
+	</ul>
+<!-- Vidéos en construction -->
+	<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>
+	<a href="<?=$_SERVER['REDIRECT_URL']?>">Etape pr&eacute;c&eacute;dente</a> - <a href="<?=$_SERVER['REDIRECT_URL']?>?2">Etape suivante</a>
