@@ -7,6 +7,11 @@
 }
 #VE ol li { margin-bottom:10px; }
 
+.icone {
+	height:30px;
+	vertical-align:middle;
+}
+
 .gauche {
 	float:left;
 	margin-top:0;
