@@ -1,11 +1,11 @@
-h2 {
+#VE h2 {
 	background-color:yellow;
 	text-align:center;
 	text-decoration:none;
 	padding:10px;
 	margin:0;
 }
-ol li { margin-bottom:10px; }
+#VE ol li { margin-bottom:10px; }
 
 .gauche {
 	float:left;
