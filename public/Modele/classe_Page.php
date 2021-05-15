@@ -15,7 +15,7 @@ class Page extends PEUNC\classes\Page {
 		$this->logo = $logo;
 	}
 	public function getLogo() {
-		echo $this->BaliseImage($this->logo,'Logo');
+		echo \PEUNC\classes\Page::BaliseImage($this->logo,'Logo');
 	}
 
  /* ***************************
