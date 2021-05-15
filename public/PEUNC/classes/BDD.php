@@ -7,13 +7,9 @@ protected $resultat;
 protected $BD; // PDO initialisé dans connexion.php
 
 public function __construct() {
-	try	{
-		require"connexion.php";
-		$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
-	}
-	catch (Exception $e)	{ // En cas d'erreur, on affiche un message et on arrête tout
-		throw new Exception('Erreur : '.$e->getMessage());
-	}
+	require"connexion.php";
+	$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
+	// éventuelle erreur gérée par index.php
 }
 
 protected function Requete($requete, array $T_parametre) {
