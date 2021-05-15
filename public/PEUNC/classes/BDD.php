@@ -12,7 +12,7 @@ public function __construct() {
 		$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
 	}
 	catch (Exception $e)	{ // En cas d'erreur, on affiche un message et on arrête tout
-		die('Erreur : '.$e->getMessage());
+		throw new Exception('Erreur : '.$e->getMessage());
 	}
 }
 

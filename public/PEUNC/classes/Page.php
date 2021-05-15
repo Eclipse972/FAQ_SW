@@ -39,7 +39,7 @@ class Page implements iPage	{
 		if($script != '')	{
 			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
 				require(self::DOSSIER_CONTROLEUR . $script);
-			else die("Controleur inexistant");
+			else throw new Exception("Controleur inexistant");
 		}
 }
 
@@ -79,7 +79,7 @@ class Page implements iPage	{
 	public function setView($fichier)	{
 		if (file_exists(self::DOSSIER_VUE . $fichier))
 			$this->vue = self::DOSSIER_VUE . $fichier;
-		else die("Vue inexistante");
+		else throw new Exception("Vue inexistante");
 	}
 
 	public function setParamURL(array $T_param)	{
