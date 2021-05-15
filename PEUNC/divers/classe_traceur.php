@@ -1,7 +1,7 @@
 <?php
 class Traceur {
 private $rapport;
-	
+
 public function __construct() { $this->rapport = null; } // rapport vide
 
 public function Message($message) { $this->rapport[] = $message; } // ajout d'un message dans le rapport

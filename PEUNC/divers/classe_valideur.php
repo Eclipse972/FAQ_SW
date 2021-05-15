@@ -21,7 +21,7 @@ public function OK($objet, $message, $code_visiteur) { // vérifie si la répons
 		'objet'		=> $objet,
 		'message'	=> $message);
 	$position = array(0, 1, -2, -1);
-	
+
 	$code = ''; // construction du code à trouver issu des instructions.
 	for($i=0; $i<4; $i++) { // i-ème instruction
 		$code .= substr($réponse[$champs[$this->T_id_champ[$i]]] ,$position[$this->T_choix[$i]], 1);

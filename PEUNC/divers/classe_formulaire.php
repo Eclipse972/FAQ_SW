@@ -23,7 +23,7 @@ private $spam_détecté; // tentative de spam détectée
  * Le code de validation est un mot de 5 caractères composé d'une lettre de chaque champ (soit 4 lettres).
  * Pour le choix du caractère il y a quatre possibilités: premier, deuxième, avant dernier et dernier
  * la dernière lettre est une des 4 premières du code.
- * 
+ *
  * Exemple de validation:
  * 	deuxième caractère de l'objet
  * 	avant dernier caractère du message
@@ -37,7 +37,7 @@ private $spam_détecté; // tentative de spam détectée
  * 		message = Pourquoi un code si compliqué?
  * Le code de validation sera uéh22
 */
- 
+
 // variables nécessaires à la création du code de validation
 private $T_id_champ;	// tableau contenant les numéros de champ
 private $T_choix;		// tableau contenant les positions demandées
@@ -115,10 +115,10 @@ public function Afficher() {
 
 		<p><?php if ($this->Erreur_courriel) echo 'adresse mail incorrecte<br>';?>
 			Courriel : <input type="text" name="courriel" value="<?=$this->courriel?>" /></p>
-		
+
 		<p><?php if ($this->Erreur_objet) echo 'L&apos;objet doit comporter au moins deux caract&egrave;res<br>';?>
 			Objet : <input	 type="text" name="objet"	placeholder="<?=$this->objet?>" /></p>
-		
+
 		<p><?php if ($this->Erreur_message) echo 'Le message doit comporter au moins deux caract&egrave;res<br>';?>
 			Message : <textarea name="message" rows="6"></textarea></p>
 
@@ -151,7 +151,7 @@ private function Afficher_validation() { // affiche les instructions du code de 
 
 private function OK() { // code donné par le visiteur est bon?
 	if (($this->spam_détecté)				// spam détecté
-	|| (time() - $this->top_départ < 8))	// si le temps de remplissage < 8s => pas un humain 
+	|| (time() - $this->top_départ < 8))	// si le temps de remplissage < 8s => pas un humain
 		return false;
 
 	$champs	= array('nom', 'courriel', 'objet', 'message');
@@ -161,7 +161,7 @@ private function OK() { // code donné par le visiteur est bon?
 		'objet'		=> $this->objet,
 		'message'	=> $this->message);
 	$position = array(0, 1, -2, -1);
-	
+
 	$code = ''; // construction du code à trouver issu des instructions.
 	for($i=0; $i<4; $i++) { // i-ème instruction
 		$code .= substr($réponse[$champs[$this->T_id_champ[$i]]] ,$position[$this->T_choix[$i]], 1);
