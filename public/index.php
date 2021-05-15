@@ -32,7 +32,7 @@ try
 			break;
 		case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
 			list($URL, $paramPage, $problem) = explode("?", $_SERVER['REQUEST_URI'], 3);
-			if(isset($problem))	throw new Exception("problème de paramètres");
+			if(isset($problem))	throw new Exception("format URL incorrect");
 			list($alpha, $beta, $gamma) = $BD->CherchePosition($URL);	// compare avec toutes les URL valides du site
 			if (isset($alpha))	{	// adresse valide, on ne touche à rien
 				header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
