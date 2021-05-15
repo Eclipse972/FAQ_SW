@@ -39,7 +39,7 @@ class Page implements iPage	{
 		if($script != '')	{
 			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
 				require(self::DOSSIER_CONTROLEUR . $script);
-			else throw new Exception("Controleur du noeud ({$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}) inexistant");
+			else throw new Exception("Controleur inexistant");
 		}
 }
 
@@ -79,7 +79,7 @@ class Page implements iPage	{
 	public function setView($fichier)	{
 		if (file_exists(self::DOSSIER_VUE . $fichier))
 			$this->vue = self::DOSSIER_VUE . $fichier;
-		else throw new Exception("Vuer du noeud ({$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}) inexistante");
+		else throw new Exception("Vuer inexistante");
 	}
 
 	public function setParamURL(array $T_param)	{
