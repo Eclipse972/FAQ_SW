@@ -1,4 +1,6 @@
 <?php
+require 'PEUNC/classes/Contact.php';
+
 class PageContact extends Page {
 	protected $OContact;
 
