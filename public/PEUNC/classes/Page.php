@@ -1,5 +1,5 @@
 <?php
-// classes pages de PEUNC
+// classe-mère des pages de PEUNC
 namespace PEUNC\classes;
 
 include"API_page.php";
