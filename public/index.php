@@ -1,11 +1,4 @@
 <?php	// routeur de PEUNC
-require 'PEUNC/classes/Page.php';
-require 'PEUNC/classes/BDD.php';
-
-// classes utilisateur
-require 'Modele/classe_Page.php';
-//require 'Modele/classe_BDD.php';
-
 session_start();
 /* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
 	Si alpha >=0 => pages du site
@@ -19,6 +12,13 @@ session_start();
 	(-1;code;0) -> page d'erreur avec son code
 	(-2;0;0) formulaire de contact
 */
+
+require 'PEUNC/classes/Page.php';
+require 'PEUNC/classes/BDD.php';
+
+// classes utilisateur
+require 'Modele/classe_Page.php';
+//require 'Modele/classe_BDD.php';
 
 $BD = new PEUNC\classes\BDD;
 
