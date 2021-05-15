@@ -1,18 +1,14 @@
 <?php
 class PageContact extends Page {
+	protected $OContact;
 
 	public function __construct() {
 		parent::__construct();
-		if (empty($_POST))	{ // préparation affichage du formulaire
-
-		} else {	// traitement du formulaire
-
-		}
+		$this->OContact = new \PEUNC\classes\Contact;	// héritage multiple impossible en PHP
 	}
 
 	public function Afficher_validation()	{
-		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
-		echo "\n";
+		$this->OContact->Afficher_validation();
 	}
 
 }
