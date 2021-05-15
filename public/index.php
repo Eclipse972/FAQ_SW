@@ -23,10 +23,11 @@ require 'Modele/classe_Page.php';
 try
 {
 	$BD = new PEUNC\classes\BDD;
-
-	switch($_SERVER['REDIRECT_STATUS']) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
-		case 403:	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 403, 0];	break;
-		case 500:	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 500, 0];	break;
+	$codeRedirecion = $_SERVER['REDIRECT_STATUS'];
+	switch($codeRedirecion) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
+		case 403:	// accès interdit
+		case 500:	// erreur serveur
+			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, $codeRedirecion, 0];	break;
 		case 200:	// le script est lancé sans redirection => page d'accueil
 			$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
 			break;
