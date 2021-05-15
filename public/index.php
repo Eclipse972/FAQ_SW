@@ -56,7 +56,7 @@ try
 }
 catch(Exception $e)
 {
-    $errorMessage = $e->getMessage();
-    echo"Noeud {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}\n";
-    die('Exception '.$errorMessage); // À faire: inclure une vue qui affichera l'erreur'
+	$errorMessage = $e->getMessage();
+	echo'<p>Exception ', $errorMessage , '</p>'; // À faire: inclure une vue qui affichera l'erreur'
+	die("<p>Noeud {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}</p>\n");
 }
