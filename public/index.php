@@ -48,7 +48,7 @@ try
 	if (!isset($classePage))	throw new Exception("La classe {$classePage} n&apos;est pas d&eacute;finie dans le squelette.");
 	require"Modele/classe_{$classePage}.php";
 	$PAGE = new $classePage;
-	$PAGE->setParamURL(explode("/", $paramPage));	// les paramètres ne sont pas nommés ils sont ordonés et sépara par un /. Seul l'objet sait à quoi ils orrspondent
+	$PAGE->setParamURL(explode("/", $paramPage));	// les paramètres sont anonymes. Ils sont ordonés et sépara par un /. Seul l'objet sait à quoi ils correspondent
 	$PAGE->Hydrate();
 }
 catch(Exception $e)
