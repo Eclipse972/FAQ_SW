@@ -51,8 +51,6 @@ try
 
 	if(isset($paramPage))	$PAGE->setParamURL(explode("/", $paramPage));	// les paramètres ne sont pas nommés ils sont ordonés et sépara par un /. Seul l'objet sait à quoi ils orrspondent
 	$PAGE->Hydrate();
-
-	include $PAGE->getView(); // insertion de la vue
 }
 catch(Exception $e)
 {
@@ -61,5 +59,6 @@ catch(Exception $e)
 	$PAGE->setCodeErreur("application");
 	$PAGE->setTitreErreur($e->getMessage());
 	$PAGE->setCorpsErreur("<p>Noeud {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}</p>");
-	include $PAGE->getView(); // insertion de la vue
 }
+
+include $PAGE->getView(); // insertion de la vue
