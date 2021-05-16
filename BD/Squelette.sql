@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 16 Mai 2021 à 02:12
+-- Généré le : Dim 16 Mai 2021 à 02:16
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -48,7 +48,6 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (2, -1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', -1, ''),
 (3, -1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', -1, ''),
 (4, -2, 0, 0, 'Formulaire de contact', '', 'Contact', -2, 'contact.php'),
-(5, -1, 1, 0, 'Article inexistant ou disparu', '', 'Article_inexistant', -1, ''),
 (6, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', -1, ''),
 (7, 0, 0, 0, 'Accueil', 'accueil.png', 'Accueil', 1, 'accueil.php'),
 (8, 1, 0, 0, 'Pi&egrave;ce', 'piece.png', 'Piece', 1, 'Piece/module_piece.php'),
