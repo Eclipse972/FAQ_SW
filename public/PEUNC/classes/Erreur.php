@@ -1,5 +1,19 @@
 <?php
-// classe page d'ereur de PEUNC
+/* classe page d'ereur de PEUNC
+ *
+ * Cette classe n'offre que des fonctions basiques. Par exemple pas de fonction complémentaire comme l'affichage.
+ *
+ * Il y a de fortes chances que votre classe pour vos pages d'erreur hérite d'une de vos classes. Du coup l'héritage multiple serait le bienvenu.
+ * Il est posible de profiter des méthodes de la classe Erreur de PEUNC avec la méthode magique __call.
+ * 1- dans votre classe ajouter: protected $OErreur;
+ * 2- dans votre constructeur ajouter: $this->OErreur = new \PEUNC\classes\Erreur;
+ * 3- création de la méthode magique
+ * public function __call($methode,$argument)	{
+ *		return $this->OErreur->$methode($argument);
+ * }
+ * Une condition à respecter impérativement: aucune de vos méthode s ne doit porter le même nom que celle de la classe Erreur de PEUNC
+ * */
+
 namespace PEUNC\classes;
 
 class Erreur extends Page {
@@ -9,7 +23,9 @@ class Erreur extends Page {
 
 	public function __construct() {
 		parent::__construct();
-		$this->corps = "<p>Noeud: {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}</p>\n";
+		$this->code = null;
+		$this->titre = "";
+		$this->corps = "";
 	}
 	// setters
 	public function setCodeErreur($code) {
@@ -25,11 +41,11 @@ class Erreur extends Page {
 	}
 	// getters
 	public function getCodeErreur() {
-		return $this->code;
+		return isset($this->code) ? ' ' . $this->code : 'X';
 	}
 
 	public function getTitreErreur() {
-		return "<h1>{$this->titre}</h1>";
+		return $this->titre;
 	}
 
 	public function getCorpsErreur() {

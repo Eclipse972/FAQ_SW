@@ -56,7 +56,10 @@ try
 }
 catch(Exception $e)
 {
-	$errorMessage = $e->getMessage();
-	echo'<p>Exception ', $errorMessage , '</p>'; // À faire: inclure une vue qui affichera l'erreur'
-	die("<p>Noeud {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}</p>\n");
+	require"Modele/classe_PageErreur.php";
+	$PAGE = new PageErreur;
+	$PAGE->setCodeErreur("application");
+	$PAGE->setTitreErreur($e->getMessage());
+	$PAGE->setCorpsErreur("<p>Noeud {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}</p>");
+	include $PAGE->getView(); // insertion de la vue
 }

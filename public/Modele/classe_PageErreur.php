@@ -11,7 +11,7 @@ class PageErreur extends Page	{
 		$this->setView("erreur.html");
 	}
 
-	public function TexteErreur() {
-		return $this->BD->TexteErreur($_SESSION['beta']);
+	public function __call($methode,$argument)	{		// permet l'accès aux méthodeS de La classe Erreur de PEUNC
+		return $this->OErreur->$methode($argument[0]);	// il n'y a au plus qu'un seul paramètre
 	}
 }
