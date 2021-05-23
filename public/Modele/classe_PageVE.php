@@ -9,7 +9,7 @@ class PageVE extends PageArticle	{
 
 	public function __construct()	{
 		parent::__construct();
-		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE"]);
+		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE", "winkPlayer"]);
 		$this->setView("pageVE.html");
 	}
 
