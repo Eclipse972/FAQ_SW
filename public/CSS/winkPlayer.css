@@ -16,7 +16,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('playoverlay.png');
+  background-image: url('/images/wink/playoverlay.png');
 }
 .winkVideoOverlayButtonClass {
   cursor: pointer;
