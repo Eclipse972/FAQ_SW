@@ -16,7 +16,7 @@ ob_start();	// début du code <section>
 	<ol>
 		<li>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation<?=\PEUNC\classes\Page::BaliseImage("Piece/arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></li>
 		<li>dessiner l&apos;esquisse en utilisant la barre d'outils Esquissse (onglet)<?=\PEUNC\classes\Page::BaliseImage("Piece/outilsEsquisse.png","Barre d&apos;outils Esquisse")?></li>
-		<li>coter l&apos;esquisse avec l&apos;ic&ocirc;ne cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("Piece/cotation.png","ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?>. Deuxi&egrave;me de la barre d'outils Esquisse</li>
+		<li>coter l&apos;esquisse avec l&apos;ic&ocirc;ne cotation intelligente<?=\PEUNC\classes\Page::BaliseImage("cote.png","ic&ocirc;ne cotation intelligente",'style="vertical-align:middle"')?>. Deuxi&egrave;me de la barre d'outils Esquisse</li>
 		<li>utiliser une fonction de mise en volume en utilisant la barre d'outils Fonctions (onglet)<?=\PEUNC\classes\Page::BaliseImage("Piece/fonctions.png","Barre d&apos;outils Fonctions")?></li>
 	</ol>
 	<p>Dans le menu s&eacute;lectionnez le volume que vous voulez cr&eacute;er.</p>
