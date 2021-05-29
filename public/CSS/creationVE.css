@@ -7,6 +7,9 @@
 }
 #VE ol li { margin-bottom:10px; }
 
+
+#VE, #pagineur { display:block; }
+
 .icone {
 	height:30px;
 	vertical-align:middle;

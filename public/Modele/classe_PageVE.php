@@ -8,7 +8,7 @@ class PageVE extends PageArticle	{
 	private $parRévolution;
 	private $T_page;
 
-	public function __construct(array $TparamURL)	{
+	public function __construct(array $TparamURL = [])	{
 		parent::__construct($TparamURL);
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE", "winkPlayer"]);
 		$this->setView("pageVE.html");
@@ -41,7 +41,7 @@ class PageVE extends PageArticle	{
 
 	public function AfficherPagineur($url)	{
 		$No_page = $this->getParamURL();
-		$code = "\t<ol>\n";
+		$code = "\n\t<ol>\n";
 		for($i=0;$i<3;$i++) {
 			$code .= "\t\t<li>";
 			$code .= $i == $No_page ? "<b>"  : '<a href="' . $url . '?' . $i . '">';
@@ -50,5 +50,33 @@ class PageVE extends PageArticle	{
 			$code .= "</li>\n";
 		}
 		return $code . "\t</ol>\n";
+	}
+
+	public function LecteurVidéo() {
+		if (($this->getParamURL() == 1) || ($this->getParamURL() == 2))
+			$code = "<!-- Vidéos en construction -->\n\t<p>Vid&eacute;o de d&eacute;monstration &agrave; venir.</p>\n";
+		else {
+			ob_start();
+?>
+	<div class="winkVideoContainerClass">
+		<video class="winkVideoClass" data-varname="winkVideoData">
+			<source src="/videos/planDesquisse.mp4" type="video/mp4">
+		</video>
+			<div class="winkVideoOverlayClass"></div>
+			<div class="winkVideoControlBarClass">
+				<button class="winkVideoControlBarPlayButtonClass"></button>
+				<button class="winkVideoControlBarPauseButtonClass"></button>
+				<div class="winkVideoControlBarProgressLeftClass"></div>
+				<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+				<div class="winkVideoControlBarProgressRightClass"></div>
+				<div class="winkVideoControlBarProgressFilledMiddleClass"></div>
+				<div class="winkVideoControlBarProgressThumbClass"></div>
+			</div>
+			<div class="winkVideoPlayOverlayClass"></div>
+	</div>
+<?php	$code = ob_get_contents();
+		ob_get_clean();
+		}
+		return $code;
 	}
 }
