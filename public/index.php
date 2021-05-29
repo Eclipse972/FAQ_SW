@@ -47,8 +47,7 @@ try
 	$classePage = $BD->ClassePage($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
 	if (!isset($classePage))	throw new Exception("La classe {$classePage} n&apos;est pas d&eacute;finie dans le squelette.");
 	require"Modele/classe_{$classePage}.php";
-	$PAGE = new $classePage;
-	$PAGE->setParamURL(explode("/", $paramPage));	// les paramètres sont anonymes. Ils sont ordonés et sépara par un /. Seul l'objet sait à quoi ils correspondent
+	$PAGE = new $classePage(explode("/", $paramPage));
 	$PAGE->Hydrate();
 }
 catch(Exception $e)

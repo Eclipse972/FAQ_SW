@@ -21,9 +21,9 @@ class Page implements iPage	{
 	protected $scriptSection;
 	protected $PiedDePage;
 	protected $vue;
-	protected $T_param;
+	protected $T_paramURL;
 
-	public function __construct()	{
+	public function __construct(array $TparamURL = [])	{
 		$this->BD			= new BDD;
 		// valeurs par défaut
 		$this->titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
@@ -31,7 +31,11 @@ class Page implements iPage	{
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
 		$this->PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
-		$this->T_param		= [];
+		// paramètres passés par l'URL
+		$this->T_paramURL	= [];
+		foreach($TparamURL as $valeur)
+			$this->T_paramURL[] = htmlspecialchars($valeur);
+
 	}
 
 	public function Hydrate()	{
@@ -82,11 +86,6 @@ class Page implements iPage	{
 		else throw new Exception("Vuer inexistante");
 	}
 
-	public function setParamURL(array $T_param)	{
-		foreach($T_param as $valeur)
-			$this->T_param[] = htmlspecialchars($valeur);
-	}
-
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
@@ -116,7 +115,7 @@ class Page implements iPage	{
 	}
 
 	public function getParamURL($i = 0)	{
-		return (isset($this->T_param[$i])) ? $this->T_param[$i] : null;
+		return (isset($this->T_paramURL[$i])) ? $this->T_paramURL[$i] : null;
 	}
 
 /* ***************************

@@ -23,7 +23,6 @@ interface iPage	{
 	public function setSection($code);			// affiche le code du corps de la page
 	public function setFooter($code);			// pied de page
 	public function setView($fichier);			// définit le chemin de la vue
-	public function setParamURL(array $T_param);// liste des paramètres transmis par l'URL sous forme [param0, param1, ...]
 
 // Affichage
 	public static function BaliseImage($src, $alt, $code);	// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire

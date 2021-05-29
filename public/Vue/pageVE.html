@@ -22,6 +22,7 @@
 	<p>On veut r&eacute;aliser : <?=\PEUNC\classes\Page::BaliseImage($PAGE->getDossier() . "VEcote.png", $PAGE->getTitre() . " avec ses cotes", 'style="vertical-align:middle; height:300px"')?></p>
 	<div id="VE">
 <?php
+	echo "<p>page : ", $PAGE->getParamURL(), "</p>";
 	switch($PAGE->getParamURL())	{
 		case 1: include"VEesquisse.html";	break;
 		case 2: include"VEfonction.html";	break;

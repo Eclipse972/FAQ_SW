@@ -1,7 +1,7 @@
 <?php
 class PageArticle extends Page {
-	public function __construct()	{
-		parent::__construct();
+	public function __construct(array $TparamURL)	{
+		parent::__construct($TparamURL);
 		// configuration par défaut
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article"]);
 		$this->setFooter(" - <a href=\"/Contact\">Me contacter</a>");

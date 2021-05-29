@@ -2,8 +2,8 @@
 class Page extends PEUNC\classes\Page {
 	protected $logo;
 
-	public function __construct() {
-		parent::__construct();
+	public function __construct(array $TparamURL) {
+		parent::__construct($TparamURL);
 		// valeurs par défaut
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");

@@ -7,8 +7,8 @@ class PageVE extends PageArticle	{
 	private $icone_principale;
 	private $parRévolution;
 
-	public function __construct()	{
-		parent::__construct();
+	public function __construct(array $TparamURL)	{
+		parent::__construct($TparamURL);
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE", "winkPlayer"]);
 		$this->setView("pageVE.html");
 	}
