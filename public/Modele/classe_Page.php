@@ -2,7 +2,7 @@
 class Page extends PEUNC\classes\Page {
 	protected $logo;
 
-	public function __construct(array $TparamURL) {
+	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
 		// valeurs par défaut
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
