@@ -29,11 +29,11 @@ class PageVE extends PageArticle	{
 
 	public function PageNumérotée()	{
 		switch($this->getParamURL())	{
-			case 1: $page = "VEesquisse.html";	break;
-			case 2: $page = "VEfonction.html";	break;
-			default: $page = "VEplan.html";
+			case 1: $page = "esquisse";	break;
+			case 2: $page = "fonction";	break;
+			default: $page = "plan";
 		}
-		return $page;
+		return "VE{$page}.html";
 	}
 
 }
