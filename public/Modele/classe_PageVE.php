@@ -49,7 +49,7 @@ class PageVE extends PageArticle	{
 			$code .= $i == $No_page ? "</b>" : "</a>";
 			$code .= "</li>\n";
 		}
-		return $code . "\t</ol>\n";
+		return $code . "\t</ol>\n\t";
 	}
 
 	public function LecteurVidéo() {
