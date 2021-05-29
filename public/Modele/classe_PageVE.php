@@ -26,4 +26,14 @@ class PageVE extends PageArticle	{
 
 	public function setObtenuParRévolution($flag) { $this->parRévolution = $flag; }
 	public function getObtenuParRévolution() { return $this->parRévolution; }
+
+	public function PageNumérotée()	{
+		switch($PAGE->getParamURL())	{
+			case 1: $page = "VEesquisse.html";	break;
+			case 2: $page = "VEfonction.html";	break;
+			default: $page = "VEplan.html";
+		}
+		return $page;
+	}
+
 }
