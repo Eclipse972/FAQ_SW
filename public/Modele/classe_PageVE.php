@@ -6,11 +6,13 @@ class PageVE extends PageArticle	{
 	private $titre;
 	private $icone_principale;
 	private $parRévolution;
+	private $T_page;
 
 	public function __construct(array $TparamURL)	{
 		parent::__construct($TparamURL);
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE", "winkPlayer"]);
 		$this->setView("pageVE.html");
+		$this->T_page = ['plan d&apos;esquisse', 'Esquisse cot&eacute;e', 'Fonction de mise en volume'];
 	}
 
 	public function SetDossier($dossier) { $this->dossier = "Piece/" . $dossier . "/"; }
@@ -27,6 +29,7 @@ class PageVE extends PageArticle	{
 	public function setObtenuParRévolution($flag) { $this->parRévolution = $flag; }
 	public function getObtenuParRévolution() { return $this->parRévolution; }
 
+	// gestion des pages numérotées
 	public function PageNumérotée()	{
 		switch($this->getParamURL())	{
 			case 1: $page = "esquisse";	break;
@@ -36,4 +39,16 @@ class PageVE extends PageArticle	{
 		return "VE{$page}.html";
 	}
 
+	public function AfficherPagineur($url)	{
+		$No_page = $this->getParamURL();
+		$code = "\t<ol>\n";
+		for($i=0;$i<3;$i++) {
+			$code .= "\t\t<li>";
+			$code .= $i == $No_page ? "<b>"  : '<a href="' . $url . '?' . $i . '">';
+			$code .= $this->T_page[$i];
+			$code .= $i == $No_page ? "</b>" : "</a>";
+			$code .= "</li>\n";
+		}
+		return $code . "\t</ol>\n";
+	}
 }
