@@ -8,3 +8,4 @@ SELECT
 	texte
 FROM Vue_code_item
 WHERE alpha >=0 AND beta=0 AND gamma=0
+ORDER BY alpha ASC
