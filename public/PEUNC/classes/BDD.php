@@ -43,23 +43,20 @@ public function TexteErreur($code) {
 
 public function Liste_niveau($alpha = null, $beta = null) {
 	if(!isset($alpha))	{	// pour les onglets
-		$index			= 'alpha';
-		$expresionAlpha = '>=0';
-		$expresionBeta	= '= 0';
-		$signeGamma		= '=';
+		$table = "Vue_liste_niveau1";
+		$where = "1";
+		$param = [];
 	} elseif(!isset($beta))	{	// pour le menu
-		$index			= 'beta';
-		$expresionAlpha = "= {$alpha}";
-		$expresionBeta	= '> 0';
-		$signeGamma		= '=';
+		$table = "Vue_liste_niveau2";
+		$where = "alpha = ?";
+		$param = [$alpha];
 	} else {	// pour le sous-menu
-		$index			= 'gamma';
-		$expresionAlpha = "= {$alpha}";
-		$expresionBeta	= "= {$beta}";
-		$signeGamma		= '>';
+		$table = "Vue_liste_niveau3";
+		$where = "alpha = ? AND beta = ?";
+		$param = [$alpha, $beta];
 	}
-	$sql = "SELECT {$index} AS i, URL, image, texte FROM Vue_code_item WHERE alpha {$expresionAlpha} AND beta {$expresionBeta} AND gamma {$signeGamma} 0";
-	$this->Requete($sql, []);
+	$sql = "SELECT i, URL, image, texte FROM {$table} WHERE {$where}";
+	$this->Requete($sql, $param);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
 		$i = $ligne['i'];
