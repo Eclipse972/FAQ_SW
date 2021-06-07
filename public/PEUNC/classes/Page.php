@@ -122,8 +122,11 @@ class Page implements iPage	{
  * AFFICHAGE
  * ***************************/
 	public static function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
-		if(substr($src,0,4) != 'http')	// recherche d'existence si fichier interne
-			$src = (file_exists(self::DOSSIER_IMAGE . $src)) ? '/' . self::DOSSIER_IMAGE . $src : "/PEUNC/images/image_absente.png";
+		if(substr($src,0,4) != 'http')	{	// fichier interne?
+			//		chemin absolu?				suppression de / au début		ajout dossier image
+			$src = (substr($src,0,1) == '/') ? substr($src,1,strlen($src)) : self::DOSSIER_IMAGE . $src;
+			$src = (file_exists($src)) ? '/' . $src : "/PEUNC/images/image_absente.png";
+		}
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 }
