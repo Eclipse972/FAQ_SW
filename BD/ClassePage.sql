@@ -3,11 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
-<<<<<<< HEAD
--- Généré le : Lun 19 Avril 2021 à 22:39
-=======
--- Généré le : Ven 30 Avril 2021 à 02:06
->>>>>>> convergencePEUNC
+-- Généré le : Mar 08 Juin 2021 à 12:21
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
