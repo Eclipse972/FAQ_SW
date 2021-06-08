@@ -21,10 +21,17 @@ protected function Requete($requete, array $T_parametre) {
 protected function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
 public function ClassePage($alpha, $beta, $gamma) {
-	$this->Requete('SELECT * FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
+	$this->Requete('SELECT classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $reponse['classePage'];
+	return $reponse[0];
+}
+
+public function Controleur($alpha, $beta, $gamma) {
+	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return $reponse[0];
 }
 
 public function CherchePosition($URL) {
@@ -66,13 +73,6 @@ public function Liste_niveau($alpha = null, $beta = null) {
 	}
 	$this->Fermer();
 	return $tableau;
-}
-
-public function Controleur($alpha, $beta, $gamma) {
-	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return $reponse[0];
 }
 
 public function PagesConnexes($alpha, $beta, $gamma) {
