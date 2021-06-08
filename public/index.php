@@ -48,7 +48,6 @@ try
 	if (!isset($classePage))	throw new Exception("La classe {$classePage} n&apos;est pas d&eacute;finie dans le squelette.");
 	require"Modele/classe_{$classePage}.php";
 	$PAGE = new $classePage(explode("/", $paramPage));
-	$PAGE->Hydrate();
 }
 catch(Exception $e)
 {

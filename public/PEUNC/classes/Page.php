@@ -31,22 +31,22 @@ class Page implements iPage	{
 		$this->entetePage	= "En-tête de la page affichée";
 		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
 		$this->PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
+
 		// paramètres passés par l'URL
 		$this->T_paramURL	= [];
 		foreach($TparamURL as $valeur)
 			$this->T_paramURL[] = htmlspecialchars($valeur);
 
-	}
-
-	public function Hydrate()	{
+		// exécution du controleur
 		$script = $this->BD->Controleur($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
-		if($script != '')	{
+		if($script == '')
+			throw new Exception("Controleur non d&eacute;fini");
+		else {
 			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
 				require(self::DOSSIER_CONTROLEUR . $script);
 			else throw new Exception("Controleur inexistant");
 		}
-}
-
+	}
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
