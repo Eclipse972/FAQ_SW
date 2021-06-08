@@ -21,10 +21,10 @@ protected function Requete($requete, array $T_parametre) {
 protected function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
 public function ClassePage($alpha, $beta, $gamma) {
-	$this->Requete('SELECT * FROM Vue_classePage WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
+	$this->Requete('SELECT * FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $reponse['nom'];
+	return $reponse['classePage'];
 }
 
 public function CherchePosition($URL) {
