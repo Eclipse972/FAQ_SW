@@ -24,6 +24,8 @@ ob_start();	// début du code <section>
 <?php
 $tampon = ob_get_contents();
 ob_end_clean();
-
 $this->setSection($tampon);
-$this->setLogo('caricature.png');// changement de logo de la page
+/* bogue:
+ * Fatal error: Call to undefined method PEUNC\classes\Page::setLogo() in /var/www/sdb/e/0/faq.sw/Controleur/moi.php on line 28
+ * '$this->setLogo('caricature.png');// changement de logo de la page
+ * */
