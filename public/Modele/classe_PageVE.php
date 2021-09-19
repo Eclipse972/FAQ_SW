@@ -15,10 +15,10 @@ class PageVE extends PageArticle	{
 		$this->T_page = ['plan d&apos;esquisse', 'Esquisse cot&eacute;e', 'Fonction de mise en volume'];
 	}
 
-	public function SetDossier($dossier) { $this->dossier = "Piece/" . $dossier . "/"; }
+	public function setDossier($dossier) { $this->dossier = "Piece/" . $dossier . "/"; }
 	public function getDossier()	{ return $this->dossier; }
 
-	public function SetTitre($titre) { $this->titre = $titre; }
+	public function setTitre($titre) { $this->titre = $titre; }
 	public function getTitre()	{ return"Cr&eacute;er " . $this->titre; }
 
 	public function setIconePrincipale($icone_principale) { $this->icone_principale = $icone_principale; }
