@@ -37,16 +37,6 @@ class Page implements iPage	{
 		$this->T_paramURL	= [];
 		foreach($TparamURL as $valeur)
 			$this->T_paramURL[] = htmlspecialchars($valeur);
-
-		// exécution du controleur
-		$script = $this->BD->Controleur($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
-		if($script == '')
-			throw new Exception("Controleur non d&eacute;fini");
-		else {
-			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
-				require(self::DOSSIER_CONTROLEUR . $script);
-			else throw new Exception("Controleur inexistant");
-		}
 	}
 /* ***************************
  * MUTATEURS (SETTER)
@@ -128,7 +118,7 @@ class Page implements iPage	{
 	}
 
 /* ***************************
- * AFFICHAGE
+ * AUTRE
  * ***************************/
 	public static function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
 		if(substr($src,0,4) != 'http')	{	// fichier interne?
@@ -137,5 +127,17 @@ class Page implements iPage	{
 			$src = (file_exists($src)) ? '/' . $src : "/PEUNC/images/image_absente.png";
 		}
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
+	}
+
+	public function ExecuteControleur(/*$alpha, $beta, $gamma*/)	{
+		//$script = $this->BD->Controleur($alpha, $beta, $gamma);
+		$script = $this->BD->Controleur($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
+		if($script == '')
+			throw new Exception("Controleur non d&eacute;fini");
+		else {
+			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
+				require(self::DOSSIER_CONTROLEUR . $script);
+			else throw new Exception("Controleur inexistant");
+		}
 	}
 }
