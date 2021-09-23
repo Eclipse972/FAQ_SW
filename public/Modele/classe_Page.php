@@ -20,9 +20,8 @@ class Page {
  /* ***************************
  * AFFICHAGE
  * ***************************/
- 	public static function AfficherOnglets($imageAvantTexte = true)	{
-		$BD	= new \PEUNC\classes\BDD;
-		$T_Onglets = $BD->Liste_niveau();
+ 	public function AfficherOnglets($imageAvantTexte = true)	{
+		$T_Onglets = $this->BD->Liste_niveau();
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)	{
 			if ($alpha < 5)
