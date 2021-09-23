@@ -14,7 +14,8 @@ class Page {
 	}
 
 	public function __call($methode,$argument)	{		// permet l'accès aux méthodes du conteneur Page de PEUNC
-		return $this->conteneurPage->$methode($argument[0]);	// il n'y a au plus qu'un seul paramètre
+		return $this->conteneurPage->$methode($argument[0], $argument[1], $argument[2]);
+		// il y a au plus trois paramètres. Solution "sale" mais qui fonctionne
 	}
 
  /* ***************************

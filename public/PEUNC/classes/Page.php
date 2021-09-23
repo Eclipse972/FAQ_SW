@@ -129,9 +129,8 @@ class Page implements iPage	{
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 
-	public function ExecuteControleur(/*$alpha, $beta, $gamma*/)	{
-		//$script = $this->BD->Controleur($alpha, $beta, $gamma);
-		$script = $this->BD->Controleur($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
+	public function ExecuteControleur($alpha, $beta, $gamma)	{
+		$script = $this->BD->Controleur($alpha, $beta, $gamma);
 		if($script == '')
 			throw new Exception("Controleur non d&eacute;fini");
 		else {
