@@ -1,4 +1,8 @@
 <?php
+$this->setLogo('caricature.png');// changement de logo de la page
+/* bogue:
+ * le logo n'est pas modifié
+ * */
 ob_start();	// début du code <section>
 ?>
 	<h1>A propos de moi</h1>
@@ -25,7 +29,3 @@ ob_start();	// début du code <section>
 $tampon = ob_get_contents();
 ob_end_clean();
 $this->setSection($tampon);
-/* bogue:
- * Fatal error: Call to undefined method PEUNC\classes\Page::setLogo() in /var/www/sdb/e/0/faq.sw/Controleur/moi.php on line 28
- * '$this->setLogo('caricature.png');// changement de logo de la page
- * */
