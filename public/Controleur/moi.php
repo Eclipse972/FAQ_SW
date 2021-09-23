@@ -1,8 +1,5 @@
 <?php
 $this->setLogo('caricature.png');// changement de logo de la page
-/* bogue:
- * le logo n'est pas modifié
- * */
 ob_start();	// début du code <section>
 ?>
 	<h1>A propos de moi</h1>
