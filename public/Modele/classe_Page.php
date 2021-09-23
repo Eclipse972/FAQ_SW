@@ -1,6 +1,5 @@
 <?php
 class Page {
-	protected $logo;
 	protected $BD;
 	protected $conteneurPage;
 
@@ -16,14 +15,6 @@ class Page {
 
 	public function __call($methode,$argument)	{		// permet l'accès aux méthodes du conteneur Page de PEUNC
 		return $this->conteneurPage->$methode($argument[0]);	// il n'y a au plus qu'un seul paramètre
-	}
-
-// Méthodes pour la nouvelle variable-membre logo
-	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->logo = $logo;
-	}
-	public function getLogo() {
-		echo \PEUNC\classes\Page::BaliseImage($this->logo,'Logo');
 	}
 
  /* ***************************

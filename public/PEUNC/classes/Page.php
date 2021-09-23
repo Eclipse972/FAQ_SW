@@ -18,6 +18,7 @@ class Page implements iPage	{
 	protected $titrePage;
 	protected $T_CSS;
 	protected $entetePage;
+	protected $logo;
 	protected $scriptSection;
 	protected $PiedDePage;
 	protected $vue;
@@ -72,6 +73,10 @@ class Page implements iPage	{
 		$this->entetePage = $texte;
 	}
 
+	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
+		$this->logo = $logo;
+	}
+
 	public function setSection($code)	{
 		$this->scriptSection = $code;
 	}
@@ -100,6 +105,10 @@ class Page implements iPage	{
 
 	public function getHeaderText() {
 		echo $this->entetePage,"\n";
+	}
+
+	public function getLogo() {
+		echo Page::BaliseImage($this->logo,'Logo');
 	}
 
 	public function getSection()	{
