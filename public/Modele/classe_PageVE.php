@@ -2,21 +2,18 @@
 require"Modele/classe_PageArticle.php";
 
 class PageVE extends PageArticle	{
-	private $dossier;
 	private $titre;
 	private $icone_principale;
 	private $parRévolution;
-	private $T_page;
+	private $T_page	= ['plan d&apos;esquisse', 'Esquisse cot&eacute;e', 'Fonction de mise en volume'];
 
 	public function __construct(array $TparamURL = [])	{
 		parent::__construct($TparamURL);
 		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE", "winkPlayer"]);
 		$this->setView("pageVE.html");
-		$this->T_page = ['plan d&apos;esquisse', 'Esquisse cot&eacute;e', 'Fonction de mise en volume'];
 	}
 
 	public function setDossier($dossier) { $this->dossier = "Piece/" . $dossier . "/"; }
-	public function getDossier()	{ return $this->dossier; }
 
 	public function setTitre($titre) { $this->titre = $titre; }
 	public function getTitre()	{ return"Cr&eacute;er " . $this->titre; }

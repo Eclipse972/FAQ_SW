@@ -18,10 +18,11 @@ class Page implements iPage	{
 	protected $titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
 	protected $T_CSS		= [];
 	protected $entetePage	= "En-tête de la page affichée";
-	protected $logo;
+	protected $logo			= "logo.png";
+	protected $dossier		= "/";
 	protected $scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
 	protected $PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
-	protected $vue;
+	protected $vue			= "doctype.html";
 	protected $T_paramURL	= [];
 
 	public function __construct(array $TparamURL = [])	{
@@ -58,6 +59,10 @@ class Page implements iPage	{
 		$this->logo = $logo;
 	}
 
+	public function setDossier($dossier) {
+		$this->dossier = $dossier . "/";
+	}
+
 	public function setSection($code)	{
 		$this->scriptSection = $code;
 	}
@@ -90,6 +95,10 @@ class Page implements iPage	{
 
 	public function getLogo() {
 		echo Page::BaliseImage($this->logo,'Logo');
+	}
+
+	public function getDossier()	{
+		return $this->dossier;
 	}
 
 	public function getSection()	{
