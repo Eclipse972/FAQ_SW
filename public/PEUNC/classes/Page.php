@@ -139,4 +139,15 @@ class Page implements iPage	{
 			else throw new Exception("Controleur inexistant");
 		}
 	}
+
+ 	public function GenereCodeOnglets($alphaMini, $alphaMaxi)	{
+		$T_Onglets = $this->BD->Liste_niveau();
+		$codeOnglet = "<ul>\n";
+		foreach($T_Onglets as $alpha => $code)	{
+			if (($alpha >= $alphaMini) && ($alpha <= $alphaMaxi))
+				$codeOnglet .= "\t<li>" . (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
+		}
+		return $codeOnglet . "\t</ul>\n";
+	}
+
 }

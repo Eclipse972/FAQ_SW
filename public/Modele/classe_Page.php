@@ -13,13 +13,7 @@ class Page extends PEUNC\classes\Page {
  /* ***************************
  * AUTRE
  * ***************************/
- 	public function AfficherOnglets($imageAvantTexte = true)	{
-		$T_Onglets = $this->BD->Liste_niveau();
-		echo "<ul>\n";
-		foreach($T_Onglets as $alpha => $code)	{
-			if ($alpha < 5)
-				echo "\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code), "</li>\n";
-		}
-		echo "\t</ul>\n";
+ 	public function AfficherOnglets()	{
+		echo $this->GenereCodeOnglets(0, 4);
 	}
 }
