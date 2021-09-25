@@ -1,10 +1,8 @@
 <?php
 class Page extends PEUNC\classes\Page {
-	protected $BD;
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
-		$this->BD = new PEUNC\classes\BDD;
 		// valeurs par défaut
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Foire Aux Questions SolidWorks de ChristopHe</p>");
@@ -16,7 +14,8 @@ class Page extends PEUNC\classes\Page {
  * AUTRE
  * ***************************/
  	public function AfficherOnglets($imageAvantTexte = true)	{
-		$T_Onglets = $this->BD->Liste_niveau();
+		$BD = new PEUNC\classes\BDD;
+		$T_Onglets = $BD->Liste_niveau();
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)	{
 			if ($alpha < 5)
