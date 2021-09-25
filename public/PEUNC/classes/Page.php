@@ -74,7 +74,7 @@ class Page implements iPage	{
 	public function setView($fichier)	{
 		if (file_exists(self::DOSSIER_VUE . $fichier))
 			$this->vue = self::DOSSIER_VUE . $fichier;
-		else throw new Exception("Vuer inexistante");
+		else throw new Exception("Vue inexistante");
 	}
 
 /* ***************************
