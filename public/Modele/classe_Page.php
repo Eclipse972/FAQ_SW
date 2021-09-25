@@ -3,6 +3,7 @@ class Page extends PEUNC\classes\Page {
 	protected $BD;
 
 	public function __construct(array $TparamURL = []) {
+		parent::__construct($TparamURL);
 		$this->BD = new PEUNC\classes\BDD;
 		// valeurs par défaut
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
