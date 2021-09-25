@@ -129,14 +129,7 @@ class Page implements iPage	{
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 
-	public function ExecuteControleur($alpha, $beta, $gamma)	{
-		$script = $this->BD->Controleur($alpha, $beta, $gamma);
-		if($script == '')
-			throw new Exception("Controleur non d&eacute;fini");
-		else {
-			if (file_exists(self::DOSSIER_CONTROLEUR . $script))
-				require(self::DOSSIER_CONTROLEUR . $script);
-			else throw new Exception("Controleur inexistant");
-		}
+	public function CheminControleur($alpha, $beta, $gamma)	{
+		return $this->BD->Controleur($alpha, $beta, $gamma);
 	}
 }

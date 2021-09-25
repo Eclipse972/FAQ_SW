@@ -19,7 +19,7 @@ class Page {
 	}
 
  /* ***************************
- * AFFICHAGE
+ * AUTRE
  * ***************************/
  	public function AfficherOnglets($imageAvantTexte = true)	{
 		$T_Onglets = $this->BD->Liste_niveau();
@@ -29,5 +29,17 @@ class Page {
 				echo "\t<li>", (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code), "</li>\n";
 		}
 		echo "\t</ul>\n";
+	}
+
+	public function ExecuteControleur($alpha, $beta, $gamma)	{
+		$script = $this->conteneurPage->CheminControleur($alpha, $beta, $gamma);
+		$dossierControleur = PEUNC\classes\Page::DOSSIER_CONTROLEUR;
+		if($script == '')
+			throw new Exception("Controleur non d&eacute;fini");
+		else {
+			if (file_exists($dossierControleur. $script))
+				require($dossierControleur . $script);
+			else throw new Exception("Controleur inexistant");
+		}
 	}
 }
