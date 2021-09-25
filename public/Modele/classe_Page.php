@@ -14,8 +14,7 @@ class Page extends PEUNC\classes\Page {
  * AUTRE
  * ***************************/
  	public function AfficherOnglets($imageAvantTexte = true)	{
-		$BD = new PEUNC\classes\BDD;
-		$T_Onglets = $BD->Liste_niveau();
+		$T_Onglets = $this->BD->Liste_niveau();
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)	{
 			if ($alpha < 5)
