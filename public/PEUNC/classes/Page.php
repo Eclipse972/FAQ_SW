@@ -15,26 +15,17 @@ class Page implements iPage	{
 	const DOSSIER_VIDEO		= 'video/';
 
 	protected $BD;
-	protected $titrePage;
-	protected $T_CSS;
-	protected $entetePage;
+	protected $titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
+	protected $T_CSS		= [];
+	protected $entetePage	= "En-tête de la page affichée";
 	protected $logo;
-	protected $scriptSection;
-	protected $PiedDePage;
+	protected $scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
+	protected $PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
 	protected $vue;
-	protected $T_paramURL;
+	protected $T_paramURL	= [];
 
 	public function __construct(array $TparamURL = [])	{
 		$this->BD			= new BDD;
-		// valeurs par défaut
-		$this->titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
-		$this->T_CSS		= [];
-		$this->entetePage	= "En-tête de la page affichée";
-		$this->scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
-		$this->PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
-
-		// paramètres passés par l'URL
-		$this->T_paramURL	= [];
 		foreach($TparamURL as $valeur)
 			$this->T_paramURL[] = htmlspecialchars($valeur);
 	}
