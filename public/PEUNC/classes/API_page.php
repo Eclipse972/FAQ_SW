@@ -24,7 +24,7 @@ interface iPage	{
 	public function setFooter($code);			// pied de page
 	public function setView($fichier);			// définit le chemin de la vue
 
-// Affichage
-	public static function BaliseImage($src, $alt, $code);	// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
-
+// Autre
+	public static function BaliseImage($src, $alt, $code);		// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
+	public function ExecuteControleur($alpha, $beta, $gamma);	// execute le controleur à partir de la position
 }
