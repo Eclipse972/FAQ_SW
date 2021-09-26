@@ -5,7 +5,7 @@ namespace PEUNC\classes;
 include"API_page.php";
 
 class Page implements iPage	{
-	// Configuration de l'application
+// CONFIGURATION DE L'APPLICATION
 
 	// dossiers pas défaut
 	const DOSSIER_MODEL		= 'Modele/';
@@ -17,22 +17,24 @@ class Page implements iPage	{
 	const DOSSIER_VIDEO		= 'video/';
 
 	// Intervalle pour les onglets
-	const ALPHA_MINI		= 0;
-	const ALPHA_MAXI		= 4;
+	const ALPHA_MINI = 0;
+	const ALPHA_MAXI = 4;
 
-	protected $BD;
 	protected $titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
 	protected $T_CSS		= [];
 	protected $entetePage	= "En-tête de la page affichée";
 	protected $logo			= "logo.png";
 	protected $dossier		= "/";
-	protected $scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
+	protected $scriptSection= "<h1>Page en construction</h1>\n<p>Contactez l&apos;adminitrateur si le probl&egrave;me persiste </p>\n";
 	protected $PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir</p>";
 	protected $vue			= "doctype.html";
+// FIN DE LA CONFIGURATION
+
+	protected $BD;
 	protected $T_paramURL	= [];
 
 	public function __construct(array $TparamURL = [])	{
-		$this->BD			= new BDD;
+		$this->BD = new BDD;
 		foreach($TparamURL as $valeur)
 			$this->T_paramURL[] = htmlspecialchars($valeur);
 	}
