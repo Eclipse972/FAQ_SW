@@ -5,11 +5,12 @@ namespace PEUNC\classes;
 class Contact extends Page {
 	public function __construct() {
 		parent::__construct();
-		if (empty($_POST))	{ // préparation affichage du formulaire
+	}
 
-		} else {	// traitement du formulaire
+	public function PrepareFormulaireContact() {
+	}
 
-		}
+	public function TraiteFormulaireContact()	{
 	}
 
 	public function Afficher_validation()	{
