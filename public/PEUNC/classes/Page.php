@@ -27,7 +27,7 @@ class Page implements iPage	{
 	protected $logo			= "logo.png";
 	protected $dossier		= "/";
 	protected $scriptSection= "<h1>Page vide</h1>\n<p>Contenu en construction...</p>\n";
-	protected $PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir";
+	protected $PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir</p>";
 	protected $vue			= "doctype.html";
 	protected $T_paramURL	= [];
 
