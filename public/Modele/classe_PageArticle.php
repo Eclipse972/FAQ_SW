@@ -8,24 +8,6 @@ class PageArticle extends Page {
 		$this->setView("doctype.html");
 	}
 
-	public function AfficherMenu()	{
-		$T_item = $this->BD->Liste_niveau($_SESSION['alpha']);
-		echo "\t<ul>\n";
-		foreach($T_item as $beta => $code) {
-			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
-			if ($beta == $_SESSION['beta']) {	// sous-menu?
-				$T_sous_item = $this->BD->Liste_niveau($_SESSION['alpha'], $_SESSION['beta']);
-				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
-					echo "\t<ul>\n";
-					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
-					echo "\t</ul>\n";
-				}
-			}
-		}
-		echo "\t</ul>\n";
-	}
-
 	public function PagesConnexes() {	// construit la liste des liens en relation avec la page. A redéfinir dans vos classes filles
 		$Tableau = $this->BD->PagesConnexes($_SESSION['alpha'], $_SESSION['beta'],$_SESSION['gamma']);
 		switch(count($Tableau)) {
