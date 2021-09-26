@@ -1,3 +1,3 @@
 <?php
-	$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"formulaire"]);
+	// controleur de la page de contact
 	$this->setView("contact.html");
