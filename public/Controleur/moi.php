@@ -15,8 +15,8 @@ ob_start();	// début du code <section>
 	m'aider pour la programmation car je suis loin d'être un pro (relecture, nouvelles fonctionalités).
 	Mes deux sites reposent sur HTML5, CSS3, PHP et mySQL.</p>
 	<p>Pour ceux que ça intéressent mes deux sites sont sur github:<br>
-	<a href ="#">ma FAQ sur SolidWorks</a><br>
-	<a href ="#">mes dossiers techniques en ligne</a>
+	<a href ="https://github.com/Eclipse972/FAQ_SW" target="_blank">ma FAQ sur SolidWorks</a><br>
+	<a href ="https://github.com/Eclipse972/Dossiers_Techniques" target="_blank">mes dossiers techniques en ligne</a>
 	</p>
 
 	<p>Vous pouvez me contacter via le <a href="/Contact">formulaire de contact.</a><br>
