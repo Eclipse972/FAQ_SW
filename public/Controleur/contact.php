@@ -1,3 +1,2 @@
-<?php
-	// controleur de la page de contact
-	$this->setView("contact.html");
+<?php	// controleur de la page de contact
+
