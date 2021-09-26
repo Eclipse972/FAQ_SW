@@ -27,5 +27,5 @@ interface iPage	{
 // Autre
 	public static function BaliseImage($src, $alt, $code);		// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
 	public function ExecuteControleur($alpha, $beta, $gamma);	// execute le controleur à partir de la position
-	public function GenereCodeOnglets($alplaMini, $alphaMaxi);	// génère le code des onglets sur un intervalle alpha. Permet par exemple d'ignorer la page de contact
+	public function AfficherOnglets();							// affiche les onglets sur un intervalle alpha. Permet par exemple d'ignorer la page de contact
 }

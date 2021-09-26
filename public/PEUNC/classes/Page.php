@@ -5,6 +5,8 @@ namespace PEUNC\classes;
 include"API_page.php";
 
 class Page implements iPage	{
+	// Configuration de l'application
+
 	// dossiers pas défaut
 	const DOSSIER_MODEL		= 'Modele/';
 	const DOSSIER_VUE		= 'Vue/';
@@ -13,6 +15,10 @@ class Page implements iPage	{
 	const DOSSIER_CSS		= 'CSS/';
 	const DOSSIER_JS		= 'js/';
 	const DOSSIER_VIDEO		= 'video/';
+
+	// Intervalle pour les onglets
+	const ALPHA_MINI		= 0;
+	const ALPHA_MAXI		= 4;
 
 	protected $BD;
 	protected $titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
@@ -140,14 +146,14 @@ class Page implements iPage	{
 		}
 	}
 
- 	public function GenereCodeOnglets($alphaMini, $alphaMaxi)	{
+ 	public function AfficherOnglets()	{
 		$T_Onglets = $this->BD->Liste_niveau();
-		$codeOnglet = "<ul>\n";
+		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)	{
-			if (($alpha >= $alphaMini) && ($alpha <= $alphaMaxi))
-				$codeOnglet .= "\t<li>" . (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
+			if (($alpha >= Page::ALPHA_MINI) && ($alpha <= Page::ALPHA_MAXI))
+				echo "\t<li>" . (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
 		}
-		return $codeOnglet . "\t</ul>\n";
+		echo "\t</ul>\n";
 	}
 
 }

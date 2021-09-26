@@ -16,5 +16,4 @@ class Contact extends Page {
 		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
 		echo "\n";
 	}
-
 }

@@ -9,11 +9,4 @@ class Page extends PEUNC\classes\Page {
 		$this->setLogo("logo.png");
 		$this->setFooter("");
 	}
-
- /* ***************************
- * AUTRE
- * ***************************/
- 	public function AfficherOnglets()	{
-		echo $this->GenereCodeOnglets(0, 4);
-	}
 }
