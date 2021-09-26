@@ -4,7 +4,7 @@ ob_start();	// d&eacute;but du code <section>
 ?>
 	<h1>A propos de moi</h1>
 	<p>Je suis professeur de construction dans une SEP. J&apos;interviens en construction dans deux formations: technicien d&apos;usinage et m&eacute;tiers de l’&eacute;lectrotechnique. Et &agrave; mes heures perdues je conçois des sites web.</p>
-	<p>Je suis &agrave; la recherche de contributeurs</p>
+	<p>Je suis &agrave; la recherche de contributeurs.</p>
 	<p>sur le fond</p>
 	<ul>
 	<li>r&eacute;diger des articles</li>
@@ -18,7 +18,6 @@ ob_start();	// d&eacute;but du code <section>
 	<a href ="https://github.com/Eclipse972/FAQ_SW" target="_blank">ma FAQ sur SolidWorks</a><br>
 	<a href ="https://github.com/Eclipse972/Dossiers_Techniques" target="_blank">mes dossiers techniques en ligne</a>
 	</p>
-
 	<p>Vous pouvez me contacter via le <a href="/Contact">formulaire de contact.</a><br>
 	Ce lien est propos&eacute; dans tous les pieds de page.
 	</p>
