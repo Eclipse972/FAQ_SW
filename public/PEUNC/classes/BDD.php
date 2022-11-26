@@ -1,85 +1,95 @@
-<?php
-// BDD de PEUNC
-namespace PEUNC\classes;
+<?php	// Base de données de PEUNC
+namespace PEUNC;
 
-class BDD {
-protected $resultat;
-protected $BD; // PDO initialisé dans connexion.php
+include"API_BDD.php";
 
-public function __construct() {
-	require"connexion.php";
-	$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
-	// éventuelle erreur gérée par index.php
-}
+class BDD implements iBDD
+{
+	private $BD;
+	private static $instance;
 
-protected function Requete($requete, array $T_parametre) {
-	$this->resultat = $this->BD->prepare($requete);
-	// la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
-	$this->resultat->execute($T_parametre);
-}
-
-protected function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
-
-public function ClassePage($alpha, $beta, $gamma) {
-	$this->Requete('SELECT classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return $reponse[0];
-}
-
-public function Controleur($alpha, $beta, $gamma) {
-	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return $reponse[0];
-}
-
-public function CherchePosition($URL) {
-	$this->Requete('SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ?', [$URL]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return array($reponse['niveau1'], $reponse['niveau2'], $reponse['niveau3']);
-}
-
-public function TexteErreur($code) {
-	$this->Requete('SELECT texteMenu FROM Squelette WHERE alpha=-1 AND beta= ?', [$code]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return $reponse['texteMenu'];
-}
-
-public function Liste_niveau($alpha = null, $beta = null) {
-	if(!isset($alpha))	{	// pour les onglets
-		$table = "Vue_liste_niveau1";
-		$where = "1";
-		$param = [];
-	} elseif(!isset($beta))	{	// pour le menu
-		$table = "Vue_liste_niveau2";
-		$where = "alpha = ?";
-		$param = [$alpha];
-	} else {	// pour le sous-menu
-		$table = "Vue_liste_niveau3";
-		$where = "alpha = ? AND beta = ?";
-		$param = [$alpha, $beta];
+	private function __construct()
+	{
+		require"connexion.php";
+		$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
+		if (isset($this->BD))
+		{
+			$this->BD->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE,	\PDO::FETCH_ASSOC);
+			$this->BD->setAttribute(\PDO::ATTR_ERRMODE,				\PDO::ERRMODE_EXCEPTION);
+		}
+		else
+			exit("Erreur fatale: connexion &agrave; la base de données impossible!");
 	}
-	$sql = "SELECT i, URL, image, texte FROM {$table} WHERE {$where}";
-	$this->Requete($sql, $param);
-	$tableau = null;
-	while ($ligne = $this->resultat->fetch()) {
-		$i = $ligne['i'];
-		$tableau[$i] = '<a href="' . $ligne['URL'] . '">';
-		$tableau[$i] .= ($ligne['image'] == '') ? '' : \PEUNC\classes\Page::BaliseImage($ligne['image'], $ligne['texte']);
-		$tableau[$i] .= $ligne['texte'] . '</a>';
+
+	private static function getInstance()
+	{
+		if(empty(self::$instance))
+		{
+			self::$instance = new BDD();
+		}
+		return self::$instance->BD;
 	}
-	$this->Fermer();
-	return $tableau;
-}
 
-public function PagesConnexes($alpha, $beta, $gamma) {
-	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
-	$reponse = $this->resultat->fetchAll();
-	$this->Fermer();
-	return $reponse;
-}
+//	Implémentation de l'interface
 
+	public static function SELECT($requete, array $T_parametre)
+	{
+		$pdo = self::getInstance();
+		$requete = $pdo->prepare("SELECT " . $requete);
+		$requete->execute($T_parametre);
+		$reponse = $requete->fetchAll();
+		$requete->closeCursor();
+		switch(count($reponse))
+		{
+			case 0:	// aucun résultat
+				$résultat = null;
+				break;
+			case 1:	// une seule ligne						une seule colonne					plusieurs colonnes
+				$résultat = (count($reponse[0]) == 1) ? $résultat = array_shift($reponse[0]) : $reponse[0];
+				break;
+			default: // plusieurs lignes
+				$résultat = $reponse;
+		}
+		return $résultat;
+	}
+
+	public static function Liste_niveau($alpha = null, $beta = null)
+	{
+		if(!isset($alpha))
+		{	// pour les onglets
+			$eqAlpha= ">=0";
+			$eqBeta	= "=0";
+			$eqGamma= "=0";
+			$indice	= "alpha";
+			$param	= [];
+		}
+		elseif(!isset($beta))
+		{	// pour le menu
+			$eqAlpha= "=?";
+			$eqBeta = ">0";
+			$eqGamma= "=0";
+			$indice = "beta";
+			$param	= [$alpha];
+		}
+		else
+		{	// pour le sous-menu
+			$eqAlpha= "=?";
+			$eqBeta = "=?";
+			$eqGamma= ">0";
+			$indice = "gamma";
+			$param	= [$alpha, $beta];
+		}
+		$Treponse = self::SELECT("{$indice} AS i, code FROM Vue_code_item
+							WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}
+							ORDER BY i",
+							$param
+						);
+		$Tableau = null;
+		if (isset($Treponse))
+		{
+			foreach($Treponse as $ligne)
+				$Tableau[(int)$ligne["i"]] = $ligne["code"];
+		}
+		return $Tableau;
+	}
 }

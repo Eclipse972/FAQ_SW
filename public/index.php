@@ -1,62 +1,65 @@
 <?php	// routeur de PEUNC
 session_start();
-/* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
-	Si alpha >=0 => pages du site
-	(X;0;0) => page de 1er niveau. 	(0;0;0) -> page d'accueil.
 
-	(X;Y;0) avec Y>0 => page de 2e niveau
+spl_autoload_register(function($classe)
+	{
+		if (substr($classe, 0, 5) == "PEUNC")
+		{	// PEUNC
+			$classe = substr($classe, 6, 99);
+			$prefixe = "PEUNC/classes/";
+		}
+		else $prefixe =  "Modele/classe_"; // utilisateur
 
-	(X;Y;Z) avec Z>0 => page de 3e niveau
-
-	si alpha<0 => page spéciales PEUNC
-	(-1;code;0) -> page d'erreur avec son code
-	(-2;0;0) formulaire de contact
-*/
-
-require 'PEUNC/classes/Page.php';
-require 'PEUNC/classes/BDD.php';
-
-// classes utilisateur
-require 'Modele/classe_Page.php';
-//require 'Modele/classe_BDD.php';
+		require_once $prefixe . $classe . ".php";
+	}
+);
 
 try
 {
-	$BD = new PEUNC\classes\BDD;
-	$codeRedirecion = $_SERVER['REDIRECT_STATUS'];
-	switch($codeRedirecion) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
-		case 403:	// accès interdit
-		case 500:	// erreur serveur
-			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, $codeRedirecion, 0];	break;
-		case 200:	// le script est lancé sans redirection => page d'accueil
-			$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
-			break;
-		case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
-			list($URL, $paramPage, $problem) = explode("?", $_SERVER['REQUEST_URI'], 3);
-			if(isset($problem))	throw new Exception("format URL incorrect");
-			list($alpha, $beta, $gamma) = $BD->CherchePosition($URL);	// compare avec toutes les URL valides du site
-			if (isset($alpha))	{	// adresse valide, on ne touche à rien
-				header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
-				list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$alpha, $beta, $gamma];	// $_SESSION = array('alpha' => $alpha, 'beta' = $beta, 'gamma' => $gamma) détruirait les autres éventuels paramètres
-			} else	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 404, 0];	// l'adresse invalide reste affichée dans la barre d'adresse'
-			break;
-		default:
-			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 0, 0];	// erreur inconnue
-	}
+	$route = new PEUNC\HttpRoute;				// à partir d'une requête Http on trouve la route
 
-	$classePage = $BD->ClassePage($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
-	if (!isset($classePage))	throw new Exception("La classe {$classePage} n&apos;est pas d&eacute;finie dans le squelette.");
-	require"Modele/classe_{$classePage}.php";
-	$PAGE = new $classePage(explode("/", $paramPage));
-	$PAGE->ExecuteControleur($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
+	PEUNC\Page::SauvegardeEtat($route);			// sauvegarde de l'état courant
+
+	$reponse = new PEUNC\ReponseClient($route);	// construction de la réponse en fonction de la route trouvée
+}
+catch(PEUNC\ServeurException $e)
+{
+	$PAGE = new PEUNC\Page();	// il n'y a pas de route
+	$PAGE->setTitle("Erreur serveur");
+	$PAGE->setHeaderText("<p>Erreur serveur</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . " - code: " . $e->getCode() . "</h1>\n");
+	$PAGE->setFooter(" - <a href=/Contact>Me contacter</a>");
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView();
+}
+catch(PDOException $e)
+{
+	$PAGE = new PEUNC\Page($route);
+	$PAGE->setTitle("Erreur de base de donn&eacute;es");
+	$PAGE->setHeaderText("<p>Erreur de base de donn&eacute;es</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n");
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView();
+}
+catch(PEUNC\Exception $e)
+{
+	$PAGE = new PEUNC\Page($route);
+	$PAGE->setTitle("Erreur de base de l&apos;application");
+	$PAGE->setHeaderText("<p>Erreur de l&paos;application</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
+					. "<p>Noeud : " . $route->getAlpha() . " - " . $route->getBeta() . " - " . $route->getGamma()
+					. " M&eacute;thode:" . $route->getMethode() . "</p>\n");
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView();
 }
 catch(Exception $e)
 {
-	require"Modele/classe_PageErreur.php";
-	$PAGE = new PageErreur;
-	$PAGE->setCodeErreur("application");
-	$PAGE->setTitreErreur($e->getMessage());
-	$PAGE->setCorpsErreur("<p>Noeud {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}</p>");
+	$PAGE = new PEUNC\Page($route);
+	$PAGE->setTitle("Erreur inconnue");
+	$PAGE->setHeaderText("<p>Erreur inconnue</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
+					. "<p>Noeud : " . $route->getAlpha() . " - " . $route->getBeta() . " - " . $route->getGamma()
+					. " M&eacute;thode:" . $route->getMethode() . "</p>\n");
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView();
 }
-
-include $PAGE->getView(); // insertion de la vue
