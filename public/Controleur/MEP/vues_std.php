@@ -18,6 +18,5 @@ ob_start();	// début du code <section>
 	<?=\PEUNC\classes\Page::BaliseImage("MEP/menu_contextuel.png","extrait du menu contextuel pour suppression",'width=300px')?>
 	<p>Moyen plus rapide: cliquer dessus et presser la touche supprimer du clavier</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

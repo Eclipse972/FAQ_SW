@@ -42,6 +42,5 @@ ob_start();	// début du code <section>
 		<?=\PEUNC\classes\Page::BaliseImage("Piece/repetition_circ.png","R&eacute;p&eacute;tition circulaire",'width=25%')?>
 	</div>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

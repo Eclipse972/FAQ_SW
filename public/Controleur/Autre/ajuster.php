@@ -7,6 +7,5 @@ ob_start();	// début du code <section>
 	<p>Remarque: il est maladroit d&apos;utiliser cette fonctionnalit&eacute; pour faire un zoom car on
 	ne maitrise pas totalement la zone &agrave; agrandir. Il vaut mieux utiliser le zoom fen&ecirc;tre.</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

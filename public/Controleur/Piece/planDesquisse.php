@@ -16,6 +16,5 @@ ob_start();	// début du code <section>
 	<?=\PEUNC\classes\Page::BaliseImage("Piece/surface.png","plan de Face",'width="300"')?>
 	<p>A venir: changer le plan d&apos;esquisse</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

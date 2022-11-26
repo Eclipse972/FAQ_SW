@@ -7,6 +7,5 @@ ob_start();	// début du code <section>
 	<p>Il faut cliquer sur l&apos;onglet <b>Esquisse (deuxi&egrave;me onglet sous la barre)</b> pour y acc&eacute;der.</p>
 	<p>Apr&egrave;s l&apos;ic&ocirc;ne cotation intelligente se trouvent les ic&ocirc;nes pour dessiner toute sorte d&apos;entit&eacute;: trait, restanglle, cercle, ... Puis des outils pour manipuler les entit&eacute;s: d&eacute;couper, dupliquer, ...</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

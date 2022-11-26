@@ -22,6 +22,5 @@ ob_start();	// d&eacute;but du code <section>
 	Ce lien est propos&eacute; dans tous les pieds de page.
 	</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

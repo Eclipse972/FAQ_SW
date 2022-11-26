@@ -7,6 +7,5 @@ ob_start();	// début du code <section>
 	<p>La premi&egrave;re  ic&ocirc;ne est le "zoom au mieux" et la deuxi&egrave;me est "zoom fen&ecirc;tre". Elles sont reconnaissables &agrave; leur forme de loupe.</p>
 	<p>Cliquez dans le menu &agrave; gauche pour savoir comment les utiliser.</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);
