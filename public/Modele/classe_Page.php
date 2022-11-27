@@ -22,23 +22,6 @@ class Page extends PEUNC\Page {
 		echo "\t</ul>\n";
 	}
 
-	public function AfficherMenu()
-	{
-		$T_item = PEUNC\BDD::Liste_niveau($this->route->getAlpha());
-		echo "\t<ul>\n";
-		foreach($T_item as $beta => $code) {
-			echo "\t<li>", (($beta == $this->route->getBeta()) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
-			if ($beta == $this->route->getBeta()) {	// sous-menu?
-				$T_sous_item = PEUNC\BDD::Liste_niveau($this->route->getAlpha(), $this->route->getBeta());
-				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
-					echo "\t<ul>\n";
-					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $this->route->getGamma()) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
-					echo "\t</ul>\n";
-				}
-			}
-		}
-		echo "\t</ul>\n";
-	}
+	public function AfficherMenu() { echo PEUNC\Page::CodeMenu($this->route); }
 
 }
