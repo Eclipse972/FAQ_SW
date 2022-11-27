@@ -33,7 +33,7 @@ class Page extends PEUNC\Page {
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
+						echo "\t\t<li>", ($gamma == $this->route->getGamma()) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
 					echo "\t</ul>\n";
 				}
 			}
