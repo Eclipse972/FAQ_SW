@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/head.html";?>
+<?php	include PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
 
   <script type="text/javascript" src="/js/winkPlayer.js"></script>
   <script type="text/javascript" src="/js/planDesquisse.js"></script>
@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/header.html";?>
+<?php	include PEUNC\Page::DOSSIER_VUE . "commun/header.html";?>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 
@@ -19,7 +19,7 @@
 
 <section>
 	<h1><?=$PAGE->getTitre()?></h1>
-	<p>On veut r&eacute;aliser : <?=\PEUNC\classes\Page::BaliseImage($PAGE->getDossier() . "VEcote.png", $PAGE->getTitre() . " avec ses cotes", 'style="vertical-align:middle; height:300px"')?></p>
+	<p>On veut r&eacute;aliser : <?=PEUNC\Page::BaliseImage($PAGE->getDossier() . "VEcote.png", $PAGE->getTitre() . " avec ses cotes", 'style="vertical-align:middle; height:300px"')?></p>
 	<div id="VE"><?php include $PAGE->PageNumérotée();	?></div>
 	<?=$PAGE->LecteurVidéo()?>
 	<div id="pagineur"><?=$PAGE->AfficherPagineur($_SERVER['REDIRECT_URL'])?></div>
@@ -33,9 +33,9 @@
 
 <footer>
 <?php
-	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
+	include PEUNC\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
 	echo $PAGE->getFooter();
-	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+	include PEUNC\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
 ?>
 </footer>
 
