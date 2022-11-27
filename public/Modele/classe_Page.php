@@ -29,7 +29,7 @@ class Page extends PEUNC\Page {
 		foreach($T_item as $beta => $code) {
 			echo "\t<li>", (($beta == $this->route->getBeta()) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
 			if ($beta == $this->route->getBeta()) {	// sous-menu?
-				$T_sous_item = $this->BD->Liste_niveau($this->route->getAlpha(), $this->route->getBeta());
+				$T_sous_item = PEUNC\BDD::Liste_niveau($this->route->getAlpha(), $this->route->getBeta());
 				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
 					echo "\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
