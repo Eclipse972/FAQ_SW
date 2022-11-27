@@ -11,7 +11,7 @@ ob_start();	// début du code <section>
 	<li>une nomenclature</li>
 	<li>un cartouche</li>
 	</ul>
-	<?=\PEUNC\classes\Page::BaliseImage("MEP/dessin.png",'dessin','width=800px')?>
+	<?=PEUNC\Page::BaliseImage("MEP/dessin.png",'dessin','width=800px')?>
 <?php
 $this->setSection(ob_get_contents());
 ob_end_clean();
