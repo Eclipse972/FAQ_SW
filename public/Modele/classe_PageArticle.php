@@ -17,7 +17,7 @@ class PageArticle extends Page
 		switch(count($Tableau))
 		{
 			case 0: break;
-			case 1:	echo "<h1>Page connexe</h1>\n<p>{$Tableau['URL']}</p>\n";break;
+			case 1:	echo "<h1>Page connexe</h1>\n<p>{$Tableau}</p>\n";break;
 			default:
 				echo "<h1>Pages connexes</h1>\n<ul>\n";
 				foreach($Tableau as $ligne)	echo "\t<li>{$ligne['URL']}</li>\n";
