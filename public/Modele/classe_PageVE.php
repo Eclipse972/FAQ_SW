@@ -10,7 +10,6 @@ class PageVE extends PageArticle	{
 	public function __construct(PEUNC\HttpRoute $route = null, array $TparamURL = [])
 	{
 		parent::__construct($route, $TparamURL);
-		$this->setCSS("article");
 		$this->setCSS("creationVE");
 		$this->setView("pageVE.html");
 	}
