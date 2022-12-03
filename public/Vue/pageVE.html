@@ -31,7 +31,7 @@
 		<?php
 			echo $PAGE->getIconePrincipale();
 			echo PEUNC\Page::BaliseImage($PAGE->getDossier() . "icone.png", "ic&ocirc;ne principale", 'class="icone"');
-			if($PAGE->getObtenuParRévolution() == "Piece/sphere/")
+			if($PAGE->getDossier() == "Piece/sphere/")
 				echo" et ajuster les entit&eacute;s" . PEUNC\Page::BaliseImage("Piece/sphere/icone2.png","ic&ocirc;ne d&eacute;couper",'class="icone"');
 		?>
 		</li>
