@@ -2,10 +2,6 @@
 <html lang="fr">
 <head>
 <?php	include PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
-
-  <script type="text/javascript" src="/js/winkPlayer.js"></script>
-  <script type="text/javascript" src="/js/planDesquisse.js"></script>
-
 </head>
 
 <body>
@@ -20,9 +16,40 @@
 <section>
 	<h1><?=$PAGE->getTitre()?></h1>
 	<p>On veut r&eacute;aliser : <?=PEUNC\Page::BaliseImage($PAGE->getDossier() . "VEcote.png", $PAGE->getTitre() . " avec ses cotes", 'style="vertical-align:middle; height:300px"')?></p>
-	<div id="VE"><?php include $PAGE->PageNumérotée();	?></div>
-	<?=$PAGE->LecteurVidéo()?>
-	<div id="pagineur"><?=$PAGE->AfficherPagineur($_SERVER['REDIRECT_URL'])?></div>
+
+	<h2>Le plan d&apos;esquisse</h2>
+	<p>choisir un plan d&apos;esquisse (Face, Dessus ou Doite) dans l&apos;arbre de cr&eacute;ation
+		<?=PEUNC\Page::BaliseImage("arbre.png","Arbre de cr&eacute;ation vide",'style="vertical-align:middle"')?></p>
+	<p><a href=#>Voir l&apos;animation</a></p>
+
+	<h2>Esquisse cot&eacute;e</h2>
+	<p>Il faut dessiner: <?=PEUNC\Page::BaliseImage($PAGE->getDossier() . "esquisse.png", "esquisse cot&eacute;e",'style="vertical-align:middle; height:300px"')?></p>
+	<p>Dans la barre d&apos;outils, cliquez sur l&apos;onglet <b>Esquisse</b> (deuxi&egrave;me onglet) :<?=PEUNC\Page::BaliseImage("outilsEsquisse.png","Barre )?d&apos;outils Esquisse")?></p>
+	<p>Vous aurez besoin des ic&ocirc;nes:</p>
+	<ul>
+		<li><?php
+			echo $PAGE->getIconePrincipale();
+			echo PEUNC\Page::BaliseImage($PAGE->getDossier() . "icone.png", "ic&ocirc;ne principale", 'class="icone"');
+			if($PAGE->getObtenuParRévolution() == "Piece/sphere/")
+				echo" et ajuster les entit&eacute;s" . PEUNC\Page::BaliseImage("Piece/sphere/icone2.png","ic&ocirc;ne d&eacute;couper",'class="icone"');
+		?></li><?=($PAGE->getObtenuParRévolution()) ? "\n\t\t<li>ligne de construction" . PEUNC\Page::BaliseImage("ligne2construction.png","ic&ocirc;ne ligne de construction",'class="icone"') . "pour cr&eacute;er l&apos;axe de r&eacute;volution.</li>\n" : "\n"?>
+		<li>cotation intelligente<?=PEUNC\Page::BaliseImage("cote.png", "ic&ocirc;ne cotation intelligente",'class="icone"')?> . pour coter votre esquisse.</li>
+	</ul>
+	<p><a href=#>Voir l&apos;animation</a></p>
+	
+	<h2>Fonction de mise en volume</h2>
+	<ol>
+		<li>Dans la barre d&apos;outils, s&eacute;lectionnez l&apos;onglet <b>Fonctions</b> (premier onglet) :<?=PEUNC\Page::BaliseImage("fonctions.png","Barre d&apos;outils Fonctions.",'style="vertical-align:middle"')?></li>
+		<li>Cliquez sur la <?=$PAGE->getObtenuParRévolution() ? ' deuxi&egrave;me' : ' premi&egrave;re'?> ic&ocirc;ne <b><?=$PAGE->getObtenuParRévolution() ? 'Bossage/Base avec r&eacute;volution' : 'Base/Bossage extrud&eacute;'?></b>
+		<?=PEUNC\Page::BaliseImage($PAGE->getObtenuParRévolution() ? 'revolution.png': 'extrusion.png', "ic&ocirc;ne de mise en volume", 'style="height:30px; vertical-align:middle"')?>
+		</li>
+		<p class="gauche"><?=PEUNC\Page::BaliseImage($PAGE->getObtenuParRévolution() ? 'param_revolution.png' : 'param_extrusion.png' ,"param&egrave;tres")?></p>
+		<li style="margin-top:50px">A gauche de l&apos;&eacute;cran apparaissent les param&egrave;tres</li>
+		<li><?=$PAGE->getObtenuParRévolution() ? 'Si la case <b>Axe de r&eacute;volution</b> n&apos;est renseign&eacute;e (ici ligne5) il faut sélectionner l&apos;axe de r&eacute;volution' : 'Dans la partie <b>Direction 1</b>, inscrivez la profondeur ici 70 mm'?></li>
+		<?=($PAGE->getDossier() == "Piece/tronc2cone2/") ? "<li>Cliquez sur l&apos;ic&ocirc;ne d&eacute;pouille " . PEUNC\Page::BaliseImage("depouille.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"') . "puis entrez l&apos;angle en degr&eacute;s.</li>" : ''?>
+		<li>Enfin validez en cliquant sur <?=PEUNC\Page::BaliseImage("validation.png","icocirc:ne d&eacute;pouille",'style="height:30px; vertical-align:middle"')?> en haut à gauche.</li>
+	</ol>
+	<p><a href=#>Voir l&apos;animation</a></p>
 </section>
 
 <aside>

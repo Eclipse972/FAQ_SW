@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<?php	include PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
+
+  <script type="text/javascript" src="/js/winkPlayer.js"></script>
+  <script type="text/javascript" src="/js/planDesquisse.js"></script>
+
+</head>
+
+<body>
+<?php	include PEUNC\Page::DOSSIER_VUE . "commun/header.html";?>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<nav></nav>
+
+<section>
+	<h1><?=$PAGE->getTitre()?></h1>
+</section>
+
+<aside></aside>
+
+</main>
+
+<footer>
+<?php
+	include PEUNC\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
+	echo $PAGE->getFooter();
+	include PEUNC\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+?>
+</footer>
+
+</body>
+</html>
