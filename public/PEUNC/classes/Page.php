@@ -164,13 +164,13 @@ class Page implements iPage	{
 		$T_Onglets = BDD::Liste_niveau();
 		if(!is_array($T_Onglets)) throw new Exception("Onglets inexistants!  Il faut au moins 2 items");
 
-		$code = "<ul>\n";
+		$codeOnglet = "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
 		{
 			if (($alpha >= $alphaMini) && ($alpha <= $alphaMaxi))
-				$code .= "\t<li>" . (($alpha == $route->getAlpha()) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
+				$codeOnglet .= "\t<li>" . (($alpha == $route->getAlpha()) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
 		}
-		return $code . "\t</ul>\n";
+		return $codeOnglet . "\t</ul>\n";
 	}
 
 	public static function CodeMenu(HttpRoute $route)
