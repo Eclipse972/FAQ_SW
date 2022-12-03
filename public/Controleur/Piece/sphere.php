@@ -3,3 +3,5 @@ $this->setDossier('sphere');
 $this->setTitre("une sph&egrave;re");
 $this->setIconePrincipale('cercle');
 $this->setObtenuParRévolution(true);
+$this->setAnimationEsquisse("esquisseSphere");
+$this->setAnimationFonction("fonctionSphere");

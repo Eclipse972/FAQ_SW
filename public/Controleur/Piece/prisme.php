@@ -2,4 +2,5 @@
 $this->setDossier('prisme');
 $this->setTitre("un prisme");
 $this->setIconePrincipale('rectangle');
-$this->setObtenuParRévolution(false);
+$this->setAnimationEsquisse("esquissePrisme");
+$this->setAnimationFonction("fonctionPrisme");
