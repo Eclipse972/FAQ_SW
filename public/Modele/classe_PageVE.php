@@ -9,7 +9,6 @@ class PageVE extends PageArticle	{
 		parent::__construct($route, $TparamURL);
 		$this->setCSS("article");
 		$this->setCSS("creationVE");
-		$this->setCSS("winkPlayer");
 		$this->setView("pageVE.html");
 	}
 
