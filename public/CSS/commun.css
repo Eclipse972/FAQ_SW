@@ -40,13 +40,13 @@ section {
 	background-color:white;
 	min-height:550px;
 }
-section h1 {
+h1 {
 	text-decoration: underline;
 	text-align: center;
 	font-size: 25px;
 	margin-top: 0;
 }
-section h2 {
+h2 {
 	text-decoration: underline;
 	text-align: left;
 	font-size: 22px;
