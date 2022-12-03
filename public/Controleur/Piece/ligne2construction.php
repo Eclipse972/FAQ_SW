@@ -5,6 +5,5 @@ ob_start();	// début du code <section>
 	<p>elles permettent d&apos;ajouter des contraintes sur une esuisse sans ajouter de cote. Utilis&eacute;es avec des contraintes d&apos;esquisse, elles permettent de diminuer drastiquement le nombre de c&ocirc;tes.</p>
 	<p>Exemples &agrave; venir</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

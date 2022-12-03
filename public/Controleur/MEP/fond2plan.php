@@ -6,7 +6,7 @@ ob_start();	// début du code <section>
 	Un fond de plan est une feuille sur laquelle sont dessin&eacute;s une bordure et un cartouche.
 	SolidWorks est livr&eacute; avec ses propres fonds de plan mais j&apos;en ai cr&eacute;&eacute; des personalis&eacute;s</p>
 	<p>boite de dialogue</p>
-	<?=\PEUNC\classes\Page::BaliseImage("MEP/boiteMEP.png")?>
+	<?=PEUNC\Page::BaliseImage("MEP/boiteMEP.png")?>
 	<h2>Acc&eacute;der aux fonds de plan sur le r&eacute;seau du lyc&eacute;e</h2>
 	<ol>
 	<li>cliquez sur le bouton <b>Parcourir</b> dans la boite de dialogue</li>
@@ -22,6 +22,5 @@ ob_start();	// début du code <section>
 	</ul>
 	<p>Ces trois fonds de plan possèdent un cartouche pr&eacute;rempli (titre, échelle, date et dessinateur).</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

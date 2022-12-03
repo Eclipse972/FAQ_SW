@@ -20,7 +20,5 @@ ob_start();	// début du code <section>
 	les articles ont un lien vers l&apos;aide de SolidWorks aussi souvent que possible.</p>
 	<p>Le site ne comporte pas encore de moteur de recherche mais &ccedil;a viendra peut-&ecirc;tre un jour!</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-
-$this->setSection($tampon);

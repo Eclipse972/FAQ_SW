@@ -1,15 +1,16 @@
 <?php
-require"Modele/classe_PageArticle.php";
-
 class PageVE extends PageArticle	{
 	private $titre;
 	private $icone_principale;
 	private $parRévolution;
 	private $T_page	= ['plan d&apos;esquisse', 'Esquisse cot&eacute;e', 'Fonction de mise en volume'];
 
-	public function __construct(array $TparamURL = [])	{
-		parent::__construct($TparamURL);
-		$this->setCSS(["https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline",	"commun",	"article",	"creationVE", "winkPlayer"]);
+	public function __construct(PEUNC\HttpRoute $route = null, array $TparamURL = [])
+	{
+		parent::__construct($route, $TparamURL);
+		$this->setCSS("article");
+		$this->setCSS("creationVE");
+		$this->setCSS("winkPlayer");
 		$this->setView("pageVE.html");
 	}
 

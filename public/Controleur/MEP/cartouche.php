@@ -3,9 +3,9 @@ ob_start();	// début du code <section>
 ?>
 	<h1>Remplir le cartouche</h1>
 	<p>Le cartouche est la fiche d&apos;identit&eacute; du dessin. Le cartouche par d&eacute;faut que je propose est pr&eacute;rempli.</p>
-	<?=\PEUNC\classes\Page::BaliseImage("MEP/cartouche.png")?>
+	<?=PEUNC\Page::BaliseImage("MEP/cartouche.png")?>
 	<h2>Acc&eacute;der au cartouche</h2>
-	<?=\PEUNC\classes\Page::BaliseImage("MEP/acces.png")?>
+	<?=PEUNC\Page::BaliseImage("MEP/acces.png")?>
 	<ol>
 	<li>faites un clic droit sur Feuille1 dans l'arbre de création à gauche. Un menu contextuel apparaît</li>
 	<li>cliquez sur « Éditer le fond de plan ».</li>
@@ -25,6 +25,5 @@ ob_start();	// début du code <section>
 	<li>le dessinateur</li>
 	</ul>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

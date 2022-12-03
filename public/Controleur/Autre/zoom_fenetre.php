@@ -1,7 +1,7 @@
 <?php
 ob_start();	// début du code <section>
 ?>
-	<?=\PEUNC\classes\Page::BaliseImage("Autre/pelleteuse.png" ,"pelleteuse", 'style="float:right"')?>
+	<?=PEUNC\Page::BaliseImage("Autre/pelleteuse.png" ,"pelleteuse", 'style="float:right"')?>
 	<h1>Zoom fen&ecirc;tre</h1>
 	<p>On souhaite, par exemple, voir le si&egrave;ge de la pelleteuse de plus pr&egrave;s.</p>
 	<ol>
@@ -11,8 +11,7 @@ ob_start();	// début du code <section>
 	entourant la zone &agrave; zoomer.</li>
 	<li>L&acirc;chez le bouton de la souris et la zone &agrave; zoomer remplit la zone graphique.</li>
 	</ol>
-	<?=\PEUNC\classes\Page::BaliseImage("Autre/siege.png", "siège", 'style="width:500px"')?>
+	<?=PEUNC\Page::BaliseImage("Autre/siege.png", "siège", 'style="width:500px"')?>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

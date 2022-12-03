@@ -9,6 +9,5 @@ ob_start();	// d&eacute;but du code <section>
 		<li>rouge; l&apos;esquisse est sur-contrainte</li>
 	</ul>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

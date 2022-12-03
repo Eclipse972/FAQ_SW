@@ -12,6 +12,5 @@ ob_start();	// début du code <section>
 		<li>2 segment non parall&egrave;lles: l&apos;angle entre les segments<br>illustration &agrave; venir</li>
 	</ul>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);
