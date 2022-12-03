@@ -142,13 +142,15 @@ class Page implements iPage	{
 
 	public static function SauvegardeEtat(HttpRoute $route)
 	{	// sauvegarde de l'URL précédente dans la variable de session
-		$_SESSION["PEUNC"]['URLprecedente'] = (isset($_SESSION["PEUNC"]['URL'])) ? $_SESSION["PEUNC"]['URL'] : "/";
+		$_SESSION["PEUNC"]["URLprecedente"] = (isset($_SESSION["PEUNC"]['URL'])) ? $_SESSION["PEUNC"]['URL'] : "/";
 
 		// MAJ de l'état
-		$_SESSION["PEUNC"]['URL'] = BDD::SELECT("URL FROM Vue_URLvalides WHERE niveau1=? AND niveau2=? AND niveau3=?",
+		$_SESSION["PEUNC"]["URL"] = BDD::SELECT("URL FROM Vue_URLvalides WHERE niveau1=? AND niveau2=? AND niveau3=?",
 												[$route->getAlpha(), $route->getBeta(), $route->getGamma()]);		
 	}
 
+	public static function URLprecedente()	{ return $_SESSION["PEUNC"]["URLprecedente"]; }
+	
  	public static function CodeOnglets(HttpRoute $route, $alphaMini = Page::ALPHA_MINI, $alphaMaxi = Page::ALPHA_MAXI)
  	{
 		$T_Onglets = BDD::Liste_niveau();
@@ -185,11 +187,5 @@ class Page implements iPage	{
 			}
 		}
 		return $codeMenu . "\t</ul>\n";
-	}
-
-	public static function URLprecedente()
-	{
-		return BDD::SELECT("URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ?",
-						array($_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],$_SESSION["PEUNC"]['gammaPrecedent']));
 	}
 }
