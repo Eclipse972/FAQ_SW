@@ -12,16 +12,7 @@ class Page extends PEUNC\Page {
 		$this->setFooter("");
 	}
 
- 	public function AfficherOnglets()	{
-		$T_Onglets = PEUNC\BDD::Liste_niveau();
-		echo "<ul>\n";
-		foreach($T_Onglets as $alpha => $code)	{
-			if (($alpha >= 0) && ($alpha <= 4))
-				echo "\t<li>" . (($alpha == $this->route->getAlpha()) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
-		}
-		echo "\t</ul>\n";
-	}
+ 	public function AfficherOnglets()	{ echo PEUNC\Page::CodeOnglets($this->route); }
 
-	public function AfficherMenu() { echo PEUNC\Page::CodeMenu($this->route); }
-
+	public function AfficherMenu()		{ echo PEUNC\Page::CodeMenu($this->route); }
 }
