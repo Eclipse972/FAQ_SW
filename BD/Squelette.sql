@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 27 Novembre 2022 à 00:52
+-- Généré le : Sam 03 Décembre 2022 à 10:26
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -39,18 +39,15 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `paramAutorise` varchar(99) collate latin1_general_ci NOT NULL default '[]',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=77 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=78 ;
 
 --
 -- Contenu de la table `Squelette`
 --
 
 INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu`, `ptiNom`, `classePage`, `controleur`, `methode`, `paramAutorise`) VALUES
-(1, -1, 500, 0, 'Serveur satur&eacute;', '', 'Serveur_sature', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
-(2, -1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
-(3, -1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
+(77, 6, 0, 0, 'Les animations', '', 'animations', 'Page', 'listeAnimations.php', 'GET', '[]'),
 (4, 5, 0, 0, 'Formulaire de contact', '', 'Contact', 'PageContact', 'contact.php', 'GET', '[]'),
-(6, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
 (7, 0, 0, 0, 'Accueil', 'accueil.png', 'Accueil', 'PageArticle', 'accueil.php', 'GET', '[]'),
 (8, 1, 0, 0, 'Pi&egrave;ce', 'piece.png', 'Piece', 'PageArticle', 'Piece/module_piece.php', 'GET', '[]'),
 (9, 2, 0, 0, 'Mise en plan', 'MEP.png', 'Mise_en_plan', 'PageArticle', 'MEP/mise_en_plan.php', 'GET', '[]'),
