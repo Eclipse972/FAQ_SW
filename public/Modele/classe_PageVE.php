@@ -3,6 +3,9 @@ class PageVE extends PageArticle	{
 	private $titre;
 	private $icone_principale;
 	private $parRévolution;
+	private $URLesquisse = "";
+	private $URLfonction = "";
+	
 
 	public function __construct(PEUNC\HttpRoute $route = null, array $TparamURL = [])
 	{
@@ -12,9 +15,9 @@ class PageVE extends PageArticle	{
 		$this->setView("pageVE.html");
 	}
 
-/**************
- * SETTER
- **************/
+/**********
+ * SETTER *
+ **********/
 	public function setDossier($dossier) { $this->dossier = "Piece/" . $dossier . "/"; }
 
 	public function setTitre($titre) { $this->titre = $titre; }
@@ -23,13 +26,20 @@ class PageVE extends PageArticle	{
 
 	public function setObtenuParRévolution($flag) { $this->parRévolution = $flag; }
 
+	public function setAnimationEsquisse($URL)	{ $this->URLesquisse = $URL; }
 
-/**************
- * GETTER
- **************/
+	public function setAnimationFonction($URL)	{ $this->URLfonction = $URL; }
+
+/**********
+ * GETTER *
+ **********/
 	public function getTitre()				{ return"Cr&eacute;er " . $this->titre; }
 
 	public function getIconePrincipale()	{ return $this->icone_principale; }
 
 	public function getObtenuParRévolution(){ return $this->parRévolution; }
+
+	public function getAnimationEsquisse()	{ return "/Animations/" . $this->URLesquisse; }
+
+	public function getAnimationFonction()	{ return "/Animations/" . $this->URLfonction; }
 }
