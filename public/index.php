@@ -18,13 +18,13 @@ try
 {
 	$route = new PEUNC\HttpRoute;				// à partir d'une requête Http on trouve la route
 
-	PEUNC\Page::SauvegardeEtat($route);			// sauvegarde de l'état courant
+	PageArticle::SauvegardeEtat($route);			// sauvegarde de l'état courant
 
 	$reponse = new PEUNC\ReponseClient($route);	// construction de la réponse en fonction de la route trouvée
 }
 catch(PEUNC\ServeurException $e)
 {
-	$PAGE = new PEUNC\Page();	// il n'y a pas de route
+	$PAGE = new PageArticle();	// il n'y a pas de route
 	$PAGE->setTitle("Erreur serveur");
 	$PAGE->setHeaderText("<p>Erreur serveur</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . " - code: " . $e->getCode() . "</h1>\n");
@@ -34,7 +34,7 @@ catch(PEUNC\ServeurException $e)
 }
 catch(PDOException $e)
 {
-	$PAGE = new PEUNC\Page($route);
+	$PAGE = new PageArticle($route);
 	$PAGE->setTitle("Erreur de base de donn&eacute;es");
 	$PAGE->setHeaderText("<p>Erreur de base de donn&eacute;es</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n");
@@ -43,9 +43,9 @@ catch(PDOException $e)
 }
 catch(PEUNC\Exception $e)
 {
-	$PAGE = new PEUNC\Page($route);
+	$PAGE = new PageArticle($route);
 	$PAGE->setTitle("Erreur de base de l&apos;application");
-	$PAGE->setHeaderText("<p>Erreur de l&paos;application</p>");
+	$PAGE->setHeaderText("<p>Erreur de l&apos;application</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
 					. "<p>Noeud : " . $route->getAlpha() . " - " . $route->getBeta() . " - " . $route->getGamma()
 					. " M&eacute;thode:" . $route->getMethode() . "</p>\n");
@@ -54,7 +54,7 @@ catch(PEUNC\Exception $e)
 }
 catch(Exception $e)
 {
-	$PAGE = new PEUNC\Page($route);
+	$PAGE = new PageArticle($route);
 	$PAGE->setTitle("Erreur inconnue");
 	$PAGE->setHeaderText("<p>Erreur inconnue</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
