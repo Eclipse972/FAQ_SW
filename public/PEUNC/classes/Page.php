@@ -159,7 +159,7 @@ class Page implements iPage	{
 		$_SESSION["PEUNC"]['gamma']	= $route->getGamma();
 	}
 
- 	public static function CodeOnglets(HttpRoute $route)
+ 	public static function CodeOnglets(HttpRoute $route, $alphaMini = Page::ALPHA_MINI, $alphaMaxi = Page::ALPHA_MAXI)
  	{
 		$T_Onglets = BDD::Liste_niveau();
 		if(!is_array($T_Onglets)) throw new Exception("Onglets inexistants!  Il faut au moins 2 items");
@@ -167,7 +167,7 @@ class Page implements iPage	{
 		$code = "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
 		{
-			if (($alpha >= Page::ALPHA_MINI) && ($alpha <= Page::ALPHA_MAXI))
+			if (($alpha >= $alphaMini) && ($alpha <= $alphaMaxi))
 				$code .= "\t<li>" . (($alpha == $route->getAlpha()) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
 		}
 		return $code . "\t</ul>\n";
