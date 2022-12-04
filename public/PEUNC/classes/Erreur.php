@@ -1,5 +1,5 @@
 <?php
-/* classe page d'ereur de PEUNC
+/* classe page d'erreur de PEUNC
  *
  * Cette classe n'offre que des fonctions basiques. Par exemple pas de fonction complémentaire comme l'affichage.
  *
@@ -14,7 +14,7 @@
  * Une condition à respecter impérativement: aucune de vos méthode s ne doit porter le même nom que celle de la classe Erreur de PEUNC
  * */
 
-namespace PEUNC\classes;
+namespace PEUNC;
 
 class Erreur extends Page {
 	protected $code;
@@ -28,27 +28,16 @@ class Erreur extends Page {
 		$this->corps = "";
 	}
 	// setters
-	public function setCodeErreur($code) {
-		$this->code = $code;
-	}
+	public function setCodeErreur($code)	{ $this->code = $code; }
 
-	public function setTitreErreur($titre) {
-		$this->titre = $titre;
-	}
+	public function setTitreErreur($titre)	{ $this->titre = $titre; }
 
-	public function setCorpsErreur($code)	{
-		$this->corps = $code;
-	}
+	public function setCorpsErreur($code)	{ $this->corps = $code; }
+	
 	// getters
-	public function getCodeErreur() {
-		return isset($this->code) ? ' ' . $this->code : 'X';
-	}
+	public function getCodeErreur()		{ return isset($this->code) ? ' ' . $this->code : 'X'; }
 
-	public function getTitreErreur() {
-		return $this->titre;
-	}
+	public function getTitreErreur()	{ return $this->titre; }
 
-	public function getCorpsErreur() {
-		return $this->corps;
-	}
+	public function getCorpsErreur()	{ return $this->corps; }
 }
