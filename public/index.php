@@ -18,7 +18,7 @@ try
 {
 	$route = new PEUNC\HttpRoute;				// à partir d'une requête Http on trouve la route
 
-	PageArticle::SauvegardeEtat($route);			// sauvegarde de l'état courant
+	PEUNC\Page::SauvegardeEtat($route);			// sauvegarde de l'état courant
 
 	$reponse = new PEUNC\ReponseClient($route);	// construction de la réponse en fonction de la route trouvée
 }
