@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Sam 03 Décembre 2022 à 22:50
+-- Généré le : Sam 03 Décembre 2022 à 22:58
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
 
 INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu`, `ptiNom`, `classePage`, `controleur`, `methode`, `paramAutorise`) VALUES
 (77, 6, 0, 0, 'Les animations', '', 'Animations', 'PageArticle', 'listeAnimations.php', 'GET', '[]'),
-(78, 6, 1, 0, 'Plan d&apos;esquisse', '', 'planDesquisse', 'PageAnimation', 'Piece/planDesquisse.php', 'GET', '[]'),
-(79, 6, 2, 0, 'Esquisse du prisme', '', 'esquissePrisme', 'PageAnimation', 'Piece/esquissePrisme.php', 'GET', '[]'),
+(78, 6, 1, 0, 'Plan d&apos;esquisse', '', 'planDesquisse', 'PageAnimation', 'Piece/VE/planDesquisse.php', 'GET', '[]'),
+(79, 6, 2, 0, 'Esquisse du prisme', '', 'esquissePrisme', 'PageAnimation', 'Piece/VE/esquissePrisme.php', 'GET', '[]'),
 (4, 5, 0, 0, 'Formulaire de contact', '', 'Contact', 'PageContact', 'contact.php', 'GET', '[]'),
-(80, 6, 3, 0, 'Esquisse de la sph&egrave;re', '', 'esquisseSphere', 'PageAnimation', 'Piece/esquisseSphere.php', 'GET', '[]'),
+(80, 6, 3, 0, 'Esquisse de la sph&egrave;re', '', 'esquisseSphere', 'PageAnimation', 'Piece/VE/esquisseSphere.php', 'GET', '[]'),
 (7, 0, 0, 0, 'Accueil', 'accueil.png', 'Accueil', 'PageArticle', 'accueil.php', 'GET', '[]'),
 (8, 1, 0, 0, 'Pi&egrave;ce', 'piece.png', 'Piece', 'PageArticle', 'Piece/module_piece.php', 'GET', '[]'),
 (9, 2, 0, 0, 'Mise en plan', 'MEP.png', 'Mise_en_plan', 'PageArticle', 'MEP/mise_en_plan.php', 'GET', '[]'),
@@ -120,15 +120,15 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (74, -3, 1, 0, 'Table squelette', '', 'squelette', 'PageAdministrateur', 'PEUNC/scripts/squeletteAdmin.php', 'GET', '[]'),
 (75, -3, 2, 0, 'Table des pages', '', 'pages', 'PageAdministrateur', 'PEUNC/scripts/pagesAdmin.php', 'GET', '[]'),
 (76, -3, 3, 0, 'Table des pages connexes', '', 'pages_connexe', 'PageAdministrateur', 'PEUNC/scripts/connexesAdmin.php', 'GET', '[]'),
-(81, 6, 4, 0, 'Esquisse du cylindre par extrusion', '', 'esquisseCylindreExtrusion', 'PageAnimation', 'Piece/esquisseCylindreExtrusion.php', 'GET', '[]'),
-(82, 6, 5, 0, 'Esquisse du cylindre par r&eacute;volution', '', 'esquisseCylindreRevolution', 'PageAnimation', 'Piece/esquisseCylindreRevolution.php', 'GET', '[]'),
-(83, 6, 6, 0, 'Esquisse du tronc de c&ocirc;ne par r&eacute;volution', '', 'esquisseConeRevolution', 'PageAnimation', 'Piece/esquisseConeRevolution.php', 'GET', '[]'),
-(84, 6, 7, 0, 'Esquisse du tronc de c&ocirc;ne par extrusion', '', 'esquisseConeExtrusion', 'PageAnimation', 'Piece/esquisseConeExtrusion.php', 'GET', '[]'),
-(85, 6, 8, 0, 'Fonction pour le prisme', '', 'fonctionPrisme', 'PageAnimation', 'Piece/fonctionPrisme.php', 'GET', '[]'),
-(86, 6, 9, 0, 'Foncton pour le cylindre par extrusion', '', 'fonctionCylindreExtrusion', 'PageAnimation', 'Piece/fonctionCylindreExtrusion.php', 'GET', '[]'),
-(87, 6, 10, 0, 'Fonction pour le cylindre par r&eacute;volution', '', 'fonctionCylindreRevolution', 'PageAnimation', 'Piece/fonctionCylindreRevolution.php', 'GET', '[]'),
-(88, 6, 11, 0, 'Fonction pour le tronc de c&ocirc;ne par r&eacute;volution', '', 'FonctionConeRevolution', 'PageAnimation', 'Piece/FonctionConeRevolution.php', 'GET', '[]'),
-(89, 6, 12, 0, 'Fonction pour le tronc de c&ocirc;ne par extrusion', '', 'FonctionConeExtrusion', 'PageAnimation', 'Piece/FonctionConeExtrusion.php', 'GET', '[]');
+(81, 6, 4, 0, 'Esquisse du cylindre par extrusion', '', 'esquisseCylindreExtrusion', 'PageAnimation', 'Piece/VE/esquisseCylindreExtrusion.php', 'GET', '[]'),
+(82, 6, 5, 0, 'Esquisse du cylindre par r&eacute;volution', '', 'esquisseCylindreRevolution', 'PageAnimation', 'Piece/VE/esquisseCylindreRevolution.php', 'GET', '[]'),
+(83, 6, 6, 0, 'Esquisse du tronc de c&ocirc;ne par r&eacute;volution', '', 'esquisseConeRevolution', 'PageAnimation', 'Piece/VE/esquisseConeRevolution.php', 'GET', '[]'),
+(84, 6, 7, 0, 'Esquisse du tronc de c&ocirc;ne par extrusion', '', 'esquisseConeExtrusion', 'PageAnimation', 'Piece/VE/esquisseConeExtrusion.php', 'GET', '[]'),
+(85, 6, 8, 0, 'Fonction pour le prisme', '', 'fonctionPrisme', 'PageAnimation', 'Piece/VE/fonctionPrisme.php', 'GET', '[]'),
+(86, 6, 9, 0, 'Fonction pour le cylindre par extrusion', '', 'fonctionCylindreExtrusion', 'PageAnimation', 'Piece/VE/fonctionCylindreExtrusion.php', 'GET', '[]'),
+(87, 6, 10, 0, 'Fonction pour le cylindre par r&eacute;volution', '', 'fonctionCylindreRevolution', 'PageAnimation', 'Piece/VE/fonctionCylindreRevolution.php', 'GET', '[]'),
+(88, 6, 11, 0, 'Fonction pour le tronc de c&ocirc;ne par r&eacute;volution', '', 'FonctionConeRevolution', 'PageAnimation', 'Piece/VE/FonctionConeRevolution.php', 'GET', '[]'),
+(89, 6, 12, 0, 'Fonction pour le tronc de c&ocirc;ne par extrusion', '', 'FonctionConeExtrusion', 'PageAnimation', 'Piece/VE/FonctionConeExtrusion.php', 'GET', '[]');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
