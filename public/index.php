@@ -24,7 +24,7 @@ try
 }
 catch(PEUNC\ServeurException $e)
 {
-	$PAGE = new PageArticle();	// il n'y a pas de route
+	$PAGE = new PEUNC\Erreur();	// il n'y a pas de route
 	$PAGE->setTitle("Erreur serveur");
 	$PAGE->setHeaderText("<p>Erreur serveur</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . " - code: " . $e->getCode() . "</h1>\n");
@@ -34,7 +34,7 @@ catch(PEUNC\ServeurException $e)
 }
 catch(PDOException $e)
 {
-	$PAGE = new PageArticle($route);
+	$PAGE = new PEUNC\Erreur($route);
 	$PAGE->setTitle("Erreur de base de donn&eacute;es");
 	$PAGE->setHeaderText("<p>Erreur de base de donn&eacute;es</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n");
@@ -43,7 +43,7 @@ catch(PDOException $e)
 }
 catch(PEUNC\Exception $e)
 {
-	$PAGE = new PageArticle($route);
+	$PAGE = new PEUNC\Erreur($route);
 	$PAGE->setTitle("Erreur de base de l&apos;application");
 	$PAGE->setHeaderText("<p>Erreur de l&apos;application</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
@@ -54,7 +54,7 @@ catch(PEUNC\Exception $e)
 }
 catch(Exception $e)
 {
-	$PAGE = new PageArticle($route);
+	$PAGE = new PEUNC\Erreur($route);
 	$PAGE->setTitle("Erreur inconnue");
 	$PAGE->setHeaderText("<p>Erreur inconnue</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
