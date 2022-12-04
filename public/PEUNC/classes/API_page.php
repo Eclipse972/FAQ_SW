@@ -17,6 +17,7 @@ interface iPage
 	public function getView();		// chemin de la vue associée à la page
 	public function getParamURL($i);// retourne le i-ème paramètre passé par l'URL
 	public function getDossier();	// retourne le dossier associé à la page
+	public function getRoute();		// renvoie la route http. Remarque pas de setter car variable intialisée dans le constructeur
 
 // Assesseurs (setters)
 	public function setCSS($feuilleCSS);	// ajoute une feuille CSS associée à la page. Répétables plusieurs fois
