@@ -108,6 +108,8 @@ class Page implements iPage	{
 
 	public function getCSS()			{ foreach($this->T_CSS as $feuilleCSS) echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";	}
 
+	public function getRoute()			{ return $this->route; }
+
 /* ***************************
  * AUTRE
  * ***************************/
@@ -141,12 +143,15 @@ class Page implements iPage	{
 	}
 
 	public static function SauvegardeEtat(HttpRoute $route)
-	{	// sauvegarde de l'URL précédente dans la variable de session
-		$_SESSION["PEUNC"]["URLprecedente"] = (isset($_SESSION["PEUNC"]['URL'])) ? $_SESSION["PEUNC"]['URL'] : "/";
+	{
+		$URLactuelle = BDD::SELECT("URL FROM Vue_URLvalides WHERE niveau1=? AND niveau2=? AND niveau3=?", [$route->getAlpha(), $route->getBeta(), $route->getGamma()]);
 
-		// MAJ de l'état
-		$_SESSION["PEUNC"]["URL"] = BDD::SELECT("URL FROM Vue_URLvalides WHERE niveau1=? AND niveau2=? AND niveau3=?",
-												[$route->getAlpha(), $route->getBeta(), $route->getGamma()]);		
+		if ($_SESSION["PEUNC"]["URL"] != $URLactuelle) // sauvagarde s'il n'y a pas rafraichiisemnt de page
+		{
+			$_SESSION["PEUNC"]["URLprecedente"] = (isset($_SESSION["PEUNC"]["URL"])) ? $_SESSION["PEUNC"]["URL"] : "/";
+
+			$_SESSION["PEUNC"]["URL"] =	$URLactuelle;
+		}
 	}
 
 	public static function URLprecedente()	{ return $_SESSION["PEUNC"]["URLprecedente"]; }
