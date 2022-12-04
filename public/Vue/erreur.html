@@ -2,10 +2,20 @@
 <html lang="fr">
 <head>
 <?php	include PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
+	<link rel="stylesheet" href="/CSS/commun.css" />
+	<link rel="stylesheet" href="/CSS/article.css" />
 </head>
 
 <body>
-<?php	include PEUNC\Page::DOSSIER_VUE . "commun/header.html";?>
+<header>
+<div id="logo"><?=$PAGE->getLogo()?></div>
+<div id="titre">
+<?php
+	echo $PAGE->getHeaderText();
+	echo PEUNC\Page::CodeOnglets($PAGE->getRoute());
+?>
+</div>
+</header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 
