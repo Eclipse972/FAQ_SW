@@ -3,20 +3,43 @@
 <head>
 <?php	include PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
 
-  <script type="text/javascript" src="/js/winkPlayer.js"></script>
+  <script type="text/javascript" src="/js/winkPlayer.js">	</script>
   <script type="text/javascript" src="/js/planDesquisse.js"></script>
 
 </head>
 
 <body>
-<?php	include PEUNC\Page::DOSSIER_VUE . "commun/header.html";?>
+<header>
+<div id="logo"> <?=$PAGE->getLogo()?>		</div>
+<div id="titre"><?=$PAGE->getHeaderText()?>	</div>
+</header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 
 <nav></nav>
 
 <section>
-	<h1><?=$PAGE->getTitre()?></h1>
+<h1>titre</h1>
+<p>Animation &agrave; venir.</p>
+<!-- code pour afficher l'animation
+<div class="winkVideoContainerClass">
+	<video class="winkVideoClass" data-varname="winkVideoData">
+		<source src="/videos/planDesquisse.mp4" type="video/mp4">
+	</video>
+	<div class="winkVideoOverlayClass"></div>
+		<div class="winkVideoControlBarClass">
+			<button class="winkVideoControlBarPlayButtonClass"></button>
+			<button class="winkVideoControlBarPauseButtonClass"></button>
+			<div class="winkVideoControlBarProgressLeftClass"></div>
+			<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+			<div class="winkVideoControlBarProgressRightClass"></div>
+			<div class="winkVideoControlBarProgressFilledMiddleClass"></div>
+			<div class="winkVideoControlBarProgressThumbClass"></div>
+		</div>
+		<div class="winkVideoPlayOverlayClass"></div>
+</div>
+-->
+<p><a href=<?=PEUNC\PAGE::URLprecedente()?>>Retour page précédente</a></p>
 </section>
 
 <aside></aside>
