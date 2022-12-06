@@ -3,6 +3,7 @@
 <head>
 <?php	include PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
 
+  <link rel="stylesheet" type="text/css" href="/CSS/winkPlayer.css" />
   <script type="text/javascript" src="/js/winkPlayer.js">	</script>
   <script type="text/javascript" src="/js/planDesquisse.js"></script>
 
@@ -21,8 +22,6 @@
 <section>
 <?=$PAGE->getTitreAnimation()?>
 
-<p>Animation &agrave; venir.</p>
-<!-- code pour afficher l'animation
 <div class="winkVideoContainerClass">
 	<video class="winkVideoClass" data-varname="winkVideoData">
 		<source src="/videos/planDesquisse.mp4" type="video/mp4">
@@ -39,7 +38,7 @@
 		</div>
 		<div class="winkVideoPlayOverlayClass"></div>
 </div>
--->
+
 <p><a href=<?=PEUNC\PAGE::URLprecedente()?>>Retour page précédente</a></p>
 </section>
 
