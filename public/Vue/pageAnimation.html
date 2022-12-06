@@ -21,6 +21,8 @@
 <section>
 <?=$PAGE->getTitreAnimation()?>
 
+<?php if($PAGE->Probleme()) echo"<p>Vid&eacute;o absente</p>\n<!--";?>
+
 <div class="winkVideoContainerClass">
 	<video class="winkVideoClass" data-varname="winkVideoData">
 		<source src="/videos/<?=$PAGE->getVideoMP4()?>.mp4" type="video/mp4">
@@ -37,6 +39,7 @@
 		</div>
 		<div class="winkVideoPlayOverlayClass"></div>
 </div>
+<?php if($PAGE->Probleme()) echo"-->"; ?>
 
 <p><a href=<?=PEUNC\PAGE::URLprecedente()?>>Retour page précédente</a></p>
 </section>
