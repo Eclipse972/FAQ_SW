@@ -3,9 +3,8 @@
 <head>
 <?php	include PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
 
-  <link rel="stylesheet" type="text/css" href="/CSS/winkPlayer.css" />
   <script type="text/javascript" src="/js/winkPlayer.js">	</script>
-  <script type="text/javascript" src="/js/planDesquisse.js"></script>
+  <script type="text/javascript" src="/js/<?=$PAGE->getScriptJS()?>.js"></script>
 
 </head>
 
@@ -24,7 +23,7 @@
 
 <div class="winkVideoContainerClass">
 	<video class="winkVideoClass" data-varname="winkVideoData">
-		<source src="/videos/planDesquisse.mp4" type="video/mp4">
+		<source src="/videos/<?=$PAGE->getVideoMP4()?>.mp4" type="video/mp4">
 	</video>
 	<div class="winkVideoOverlayClass"></div>
 		<div class="winkVideoControlBarClass">
