@@ -25,4 +25,8 @@ class PageAnimation extends PageArticle
 	public function getScriptJS()	{ return $this->scriptJS; }
 
 	public function getVideoMP4()	{ return $this->videoMP4; }
+
+	// Autre
+	public function Probleme()	{ return !file_exists("js/{$this->scriptJS}.js") || !file_exists("videos/{$this->videoMP4}.mp4"); }
+
 }
