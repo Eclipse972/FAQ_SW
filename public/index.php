@@ -6,7 +6,7 @@ spl_autoload_register(function($classe)
 		if (substr($classe, 0, 5) == "PEUNC")
 		{	// PEUNC
 			$classe = substr($classe, 6, 99);
-			$prefixe = "PEUNC/classes/";
+			$prefixe = "PEUNC/";
 		}
 		else $prefixe =  "Modele/classe_"; // utilisateur
 
