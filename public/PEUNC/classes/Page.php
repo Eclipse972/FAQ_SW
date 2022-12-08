@@ -156,7 +156,7 @@ class Page implements iPage	{
 
 	public static function URLprecedente()	{ return $_SESSION["PEUNC"]["URLprecedente"]; }
 	
- 	public static function CodeOnglets(HttpRoute $route, $alphaMini = Page::ALPHA_MINI, $alphaMaxi = Page::ALPHA_MAXI)
+ 	public static function CodeOnglets($alphaCourant, $alphaMini = Page::ALPHA_MINI, $alphaMaxi = Page::ALPHA_MAXI)
  	{
 		$T_Onglets = BDD::Liste_niveau();
 		if(!is_array($T_Onglets)) throw new Exception("Onglets inexistants!  Il faut au moins 2 items");
@@ -165,7 +165,7 @@ class Page implements iPage	{
 		foreach($T_Onglets as $alpha => $code)
 		{
 			if (($alpha >= $alphaMini) && ($alpha <= $alphaMaxi))
-				$codeOnglet .= "\t<li>" . (($alpha == $route->getAlpha()) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
+				$codeOnglet .= "\t<li>" . (($alpha == $alphaCourant) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
 		}
 		return $codeOnglet . "\t</ul>\n";
 	}
