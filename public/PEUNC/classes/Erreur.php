@@ -21,12 +21,14 @@ class Erreur extends Page {
 	protected $tire;
 	protected $corps;
 
-	public function __construct(HttpRoute $route = null) {
+	public function __construct(HttpRoute $route = null)
+	{
 		parent::__construct($route);
 		$this->code = null;
 		$this->titre = "";
 		$this->corps = "";
 	}
+
 	// setters
 	public function setCodeErreur($code)	{ $this->code = $code; }
 
