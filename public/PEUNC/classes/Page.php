@@ -137,7 +137,7 @@ class Page implements iPage	{
 		{
 			//		chemin absolu?				suppression de / au début		ajout dossier image
 			$src = (substr($src,0,1) == '/') ? substr($src,1,strlen($src)) : self::DOSSIER_IMAGE . $src;
-			$src = (file_exists($src)) ? '/' . $src : "/PEUNC/images/image_absente.png";
+			$src = (file_exists($src)) ? '/' . $src : "/images/image_absente.png";
 		}
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
