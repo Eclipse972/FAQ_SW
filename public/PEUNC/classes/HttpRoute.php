@@ -37,7 +37,6 @@ class HttpRoute
 			case 403:	// accès interdit
 			case 405:	// méthode http non permise
 			case 500:	// erreur serveur
-				$this->alpha = $this->beta = $this->gamma = null; // pas de route
 				throw new ServeurException($_SERVER['REDIRECT_STATUS']);
 				break;
 			case 200:	// le script est lancé sans redirection
