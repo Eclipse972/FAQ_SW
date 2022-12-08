@@ -42,4 +42,14 @@ class Erreur extends Page {
 	public function getTitreErreur()	{ return $this->titre; }
 
 	public function getCorpsErreur()	{ return $this->corps; }
+
+	// Autre
+	public function NoeudArborescence()
+	{
+		if (isset($this->route))
+			$code = "<p>Noeud : " . $this->route->getAlpha() . " - " . $this->route->getBeta() . " - " . $this->route->getGamma()
+					. " m&eacute;thode http:" . $this->route->getMethode() . "</p>\n";
+		else $code ="";	// pas de route http pour les erreurs serveurs
+		return $code;
+	}
 }

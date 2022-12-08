@@ -12,7 +12,7 @@
 <div id="titre">
 <?php
 	echo $PAGE->getHeaderText();
-	echo PEUNC\Page::CodeOnglets($PAGE->getRoute());
+	echo PEUNC\Page::CodeOnglets(-1);// pour ne sélectionner aucun onglet
 ?>
 </div>
 </header>
@@ -24,6 +24,7 @@
 <section>
 	<h1>Erreur<?=$PAGE->getCodeErreur()?>: <?=$PAGE->getTitreErreur()?></h1>
 	<?=$PAGE->getCorpsErreur()?>
+	<?=$PAGE->NoeudArborescence()?>
 	<p>S&eacute;lectionnez un des onglets en haut de cette page.</p>
 	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="faq.sw@free.fr">cliquant ici</a>.</p>
 </section>
