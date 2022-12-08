@@ -1,7 +1,9 @@
 <?php
-class Page extends PEUNC\Page {
+class Page extends PEUNC\Page
+{
 
-	public function __construct(PEUNC\HttpRoute $route = null, array $TparamURL = []) {
+	public function __construct(PEUNC\HttpRoute $route = null, array $TparamURL = [])
+	{
 		parent::__construct($route, $TparamURL);
 		// valeurs par défaut
 		$this->setTitle("La Foire Aux Questions sur SolidWorks de ChristopHe");
