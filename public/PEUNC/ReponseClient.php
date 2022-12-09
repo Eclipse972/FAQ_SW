@@ -24,7 +24,7 @@ class ReponseClient
 
 		$this->page = $PAGE;
 		/* Remarque: dans le cas d'un traitement de formulaire, la redirection devrait provoquer
-		 * une nouveele requête qui générera une nouvelle réponse. A VÉRIFIER */
+		 * une nouvelle requête qui générera une nouvelle réponse. A VÉRIFIER */
 	}
 
 	public function getPage()	{ return $this->page; }
