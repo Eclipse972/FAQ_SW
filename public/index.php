@@ -22,7 +22,6 @@ try
 
 	$reponse = new PEUNC\ReponseClient($route);	// construction de la réponse en fonction de la route trouvée
 	$PAGE = $reponse->getPage();
-	include $PAGE->getView();
 }
 catch(PEUNC\ServeurException $e)
 {
@@ -32,7 +31,6 @@ catch(PEUNC\ServeurException $e)
 	$PAGE->setSection("<h1>" . $e->getMessage() . " - code: " . $e->getCode() . "</h1>\n");
 	$PAGE->setFooter(" - <a href=/Contact>Me contacter</a>");
 	$PAGE->setView("erreur.html");
-	include $PAGE->getView();
 }
 catch(PDOException $e)
 {
@@ -41,7 +39,6 @@ catch(PDOException $e)
 	$PAGE->setHeaderText("<p>Erreur de base de donn&eacute;es</p>");
 	$PAGE->setSection("<h1>" . $e->getMessage() . "</h1>\n");
 	$PAGE->setView("erreur.html");
-	include $PAGE->getView();
 }
 catch(PEUNC\Exception $e)
 {
@@ -50,7 +47,6 @@ catch(PEUNC\Exception $e)
 	$PAGE->setHeaderText("<p>Erreur de l&apos;application</p>");
 	$PAGE->setSection("<h1>" . $e->getMessage() . "</h1>\n");
 	$PAGE->setView("erreur.html");
-	include $PAGE->getView();
 }
 catch(Exception $e)
 {
@@ -59,5 +55,6 @@ catch(Exception $e)
 	$PAGE->setHeaderText("<p>Erreur inconnue</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n");
 	$PAGE->setView("erreur.html");
-	include $PAGE->getView();
 }
+
+include $PAGE->getView(); // affichage de la vue (réponse client ou page d'erreur)
