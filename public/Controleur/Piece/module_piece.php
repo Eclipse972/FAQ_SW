@@ -10,5 +10,4 @@ ob_start();	// début du code <section>
 	<li>manipulation de ces pi&egrave;ces (zoom, rotation, coupe, ...)</li>
 	</ul>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

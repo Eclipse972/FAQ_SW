@@ -5,6 +5,5 @@ ob_start();
 <p>Dans le menu donne la liste des animations disponibles.</p>
 <p>Les onglets restent disponibles</p>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());
 $this->setView("doctype.html");

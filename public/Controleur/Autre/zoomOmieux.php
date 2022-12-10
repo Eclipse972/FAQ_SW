@@ -8,5 +8,4 @@ ob_start();	// début du code <section>
 	<p>On clique sur «zoom au mieux» la premi&egrave;re ic&ocirc;ne de la barre d&apos;outils pour afficher la pelleteuse en entier. On obtient</p>
 	<?=PEUNC\Page::BaliseImage("Autre/apres.png")?>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

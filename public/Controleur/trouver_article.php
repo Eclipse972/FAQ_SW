@@ -14,5 +14,4 @@ ob_start();	// début du code <section>
 	</ul>
 	<p>Les autres navigateurs doivent fonctionner de mani&egrave;re similaire.</p>
 <?php
-$this->scriptSection = ob_get_contents();
-ob_end_clean();
+$this->setSection(ob_get_clean());

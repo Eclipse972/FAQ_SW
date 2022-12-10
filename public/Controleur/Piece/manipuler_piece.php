@@ -9,5 +9,4 @@ ob_start();	// début du code <section>
 		<li>Changer la transparence et/ou la couleur d&apos;une pi&egrave;ce</li>
 	</ul>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

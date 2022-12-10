@@ -13,5 +13,4 @@ ob_start();	// début du code <section>
 	<li>ins&eacute;rer la vue nomm&eacute;e <b>En cours</b> dans la mise en plan</li>
 	</ul>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

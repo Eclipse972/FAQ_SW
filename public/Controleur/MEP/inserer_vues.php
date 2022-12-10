@@ -13,5 +13,4 @@ ob_start();	// début du code <section>
 	</ul>
 	<?=PEUNC\Page::BaliseImage("MEP/dessin.png",'dessin','width=800px')?>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

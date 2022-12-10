@@ -8,5 +8,4 @@ ob_start();	// début du code <section>
 	<p>Elle contient des cotes lin&eacute;aires et angulaires. Elle peut aussi contenir des contraintes g&eacute;om&eacute;triques non visibles sur l&apos;image.</p>
 	<p>Elle permet de cr&eacute;er des volumes par extrusion, r&eacute;volution, balayage, ...</p>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

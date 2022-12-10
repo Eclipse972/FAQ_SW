@@ -13,5 +13,4 @@ ob_start();	// début du code <section>
 	</ol>
 	<?=PEUNC\Page::BaliseImage("Autre/siege.png", "siège", 'style="width:500px"')?>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

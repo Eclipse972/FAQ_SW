@@ -13,5 +13,4 @@ ob_start();	// début du code <section>
 	<li>enregistrer le fichier dans votre répertoire</li>
 	</ul>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());
