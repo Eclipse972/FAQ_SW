@@ -10,17 +10,40 @@ class ReponseClient
 
 	public function __construct(HttpRoute $route)
 	{
-		$classePage = BDD::SELECT("classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-								[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
-		if (!isset($classePage))
-			throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
+		/* pour le moment toutes les pages peuvent être mise en cache.
+		 * Or ce pas possible pour les pages posesdant des paramètres car on ne peut les connaitre
+		 * tousà l'avance.
+		 * La liste des paramètres de chaque page est diponible dans la table squellette
+		 * Une age peut est 'cachée' si la méthode http =GET  et pas de paramètre */
 
-		// pré-traitement
-		$Tparam = self::PrepareParametres($route);
-					
-		// création de la page
-		$PAGE = new $classePage($route, $Tparam);
-		$PAGE->ExecuteControleur($route);
+		$cache = new Cache($route);
+		
+		if(false)//($cache->getCacheActif())
+		{	// on charge le cache
+			$fichier = file_get_contents($cache->getCache());
+			$PAGE = new PAGE($route);
+			$PAGE->setView($cache->getCache(), false);
+		} else
+		{	// on crée crée l'objet page normalement		
+			$classePage = BDD::SELECT("classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
+									[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
+			if (!isset($classePage))
+				throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
+
+			// pré-traitement
+			$Tparam = self::PrepareParametres($route);
+						
+			// création de la page
+			$PAGE = new $classePage($route, $Tparam);
+			$PAGE->ExecuteControleur($route);
+
+			// création du cache
+			ob_start();
+			include $PAGE->getView();
+			$contenu = ob_get_clean();
+			$contenu = str_replace("<body>", "<!-- cache créé le " .  date("d-m-Y") . " à " . date("H:i:s") ." -->\n<body>", $contenu);
+			file_put_contents($cache->getCache(), $contenu);
+		}
 
 		$this->page = $PAGE;
 		/* Remarque: dans le cas d'un traitement de formulaire, la redirection devrait provoquer
