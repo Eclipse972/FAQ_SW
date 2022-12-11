@@ -66,10 +66,11 @@ class Page implements iPage	{
 
 	public function setFooter($code)		{ $this->PiedDePage = $code; }
 
-	public function setView($fichier)
+	public function setView($fichier, $cheminParDefaut = true)
 	{
-		if (file_exists(self::DOSSIER_VUE . $fichier))
-			$this->vue = self::DOSSIER_VUE . $fichier;
+		$fichier =  $cheminParDefaut ? self::DOSSIER_VUE . $fichier : $fichier;
+		if (file_exists($fichier))
+			$this->vue = $fichier;
 		else throw new Exception("Vue inexistante");
 	}
 

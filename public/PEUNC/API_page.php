@@ -20,14 +20,14 @@ interface iPage
 	public function getRoute();		// renvoie la route http. Remarque pas de setter car variable intialisée dans le constructeur
 
 // Assesseurs (setters)
-	public function setCSS($feuilleCSS);	// ajoute une feuille CSS associée à la page. Répétables plusieurs fois
-	public function setTitle($titre);		// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
-	public function setHeaderText($texte);	// en-tête de la page
-	public function setSection($code);		// affiche le code du corps de la page
-	public function setNav($code);			// affiche le code de la barre de navigation avec <nav> car cette balise est optionnelle
-	public function setFooter($code);		// pied de page
-	public function setView($fichier);		// définit le chemin de la vue
-	public function setDossier($dossier);	// défini le dossier associé à la page
+	public function setCSS($feuilleCSS);				// ajoute une feuille CSS associée à la page. Répétables plusieurs fois
+	public function setTitle($titre);					// affiche le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page)
+	public function setHeaderText($texte);				// en-tête de la page
+	public function setSection($code);					// affiche le code du corps de la page
+	public function setNav($code);						// affiche le code de la barre de navigation avec <nav> car cette balise est optionnelle
+	public function setFooter($code);					// pied de page
+	public function setView($fichier, $cheminParDefaut);// définit le chemin de la vue
+	public function setDossier($dossier);				// défini le dossier associé à la page
 
 // méthodes statiques
 	public static function BaliseImage($src, $alt, $code);	// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
