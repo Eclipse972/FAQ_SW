@@ -4,8 +4,9 @@ namespace PEUNC;
 class HttpRoute
 /*
  * Cette classe décode une requête http et renvoie :
- * 		- la position dans l'arborescence même s'il s'agit d'une erreur serveur
- *		- la méthode Http utilisée
+ * 	- la position dans l'arborescence même s'il s'agit d'une erreur serveur
+ *	- la méthode Http utilisée
+ * 	- l'URL en clair
  *
  * La position dans l'arborescence. Elle est représentée par un triplet (alpha, beta, gamma) par importance décroissante
  * Si alpha >= 0 => pages du site
@@ -62,7 +63,7 @@ class HttpRoute
 	 * À partir d'une URL, Cette fonction renvoie la position dans l'arborescence du  site.
 	 *
 	 * Résultat: le triplet (alpha, beta, gamma) sous la forme d'un tableau
-	 * */
+	 */
 	{
 		list($URL, $reste) = explode("?", $_SERVER['REQUEST_URI'], 2);
 
