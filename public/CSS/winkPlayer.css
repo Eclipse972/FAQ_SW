@@ -4,8 +4,8 @@
 .winkVideoOverlayClass,
 .winkVideoOverlayButtonClass,
 .winkVideoPlayOverlayClass,
-.winkVideo/images/winkClass,
-.winkVideo/images/winkClass * { position: absolute; }
+.winkVideoClass,
+.winkVideoClass * { position: absolute; }
 
 .winkVideoPlayOverlayClass
 {
@@ -17,7 +17,7 @@
 
 .winkVideoOverlayButtonClass	{ cursor: pointer; }
 
-.winkVideo/images/winkClass *
+.winkVideoClass *
 {
 	border: 0px;
 	padding: 0px;
