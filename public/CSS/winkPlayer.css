@@ -25,14 +25,35 @@
 	background-repeat: repeat-x;
 }
 
-.winkVideo/images/winkPlayButtonClass			{ background-image: url('/images/wink/playnormal.png'); }
-.winkVideo/images/winkPlayButtonClass:hover		{ background-image: url('/images/wink/playmouseover.png'); }
-.winkVideo/images/winkPlayButtonClass:active	{ background-image: url('/images/wink/playpressed.png'); }
-.winkVideo/images/winkPauseButtonClass			{ background-image: url('/images/wink/pausenormal.png'); }
-.winkVideo/images/winkPauseButtonClass:hover	{ background-image: url('/images/wink/pausemouseover.png'); }
-.winkVideo/images/winkPauseButtonClass:active	{ background-image: url('/images/wink/pausepressed.png'); }
-.winkVideo/images/winkProgressLeftClass			{ background-image: url('/images/wink/progressleft.png'); }
-.winkVideo/images/winkProgressRightClass		{ background-image: url('/images/wink/progressright.png'); }
-.winkVideo/images/winkProgressEmptyMiddleClass	{ background-image: url('/images/wink/progressemptymiddle.png'); }
-.winkVideo/images/winkProgressFilledMiddleClass	{ background-image: url('/images/wink/progressfilledmiddle.png'); }
-.winkVideo/images/winkProgressThumbClass		{ background-image: url('/images/wink/progressthumb.png'); }
+.winkVideo/images/winkPlayButtonClass
+	{ background-image: url('/images/wink/playnormal.png'); }
+
+.winkVideo/images/winkPlayButtonClass:hover
+	{ background-image: url('/images/wink/playmouseover.png'); }
+
+.winkVideo/images/winkPlayButtonClass:active
+	{ background-image: url('/images/wink/playpressed.png'); }
+
+.winkVideo/images/winkPauseButtonClass
+	{ background-image: url('/images/wink/pausenormal.png'); }
+
+.winkVideo/images/winkPauseButtonClass:hover
+	{ background-image: url('/images/wink/pausemouseover.png'); }
+
+.winkVideo/images/winkPauseButtonClass:active
+	{ background-image: url('/images/wink/pausepressed.png'); }
+
+.winkVideo/images/winkProgressLeftClass
+	{ background-image: url('/images/wink/progressleft.png'); }
+
+.winkVideo/images/winkProgressRightClass
+	{ background-image: url('/images/wink/progressright.png'); }
+
+.winkVideo/images/winkProgressEmptyMiddleClass
+	{ background-image: url('/images/wink/progressemptymiddle.png'); }
+
+.winkVideo/images/winkProgressFilledMiddleClass
+	{ background-image: url('/images/wink/progressfilledmiddle.png'); }
+
+.winkVideo/images/winkProgressThumbClass
+	{ background-image: url('/images/wink/progressthumb.png'); }
