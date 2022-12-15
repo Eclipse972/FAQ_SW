@@ -25,35 +25,35 @@
 	background-repeat: repeat-x;
 }
 
-.winkVideo/images/winkPlayButtonClass
+.winkVideoPlayButtonClass
 	{ background-image: url('/images/wink/playnormal.png'); }
 
-.winkVideo/images/winkPlayButtonClass:hover
+.winkVideoPlayButtonClass:hover
 	{ background-image: url('/images/wink/playmouseover.png'); }
 
-.winkVideo/images/winkPlayButtonClass:active
+.winkVideoPlayButtonClass:active
 	{ background-image: url('/images/wink/playpressed.png'); }
 
-.winkVideo/images/winkPauseButtonClass
+.winkVideoPauseButtonClass
 	{ background-image: url('/images/wink/pausenormal.png'); }
 
-.winkVideo/images/winkPauseButtonClass:hover
+.winkVideoPauseButtonClass:hover
 	{ background-image: url('/images/wink/pausemouseover.png'); }
 
-.winkVideo/images/winkPauseButtonClass:active
+.winkVideoPauseButtonClass:active
 	{ background-image: url('/images/wink/pausepressed.png'); }
 
-.winkVideo/images/winkProgressLeftClass
+.winkVideoProgressLeftClass
 	{ background-image: url('/images/wink/progressleft.png'); }
 
-.winkVideo/images/winkProgressRightClass
+.winkVideoProgressRightClass
 	{ background-image: url('/images/wink/progressright.png'); }
 
-.winkVideo/images/winkProgressEmptyMiddleClass
+.winkVideoProgressEmptyMiddleClass
 	{ background-image: url('/images/wink/progressemptymiddle.png'); }
 
-.winkVideo/images/winkProgressFilledMiddleClass
+.winkVideoProgressFilledMiddleClass
 	{ background-image: url('/images/wink/progressfilledmiddle.png'); }
 
-.winkVideo/images/winkProgressThumbClass
+.winkVideoProgressThumbClass
 	{ background-image: url('/images/wink/progressthumb.png'); }
