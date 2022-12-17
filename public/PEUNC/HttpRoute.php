@@ -27,6 +27,9 @@ class HttpRoute
 	private $gamma;
 	private $methode;	// méthode Http
 	private $URL = "";
+
+	// autres infos sur la route
+	private $classePage;
 	
 	// pour le futur
 	private $IP;
@@ -42,10 +45,10 @@ class HttpRoute
 				throw new ServeurException($_SERVER['REDIRECT_STATUS']);
 				break;
 			case 200:	// le script est lancé sans redirection
-				list($this->alpha, $this->beta, $this->gamma, $this->URL) = self::SansRedirection();
+				list($this->alpha, $this->beta, $this->gamma, $this->URL, $this->classePage) = self::SansRedirection();
 				break;
 			case 404:
-				list($this->alpha, $this->beta, $this->gamma, $this->URL) = self::Redirection404();
+				list($this->alpha, $this->beta, $this->gamma, $this->URL, $this->classePage) = self::Redirection404();
 				break;
 			default:
 				throw new Exception("erreur inconnue");
@@ -72,7 +75,13 @@ class HttpRoute
 		if (isset($Treponse["niveau1"]))	// l'URL existe?
 		{	// la page existe
 			header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
-			return [$Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"], $URL];
+			list($alpha, $beta, $gamma) = [$Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"]];
+			$Treponse = BDD::SELECT("classePage, controleur, paramAutorise FROM Squelette WHERE alpha=? AND beta=? AND gamma=? AND methode=?",
+										[$alpha, $beta, $gamma, $_SERVER['REQUEST_METHOD']]);
+
+			$classePage = $Treponse["classePage"];
+			
+			return [$alpha, $beta, $gamma, $URL, $classePage];
 		}
 		elseif (BDD::SELECT("count(*) FROM Vue_Routes WHERE URL = ?", [$URL]) > 0)	// au moins un noeud pour cet URL
 			throw new ServeurException(405);
@@ -89,7 +98,9 @@ class HttpRoute
 		switch($_SERVER['REQUEST_METHOD'])
 		{
 			case"GET":
-				return [0, 0, 0, "/"];	// un appel ordinaire vers la page d'accueil
+				$Treponse = BDD::SELECT("classePage, controleur, paramAutorise FROM Squelette WHERE alpha=0 AND beta=0 AND gamma=0 AND methode='GET'",[]);
+				$classePage = $Treponse["classePage"];
+				return [0, 0, 0, "/", $classePage];	// un appel ordinaire vers la page d'accueil
 				break;
 			case"POST":	// le jeton CSRF contient des infos sur le formuaire notemment sa position dans l'arborescence
 				if (!isset($_POST["CSRF"]))	// si le fomulaire ne contient pas de jeton CSRF
@@ -109,9 +120,10 @@ class HttpRoute
 
 //	Accesseurs ===================================================================================
 
-	public function getAlpha()	{ return $this->alpha; }
-	public function getBeta()	{ return $this->beta; }
-	public function getGamma()	{ return $this->gamma; }
-	public function getMethode(){ return $this->methode; }
-	public function getURL()	{ return $this->URL; }
+	public function getAlpha()		{ return $this->alpha; }
+	public function getBeta()		{ return $this->beta; }
+	public function getGamma()		{ return $this->gamma; }
+	public function getMethode()	{ return $this->methode; }
+	public function getURL()		{ return $this->URL; }
+	public function getClassePage()	{ return $this->classePage; }
 }
