@@ -78,10 +78,8 @@ class HttpRoute
 			list($alpha, $beta, $gamma) = [$Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"]];
 			$Treponse = BDD::SELECT("classePage, controleur, paramAutorise FROM Squelette WHERE alpha=? AND beta=? AND gamma=? AND methode=?",
 										[$alpha, $beta, $gamma, $_SERVER['REQUEST_METHOD']]);
-
-			$classePage = $Treponse["classePage"];
 			
-			return [$alpha, $beta, $gamma, $URL, $classePage];
+			return [$alpha, $beta, $gamma, $URL, $Treponse["classePage"]];
 		}
 		elseif (BDD::SELECT("count(*) FROM Vue_Routes WHERE URL = ?", [$URL]) > 0)	// au moins un noeud pour cet URL
 			throw new ServeurException(405);
@@ -99,8 +97,7 @@ class HttpRoute
 		{
 			case"GET":
 				$Treponse = BDD::SELECT("classePage, controleur, paramAutorise FROM Squelette WHERE alpha=0 AND beta=0 AND gamma=0 AND methode='GET'",[]);
-				$classePage = $Treponse["classePage"];
-				return [0, 0, 0, "/", $classePage];	// un appel ordinaire vers la page d'accueil
+				return [0, 0, 0, "/", $Treponse["classePage"]];	// un appel ordinaire vers la page d'accueil
 				break;
 			case"POST":	// le jeton CSRF contient des infos sur le formuaire notemment sa position dans l'arborescence
 				if (!isset($_POST["CSRF"]))	// si le fomulaire ne contient pas de jeton CSRF
