@@ -28,21 +28,22 @@ class ReponseClient
 	public function AvecCache()
 	{
 		$fichierCache = self::DOSSIER_CACHE . "cache" . str_replace('/','-',$this->route->getURL()) . '.html';
-		If(file_exists($fichierCache) && filemtime($fichierCache) + self::DUREE_VIE > $time())
+		If(file_exists($fichierCache) && filemtime($fichierCache) + self::DUREE_VIE > time())
 		{	// le cache existe et n'est pas périmé
-			$page = new PAGE($route);
-			$page->setView($fichierCache, false);
+			$PAGE = new PAGE($route);
+			$PAGE->setView($fichierCache, false);
 		} else
 		{	// il faut créer le cache
-			$page = $this->SansCache();
+			$PAGE = $this->SansCache();
+
 			// création du cache
 			ob_start();
-			include $page->getView();
+			include $PAGE->getView();	// la vue fait appel à une variable $PAGE pour fonctionner
 			$contenu = ob_get_clean();
 			$contenu = str_replace("<body>", "<!-- cache créé le " .  date("d-m-Y") . " à " . date("H:i:s") ." -->\n<body>", $contenu);
 			file_put_contents($fichierCache, $contenu);
 		}
-		return $page;
+		return $PAGE;
 	}
 
 	public function SansCache()
