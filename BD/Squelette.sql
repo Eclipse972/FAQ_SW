@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Dim 04 Décembre 2022 à 05:15
+-- Généré le : Sam 17 Décembre 2022 à 22:11
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -60,8 +60,8 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (13, 0, 2, 0, 'Retrouver un article', '', 'rechercher', 'PageArticle', 'trouver_article.php', 'GET', '[]'),
 (14, 1, 1, 0, 'Esquisse 2D', 'esquisse.png', 'esquisse', 'PageArticle', 'Piece/esquisse.php', 'GET', '[]'),
 (15, 1, 2, 0, 'Les fonctions', '', 'fonctions', 'PageArticle', 'Piece/Les_fonctions.php', 'GET', '[]'),
-(16, 1, 3, 0, 'Manipuler la pi&egrave;ce', '', 'manipuler_piece', 'PageArticle', 'Piece/manipuler_piece.php', 'GET', '[]'),
-(17, 1, 4, 0, 'Arbre de cr&eacute;ation', '', 'arbre', 'PageArticle', 'Piece/arbre_piece.php', 'GET', '[]'),
+(16, 1, 4, 0, 'Manipuler la pi&egrave;ce', '', 'manipuler_piece', 'PageArticle', 'Piece/manipuler_piece.php', 'GET', '[]'),
+(17, 1, 5, 0, 'Arbre de cr&eacute;ation', '', 'arbre', 'PageArticle', 'Piece/arbre_piece.php', 'GET', '[]'),
 (18, 2, 1, 0, 'Les fonds de plan', '', 'fond2plan', 'PageArticle', 'MEP/fond2plan.php', 'GET', '[]'),
 (19, 2, 2, 0, 'Ins&eacute;rer des vues', '3vues.png', 'vues', 'PageArticle', 'MEP/inserer_vues.php', 'GET', '[]'),
 (20, 2, 3, 0, 'Ajouter la cotation', '', 'cotation', 'PageArticle', 'MEP/coter.php', 'GET', '[]'),
@@ -99,19 +99,19 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (53, 1, 1, 4, 'contrainte d&apos;esquisse', '', 'contrainteDesquisse', 'PageArticle', 'Piece/contrainteDesquisse.php', 'GET', '[]'),
 (54, 1, 1, 5, 'ligne de construction', 'ligne2construction.png', 'ligne2construction', 'PageArticle', 'Piece/ligne2construction.php', 'GET', '[]'),
 (55, 1, 1, 6, 'code couleur', '', 'code_couleur', 'PageArticle', 'Piece/code_couleur.php', 'GET', '[]'),
-(56, 1, 3, 1, 'tourner et d&eacute;placer', '', 'tourner_deplacer', 'PageArticle', 'Piece/tourner_deplacer.php', 'GET', '[]'),
-(57, 1, 3, 2, 'couper une pi&egrave;ce', 'couper_piece.png', 'couper_piece', 'PageArticle', 'Piece/couper.php', 'GET', '[]'),
-(58, 1, 3, 3, 'transparence ou couleur', '', 'transparence_couleur', 'PageArticle', 'Piece/transparence_couleur.php', 'GET', '[]'),
-(59, 1, 4, 1, 'arbre -> ZG', '', 'arbre_ZG', 'PageArticle', 'Piece/liaison_arbre-piece.php', 'GET', '[]'),
-(60, 1, 4, 2, 'ZG -> arbre', '', 'ZG_arbre', 'PageArticle', 'Piece/liaison_piece-arbre.php', 'GET', '[]'),
-(61, 1, 5, 0, 'Volumes &eacute;l&eacute;mentaires', '', 'VE', 'PageArticle', 'Piece/volumes_elementaires.php', 'GET', '[]'),
-(62, 1, 5, 1, 'prisme droit', 'prisme.png', 'prisme', 'PageVE', 'Piece/VE/prisme.php', 'GET', '[]'),
-(63, 1, 5, 2, 'cylindre par extrusion', 'cylindre.png', 'cylindre_extrusion', 'PageVE', 'Piece/VE/cylindre.php', 'GET', '[]'),
-(64, 1, 5, 4, 'sph&egrave;re', 'sphere.png', 'sphere', 'PageVE', 'Piece/VE/sphere.php', 'GET', '[]'),
-(65, 1, 5, 5, 'tronc de c&ocirc;ne par r&eacute;volution', 'tronc2cone.png', 'tronc2cone_revolution', 'PageVE', 'Piece/VE/tronc2cone.php', 'GET', '[]'),
-(66, 1, 5, 7, 'tore', 'tore.png', 'tore', 'PageVE', 'Piece/VE/tore.php', 'GET', '[]'),
-(67, 1, 5, 3, 'cylindre par r&eacute;volution', 'cylindre.png', 'cylindre_revolution', 'PageVE', 'Piece/VE/cylindre2.php', 'GET', '[]'),
-(68, 1, 5, 6, 'tronc de c&ocirc;ne par extrusion', 'tronc2cone.png', 'tronc2cone_extrusion', 'PageVE', 'Piece/VE/tronc2cone2.php', 'GET', '[]'),
+(56, 1, 4, 1, 'tourner et d&eacute;placer', '', 'tourner_deplacer', 'PageArticle', 'Piece/tourner_deplacer.php', 'GET', '[]'),
+(57, 1, 4, 2, 'couper une pi&egrave;ce', 'couper_piece.png', 'couper_piece', 'PageArticle', 'Piece/couper.php', 'GET', '[]'),
+(58, 1, 4, 3, 'transparence ou couleur', '', 'transparence_couleur', 'PageArticle', 'Piece/transparence_couleur.php', 'GET', '[]'),
+(59, 1, 5, 1, 'arbre -> ZG', '', 'arbre_ZG', 'PageArticle', 'Piece/liaison_arbre-piece.php', 'GET', '[]'),
+(60, 1, 5, 2, 'ZG -> arbre', '', 'ZG_arbre', 'PageArticle', 'Piece/liaison_piece-arbre.php', 'GET', '[]'),
+(61, 1, 3, 0, 'Volumes &eacute;l&eacute;mentaires', '', 'VE', 'PageArticle', 'Piece/volumes_elementaires.php', 'GET', '[]'),
+(62, 1, 3, 1, 'prisme droit', 'prisme.png', 'prisme', 'PageVE', 'Piece/VE/prisme.php', 'GET', '[]'),
+(63, 1, 3, 2, 'cylindre par extrusion', 'cylindre.png', 'cylindre_extrusion', 'PageVE', 'Piece/VE/cylindre.php', 'GET', '[]'),
+(64, 1, 3, 4, 'sph&egrave;re', 'sphere.png', 'sphere', 'PageVE', 'Piece/VE/sphere.php', 'GET', '[]'),
+(65, 1, 3, 5, 'tronc de c&ocirc;ne par r&eacute;volution', 'tronc2cone.png', 'tronc2cone_revolution', 'PageVE', 'Piece/VE/tronc2cone.php', 'GET', '[]'),
+(66, 1, 3, 7, 'tore', 'tore.png', 'tore', 'PageVE', 'Piece/VE/tore.php', 'GET', '[]'),
+(67, 1, 3, 3, 'cylindre par r&eacute;volution', 'cylindre.png', 'cylindre_revolution', 'PageVE', 'Piece/VE/cylindre2.php', 'GET', '[]'),
+(68, 1, 3, 6, 'tronc de c&ocirc;ne par extrusion', 'tronc2cone.png', 'tronc2cone_extrusion', 'PageVE', 'Piece/VE/tronc2cone2.php', 'GET', '[]'),
 (69, 2, 7, 1, 'arbre -> ZG', '', 'arbre-ZG', 'PageArticle', 'MEP/liaison_arbre-MEP.php', 'GET', '[]'),
 (70, 2, 7, 2, 'ZG -> arbre', '', 'ZG-arbre', 'PageArticle', 'MEP/liaison_MEP-arbre.php', 'GET', '[]'),
 (71, 3, 2, 1, 'arbre -> ZG', '', 'arbre-ZG', 'PageArticle', 'Assemblage/liaison_arbre-assemblage.php', 'GET', '[]'),
