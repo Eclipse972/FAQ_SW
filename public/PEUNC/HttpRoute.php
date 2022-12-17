@@ -80,7 +80,6 @@ class HttpRoute
 										[$alpha, $beta, $gamma, $_SERVER['REQUEST_METHOD']]);
 
 			$classePage = $Treponse["classePage"];
-			if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 			
 			return [$alpha, $beta, $gamma, $URL, $classePage];
 		}
@@ -101,7 +100,6 @@ class HttpRoute
 			case"GET":
 				$Treponse = BDD::SELECT("classePage, controleur, paramAutorise FROM Squelette WHERE alpha=0 AND beta=0 AND gamma=0 AND methode='GET'",[]);
 				$classePage = $Treponse["classePage"];
-				if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 				return [0, 0, 0, "/", $classePage];	// un appel ordinaire vers la page d'accueil
 				break;
 			case"POST":	// le jeton CSRF contient des infos sur le formuaire notemment sa position dans l'arborescence
