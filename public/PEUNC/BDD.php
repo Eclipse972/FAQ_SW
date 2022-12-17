@@ -92,4 +92,19 @@ class BDD implements iBDD
 		}
 		return $Tableau;
 	}
+
+	public static function Route($URL,$methode)
+	{
+		// recherche alpha, beta et gamma
+		$Treponse = BDD::SELECT("niveau1, niveau2, niveau3 FROM Vue_Routes WHERE URL = ? and methodeHttp = ?", [$URL, $methode]);
+		list($alpha, $beta, $gamma) = [$Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"]];
+		if(isset($alpha))
+		{	// il existe une correspondance
+			$Treponse = BDD::SELECT("classePage, controleur, paramAutorise FROM Squelette
+								WHERE alpha=? AND beta=? AND gamma=? AND methode=?", [$alpha, $beta, $gamma, $methode]);
+			return [$alpha, $beta, $gamma, $URL, $methode, $Treponse["classePage"]
+					//, $Treponse["controleur"], $Treponse["paramAutorise"]
+					];
+		} else throw new ServeurException(404);
+	}
 }
