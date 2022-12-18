@@ -83,7 +83,7 @@ class ReponseClient
 		}
 
 		// récupère la liste des paramètres autorisés
-		$TparamAutorises = json_decode($this->route->getParametres(), true);
+		$TparamAutorises = json_decode($route->getParametres(), true);
 
 		$Treponse = [];
 		foreach ($TparamAutorises as $clé)
