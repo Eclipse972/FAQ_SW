@@ -83,10 +83,7 @@ class ReponseClient
 		}
 
 		// récupère la liste des paramètres autorisés
-		$reponseBD = BDD::SELECT("paramAutorise FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-								[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
-
-		$TparamAutorises = json_decode($reponseBD, true);
+		$TparamAutorises = json_decode($this->route->getParametres(), true);
 
 		$Treponse = [];
 		foreach ($TparamAutorises as $clé)

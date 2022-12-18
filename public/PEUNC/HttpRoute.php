@@ -31,6 +31,7 @@ class HttpRoute
 	// autres infos sur la route
 	private $classePage;
 	private $controleur;
+	private $parametres;
 	
 	// pour le futur
 	private $IP;
@@ -46,10 +47,10 @@ class HttpRoute
 				throw new ServeurException($_SERVER['REDIRECT_STATUS']);
 				break;
 			case 200:	// le script est lancé sans redirection
-				list($this->alpha, $this->beta, $this->gamma, $this->URL, $this->methode, $this->classePage, $this->controleur) = self::SansRedirection();
+				list($this->alpha, $this->beta, $this->gamma, $this->URL, $this->methode, $this->classePage, $this->controleur, $this->parametres) = self::SansRedirection();
 				break;
 			case 404:
-				list($this->alpha, $this->beta, $this->gamma, $this->URL, $this->methode, $this->classePage, $this->controleur) = self::Redirection404();
+				list($this->alpha, $this->beta, $this->gamma, $this->URL, $this->methode, $this->classePage, $this->controleur, $this->parametres) = self::Redirection404();
 				break;
 			default:
 				throw new Exception("erreur inconnue");
@@ -112,4 +113,5 @@ class HttpRoute
 	public function getURL()		{ return $this->URL; }
 	public function getClassePage()	{ return $this->classePage; }
 	public function getControleur()	{ return $this->controleur; }
+	public function getParametres()	{ return $this->parametres; }
 }
