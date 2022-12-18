@@ -116,10 +116,8 @@ class Page implements iPage	{
  * AUTRE
  * ***************************/
 
-	public function ExecuteControleur(HttpRoute $route)
+	public function ExecuteControleur($script)
 	{
-		$script = BDD::SELECT("controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-							[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
 		if($script == "")
 			throw new Exception("Controleur non d&eacute;fini");
 		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))	// script dans le dossier des controleurs

@@ -55,7 +55,7 @@ class ReponseClient
 		$classePage = $this->route->getClassePage();
 		if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 		$page = new $classePage($this->route, $Tparam);
-		$page->ExecuteControleur($this->route);
+		$page->ExecuteControleur($this->route->getControleur());
 		return $page;
 	}
 
