@@ -55,7 +55,7 @@ class ReponseClient
 		$classePage = $this->route->getClassePage();
 		if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 		$page = new $classePage($this->route, $Tparam);
-		$page->ExecuteControleur($this->route);
+		$page->ExecuteControleur($this->route->getControleur());
 		return $page;
 	}
 
@@ -83,10 +83,7 @@ class ReponseClient
 		}
 
 		// récupère la liste des paramètres autorisés
-		$reponseBD = BDD::SELECT("paramAutorise FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-								[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
-
-		$TparamAutorises = json_decode($reponseBD, true);
+		$TparamAutorises = json_decode($this->route->getParametres(), true);
 
 		$Treponse = [];
 		foreach ($TparamAutorises as $clé)
