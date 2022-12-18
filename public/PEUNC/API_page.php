@@ -37,5 +37,5 @@ interface iPage
 	public static function URLprecedente();					// URL de la page précédete sauf si cette page est spéciale (alpha < 0)
 
 // Autre
-	public function ExecuteControleur($script);	// execute le controleur associé à la route http
+	public function ExecuteControleur($script);	// execute le script du controleur
 }
