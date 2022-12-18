@@ -32,7 +32,7 @@ class BDD implements iBDD
 
 //	Implémentation de l'interface
 
-	public static function SELECT($requete, array $T_parametre)
+	public static function SELECT($requete, array $T_parametre = [])
 	{
 		$pdo = self::getInstance();
 		$requete = $pdo->prepare("SELECT " . $requete);
@@ -95,6 +95,8 @@ class BDD implements iBDD
 
 	public static function Route($URL,$methode)
 	{
+		if($URL="/") $URL = BDD::SELECT("URL FROM Vue_Routes WHEN alpha=0 AND beta=0 AND gamma=0 AND methode=?", [$methode]); // recherche de l'URL de la racine
+		
 		// recherche alpha, beta et gamma
 		$Treponse = BDD::SELECT("niveau1, niveau2, niveau3 FROM Vue_Routes WHERE URL = ? and methodeHttp = ?", [$URL, $methode]);
 		list($alpha, $beta, $gamma) = [$Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"]];
