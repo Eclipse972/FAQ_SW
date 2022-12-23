@@ -108,7 +108,7 @@ class HttpRoute
 	public function getMethode()	{ return $this->methode; }
 
 //	Autre ========================================================================================
-	public function getURL()
+	public function URL()
 	{
 		return BDD::SELECT("URL FROM Vue_Routes WHERE niveau1=? AND niveau2=? AND niveau3=? AND methodeHttp=?",
 							[$this->alpha, $this->beta, $this->gamma, $this->methode]);

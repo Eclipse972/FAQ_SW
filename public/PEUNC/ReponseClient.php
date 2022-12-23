@@ -26,7 +26,7 @@ class ReponseClient
 
 	public function AvecCache($duree2vie = 3600)
 	{
-		$fichierCache = self::DOSSIER_CACHE . "cache" . str_replace('/','-',$this->route->getURL()) . '.html';
+		$fichierCache = self::DOSSIER_CACHE . "cache" . str_replace('/','-',$this->route->URL()) . '.html';
 		If(file_exists($fichierCache) && filemtime($fichierCache) + $duree2vie > time())
 		{	// le cache existe et n'est pas périmé
 			$PAGE = new PAGE($route);
