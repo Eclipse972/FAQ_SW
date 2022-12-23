@@ -46,13 +46,11 @@ class ReponseClient
 	}
 
 	public function SansCache()
-	{
-		// pré-traitement
-		$Tparam = self::PrepareParametres($this->route);
-
-		// création de la page
+	{	// création de la page
 		$classePage = $this->route->getClassePage();
 		if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
+
+		$Tparam = self::PrepareParametres($this->route);
 		$page = new $classePage($this->route, $Tparam);
 		$page->ExecuteControleur($this->route->getControleur());
 		return $page;
