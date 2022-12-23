@@ -6,7 +6,6 @@ class ReponseClient
  * Classe nécesaire: HttpRoute chargée par l'autoloader
 */
 {	
-	const DUREE_VIE = 3600;	// 1 heure
 	const DOSSIER_CACHE = "cache/";
 
 	private $route;
@@ -25,10 +24,10 @@ class ReponseClient
 		 * une nouvelle requête qui générera une nouvelle réponse. A VÉRIFIER */
 	}
 
-	public function AvecCache()
+	public function AvecCache($duree2vie = 3600)
 	{
 		$fichierCache = self::DOSSIER_CACHE . "cache" . str_replace('/','-',$this->route->getURL()) . '.html';
-		If(file_exists($fichierCache) && filemtime($fichierCache) + self::DUREE_VIE > time())
+		If(file_exists($fichierCache) && filemtime($fichierCache) + $duree2vie > time())
 		{	// le cache existe et n'est pas périmé
 			$PAGE = new PAGE($route);
 			$PAGE->setView($fichierCache, false);
