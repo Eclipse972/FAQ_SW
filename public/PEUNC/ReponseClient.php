@@ -56,13 +56,13 @@ class ReponseClient
 		$paramAutorise = $Treponse["paramAutorise"];
 		
 		// création de la page
-		$Tparam = self::PrepareParametres($this->route);
+		$Tparam = self::PrepareParametres($this->route, $paramAutorise);
 		$page = new $classePage($this->route, $Tparam);
 		$page->ExecuteControleur($controleur);
 		return $page;
 	}
 
-	public static function PrepareParametres(HttpRoute $route)
+	public static function PrepareParametres(HttpRoute $route, $TparamAutorise)
 	/* Dans la table Squelette on récupère la liste des paramètres autorisés.
 	 * On construit un nouveau tableau qui ne contient que les clés autorisées et chaque valeur subit un nettoyage.
 	 * Par contre des paramètres manquant ne provoquent pas d'erreur.
@@ -86,7 +86,7 @@ class ReponseClient
 		}
 
 		// récupère la liste des paramètres autorisés
-		$TparamAutorises = json_decode($route->getParametres(), true);
+		$TparamAutorises = json_decode($TparamAutorise, true);
 
 		$Treponse = [];
 		foreach ($TparamAutorises as $clé)
