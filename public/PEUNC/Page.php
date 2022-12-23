@@ -144,7 +144,7 @@ class Page implements iPage	{
 
 	public static function SauvegardeEtat(HttpRoute $route)
 	{
-		$URLactuelle = BDD::SELECT("URL FROM Vue_URLvalides WHERE niveau1=? AND niveau2=? AND niveau3=?", [$route->getAlpha(), $route->getBeta(), $route->getGamma()]);
+		$URLactuelle = $route->URL();
 
 		if ($_SESSION["PEUNC"]["URL"] != $URLactuelle) // sauvagarde s'il n'y a pas rafraichiisemnt de page
 		{
