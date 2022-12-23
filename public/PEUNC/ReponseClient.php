@@ -46,13 +46,19 @@ class ReponseClient
 	}
 
 	public function SansCache()
-	{	// création de la page
-		$classePage = $this->route->getClassePage();
+	{	// trouver les infos pour construire la réponse
+		$Treponse = BDD::SELECT("classePage, controleur, paramAutorise FROM Squelette WHERE alpha=? AND beta=? AND gamma=? AND methode=?",
+								[$this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode()]);
+		$classePage = $Treponse["classePage"];
 		if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
-
+		
+		$controleur = $Treponse["controleur"];
+		$paramAutorise = $Treponse["paramAutorise"];
+		
+		// création de la page
 		$Tparam = self::PrepareParametres($this->route);
 		$page = new $classePage($this->route, $Tparam);
-		$page->ExecuteControleur($this->route->getControleur());
+		$page->ExecuteControleur($controleur);
 		return $page;
 	}
 
