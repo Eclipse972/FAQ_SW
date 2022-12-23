@@ -26,15 +26,6 @@ class HttpRoute
 	private $beta;
 	private $gamma;
 	private $methode;	// méthode Http
-	private $URL = "";
-
-	// autres infos sur la route
-	private $classePage;
-	private $controleur;
-	private $parametres;
-	
-	// pour le futur
-	private $IP;
 
 	public function __construct()
 	{
@@ -65,28 +56,33 @@ class HttpRoute
 	/* Ce script est appelé suite à une erreur 404. C'est cette redirection que j'exploite pour gérer ma pseudo-réécriture d'URL.
 	 * Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur.
 	 *
-	 * À partir d'une URL, Cette fonction renvoie la position dans l'arborescence du  site.
+	 * À partir d'une URL, Cette fonction renvoie la position dans l'arborescence du site.
 	 *
 	 * Résultat: le triplet (alpha, beta, gamma) sous la forme d'un tableau
 	 */
 	{
 		list($URL, $reste) = explode("?", $_SERVER['REQUEST_URI'], 2);
-
-		$T = BDD::Route($URL, $_SERVER['REQUEST_METHOD']);	// une exception est lancée si aucune route est trouvée
+		
+		// recherche alpha, beta et gamma
+		$Treponse = BDD::SELECT("niveau1, niveau2, niveau3 FROM Vue_Routes WHERE URL = ? and methodeHttp = ?",
+									[$URL, $_SERVER['REQUEST_METHOD']]);
+		if(!isset($Treponse["niveau1"]))
+			throw new ServeurException(404);
 		header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
-		return $T;
+		
+		return [$Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"], $_SERVER['REQUEST_METHOD']];
 	}
 
 	private static function SansRedirection()
 	/* Un appel direct de index.php.
 	 * La pseudo réécriture d'URL ne fonctionne pas avec le script action de formulaire.
 	 * J'ai choisi de repasser par index.php pour traiter tous les formulaires.
-	 * */
+	 */
 	{
 		switch($_SERVER['REQUEST_METHOD'])
 		{
 			case"GET":
-				return BDD::Route("/","GET");
+				return [0, 0, 0, "GET"];
 				break;
 			case"POST":	// le jeton CSRF contient des infos sur le formuaire notemment sa position dans l'arborescence
 				if (!isset($_POST["CSRF"]))	// si le fomulaire ne contient pas de jeton CSRF
@@ -110,8 +106,11 @@ class HttpRoute
 	public function getBeta()		{ return $this->beta; }
 	public function getGamma()		{ return $this->gamma; }
 	public function getMethode()	{ return $this->methode; }
-	public function getURL()		{ return $this->URL; }
-	public function getClassePage()	{ return $this->classePage; }
-	public function getControleur()	{ return $this->controleur; }
-	public function getParametres()	{ return $this->parametres; }
+
+//	Autre ========================================================================================
+	public function URL()
+	{
+		return BDD::SELECT("URL FROM Vue_Routes WHERE niveau1=? AND niveau2=? AND niveau3=? AND methodeHttp=?",
+							[$this->alpha, $this->beta, $this->gamma, $this->methode]);
+	}
 }
