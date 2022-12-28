@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: faq.sw.sql.free.fr
--- Généré le : Mer 28 Décembre 2022 à 00:51
+-- Généré le : Mer 28 Décembre 2022 à 17:26
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `dureeCache` int(11) NOT NULL default '0' COMMENT 'en heure',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=93 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=94 ;
 
 --
 -- Contenu de la table `Squelette`
@@ -132,7 +132,8 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (89, 6, 12, 0, 'Fonction pour le tronc de c&ocirc;ne par extrusion', '', 'FonctionConeExtrusion', 'PageAnimation', 'Piece/VE/fonctionConeExtrusion.php', 'GET', '[]', 2),
 (90, 6, 13, 0, 'Fonction pour la sph&egrave;re', '', 'fonctionSphere', 'PageAnimation', 'Piece/VE/fonctionSphere.php', 'GET', '[]', 2),
 (91, 6, 14, 0, 'Esquisse su tore', '', 'esquisseTore', 'PageAnimation', 'Piece/VE/esquisseTore.php', 'GET', '[]', 2),
-(92, 6, 15, 0, 'Mise en volume du tore', '', 'fonctionTore', 'PageAnimation', 'Piece/VE/fonctionTore.php', 'GET', '[]', 2);
+(92, 6, 15, 0, 'Mise en volume du tore', '', 'fonctionTore', 'PageAnimation', 'Piece/VE/fonctionTore.php', 'GET', '[]', 2),
+(93, 6, 16, 0, 'Ouvrir un fichier', '', 'ouvrirFichier', 'PageAnimation', 'Autre/demoOuvrirFichier.php', 'GET', '[]', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
