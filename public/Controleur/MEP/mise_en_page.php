@@ -13,6 +13,7 @@ ob_start();	// d&eacute;but du code <section>
 	<li>Dans la boite de dialogue qui apparait changer le facteur d&apos;&eacute;chelle.</li>
 	<li>Lorsque vous validez, le dessinn est affich&eacute; avec le nouveau facteur d&apos;&eacute;chelle. Si &ccedil;a ne convient pas, recommencez la proc&eacute;dure.</li>
 	</ol>
+	<p><a href=/Animations/echelle>Montre moi comment changer le facteur d&apos;&eacute;chelle</a></p>
 
 	<h1>R&eacute;partir les vues sur le feuille</h1>
 	<p>A tout moment, il est possible de d&eacute;placer les vues sur la zone de dessin. Pour d&eacute;placer une vue il suffit de placer le pointeur de la souris au bord de la vue. Lorsque l’icône qui l&apos;accompagne prend la forme d&apos;une croix fl&eacute;ch&eacute;e bleue <?=PEUNC\Page::BaliseImage("MEP/croixFlecheBleue.png", "croix flêch&eacute;e bleue", 'class="icone"')?> on peut d&eacute;placer la vue.</p>
@@ -21,5 +22,6 @@ ob_start();	// d&eacute;but du code <section>
 	<li>Si on d&eacute;place la vue principale (vue de face) les autres vues se d&eacute;placent pour conserver l&apos;alignement.</li>
 	<li>Le d&eacute;placement d&apos;une autre vue que la vue principale ne peut se faire que dans le sens de l&apos;alignemnt avec la vue principale</li>
 	</ol>
+	<p><a href=/Animations/miseEnPage>Montre moi comment répartir les vues</a></p>
 <?php
 $this->setSection(ob_get_clean());
