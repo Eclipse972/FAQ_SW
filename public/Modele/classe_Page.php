@@ -14,7 +14,7 @@ class Page extends PEUNC\Page
 		$this->setFooter("");
 	}
 
- 	public function AfficherOnglets()	{ echo PEUNC\Page::CodeOnglets($this->route->getAlpha()); }
+ 	public function AfficherOnglets()	{ echo PEUNC\Page::MENU($this->route,1,0); }
 
-	public function AfficherMenu()		{ echo PEUNC\Page::CodeMenu($this->route); }
+	public function AfficherMenu()		{ echo PEUNC\Page::MENU($this->route,2,1); }
 }

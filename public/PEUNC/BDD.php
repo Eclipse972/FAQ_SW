@@ -44,16 +44,16 @@ class BDD implements iBDD
 			case 0:	// aucun résultat
 				$résultat = null;
 				break;
-			case 1:	// une seule ligne						une seule colonne					plusieurs colonnes
-				$résultat = (count($reponse[0]) == 1) ? $résultat = array_shift($reponse[0]) : $reponse[0];
+			case 1:	// une seule réponse				une seule colonne			plusieurs colonnes
+				$résultat = (count($reponse[0]) == 1) ? array_shift($reponse[0]) : $reponse[0];
 				break;
-			default: // plusieurs lignes
+			default: // plusieurs réponses
 				$résultat = $reponse;
 		}
 		return $résultat;
 	}
-
-	public static function Liste_niveau($alpha = null, $beta = null)
+	
+	public static function Liste_niveau($i_sectionne, $alpha = null, $beta = null)
 	{
 		if(!isset($alpha))
 		{	// pour les onglets
@@ -62,6 +62,7 @@ class BDD implements iBDD
 			$eqGamma= "=0";
 			$indice	= "alpha";
 			$param	= [];
+			$nom	= "alpha_actif";
 		}
 		elseif(!isset($beta))
 		{	// pour le menu
@@ -70,6 +71,7 @@ class BDD implements iBDD
 			$eqGamma= "=0";
 			$indice = "beta";
 			$param	= [$alpha];
+			$nom	= "beta_actif";
 		}
 		else
 		{	// pour le sous-menu
@@ -78,17 +80,27 @@ class BDD implements iBDD
 			$eqGamma= ">0";
 			$indice = "gamma";
 			$param	= [$alpha, $beta];
+			$nom	= "gamma_actif";
 		}
 		$Treponse = self::SELECT("{$indice} AS i, code FROM Vue_code_item
 							WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}
 							ORDER BY i",
 							$param
-						);
-		$Tableau = null;
-		if (isset($Treponse))
+						);		
+		$Tableau = [];	// réponse de la forme Tableau[i] = code
+		switch(count($Treponse, COUNT_RECURSIVE))
 		{
-			foreach($Treponse as $ligne)
-				$Tableau[(int)$ligne["i"]] = $ligne["code"];
+			case 0: // réponse vide
+				break;
+			case 2: // une seule réponse avec 2 colonnes i et code
+				$Tableau[0] = $Treponse["code"];
+				break;
+			default: // plusieurs réponses
+				foreach($Treponse as $ligne)
+				{
+					$i = (int)$ligne["i"];
+					$Tableau[$i] = ($i == $i_sectionne) ? str_replace('<a', '<a id=' . $nom, $ligne["code"]) : $ligne["code"];
+				}
 		}
 		return $Tableau;
 	}
