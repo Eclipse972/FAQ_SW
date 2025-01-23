@@ -16,9 +16,9 @@ ob_start();	// d&eacute;but du code <section>
 	<h2>Acc&eacute;der aux fonds de plan sur le r&eacute;seau du lyc&eacute;e</h2>
 	<ol>
 	<li>cliquez sur le bouton <b>Parcourir</b> dans la boite de dialogue</li>
-	<li>ans la fen&ecirc;tre qui s&apos;ouvre, cliquez sur <b>Ordinateur</b> sous W7 ou <b>Ce PC</b> sous W10</li>
-	<li>s&eacute;lectionnez le lecteur r&eacute;seau de votre classe (1-05$ si votre classe est la 1e 5)</li>
-	<li>chemin: fiches/Construction/Fonds de plan</li>
+	<li>Dans la fen&ecirc;tre qui s&apos;ouvre, cliquez sur <b>Ce PC</b> sous W10</li>
+	<li>s&eacute;lectionnez le lecteur Espace documentaire</li>
+	<li>chemin: 0-commun/2024-2025/HERVI/Fonds de plan</li>
 	</ol>
 	<p>Dans ce dossier se trouve trois fichiers:</p>
 	<ul>
