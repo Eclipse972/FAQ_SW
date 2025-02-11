@@ -7,7 +7,8 @@ ob_start();	// début du code <section>
 	<p>proc&eacute;dure:</p>
 	<ol>
 		<li>copier votre fichier: dans le menu: clic droit puis copier ou au clavier Ctrl+C</li>
-		<li>rendez-vous dans le r&eacute;pertoire ....</li>
+		<li>dans PC, trouver le lecteur r&eacute;seau: Espace documentaire</li>
+		<li>chemin: 0-commun / 2024-2025 / (dssier de votre classe/groupe) / Casiers profs / Devoirs rendus / chervi
 		<li>d&eacute;poser le fichier avec le menu: clic droit puis coller ou au clavier Ctrl+V</li>
 	</ol>
 	Remarque: <b>Dans mon casier vous ne pouvez rien modifier</b>. En d&apos;erreur de nom de fichier par exemple, il faut me demander de faire la modification.
