@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+	<link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline" />
+    <link rel="stylesheet" href="/CSS/commun.css" />
+{% block css %}{% endblock %}
+    <title>{% block balise_title %}{% endblock %}</title>
+</head>
+
+<body>
+
+<header>
+    <div id="logo">
+		{% block logo %}<img src="/images/logo.png" alt="Logo seache.fr" />{% endblock %}
+	</div>
+    <div id="titre"><p class="font-effect-outline">{% block texte_header %}{% endblock %}</p></div>
+</header>
+
+<main role="main">
+{% block balise_nav %}{% endblock %}
+
+<section>
+{% block contenu %}{% endblock %}
+</section>
+</main>
+
+<footer>
+    <p>Site optimisé pour <img src="/images/chrome.png" alt="Logo Chrome" /> et <img src="/images/firefox.png" alt="Logo Firefox" />
+        - <a target="_blank" href="http://faq.sw.free.fr">Ma FAQ SolidWorks</a>
+        - dernière mise à jour du 30 mai 2026
+    </p>
+</footer>
+
+{% block templates %}{% endblock %}
+
+{% if app_data is defined %}
+<script type="application/json" id="app-data">
+{{ app_data | json_encode(constant('JSON_PRETTY_PRINT')) | raw }}
+</script>
+{% endif %}
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
