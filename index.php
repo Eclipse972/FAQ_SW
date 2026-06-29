@@ -9,7 +9,7 @@ if (substr(__DIR__, 18, 3) == 'dev') {
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use DossiersTechniques\Controleur\AutrePageControleur;
+use FaqSolidworks\Controleur\AutrePageControleur;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Views\Twig;
 
