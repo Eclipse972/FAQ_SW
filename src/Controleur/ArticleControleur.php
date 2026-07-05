@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 /**
- * Classe-mère de tous les controleur d'article du site.
+ * Classe-mère de tous les controleurs d'article du site.
  */
 
 class ArticleControleur {
