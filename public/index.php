@@ -10,7 +10,7 @@ if ($modeDev) {
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use FaqSolidworks\Controleur\AutrePageControleur;
+use FaqSolidworks\Controleur\PageSpecialeControleur;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Views\Twig;
 
@@ -25,7 +25,7 @@ $app = AppFactory::create();
 require __DIR__ . '/../src/config/routes.php';
 
 // --- Gestion des erreurs ---
-$pageErreur = new AutrePageControleur($conteneur->get(Twig::class));
+$pageErreur = new PageSpecialeControleur($conteneur->get(Twig::class));
 $factory    = $app->getResponseFactory();
 $errorMiddleware = $app->addErrorMiddleware($modeDev, true, true);
 

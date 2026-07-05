@@ -14,7 +14,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 use Psr\Http\Message\ResponseFactoryInterface;
 
-class AutrePageControleur
+class PageSpecialeControleur
 {
     /**
      * Constructeur : injection du moteur de templates.
