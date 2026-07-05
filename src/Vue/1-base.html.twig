@@ -15,11 +15,15 @@
     <div id="logo">
 		{% block logo %}<img src="/images/logo.png" alt="Logo seache.fr" />{% endblock %}
 	</div>
-    <div id="titre"><p class="font-effect-outline">{% block texte_header %}{% endblock %}</p></div>
+    <div id="titre">
+		<p class="font-effect-outline">Foire Aux Questions SolidWorks</p>
+	</div>
 </header>
 
+{% block onglets %}{% endblock %}
+
 <main role="main">
-{% block balise_nav %}{% endblock %}
+{% block menu %}{% endblock %}
 
 <section>
 {% block contenu %}{% endblock %}
@@ -32,8 +36,6 @@
         - dernière mise à jour du 30 mai 2026
     </p>
 </footer>
-
-{% block templates %}{% endblock %}
 
 {% if app_data is defined %}
 <script type="application/json" id="app-data">
