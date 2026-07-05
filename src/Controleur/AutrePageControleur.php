@@ -41,7 +41,7 @@ class AutrePageControleur
 		$vue = $this->vue; // capturé avant que Slim ne réaffecte $this sur son conteneur
 		return function (Request $requete, \Throwable $e) use ($factory, $statut, $titre, $vue) {
 			$reponse = $factory->createResponse($statut);
-			return $vue->render($reponse, '14-erreur.html.twig', [
+			return $vue->render($reponse, '13-erreur.html.twig', [
 				'titre'   => $titre,
 				'message' => $e->getMessage(),
 				'code'    => $e->getCode() ?: null,
