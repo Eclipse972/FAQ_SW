@@ -10,7 +10,7 @@ use Slim\Views\Twig;
  */
 
 class ArticleControleur {
-	protected string $menu; # nom du fichier contenant le menu
+	protected string $onglet; # nom de l'onglet
 
 	/**
      * Constructeur : injection du moteur de templates.
@@ -27,13 +27,12 @@ class ArticleControleur {
 	/**
      * Hydratation pour chaque article
      *
-     * @param string $menu     nom du fichier contenant le mebu pour l'onglet
+     * @param string $onglet     nom de l'onglet en kebab-case. C'est sopuvent le nom d'un dossier
 	 *
-	 * ATTENTION: le nom du dossier en kebab-case donc pas d'espace
      */
-    public function hydrate(string $menu): void
+    public function hydrate(string $onglet): void
 	{
-        $this->menu = $menu;
+        $this->onglet = $onglet;
     }
 
 	/**
