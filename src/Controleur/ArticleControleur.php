@@ -35,4 +35,27 @@ class ArticleControleur {
 	{
         $this->menu = $menu;
     }
+
+	/**
+	 * Rendu des pages classique d'un article
+	 * ======================================
+	 * Beaucoup de pages reposent sur le même modèle. L'objectif est de factoriser le code ici.
+	 * Les classes-filles appelleront simplement ces méthodes.
+	 *
+	 */
+
+	/**
+	 * Rendu des pages en construction d'un dossier technique
+	 *
+	 * @param Request $requete
+	 * @param Response $reponse
+	 *
+	 * @return Response
+	 */
+    public function renduPageEnConstruction(Request $requete, Response $reponse): Response
+	{
+		return $this->vue->render($reponse, '12-en-construction.html.twig', [
+				'url'		=> $requete->getUri()->getPath()
+  		]);
+	}
 }
