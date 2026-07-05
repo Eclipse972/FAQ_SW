@@ -20,3 +20,6 @@
 {% include "/src/Vue/menu/" ~ onglet ~ ".html" %}
 {% endblock %}
 
+{% block contenu %}
+{% include "/src/Vue/article/" ~ onglet ~ "/" ~ nom_fichier ~ ".html" %}
+{% endblock %}
