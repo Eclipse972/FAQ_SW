@@ -12,10 +12,11 @@ use FaqSolidworks\Controleur\ContactControleur;
 use Slim\App;
 /** @var App $app */
 
+$app->redirect('/', '/accueil', 301);
 
 // ===== ACCUEIL =====
 
-$app->get('/', [AccueilControleur::class, 'accueil']);
+$app->get('/accueil', [AccueilControleur::class, 'accueil']);
 
 $app->group('/accueil', function ($accueil) {
 
