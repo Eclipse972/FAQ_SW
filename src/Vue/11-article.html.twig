@@ -1,0 +1,18 @@
+{% extends '1-base.html.twig' %}
+
+{% block onglets %}
+<nav>
+	<ul>
+		<li><a href="/">Accueil</a></li>
+		<li><a href="/piece">Pièce</a></li>
+		<li><a href="/assemblage">Assemblage</a></li>
+		<li><a href="/mise-en-plan">Mise en plan</a></li>
+		<li><a href="/autre">Autre</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block menu %}
+{% include "/src/Vue/menu/" ~ nom_fichier ~ ".html" %}
+{% endblock %}
+
