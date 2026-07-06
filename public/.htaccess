@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirige toutes les requêtes vers index.php, sauf pour les fichiers/dossiers existants
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+
+    # Désactive le listing des dossiers
+    Options -Indexes
+
+    # Bloque l'accès aux fichiers sensibles
+    <FilesMatch "\.(env|ini|log|json|lock|gitignore|gitattributes)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
