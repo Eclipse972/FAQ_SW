@@ -19,93 +19,93 @@ class AssemblageControleur extends ArticleControleur
 		$this->hydrate('accueil');
 	}
 
-    public function assemblage(Request $request, Response $response): Response
+    public function assemblage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function presentation(Request $request, Response $response): Response
+    public function presentation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function leModule(Request $request, Response $response): Response
+    public function leModule(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function listeDesArticles(Request $request, Response $response): Response
+    public function listeDesArticles(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function contraintes(Request $request, Response $response): Response
+    public function contraintes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function appuiPlan(Request $request, Response $response): Response
+    public function appuiPlan(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function coaxialite(Request $request, Response $response): Response
+    public function coaxialite(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function contraintesLimites(Request $request, Response $response): Response
+    public function contraintesLimites(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function commentLesChoisir(Request $request, Response $response): Response
+    public function commentLesChoisir(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function arbreDeCreation(Request $request, Response $response): Response
+    public function arbreDeCreation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function arbreVersZoneGraphique(Request $request, Response $response): Response
+    public function arbreVersZoneGraphique(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function zoneGraphiqueVersArbre(Request $request, Response $response): Response
+    public function zoneGraphiqueVersArbre(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ouvrirSousEnsemble(Request $request, Response $response): Response
+    public function ouvrirSousEnsemble(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cacherMontrerComposant(Request $request, Response $response): Response
+    public function cacherMontrerComposant(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function voirLesContraintes(Request $request, Response $response): Response
+    public function voirLesContraintes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function configurations(Request $request, Response $response): Response
+    public function configurations(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function eclate(Request $request, Response $response): Response
+    public function eclate(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ecorche(Request $request, Response $response): Response
+    public function ecorche(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 }

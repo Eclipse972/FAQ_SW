@@ -19,343 +19,343 @@ class PieceControleur extends ArticleControleur
 		$this->hydrate('accueil');
 	}
 
-    public function piece(Request $request, Response $response): Response
+    public function piece(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function presentation(Request $request, Response $response): Response
+    public function presentation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function leModule(Request $request, Response $response): Response
+    public function leModule(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function listeDesArticles(Request $request, Response $response): Response
+    public function listeDesArticles(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function esquisse2d(Request $request, Response $response): Response
+    public function esquisse2d(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function barreDoutils(Request $request, Response $response): Response
+    public function barreDoutils(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function planDesquisse(Request $request, Response $response): Response
+    public function planDesquisse(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cestQuoi(Request $request, Response $response): Response
+    public function cestQuoi(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function commentLeModifier(Request $request, Response $response): Response
+    public function commentLeModifier(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function creerUnPlanDeToutePiece(Request $request, Response $response): Response
+    public function creerUnPlanDeToutePiece(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function parallele(Request $request, Response $response): Response
+    public function parallele(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function parTroisPoints(Request $request, Response $response): Response
+    public function parTroisPoints(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function autresProcedes(Request $request, Response $response): Response
+    public function autresProcedes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cotationIntelligente(Request $request, Response $response): Response
+    public function cotationIntelligente(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function surUnSegment(Request $request, Response $response): Response
+    public function surUnSegment(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function entreDeuxEntites(Request $request, Response $response): Response
+    public function entreDeuxEntites(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function coterAuDiametre(Request $request, Response $response): Response
+    public function coterAuDiametre(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function contraindreUneEsquisse(Request $request, Response $response): Response
+    public function contraindreUneEsquisse(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function listeDesContraintes(Request $request, Response $response): Response
+    public function listeDesContraintes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function utiliserLesContraintes(Request $request, Response $response): Response
+    public function utiliserLesContraintes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function lignesDeConstruction(Request $request, Response $response): Response
+    public function lignesDeConstruction(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function codeCouleur(Request $request, Response $response): Response
+    public function codeCouleur(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function bleu(Request $request, Response $response): Response
+    public function bleu(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function noir(Request $request, Response $response): Response
+    public function noir(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function gris(Request $request, Response $response): Response
+    public function gris(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function rouge(Request $request, Response $response): Response
+    public function rouge(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function fonctions(Request $request, Response $response): Response
+    public function fonctions(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function extrusion(Request $request, Response $response): Response
+    public function extrusion(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function nomsDesIcones(Request $request, Response $response): Response
+    public function nomsDesIcones(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ajout(Request $request, Response $response): Response
+    public function ajout(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function enlevement(Request $request, Response $response): Response
+    public function enlevement(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function casGeneral(Request $request, Response $response): Response
+    public function casGeneral(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cylindre(Request $request, Response $response): Response
+    public function cylindre(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function prisme(Request $request, Response $response): Response
+    public function prisme(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function angleDeDepouille(Request $request, Response $response): Response
+    public function angleDeDepouille(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function enlevementDeMatiere(Request $request, Response $response): Response
+    public function enlevementDeMatiere(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cestLeMemePrincipe(Request $request, Response $response): Response
+    public function cestLeMemePrincipe(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function pieceFaiteEnFraisage(Request $request, Response $response): Response
+    public function pieceFaiteEnFraisage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function revolution(Request $request, Response $response): Response
+    public function revolution(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function piecesDeRevolution(Request $request, Response $response): Response
+    public function piecesDeRevolution(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function lesquisse(Request $request, Response $response): Response
+    public function lesquisse(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function revolutionPiece(Request $request, Response $response): Response
+    public function revolutionPiece(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function sphere(Request $request, Response $response): Response
+    public function sphere(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function troncDeCone(Request $request, Response $response): Response
+    public function troncDeCone(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function pieceFaiteEnTournage(Request $request, Response $response): Response
+    public function pieceFaiteEnTournage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function percageBorgne(Request $request, Response $response): Response
+    public function percageBorgne(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function pieceAvecChambrage(Request $request, Response $response): Response
+    public function pieceAvecChambrage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function realisationDuneGorge(Request $request, Response $response): Response
+    public function realisationDuneGorge(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function balayage(Request $request, Response $response): Response
+    public function balayage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function symetrie(Request $request, Response $response): Response
+    public function symetrie(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function repetitionLineaire(Request $request, Response $response): Response
+    public function repetitionLineaire(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function repetitionCirculaire(Request $request, Response $response): Response
+    public function repetitionCirculaire(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function assistancePercage(Request $request, Response $response): Response
+    public function assistancePercage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ongletCaracteristiques(Request $request, Response $response): Response
+    public function ongletCaracteristiques(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ongletPositionnement(Request $request, Response $response): Response
+    public function ongletPositionnement(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function percage(Request $request, Response $response): Response
+    public function percage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function trouTaraude(Request $request, Response $response): Response
+    public function trouTaraude(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function congeEtChanfrein(Request $request, Response $response): Response
+    public function congeEtChanfrein(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function manipulerLaPiece(Request $request, Response $response): Response
+    public function manipulerLaPiece(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function tournerEtDeplacer(Request $request, Response $response): Response
+    public function tournerEtDeplacer(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function couperLaPiece(Request $request, Response $response): Response
+    public function couperLaPiece(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function suivantPlanDeReference(Request $request, Response $response): Response
+    public function suivantPlanDeReference(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function planParallele(Request $request, Response $response): Response
+    public function planParallele(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function suivantUnPlanCree(Request $request, Response $response): Response
+    public function suivantUnPlanCree(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function transparenceEtCouleur(Request $request, Response $response): Response
+    public function transparenceEtCouleur(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function arbreDeCreation(Request $request, Response $response): Response
+    public function arbreDeCreation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function zoneGraphiqueVersArbre(Request $request, Response $response): Response
+    public function zoneGraphiqueVersArbre(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function arbreVersZoneGraphique(Request $request, Response $response): Response
+    public function arbreVersZoneGraphique(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 }

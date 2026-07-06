@@ -21,218 +21,218 @@ class MiseEnPlanControleur extends ArticleControleur
 		$this->hydrate('accueil');
 	}
 
-    public function miseEnPlan(Request $request, Response $response): Response
+    public function miseEnPlan(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function presentation(Request $request, Response $response): Response
+    public function presentation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function leModule(Request $request, Response $response): Response
+    public function leModule(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function listeDesArticles(Request $request, Response $response): Response
+    public function listeDesArticles(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function fondDePlan(Request $request, Response $response): Response
+    public function fondDePlan(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function vues(Request $request, Response $response): Response
+    public function vues(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function paletteDeVues(Request $request, Response $response): Response
+    public function paletteDeVues(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function vueProjetee(Request $request, Response $response): Response
+    public function vueProjetee(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function vueEnCoupe(Request $request, Response $response): Response
+    public function vueEnCoupe(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function avec2012(Request $request, Response $response): Response
+    public function avec2012(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function avec2015(Request $request, Response $response): Response
+    public function avec2015(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function perspective(Request $request, Response $response): Response
+    public function perspective(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function standard(Request $request, Response $response): Response
+    public function standard(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function personnalisee(Request $request, Response $response): Response
+    public function personnalisee(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function eclate(Request $request, Response $response): Response
+    public function eclate(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ecorche(Request $request, Response $response): Response
+    public function ecorche(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function detailAgrandi(Request $request, Response $response): Response
+    public function detailAgrandi(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cotation(Request $request, Response $response): Response
+    public function cotation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function insererLaCotation(Request $request, Response $response): Response
+    public function insererLaCotation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function coterALaMain(Request $request, Response $response): Response
+    public function coterALaMain(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function forcerLeSensDesFleches(Request $request, Response $response): Response
+    public function forcerLeSensDesFleches(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function nombreDeDecimales(Request $request, Response $response): Response
+    public function nombreDeDecimales(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function modifierLesLignesDeRappel(Request $request, Response $response): Response
+    public function modifierLesLignesDeRappel(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function rajouterDuTexte(Request $request, Response $response): Response
+    public function rajouterDuTexte(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function erreursClassiques(Request $request, Response $response): Response
+    public function erreursClassiques(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function croisementFlecheLigneRappel(Request $request, Response $response): Response
+    public function croisementFlecheLigneRappel(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function valeursNonCentrees(Request $request, Response $response): Response
+    public function valeursNonCentrees(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ligneDeRappelDansLeVide(Request $request, Response $response): Response
+    public function ligneDeRappelDansLeVide(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function coteLoinDeSaForme(Request $request, Response $response): Response
+    public function coteLoinDeSaForme(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function pointesDeFlecheAuMauvaisEndroit(Request $request, Response $response): Response
+    public function pointesDeFlecheAuMauvaisEndroit(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function coteEnDehorsDeLaZone(Request $request, Response $response): Response
+    public function coteEnDehorsDeLaZone(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function miseEnPage(Request $request, Response $response): Response
+    public function miseEnPage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function deplacerLesVues(Request $request, Response $response): Response
+    public function deplacerLesVues(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function modifierLechelle(Request $request, Response $response): Response
+    public function modifierLechelle(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function dessinDensemble(Request $request, Response $response): Response
+    public function dessinDensemble(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ajouterDesReperes(Request $request, Response $response): Response
+    public function ajouterDesReperes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function nomenclature(Request $request, Response $response): Response
+    public function nomenclature(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function insererUnEclate(Request $request, Response $response): Response
+    public function insererUnEclate(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function inclureUnEcorche(Request $request, Response $response): Response
+    public function inclureUnEcorche(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cartouche(Request $request, Response $response): Response
+    public function cartouche(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function exporterEnPdf(Request $request, Response $response): Response
+    public function exporterEnPdf(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function arbreDeCreation(Request $request, Response $response): Response
+    public function arbreDeCreation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function lienFichierPieceAssemblage(Request $request, Response $response): Response
+    public function lienFichierPieceAssemblage(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 }

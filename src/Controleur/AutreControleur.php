@@ -19,88 +19,88 @@ class AutreControleur extends ArticleControleur
 		$this->hydrate('accueil');
 	}
 
-    public function autre(Request $request, Response $response): Response
+    public function autre(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function presentation(Request $request, Response $response): Response
+    public function presentation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function zoom(Request $request, Response $response): Response
+    public function zoom(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function zoomAuMieux(Request $request, Response $response): Response
+    public function zoomAuMieux(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function zoomFenetre(Request $request, Response $response): Response
+    public function zoomFenetre(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ajusterLeZoom(Request $request, Response $response): Response
+    public function ajusterLeZoom(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function deplacerLaVue(Request $request, Response $response): Response
+    public function deplacerLaVue(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ouvrirUnFichier(Request $request, Response $response): Response
+    public function ouvrirUnFichier(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ouvrir2012(Request $request, Response $response): Response
+    public function ouvrir2012(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function ouvrir2015(Request $request, Response $response): Response
+    public function ouvrir2015(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function mecaniqueGraphique(Request $request, Response $response): Response
+    public function mecaniqueGraphique(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function statique(Request $request, Response $response): Response
+    public function statique(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function cinematique(Request $request, Response $response): Response
+    public function cinematique(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function equiProjectivite(Request $request, Response $response): Response
+    public function equiProjectivite(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function champVecteurVitesse(Request $request, Response $response): Response
+    public function champVecteurVitesse(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function casierNumerique(Request $request, Response $response): Response
+    public function casierNumerique(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function placerLaBarreDoutils(Request $request, Response $response): Response
+    public function placerLaBarreDoutils(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 }

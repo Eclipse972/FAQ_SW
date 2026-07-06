@@ -19,109 +19,109 @@ class AccueilControleur extends ArticleControleur
 		$this->hydrate('accueil');
 	}
 
-    public function accueil(Request $request, Response $response): Response
+    public function accueil(Request $requete, Response $reponse): Response
     {
         // TODO: Implémenter la logique
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function aspectGraphique(Request $request, Response $response): Response
+    public function aspectGraphique(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function laBarreDonglets(Request $request, Response $response): Response
+    public function laBarreDonglets(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function leMenu(Request $request, Response $response): Response
+    public function leMenu(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function larticle(Request $request, Response $response): Response
+    public function larticle(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function articlesConnexes(Request $request, Response $response): Response
+    public function articlesConnexes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function formulaireDeContact(Request $request, Response $response): Response
+    public function formulaireDeContact(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function trouverUnArticle(Request $request, Response $response): Response
+    public function trouverUnArticle(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function pasDeMoteurDeRecherche(Request $request, Response $response): Response
+    public function pasDeMoteurDeRecherche(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function listeDeTousLesArticles(Request $request, Response $response): Response
+    public function listeDeTousLesArticles(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function moi(Request $request, Response $response): Response
+    public function moi(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function quiSuisJe(Request $request, Response $response): Response
+    public function quiSuisJe(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function pourquoi(Request $request, Response $response): Response
+    public function pourquoi(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function monSiteDt(Request $request, Response $response): Response
+    public function monSiteDt(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function rechercheDeContributeurs(Request $request, Response $response): Response
+    public function rechercheDeContributeurs(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function redactionDesArticles(Request $request, Response $response): Response
+    public function redactionDesArticles(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function programmation(Request $request, Response $response): Response
+    public function programmation(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function nouveautes(Request $request, Response $response): Response
+    public function nouveautes(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function articlesMisAJour(Request $request, Response $response): Response
+    public function articlesMisAJour(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function articleAjoute(Request $request, Response $response): Response
+    public function articleAjoute(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function moteurDeRecherche(Request $request, Response $response): Response
+    public function moteurDeRecherche(Request $requete, Response $reponse): Response
     {
-        return $response;
+       return $this->renduPageEnConstruction($requete, $reponse);
     }
 }
