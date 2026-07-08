@@ -1,4 +1,5 @@
 /* Page d'erreur ---------------------------------------------------------------- */
+section { width: 100%; }
 
 .section-erreur {
 	position: relative;
