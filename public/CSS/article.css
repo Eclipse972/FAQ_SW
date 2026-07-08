@@ -1,1 +1,100 @@
 /* style pour les articles */
+
+main{ /* contient le menu section et aside pour les liens connexes */
+    display: flex;
+	flex-direction: row;
+	align-items: flex-start; /* Alignement par le bas */
+}
+
+#menu { width: 300px; }
+
+.aside { width: 200px; }
+
+#menu, .aside { flex: 0 0 auto; } /* Ne pas étendre */
+
+section { flex: 1 1 auto; } /* Prendre l'espace disponible */
+
+/* pour les onglets  --------------------------------------- */
+#onglet ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Utiliser Flexbox */
+    flex-direction: row; /* Aligner les éléments horizontalement */
+    align-items: flex-end; /* Aligner les éléments en haut */
+    gap: 5px; /* Espacement entre les éléments */
+}
+
+#onglet a {
+    font-size: 25px;
+    background-color: var(--couleur2);
+    color: black; /* le texte des onglets est noir */
+    text-decoration: none; /* aucun lien n'est souligné */
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+#onglet li a:hover, #alpha_actif { background-color: white; } /* couleur de l'onglet sélectionné et celui sous la souris */
+
+#onglet ul img {
+    height: 45px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* menu --------------------------------------------------------------------------------------- */
+#menu {
+	width: 200px;
+	margin: 0;
+	text-align: center;
+	font-size: 20px;
+}
+
+#menu a { text-decoration: none; } /* aucun lien n'est souligné */
+
+#menu ul {
+	list-style-type: none;
+	margin-bottom: 30px;
+	padding: 0;
+}
+
+#menu li {
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+
+#menu li a {
+	display: block;
+	color: white; /* tous les items du menu sont écrits en blanc*/
+	font-weight: bold;
+	background-color: var(--couleur4);
+	border-radius: 9px;
+}
+
+#menu img {
+	height: 30px;
+	float: left;
+	margin: 0 9px 0 9px;
+}
+
+#menu li a:hover, #beta_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
+
+/* sous-menu ---------------------------------------------------------------------------------- */
+#menu ul ul { margin: 5px; }
+
+#menu ul ul a {
+	color: black; 	/* tous les textes du sous-menu sont en noir */
+	background-color: white;	/* sur fond blanc */
+	border-radius: 0;	/* pour avoir des coins carrés contrairement aux items arrondis*/
+}
+
+#menu ul ul a { font-weight:normal; }
+
+#gamma_actif{ font-weight:bold; }
+
+#menu ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
+
+/* articles connexes  -------------------------------------------------------------------------------------------- */
+aside { width: 300px; }
+
+aside h1 { text-align:center; }
