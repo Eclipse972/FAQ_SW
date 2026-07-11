@@ -21,8 +21,7 @@ class AccueilControleur extends ArticleControleur
 
     public function accueil(Request $requete, Response $reponse): Response
     {
-        // TODO: Implémenter la logique
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'accueil');
     }
 
     public function aspectGraphique(Request $requete, Response $reponse): Response
