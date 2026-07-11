@@ -18,12 +18,12 @@
 
 {% block menu %}
 <nav id="menu">
-{% include "/src/Vue/menu/" ~ onglet ~ ".html" %}
+{% include "menu/" ~ onglet ~ ".html" %}
 </nav>
 {% endblock %}
 
 {% block contenu %}
-{% include "/src/Vue/article/" ~ onglet ~ "/" ~ fichier ~ ".html" %}
+{% include "article/" ~ onglet ~ "/" ~ fichier ~ ".html" %}
 {% endblock %}
 
 {% block liens %}
