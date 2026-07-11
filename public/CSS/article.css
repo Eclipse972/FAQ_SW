@@ -15,7 +15,7 @@ main{ /* contient le menu section et aside pour les liens connexes */
 section { flex: 1 1 auto; } /* Prendre l'espace disponible */
 
 /* pour les onglets  --------------------------------------- */
-#onglet ul {
+#onglets ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -25,7 +25,7 @@ section { flex: 1 1 auto; } /* Prendre l'espace disponible */
     gap: 5px; /* Espacement entre les éléments */
 }
 
-#onglet a {
+#onglets a {
     font-size: 25px;
     background-color: var(--couleur2);
     color: black; /* le texte des onglets est noir */
@@ -34,9 +34,9 @@ section { flex: 1 1 auto; } /* Prendre l'espace disponible */
     border-radius: 10px 10px 0 0;
 }
 
-#onglet li a:hover, #alpha_actif { background-color: white; } /* couleur de l'onglet sélectionné et celui sous la souris */
+#onglets li a:hover, #alpha_actif { background-color: white; } /* couleur de l'onglet sélectionné et celui sous la souris */
 
-#onglet ul img {
+#onglets ul img {
     height: 45px;
     margin-right: 8px;
     vertical-align: middle;
