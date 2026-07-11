@@ -58,7 +58,7 @@ class ArticleControleur {
   		]);
 	}
 
-/**
+	/**
 	 * Rendu des pages ordinaires
 	 *
 	 * Crée une page avec du code isssu d'un fichier.
@@ -68,11 +68,11 @@ class ArticleControleur {
 	 *
 	 * @return Response
 	 */
-    public function renduPageOrdinaire(Response $reponse, string $fichier): Response
+   public function renduPageOrdinaire(Response $reponse, string $fichier): Response
 	{
 		return $this->vue->render($reponse, '11-article.html.twig', [
-				'fichier'	=> $fichier
-  		]);
+				'onglet'  => $this->onglet,
+				'fichier' => $fichier
+		]);
 	}
-
 }
