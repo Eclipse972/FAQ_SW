@@ -80,7 +80,10 @@ section { flex: 1 1 auto; } /* Prendre l'espace disponible */
 #menu li a:hover, #beta_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ---------------------------------------------------------------------------------- */
-#menu ul ul { margin: 5px; }
+#menu ul ul {
+	margin: 5px;
+	display:none;
+}
 
 #menu ul ul a {
 	color: black; 	/* tous les textes du sous-menu sont en noir */
