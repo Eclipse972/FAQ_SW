@@ -31,7 +31,7 @@ class AccueilControleur extends ArticleControleur
 
     public function trouverArticle(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'trouver-un-article');
     }
 
     public function moi(Request $requete, Response $reponse): Response
