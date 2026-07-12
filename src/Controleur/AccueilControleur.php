@@ -24,12 +24,7 @@ class AccueilControleur extends ArticleControleur
        return $this->renduPageOrdinaire($reponse, 'accueil');
     }
 
-    public function navigation(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageOrdinaire($reponse, 'navigation');
-    }
-
-    public function trouverArticle(Request $requete, Response $reponse): Response
+	public function trouverArticle(Request $requete, Response $reponse): Response
     {
        return $this->renduPageOrdinaire($reponse, 'trouver-un-article');
     }

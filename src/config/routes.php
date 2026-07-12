@@ -19,7 +19,6 @@ $app->redirect('/', '/accueil', 301);
 $app->get('/accueil', [AccueilControleur::class, 'accueil']);
 
 $app->group('/accueil', function ($accueil) {
-    $accueil->get('/navigation',		[AccueilControleur::class, 'navigation']);
     $accueil->get('/trouver-un-article',[AccueilControleur::class, 'trouverArticle']);
     $accueil->get('/moi',				[AccueilControleur::class, 'moi']);
     $accueil->get('/nouveautes',		[AccueilControleur::class, 'nouveautes']);
