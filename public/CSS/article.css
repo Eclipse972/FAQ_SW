@@ -1,9 +1,7 @@
-/* style pour les articles */
-
-main{ /* contient le menu section et aside pour les liens connexes */
+main{ /* contient le menu <section> et <aside> pour les liens connexes */
     display: flex;
 	flex-direction: row;
-	align-items: flex-start; /* Alignement par le bas */
+	align-items: flex-start;
 }
 
 #menu { width: 300px; }
