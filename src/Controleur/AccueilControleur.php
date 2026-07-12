@@ -24,32 +24,7 @@ class AccueilControleur extends ArticleControleur
        return $this->renduPageOrdinaire($reponse, 'accueil');
     }
 
-    public function aspectGraphique(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function laBarreDonglets(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function leMenu(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function larticle(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function articlesConnexes(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function formulaireDeContact(Request $requete, Response $reponse): Response
+    public function navigation(Request $requete, Response $reponse): Response
     {
        return $this->renduPageEnConstruction($requete, $reponse);
     }

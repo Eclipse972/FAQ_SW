@@ -20,14 +20,7 @@ $app->get('/accueil', [AccueilControleur::class, 'accueil']);
 
 $app->group('/accueil', function ($accueil) {
 
-    $accueil->get('/aspect-graphique', [AccueilControleur::class, 'aspectGraphique']);
-    $accueil->group('/aspect-graphique', function ($aspectGraphique) {
-        $aspectGraphique->get('/la-barre-donglets',     [AccueilControleur::class, 'laBarreDonglets']);
-        $aspectGraphique->get('/le-menu',               [AccueilControleur::class, 'leMenu']);
-        $aspectGraphique->get('/larticle',              [AccueilControleur::class, 'larticle']);
-        $aspectGraphique->get('/articles-connexes',     [AccueilControleur::class, 'articlesConnexes']);
-        $aspectGraphique->get('/formulaire-de-contact', [AccueilControleur::class, 'formulaireDeContact']);
-    });
+    $accueil->get('/navigation', [AccueilControleur::class, 'navigation']);
 
     $accueil->get('/trouver-un-article', [AccueilControleur::class, 'trouverUnArticle']);
     $accueil->group('/trouver-un-article', function ($trouverUnArticle) {
