@@ -4,13 +4,10 @@ main{ /* contient le menu <section> et <aside> pour les liens connexes */
 	align-items: flex-start;
 }
 
-#menu { width: 300px; }
-
-.aside { width: 200px; }
-
-#menu, .aside {
+#menu, aside {
 	flex: 0 0 auto; /* Ne pas étendre */
 	padding: 8px;
+	width: 200px; /* pour avoir <section> au milieu de la fenêtre */
 }
 
 section { flex: 1 1 auto; } /* Prendre l'espace disponible */
