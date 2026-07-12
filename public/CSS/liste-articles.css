@@ -1,0 +1,16 @@
+#conteneur{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+#conteneur article {
+	flex-grow: 0;
+    flex-shrink: 0;
+    width: 30%;
+    border: 1px solid black;
+    padding: 5px;
+	margin: 10px;
+    box-sizing: border-box;
+}
