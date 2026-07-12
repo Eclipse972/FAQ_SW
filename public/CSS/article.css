@@ -33,7 +33,7 @@ section { flex: 1 1 auto; } /* Prendre l'espace disponible */
     border-radius: 10px 10px 0 0;
 }
 
-#onglets li a:hover, #onglet_actif { background-color: white; } /* couleur de l'onglet sélectionné et celui sous la souris */
+#onglets li a:hover, #onglet-actif { background-color: white; } /* couleur de l'onglet sélectionné et celui sous la souris */
 
 #onglets ul img {
     height: 45px;
@@ -76,7 +76,7 @@ section { flex: 1 1 auto; } /* Prendre l'espace disponible */
 	margin: 0 9px 0 9px;
 }
 
-#menu li a:hover, #menu_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
+#menu li a:hover, #menu-actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ---------------------------------------------------------------------------------- */
 #menu ul ul {
@@ -92,7 +92,7 @@ section { flex: 1 1 auto; } /* Prendre l'espace disponible */
 
 #menu ul ul a { font-weight:normal; }
 
-#sous_menu_actif{ font-weight:bold; }
+#sous-menu-actif{ font-weight:bold; }
 
 #menu ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
 
