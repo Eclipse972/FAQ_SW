@@ -19,14 +19,13 @@ header, #onglets, main, footer {
 header {
 	margin-bottom: 0;
 	background-image:linear-gradient(to right, white, var(--couleur5));
+	display: flex;
+	justify-content: flex-start;
+	gap: 50px;
+	align-items: center;
 }
 
 /* logo et titre de la page ------------------------------------------------------------------- */
-#logo, #titre {
-	display: inline-block;
-	vertical-align: middle;
-}
-
 #logo { width: 200px; }
 
 #logo img {
