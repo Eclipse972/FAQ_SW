@@ -25,17 +25,6 @@ $app->group('/accueil', function ($accueil) {
     $accueil->get('/trouver-un-article', [AccueilControleur::class, 'trouverUnArticle']);
 
     $accueil->get('/moi', [AccueilControleur::class, 'moi']);
-    $accueil->group('/moi', function ($moi) {
-        $moi->get('/qui-suis-je', [AccueilControleur::class, 'quiSuisJe']);
-        $moi->get('/pourquoi',    [AccueilControleur::class, 'pourquoi']);
-        $moi->get('/mon-site-dt', [AccueilControleur::class, 'monSiteDt']);
-
-        $moi->get('/recherche-de-contributeurs', [AccueilControleur::class, 'rechercheDeContributeurs']);
-        $moi->group('/recherche-de-contributeurs', function ($rechercheDeContributeurs) {
-            $rechercheDeContributeurs->get('/redaction-des-articles', [AccueilControleur::class, 'redactionDesArticles']);
-            $rechercheDeContributeurs->get('/programmation',          [AccueilControleur::class, 'programmation']);
-        });
-    });
 
     $accueil->get('/nouveautes', [AccueilControleur::class, 'nouveautes']);
     $accueil->group('/nouveautes', function ($nouveautes) {

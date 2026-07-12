@@ -39,36 +39,6 @@ class AccueilControleur extends ArticleControleur
        return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    public function quiSuisJe(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function pourquoi(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function monSiteDt(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function rechercheDeContributeurs(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function redactionDesArticles(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function programmation(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
     public function nouveautes(Request $requete, Response $reponse): Response
     {
        return $this->renduPageEnConstruction($requete, $reponse);
