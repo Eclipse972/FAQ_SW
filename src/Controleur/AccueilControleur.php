@@ -26,7 +26,9 @@ class AccueilControleur extends ArticleControleur
 
 	public function rechercherArticle(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'rechercher-un-article');
+       return $this->vue->render($reponse, '111-liste-articles.html.twig', [
+			'onglet'  => $this->onglet
+		]);
     }
 
     public function moi(Request $requete, Response $reponse): Response
