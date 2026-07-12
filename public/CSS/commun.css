@@ -51,6 +51,7 @@ section {
 	overflow: auto;
 	background-color:white;
 	min-height:550px;
+	padding: 8px;
 }
 
 section h1 {

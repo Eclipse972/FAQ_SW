@@ -8,7 +8,10 @@ main{ /* contient le menu <section> et <aside> pour les liens connexes */
 
 .aside { width: 200px; }
 
-#menu, .aside { flex: 0 0 auto; } /* Ne pas étendre */
+#menu, .aside {
+	flex: 0 0 auto; /* Ne pas étendre */
+	padding: 8px;
+}
 
 section { flex: 1 1 auto; } /* Prendre l'espace disponible */
 
