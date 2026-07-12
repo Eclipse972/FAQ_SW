@@ -13,6 +13,33 @@
 	<li>externe: Google permet de faire ça</li>
 </ul>
 
-<h1>Liste de tous les articles</h1>
-<p>En construction</p>
+<h1>Tous les articles regroupés par onglet</h1>
+<div id="conteneur">
+	<article>
+		<h1>Accueil</h1>
+		{% include "onglet/menu-accueil.html" %}
+	</article>
+
+	<article>
+		<h1>Pièce</h1>
+		{% include "onglet/menu-piece.html" %}
+	</article>
+
+	<article>
+		<h1>Assemblage</h1>
+		{% include "onglet/menu-assemblage.html" %}
+	</article>
+
+	<article>
+		<h1>Mise en plan</h1>
+		{% include "onglet/menu-mise-en-plan.html" %}
+	</article>
+
+	<article>
+		<h1>Autre</h1>
+		{% include "onglet/menu-autre.html" %}
+	</article>
+
+</div>
+
 {% endblock %}
