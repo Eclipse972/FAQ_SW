@@ -29,7 +29,7 @@ class AccueilControleur extends ArticleControleur
        return $this->renduPageOrdinaire($reponse, 'navigation');
     }
 
-    public function trouverUnArticle(Request $requete, Response $reponse): Response
+    public function trouverArticle(Request $requete, Response $reponse): Response
     {
        return $this->renduPageEnConstruction($requete, $reponse);
     }
