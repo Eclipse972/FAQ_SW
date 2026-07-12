@@ -19,9 +19,9 @@ $app->redirect('/', '/accueil', 301);
 $app->get('/accueil', [AccueilControleur::class, 'accueil']);
 
 $app->group('/accueil', function ($accueil) {
-    $accueil->get('/trouver-un-article',[AccueilControleur::class, 'trouverArticle']);
-    $accueil->get('/moi',				[AccueilControleur::class, 'moi']);
-    $accueil->get('/nouveautes',		[AccueilControleur::class, 'nouveautes']);
+    $accueil->get('/rechercher-un-article',	[AccueilControleur::class, 'rechercherArticle']);
+    $accueil->get('/moi',					[AccueilControleur::class, 'moi']);
+    $accueil->get('/nouveautes',			[AccueilControleur::class, 'nouveautes']);
 });
 
 // ===== PIÈCE =====
