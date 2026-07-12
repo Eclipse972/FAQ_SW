@@ -41,6 +41,6 @@ class AccueilControleur extends ArticleControleur
 
     public function nouveautes(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'nouveautes');
     }
 }
