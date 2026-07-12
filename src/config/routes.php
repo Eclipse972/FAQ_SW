@@ -23,10 +23,6 @@ $app->group('/accueil', function ($accueil) {
     $accueil->get('/navigation', [AccueilControleur::class, 'navigation']);
 
     $accueil->get('/trouver-un-article', [AccueilControleur::class, 'trouverUnArticle']);
-    $accueil->group('/trouver-un-article', function ($trouverUnArticle) {
-        $trouverUnArticle->get('/pas-de-moteur-de-recherche',  [AccueilControleur::class, 'pasDeMoteurDeRecherche']);
-        $trouverUnArticle->get('/liste-de-tous-les-articles',  [AccueilControleur::class, 'listeDeTousLesArticles']);
-    });
 
     $accueil->get('/moi', [AccueilControleur::class, 'moi']);
     $accueil->group('/moi', function ($moi) {
