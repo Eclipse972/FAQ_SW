@@ -36,7 +36,7 @@ class AccueilControleur extends ArticleControleur
 
     public function moi(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'moi');
     }
 
     public function nouveautes(Request $requete, Response $reponse): Response
