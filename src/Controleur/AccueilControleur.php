@@ -43,19 +43,4 @@ class AccueilControleur extends ArticleControleur
     {
        return $this->renduPageEnConstruction($requete, $reponse);
     }
-
-    public function articlesMisAJour(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function articleAjoute(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    public function moteurDeRecherche(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageEnConstruction($requete, $reponse);
-    }
 }
