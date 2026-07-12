@@ -22,12 +22,12 @@
 
 {% block menu %}
 <nav id="menu">
-{% include "menu/" ~ onglet ~ ".html" %}
+{% include "onglet/menu-" ~ onglet ~ ".html" %}
 </nav>
 {% endblock %}
 
 {% block contenu %}
-{% include "article/" ~ onglet ~ "/" ~ fichier ~ ".html" %}
+{% include "onglet/" ~ onglet ~ "/" ~ fichier ~ ".html" %}
 {% endblock %}
 
 {% block liens %}
