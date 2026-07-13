@@ -16,7 +16,7 @@ class PieceControleur extends ArticleControleur
 	public function __construct(Twig $vue)
 	{
 		parent::__construct($vue);
-		$this->hydrate('accueil');
+		$this->hydrate('piece');
 	}
 
     public function piece(Request $requete, Response $reponse): Response
