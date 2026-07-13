@@ -30,148 +30,57 @@ $app->get('/piece', [PieceControleur::class, 'piece']);
 
 $app->group('/piece', function ($piece) {
 
-    $piece->get('/presentation', [PieceControleur::class, 'presentation']);
-    $piece->group('/presentation', function ($presentation) {
-        $presentation->get('/le-module',          [PieceControleur::class, 'leModule']);
-        $presentation->get('/liste-des-articles', [PieceControleur::class, 'listeDesArticles']);
-    });
-
     // esquisse 2D
     $piece->get('/esquisse-2d', [PieceControleur::class, 'esquisse2d']);
     $piece->group('/esquisse-2d', function ($esquisse2d) {
-        $esquisse2d->get('/barre-doutils-desquisse', [PieceControleur::class, 'barreDoutils']);
-        $esquisse2d->get('/lignes-de-construction',  [PieceControleur::class, 'lignesDeConstruction']);
-
-        $esquisse2d->get('/plan-desquisse', [PieceControleur::class, 'planDesquisse']);
-        $esquisse2d->group('/plan-desquisse', function ($planDesquisse) {
-            $planDesquisse->get('/cest-quoi',           [PieceControleur::class, 'cestQuoi']);
-            $planDesquisse->get('/comment-le-modifier', [PieceControleur::class, 'commentLeModifier']);
-
-            $planDesquisse->get('/creer-un-plan-de-toute-piece', [PieceControleur::class, 'creerUnPlanDeToutePiece']);
-            $planDesquisse->group('/creer-un-plan-de-toute-piece', function ($creerUnPlan) {
-                $creerUnPlan->get('/parallele',        [PieceControleur::class, 'parallele']);
-                $creerUnPlan->get('/par-trois-points', [PieceControleur::class, 'parTroisPoints']);
-                $creerUnPlan->get('/autres-procedes',  [PieceControleur::class, 'autresProcedes']);
-            });
-        });
-
-        $esquisse2d->get('/cotation-intelligente', [PieceControleur::class, 'cotationIntelligente']);
-        $esquisse2d->group('/cotation-intelligente', function ($cotationIntelligente) {
-            $cotationIntelligente->get('/sur-un-segment',     [PieceControleur::class, 'surUnSegment']);
-            $cotationIntelligente->get('/entre-deux-entites', [PieceControleur::class, 'entreDeuxEntites']);
-            $cotationIntelligente->get('/coter-au-diametre',  [PieceControleur::class, 'coterAuDiametre']);
-        });
-
-        $esquisse2d->get('/contraindre-une-esquisse', [PieceControleur::class, 'contraindreUneEsquisse']);
-        $esquisse2d->group('/contraindre-une-esquisse', function ($contraindreUneEsquisse) {
-            $contraindreUneEsquisse->get('/liste-des-contraintes',    [PieceControleur::class, 'listeDesContraintes']);
-            $contraindreUneEsquisse->get('/utiliser-les-contraintes', [PieceControleur::class, 'utiliserLesContraintes']);
-        });
-
-        $esquisse2d->get('/code-couleur', [PieceControleur::class, 'codeCouleur']);
-        $esquisse2d->group('/code-couleur', function ($codeCouleur) {
-            $codeCouleur->get('/bleu',  [PieceControleur::class, 'bleu']);
-            $codeCouleur->get('/noir',  [PieceControleur::class, 'noir']);
-            $codeCouleur->get('/gris',  [PieceControleur::class, 'gris']);
-            $codeCouleur->get('/rouge', [PieceControleur::class, 'rouge']);
-        });
+        $esquisse2d->get('/outils-d-esquisse',      [PieceControleur::class, 'barreDoutils']);
+        $esquisse2d->get('/plan-d-esquisse',        [PieceControleur::class, 'planDesquisse']);
+        $esquisse2d->get('/cotation-intelligente',  [PieceControleur::class, 'cotationIntelligente']);
+        $esquisse2d->get('/contrainte-d-esquisse',  [PieceControleur::class, 'contraindreUneEsquisse']);
+        $esquisse2d->get('/ligne-de-construction',  [PieceControleur::class, 'lignesDeConstruction']);
+        $esquisse2d->get('/code-couleur',           [PieceControleur::class, 'codeCouleur']);
     });
 
     // fonctions
     $piece->get('/fonctions', [PieceControleur::class, 'fonctions']);
     $piece->group('/fonctions', function ($fonctions) {
-        $fonctions->get('/balayage',             [PieceControleur::class, 'balayage']);
-        $fonctions->get('/symetrie',             [PieceControleur::class, 'symetrie']);
-        $fonctions->get('/repetition-lineaire',  [PieceControleur::class, 'repetitionLineaire']);
-        $fonctions->get('/repetition-circulaire',[PieceControleur::class, 'repetitionCirculaire']);
-        $fonctions->get('/conge-et-chanfrein',   [PieceControleur::class, 'congeEtChanfrein']);
+        $fonctions->get('/extrusion',               [PieceControleur::class, 'extrusion']);
+        $fonctions->get('/revolution',              [PieceControleur::class, 'revolution']);
+        $fonctions->get('/balayage',                [PieceControleur::class, 'balayage']);
+        $fonctions->get('/symetrie',                [PieceControleur::class, 'symetrie']);
+        $fonctions->get('/repetition-lineaire',     [PieceControleur::class, 'repetitionLineaire']);
+        $fonctions->get('/repetition-circulaire',   [PieceControleur::class, 'repetitionCirculaire']);
+        $fonctions->get('/assistance-percage',      [PieceControleur::class, 'assistancePercage']);
+        $fonctions->get('/conge-et-chanfrein',      [PieceControleur::class, 'congeEtChanfrein']);
+    });
 
-        $fonctions->get('/extrusion', [PieceControleur::class, 'extrusion']);
-        $fonctions->group('/extrusion', function ($extrusion) {
-            $extrusion->get('/angle-de-depouille', [PieceControleur::class, 'angleDeDepouille']);
-
-            $extrusion->get('/noms-des-icones', [PieceControleur::class, 'nomsDesIcones']);
-            $extrusion->group('/noms-des-icones', function ($nomsDesIconesExtrusion) {
-                $nomsDesIconesExtrusion->get('/ajout',      [PieceControleur::class, 'ajout']);
-                $nomsDesIconesExtrusion->get('/enlevement', [PieceControleur::class, 'enlevement']);
-            });
-
-            $extrusion->get('/cas-general', [PieceControleur::class, 'casGeneral']);
-            $extrusion->group('/cas-general', function ($casGeneral) {
-                $casGeneral->get('/cylindre', [PieceControleur::class, 'cylindre']);
-                $casGeneral->get('/prisme',   [PieceControleur::class, 'prisme']);
-            });
-
-            $extrusion->get('/enlevement-de-matiere', [PieceControleur::class, 'enlevementDeMatiere']);
-            $extrusion->group('/enlevement-de-matiere', function ($enlevementDeMatiereExtrusion) {
-                $enlevementDeMatiereExtrusion->get('/cest-le-meme-principe',   [PieceControleur::class, 'cestLeMemePrincipe']);
-                $enlevementDeMatiereExtrusion->get('/piece-faite-en-fraisage', [PieceControleur::class, 'pieceFaiteEnFraisage']);
-            });
-        });
-
-        $fonctions->get('/revolution', [PieceControleur::class, 'revolution']);
-        $fonctions->group('/revolution', function ($revolution) {
-            $revolution->get('/sphere',        [PieceControleur::class, 'sphere']);
-            $revolution->get('/tronc-de-cone', [PieceControleur::class, 'troncDeCone']);
-            $revolution->get('/cylindre',      [PieceControleur::class, 'cylindre']);
-
-            $revolution->get('/noms-des-icones', [PieceControleur::class, 'nomsDesIcones']);
-            $revolution->group('/noms-des-icones', function ($nomsDesIconesRevolution) {
-                $nomsDesIconesRevolution->get('/ajout',      [PieceControleur::class, 'ajout']);
-                $nomsDesIconesRevolution->get('/enlevement', [PieceControleur::class, 'enlevement']);
-            });
-
-            $revolution->get('/pieces-de-revolution', [PieceControleur::class, 'piecesDeRevolution']);
-            $revolution->group('/pieces-de-revolution', function ($piecesDeRevolution) {
-                $piecesDeRevolution->get('/lesquisse',  [PieceControleur::class, 'lesquisse']);
-                $piecesDeRevolution->get('/revolution', [PieceControleur::class, 'revolutionPiece']);
-            });
-
-            $revolution->get('/enlevement-de-matiere', [PieceControleur::class, 'enlevementDeMatiere']);
-            $revolution->group('/enlevement-de-matiere', function ($enlevementDeMatiereRevolution) {
-                $enlevementDeMatiereRevolution->get('/cest-le-meme-principe',   [PieceControleur::class, 'cestLeMemePrincipe']);
-                $enlevementDeMatiereRevolution->get('/piece-faite-en-tournage', [PieceControleur::class, 'pieceFaiteEnTournage']);
-                $enlevementDeMatiereRevolution->get('/percage-borgne',          [PieceControleur::class, 'percageBorgne']);
-                $enlevementDeMatiereRevolution->get('/piece-avec-chambrage',    [PieceControleur::class, 'pieceAvecChambrage']);
-                $enlevementDeMatiereRevolution->get('/realisation-dune-gorge',  [PieceControleur::class, 'realisationDuneGorge']);
-            });
-        });
-
-        $fonctions->get('/assistance-percage', [PieceControleur::class, 'assistancePercage']);
-        $fonctions->group('/assistance-percage', function ($assistancePercage) {
-            $assistancePercage->get('/percage',      [PieceControleur::class, 'percage']);
-            $assistancePercage->get('/trou-taraude', [PieceControleur::class, 'trouTaraude']);
-
-            $assistancePercage->get('/presentation', [PieceControleur::class, 'presentation']);
-            $assistancePercage->group('/presentation', function ($presentationPercage) {
-                $presentationPercage->get('/onglet-caracteristiques', [PieceControleur::class, 'ongletCaracteristiques']);
-                $presentationPercage->get('/onglet-positionnement',   [PieceControleur::class, 'ongletPositionnement']);
-            });
-        });
+    // volumes elementaires
+    $piece->get('/volumes-elementaires', [PieceControleur::class, 'volumesElementaires']); // À créer/adapter dans votre contrôleur si besoin
+    $piece->group('/volumes-elementaires', function ($volumesElementaires) {
+        $volumesElementaires->get('/prisme-droit',                    [PieceControleur::class, 'prisme']);
+        $volumesElementaires->get('/cylindre-par-extrusion',          [PieceControleur::class, 'cylindre']);
+        $volumesElementaires->get('/cylindre-par-revolution',         [PieceControleur::class, 'cylindre']);
+        $volumesElementaires->get('/sphere',                          [PieceControleur::class, 'sphere']);
+        $volumesElementaires->get('/tronc-de-cone-par-revolution',    [PieceControleur::class, 'troncDeCone']);
+        $volumesElementaires->get('/tronc-de-cone-par-extrusion',     [PieceControleur::class, 'troncDeConeExtrusion']); // À adapter si méthode spécifique
+        $volumesElementaires->get('/tore',                            [PieceControleur::class, 'tore']); // À adapter si méthode spécifique
     });
 
     // manipuler la pièce
-    $piece->get('/manipuler-la-piece', [PieceControleur::class, 'manipulerLaPiece']);
-    $piece->group('/manipuler-la-piece', function ($manipulerLaPiece) {
-        $manipulerLaPiece->get('/tourner-et-deplacer',     [PieceControleur::class, 'tournerEtDeplacer']);
-        $manipulerLaPiece->get('/transparence-et-couleur', [PieceControleur::class, 'transparenceEtCouleur']);
-
-        $manipulerLaPiece->get('/couper-la-piece', [PieceControleur::class, 'couperLaPiece']);
-        $manipulerLaPiece->group('/couper-la-piece', function ($couperLaPiece) {
-            $couperLaPiece->get('/suivant-plan-de-reference', [PieceControleur::class, 'suivantPlanDeReference']);
-            $couperLaPiece->get('/plan-parallele',            [PieceControleur::class, 'planParallele']);
-            $couperLaPiece->get('/suivant-un-plan-cree',      [PieceControleur::class, 'suivantUnPlanCree']);
-        });
+    $piece->get('/manipuler', [PieceControleur::class, 'manipulerLaPiece']);
+    $piece->group('/manipuler', function ($manipuler) {
+        $manipuler->get('/tourner-et-deplacer',     [PieceControleur::class, 'tournerEtDeplacer']);
+        $manipuler->get('/couper-une-piece',        [PieceControleur::class, 'couperLaPiece']);
+        $manipuler->get('/transparence-ou-couleur', [PieceControleur::class, 'transparenceEtCouleur']);
     });
 
     // arbre de création
-    $piece->get('/arbre-de-creation', [PieceControleur::class, 'arbreDeCreation']);
-    $piece->group('/arbre-de-creation', function ($arbreDeCreationPiece) {
-        $arbreDeCreationPiece->get('/zone-graphique-vers-arbre', [PieceControleur::class, 'zoneGraphiqueVersArbre']);
-        $arbreDeCreationPiece->get('/arbre-vers-zone-graphique', [PieceControleur::class, 'arbreVersZoneGraphique']);
+    $piece->get('/arbre-creation', [PieceControleur::class, 'arbreDeCreation']);
+    $piece->group('/arbre-creation', function ($arbreCreation) {
+        $arbreCreation->get('/liaison-arbre-zone-graphique', [PieceControleur::class, 'arbreVersZoneGraphique']);
+        $arbreCreation->get('/liaison-zone-graphique-arbre', [PieceControleur::class, 'zoneGraphiqueVersArbre']);
     });
 });
-
 
 // ===== ASSEMBLAGE =====
 
