@@ -86,6 +86,10 @@ footer {
 	background-color: var(--couleur2);
 }
 
+footer p {
+    padding: 0.5rem 0; /* ou margin, selon ce que tu préfères */
+}
+
 footer img {
 	height:32px;
 	vertical-align:middle;
