@@ -26,7 +26,7 @@ $app->group('/accueil', function ($accueil) {
 
 // ===== PIÈCE =====
 
-$app->get('/piece', [PieceControleur::class, 'piece']);
+$app->get('/piece', [PieceControleur::class, 'accueil']);
 
 $app->group('/piece', function ($piece) {
 
