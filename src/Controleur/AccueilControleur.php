@@ -21,7 +21,10 @@ class AccueilControleur extends ArticleControleur
 
     public function accueil(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'accueil');
+        return $this->vue->render($reponse, '112-article-spotlight.html.twig', [
+            'onglet'  => $this->onglet,
+            'fichier' => 'accueil'
+        ]);
     }
 
 	public function rechercherArticle(Request $requete, Response $reponse): Response

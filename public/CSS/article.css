@@ -98,3 +98,22 @@ section { flex: 1 1 auto; } /* Prendre l'espace disponible */
 
 /* articles connexes  -------------------------------------------------------------------------------------------- */
 aside h1 { text-align:center; }
+
+/* spotlight d'aide contextuelle ---------------------------------------------------------------------- */
+.mot-spotlight {
+	border-bottom: 2px dashed var(--couleur4);
+	cursor: help;
+	color: var(--couleur4);
+}
+
+.mot-spotlight:hover { color: var(--couleur5); }
+
+/* La zone mise en évidence reçoit un box-shadow qui assombrit TOUT le reste */
+.spotlight-actif {
+	position: relative;
+	z-index: 10;
+	box-shadow: 0 0 0 9999px rgba(100, 100, 100, 0.6);
+	border-radius: 4px;
+	outline: 3px solid var(--couleur4);  /* var(--couleur4) = bleu-vert du site */
+	outline-offset: 4px;
+}
