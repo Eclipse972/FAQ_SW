@@ -31,7 +31,7 @@ class PieceControleur extends ArticleControleur
 
     public function leModule(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'module_piece.html');
     }
 
     public function listeDesArticles(Request $requete, Response $reponse): Response
@@ -41,17 +41,17 @@ class PieceControleur extends ArticleControleur
 
     public function esquisse2d(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'esquisse.html');
     }
 
     public function barreDoutils(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'outilsDesquisse.html');
     }
 
     public function planDesquisse(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'planDesquisse.html');
     }
 
     public function cestQuoi(Request $requete, Response $reponse): Response
@@ -86,7 +86,7 @@ class PieceControleur extends ArticleControleur
 
     public function cotationIntelligente(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'cotation_intelligente.html');
     }
 
     public function surUnSegment(Request $requete, Response $reponse): Response
@@ -106,7 +106,7 @@ class PieceControleur extends ArticleControleur
 
     public function contraindreUneEsquisse(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'contrainteDesquisse.html');
     }
 
     public function listeDesContraintes(Request $requete, Response $reponse): Response
@@ -121,12 +121,12 @@ class PieceControleur extends ArticleControleur
 
     public function lignesDeConstruction(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'ligne2construction.html');
     }
 
     public function codeCouleur(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'code_couleur.html');
     }
 
     public function bleu(Request $requete, Response $reponse): Response
@@ -151,12 +151,12 @@ class PieceControleur extends ArticleControleur
 
     public function fonctions(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'Les_fonctions.html');
     }
 
     public function extrusion(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'extrusion.html');
     }
 
     public function nomsDesIcones(Request $requete, Response $reponse): Response
@@ -211,7 +211,7 @@ class PieceControleur extends ArticleControleur
 
     public function revolution(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'revolution.html');
     }
 
     public function piecesDeRevolution(Request $requete, Response $reponse): Response
@@ -261,27 +261,27 @@ class PieceControleur extends ArticleControleur
 
     public function balayage(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'balayage.html');
     }
 
     public function symetrie(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'symetrie.html');
     }
 
     public function repetitionLineaire(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'repetition_lineaire.html');
     }
 
     public function repetitionCirculaire(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'repetition_circulaire.html');
     }
 
     public function assistancePercage(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'assistance_percage.html');
     }
 
     public function ongletCaracteristiques(Request $requete, Response $reponse): Response
@@ -306,22 +306,22 @@ class PieceControleur extends ArticleControleur
 
     public function congeEtChanfrein(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'conge_chanfrein.html');
     }
 
     public function manipulerLaPiece(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'manipuler_piece.html');
     }
 
     public function tournerEtDeplacer(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'tourner_deplacer.html');
     }
 
     public function couperLaPiece(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'couper.html');
     }
 
     public function suivantPlanDeReference(Request $requete, Response $reponse): Response
@@ -341,21 +341,21 @@ class PieceControleur extends ArticleControleur
 
     public function transparenceEtCouleur(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'transparence_couleur.html');
     }
 
     public function arbreDeCreation(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'arbre_piece.html');
     }
 
     public function zoneGraphiqueVersArbre(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'liaison_piece-arbre.html');
     }
 
     public function arbreVersZoneGraphique(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageOrdinaire($reponse, 'liaison_arbre-piece.html');
     }
 }
