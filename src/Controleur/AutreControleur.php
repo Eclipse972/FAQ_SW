@@ -142,7 +142,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function exportEdrawingPiece(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'piece');
+		return $this->renduPageOrdinaire($reponse, 'export-edrawing-piece');
 	}
 
 	/**
@@ -156,7 +156,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function exportEdrawingAssemblage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'assemblage');
+		return $this->renduPageOrdinaire($reponse, 'export-edrawing-assemblage');
 	}
 
 	/**
@@ -170,7 +170,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function exportEdrawingMiseEnPlan(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'mise-en-plan');
+		return $this->renduPageOrdinaire($reponse, 'export-edrawing-mise-en-plan');
 	}
 
 	/**
