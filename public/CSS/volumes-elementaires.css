@@ -1,0 +1,29 @@
+/* Icônes inline (outils SolidWorks) */
+.icone {
+    height: 60px;
+    vertical-align: middle;
+}
+
+/* Disposition image + texte pour la section "Esquisse cotée" */
+.esquisse-cotee {
+    display: flex;
+    align-items: flex-start;
+    gap: 2em;
+}
+
+.esquisse-cotee img {
+    max-width: 50%;
+    height: auto;
+}
+
+/* Disposition texte + image pour la section "Fonction de mise en volume" */
+.mise-en-volume {
+    display: flex;
+    align-items: flex-start;
+    gap: 2em;
+}
+
+.mise-en-volume img.param {
+    margin-left: auto;
+    height: auto;
+}

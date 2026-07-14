@@ -1,0 +1,91 @@
+{% extends '11-article.html.twig' %}
+
+{% block css %}
+{{ parent() }}
+    <link rel="stylesheet" href="/CSS/volumes-elementaires.css" />
+{% endblock %}
+
+{% block contenu %}
+<h1>{{ titre }}</h1>
+<p>On veut réaliser :
+    <img src="{{ image_piece }}" alt="{{ titre }} avec ses cotes" style="vertical-align:middle; height:300px">
+</p>
+
+<h2>Le plan d'esquisse</h2>
+<p>Choisir un plan d'esquisse (Face, Dessus ou Droite) dans l'arbre de création.</p>
+<p><a href="/piece/esquisse-2d/plan-d-esquisse">Montre moi comment choisir le plan d'esquisse</a></p>
+
+<h2>Esquisse cotée</h2>
+<p>Il faut dessiner :</p>
+<div class="esquisse-cotee">
+    <img src="{{ image_esquisse }}" alt="Esquisse cotée">
+    <div>
+        <p>Dans la barre d'outils, cliquez sur l'onglet <b>Esquisse</b> (deuxième onglet).</p>
+        <p>Vous aurez besoin des icônes :</p>
+<ul>
+    <li>
+        <img src="{{ icone_principale }}" alt="Icône principale" class="icone">
+        {% if icone_secondaire is defined and icone_secondaire %}
+            et ajuster les entités
+            <img src="{{ icone_secondaire }}" alt="Icône ajuster les entités" class="icone">
+        {% endif %}
+    </li>
+    {% if par_revolution %}
+    <li>
+        ligne de construction
+        <img src="/images/ligne2construction.png" alt="Icône ligne de construction" class="icone">
+        pour créer l'axe de révolution.
+    </li>
+    {% endif %}
+    <li>
+        cotation intelligente
+        <img src="/images/cote.png" alt="Icône cotation intelligente" class="icone">
+        pour coter votre esquisse.
+    </li>
+</ul>
+    </div>
+</div>
+<p><a href="{{ url_animation_esquisse }}">Montre moi comment créer l'esquisse</a></p>
+
+<h2>Fonction de mise en volume</h2>
+<div class="mise-en-volume">
+<ol>
+    <li>
+        Dans la barre d'outils, sélectionnez l'onglet <b>Fonctions</b> (premier onglet).
+    </li>
+    <li>
+        Cliquez sur la {{ par_revolution ? 'deuxième' : 'première' }} icône
+        <b>{{ par_revolution ? 'Bossage/Base avec révolution' : 'Base/Bossage extrudé' }}</b>
+        <img src="/images/{{ par_revolution ? 'revolution' : 'extrusion' }}.png"
+             alt="Icône de mise en volume"
+             class="icone">
+    </li>
+    <li>
+        À gauche de l'écran apparaissent les paramètres.
+    </li>
+    <li>
+        {% if par_revolution %}
+            Si la case <b>Axe de révolution</b> n'est pas renseignée, sélectionnez l'axe de révolution dans l'esquisse.
+        {% else %}
+            Dans la partie <b>Direction 1</b>, inscrivez la profondeur souhaitée.
+        {% endif %}
+    </li>
+    {% if cas_depouille is defined and cas_depouille %}
+    <li>
+        Cliquez sur l'icône dépouille
+        <img src="/images/depouille.png" alt="Icône dépouille" class="icone">
+        puis entrez l'angle en degrés.
+    </li>
+    {% endif %}
+    <li>
+        Validez en cliquant sur
+        <img src="/images/validation.png" alt="Icône validation" class="icone">
+        en haut à gauche.
+    </li>
+</ol>
+    <img src="/images/{{ par_revolution ? 'param_revolution' : 'param_extrusion' }}.png"
+         alt="Paramètres"
+         class="param">
+</div>
+<p><a href="{{ url_animation_fonction }}">Montre moi comment créer la mise en volume</a></p>
+{% endblock %}

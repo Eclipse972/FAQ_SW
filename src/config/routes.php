@@ -58,8 +58,8 @@ $app->group('/piece', function ($piece) {
     $piece->get('/volumes-elementaires', [PieceControleur::class, 'volumesElementaires']); // À créer/adapter dans votre contrôleur si besoin
     $piece->group('/volumes-elementaires', function ($volumesElementaires) {
         $volumesElementaires->get('/prisme-droit',                    [PieceControleur::class, 'prisme']);
-        $volumesElementaires->get('/cylindre-par-extrusion',          [PieceControleur::class, 'cylindre']);
-        $volumesElementaires->get('/cylindre-par-revolution',         [PieceControleur::class, 'cylindre']);
+        $volumesElementaires->get('/cylindre-par-extrusion',          [PieceControleur::class, 'cylindreExtrusion']);
+        $volumesElementaires->get('/cylindre-par-revolution',         [PieceControleur::class, 'cylindreRevolution']);
         $volumesElementaires->get('/sphere',                          [PieceControleur::class, 'sphere']);
         $volumesElementaires->get('/tronc-de-cone-par-revolution',    [PieceControleur::class, 'troncDeCone']);
         $volumesElementaires->get('/tronc-de-cone-par-extrusion',     [PieceControleur::class, 'troncDeConeExtrusion']); // À adapter si méthode spécifique
