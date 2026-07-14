@@ -190,14 +190,14 @@ $app->get('/autre', [AutreControleur::class, 'accueil']);
 
 $app->group('/autre', function ($groupe) {
 
-    $groupe->get('/ouvrir-un-fichier', [AutreControleur::class, 'ouvrirUnFichier']);
+    $groupe->get('/ouvrir-un-fichier', [AutreControleur::class, 'ouvrirFichier']);
 
     $groupe->get('/zoom', [AutreControleur::class, 'zoom']);
     $groupe->group('/zoom', function ($sous_groupe) {
         $sous_groupe->get('/zoom-fenetre',    [AutreControleur::class, 'zoomFenetre']);
-        $sous_groupe->get('/ajuster-le-zoom', [AutreControleur::class, 'ajusterLeZoom']);
+        $sous_groupe->get('/ajuster-le-zoom', [AutreControleur::class, 'ajusterZoom']);
         $sous_groupe->get('/zoom-au-mieux',   [AutreControleur::class, 'zoomAuMieux']);
-        $sous_groupe->get('/deplacer-la-vue', [AutreControleur::class, 'deplacerLaVue']);
+        $sous_groupe->get('/deplacer-la-vue', [AutreControleur::class, 'deplacerVue']);
     });
 
     $groupe->get('/export-edrawing', [AutreControleur::class, 'exportEdrawing']);
