@@ -204,7 +204,7 @@ $app->group('/autre', function ($groupe) {
     $groupe->group('/export-edrawing', function ($sous_groupe) {
         $sous_groupe->get('/piece',			[AutreControleur::class, 'exportEdrawingPiece']);
         $sous_groupe->get('/assemblage',	[AutreControleur::class, 'exportEdrawingAssemblage']);
-        $sous_groupe->get('/mise-en-plan',	[AutreControleur::class, 'exportEdrawingPiece']);
+        $sous_groupe->get('/mise-en-plan',	[AutreControleur::class, 'exportEdrawingMiseEnPlan']);
     });
 
     $groupe->get('/casier-numerique', [AutreControleur::class, 'casierNumerique']);
