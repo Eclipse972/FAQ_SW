@@ -22,11 +22,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Accueil assemblage.
 	 *
+	 * @route /assemblage
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage
 	 */
 	public function accueil(Request $requete, Response $reponse): Response
 	{
@@ -36,11 +36,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Menu des contraintes.
 	 *
+	 * @route /assemblage/contraintes
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/contraintes
 	 */
 	public function contraintes(Request $requete, Response $reponse): Response
 	{
@@ -50,11 +50,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Contrainte d'appui plan.
 	 *
+	 * @route /assemblage/contraintes/appui-plan
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/contraintes/appui-plan
 	 */
 	public function appuiPlan(Request $requete, Response $reponse): Response
 	{
@@ -64,11 +64,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Contrainte de coaxialité.
 	 *
+	 * @route /assemblage/contraintes/coaxialite
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/contraintes/coaxialite
 	 */
 	public function coaxialite(Request $requete, Response $reponse): Response
 	{
@@ -78,11 +78,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Contraintes limites.
 	 *
+	 * @route /assemblage/contraintes/contraintes-limites
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/contraintes/contraintes-limites
 	 */
 	public function contraintesLimites(Request $requete, Response $reponse): Response
 	{
@@ -92,11 +92,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Comment choisir ses contraintes.
 	 *
+	 * @route /assemblage/contraintes/comment-les-choisir
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/contraintes/comment-les-choisir
 	 */
 	public function commentLesChoisir(Request $requete, Response $reponse): Response
 	{
@@ -106,11 +106,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Menu arbre de création.
 	 *
+	 * @route /assemblage/arbre-de-creation
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/arbre-de-creation
 	 */
 	public function arbreDeCreation(Request $requete, Response $reponse): Response
 	{
@@ -120,11 +120,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Liaison arbre vers zone graphique.
 	 *
+	 * @route /assemblage/arbre-de-creation/arbre-zone-graphique
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/arbre-de-creation/arbre-zone-graphique
 	 */
 	public function liaisonArbreZoneGraphique(Request $requete, Response $reponse): Response
 	{
@@ -134,11 +134,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Liaison zone graphique vers arbre.
 	 *
+	 * @route /assemblage/arbre-de-creation/zone-graphique-arbre
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/arbre-de-creation/zone-graphique-arbre
 	 */
 	public function LiaisonZoneGraphiqueArbre(Request $requete, Response $reponse): Response
 	{
@@ -148,11 +148,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Ouvrir un sous-ensemble.
 	 *
+	 * @route /assemblage/arbre-de-creation/ouvrir-sous-ensemble
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/arbre-de-creation/ouvrir-sous-ensemble
 	 */
 	public function ouvrirSousEnsemble(Request $requete, Response $reponse): Response
 	{
@@ -162,11 +162,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Cacher ou montrer un composant.
 	 *
+	 * @route /assemblage/arbre-de-creation/cacher-montrer-composant
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/arbre-de-creation/cacher-montrer-composant
 	 */
 	public function cacherMontrerComposant(Request $requete, Response $reponse): Response
 	{
@@ -176,11 +176,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Voir les contraintes.
 	 *
+	 * @route /assemblage/arbre-de-creation/voir-les-contraintes
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/arbre-de-creation/voir-les-contraintes
 	 */
 	public function voirLesContraintes(Request $requete, Response $reponse): Response
 	{
@@ -190,11 +190,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Les configurations.
 	 *
+	 * @route /assemblage/configurations
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/configurations
 	 */
 	public function configurations(Request $requete, Response $reponse): Response
 	{
@@ -204,11 +204,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Créer un éclaté.
 	 *
+	 * @route /assemblage/creer-un-eclate
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/creer-un-eclate
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
@@ -218,11 +218,11 @@ class AssemblageControleur extends ArticleControleur
 	/**
 	 * Créer un écorché.
 	 *
+	 * @route /assemblage/creer-un-ecorche
+	 *
 	 * @param Request $requete
 	 * @param Response $reponse
 	 * @return Response
-	 *
-	 * @route /assemblage/creer-un-ecorche
 	 */
 	public function ecorche(Request $requete, Response $reponse): Response
 	{
