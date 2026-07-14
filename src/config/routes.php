@@ -88,12 +88,6 @@ $app->get('/assemblage', [AssemblageControleur::class, 'accueil']);
 
 $app->group('/assemblage', function ($assemblage) {
 
-    $assemblage->get('/presentation', [AssemblageControleur::class, 'presentation']);
-    $assemblage->group('/presentation', function ($presentationAssemblage) {
-        $presentationAssemblage->get('/le-module',          [AssemblageControleur::class, 'leModule']);
-        $presentationAssemblage->get('/liste-des-articles', [AssemblageControleur::class, 'listeDesArticles']);
-    });
-
     $assemblage->get('/contraintes', [AssemblageControleur::class, 'contraintes']);
     $assemblage->group('/contraintes', function ($contraintes) {
         $contraintes->get('/appui-plan',          [AssemblageControleur::class, 'appuiPlan']);
