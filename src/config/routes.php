@@ -190,9 +190,7 @@ $app->get('/autre', [AutreControleur::class, 'accueil']);
 
 $app->group('/autre', function ($groupe) {
 
-    $groupe->get('/presentation',            [AutreControleur::class, 'presentation']);
-    $groupe->get('/casier-numerique',        [AutreControleur::class, 'casierNumerique']);
-    $groupe->get('/placer-la-barre-doutils', [AutreControleur::class, 'placerLaBarreDoutils']);
+    $groupe->get('/ouvrir-un-fichier', [AutreControleur::class, 'ouvrirUnFichier']);
 
     $groupe->get('/zoom', [AutreControleur::class, 'zoom']);
     $groupe->group('/zoom', function ($sous_groupe) {
