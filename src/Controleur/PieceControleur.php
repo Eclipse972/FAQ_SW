@@ -283,15 +283,15 @@ class PieceControleur extends ArticleControleur
     public function prisme(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
-            'onglet'                 => $this->onglet,
-            'titre'                  => 'Prisme droit',
-            'image_piece'            => '/images/Piece/prisme/VEcote.png',
-            'image_esquisse'         => '/images/Piece/prisme/esquisse.png',
-            'icone_principale'       => '/images/Piece/prisme/icone.png',
+            'onglet'				=> $this->onglet,
+            'titre'					=> 'Prisme droit',
+            'image_piece'			=> '/images/Piece/prisme/VEcote.png',
+            'image_esquisse'		=> '/images/Piece/prisme/esquisse.png',
+            'icone_principale'		=> '/images/Piece/prisme/icone.png',
             'nom_icone_principale'	=> 'rectangle par sommet',
-            'par_revolution'         => false,
-            'url_animation_esquisse' => '#',
-            'url_animation_fonction' => '#',
+            'par_revolution'		=> false,
+            'url_animation_esquisse'=> '#',
+            'url_animation_fonction'=> '#',
         ]);
     }
 
@@ -307,15 +307,15 @@ class PieceControleur extends ArticleControleur
     public function cylindreExtrusion(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
-            'onglet'                 => $this->onglet,
-            'titre'                  => 'Cylindre par extrusion',
-            'image_piece'            => '/images/Piece/cylindre/VEcote.png',
-            'image_esquisse'         => '/images/Piece/cylindre/esquisse.png',
-            'icone_principale'       => '/images/Piece/cylindre/icone.png',
+            'onglet'				=> $this->onglet,
+            'titre'					=> 'Cylindre par extrusion',
+            'image_piece'			=> '/images/Piece/cylindre/VEcote.png',
+            'image_esquisse'		=> '/images/Piece/cylindre/esquisse.png',
+            'icone_principale'		=> '/images/Piece/cylindre/icone.png',
             'nom_icone_principale'	=> 'cercle par son centre',
-            'par_revolution'         => false,
-            'url_animation_esquisse' => '#',
-            'url_animation_fonction' => '#',
+            'par_revolution'		=> false,
+            'url_animation_esquisse'=> '#',
+            'url_animation_fonction'=> '#',
         ]);
     }
 
@@ -331,15 +331,15 @@ class PieceControleur extends ArticleControleur
     public function cylindreRevolution(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
-            'onglet'                 => $this->onglet,
-            'titre'                  => 'Cylindre par révolution',
-            'image_piece'            => '/images/Piece/cylindre2/VEcote.png',
-            'image_esquisse'         => '/images/Piece/cylindre2/esquisse.png',
-            'icone_principale'       => '/images/Piece/cylindre2/icone.png',
+            'onglet'				=> $this->onglet,
+            'titre'					=> 'Cylindre par révolution',
+            'image_piece'			=> '/images/Piece/cylindre2/VEcote.png',
+            'image_esquisse'		=> '/images/Piece/cylindre2/esquisse.png',
+            'icone_principale'		=> '/images/Piece/cylindre2/icone.png',
             'nom_icone_principale'	=> 'rectangle par sommet',
-            'par_revolution'         => true,
-            'url_animation_esquisse' => '#',
-            'url_animation_fonction' => '#',
+            'par_revolution'		=> true,
+            'url_animation_esquisse'=> '#',
+            'url_animation_fonction'=> '#',
         ]);
     }
 
@@ -355,16 +355,16 @@ class PieceControleur extends ArticleControleur
     public function sphere(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
-            'onglet'                 => $this->onglet,
-            'titre'                  => 'Sphère',
-            'image_piece'            => '/images/Piece/sphere/VEcote.png',
-            'image_esquisse'         => '/images/Piece/sphere/esquisse.png',
-            'icone_principale'       => '/images/Piece/sphere/icone.png',
+            'onglet'				=> $this->onglet,
+            'titre'					=> 'Sphère',
+            'image_piece'			=> '/images/Piece/sphere/VEcote.png',
+            'image_esquisse'		=> '/images/Piece/sphere/esquisse.png',
+            'icone_principale'		=> '/images/Piece/sphere/icone.png',
             'nom_icone_principale'	=> 'cercle par son centre',
-            'icone_secondaire'       => '/images/Piece/sphere/icone2.png',
-            'par_revolution'         => true,
-            'url_animation_esquisse' => '#',
-            'url_animation_fonction' => '#',
+            'icone_secondaire'		=> '/images/Piece/sphere/icone2.png',
+            'par_revolution'		=> true,
+            'url_animation_esquisse'=> '#',
+            'url_animation_fonction'=> '#',
         ]);
     }
 
@@ -380,15 +380,15 @@ class PieceControleur extends ArticleControleur
     public function troncDeCone(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
-            'onglet'                 => $this->onglet,
-            'titre'                  => 'Tronc de cône par révolution',
-            'image_piece'            => '/images/Piece/tronc2cone/VEcote.png',
-            'image_esquisse'         => '/images/Piece/tronc2cone/esquisse.png',
-            'icone_principale'       => '/images/Piece/tronc2cone/icone.png',
+            'onglet'				=> $this->onglet,
+            'titre'					=> 'Tronc de cône par révolution',
+            'image_piece'			=> '/images/Piece/tronc2cone/VEcote.png',
+            'image_esquisse'		=> '/images/Piece/tronc2cone/esquisse.png',
+            'icone_principale'		=> '/images/Piece/tronc2cone/icone.png',
             'nom_icone_principale'	=> 'ligne',
-            'par_revolution'         => true,
-            'url_animation_esquisse' => '#',
-            'url_animation_fonction' => '#',
+            'par_revolution'		=> true,
+            'url_animation_esquisse'=> '#',
+            'url_animation_fonction'=> '#',
         ]);
     }
 
@@ -404,16 +404,16 @@ class PieceControleur extends ArticleControleur
     public function troncDeConeExtrusion(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
-            'onglet'                 => $this->onglet,
-            'titre'                  => 'Tronc de cône par extrusion',
-            'image_piece'            => '/images/Piece/tronc2cone2/VEcote.png',
-            'image_esquisse'         => '/images/Piece/tronc2cone2/esquisse.png',
-            'icone_principale'       => '/images/Piece/tronc2cone2/icone.png',
+            'onglet'				=> $this->onglet,
+            'titre'					=> 'Tronc de cône par extrusion',
+            'image_piece'			=> '/images/Piece/tronc2cone2/VEcote.png',
+            'image_esquisse'		=> '/images/Piece/tronc2cone2/esquisse.png',
+            'icone_principale'		=> '/images/Piece/tronc2cone2/icone.png',
             'nom_icone_principale'	=> 'cercle par son centre',
-            'par_revolution'         => false,
-            'cas_depouille'          => true,
-            'url_animation_esquisse' => '#',
-            'url_animation_fonction' => '#',
+            'par_revolution'		=> false,
+            'cas_depouille'			=> true,
+            'url_animation_esquisse'=> '#',
+            'url_animation_fonction'=> '#',
         ]);
     }
 
@@ -429,15 +429,15 @@ class PieceControleur extends ArticleControleur
     public function tore(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
-            'onglet'                 => $this->onglet,
-            'titre'                  => 'Tore',
-            'image_piece'            => '/images/Piece/tore/VEcote.png',
-            'image_esquisse'         => '/images/Piece/tore/esquisse.png',
-            'icone_principale'       => '/images/Piece/tore/icone.png',
+            'onglet'				=> $this->onglet,
+            'titre'					=> 'Tore',
+            'image_piece'			=> '/images/Piece/tore/VEcote.png',
+            'image_esquisse'		=> '/images/Piece/tore/esquisse.png',
+            'icone_principale'		=> '/images/Piece/tore/icone.png',
             'nom_icone_principale'	=> 'cercle par son centre',
-            'par_revolution'         => true,
-            'url_animation_esquisse' => '#',
-            'url_animation_fonction' => '#',
+            'par_revolution'		=> true,
+            'url_animation_esquisse'=> '#',
+            'url_animation_fonction'=> '#',
         ]);
     }
 
