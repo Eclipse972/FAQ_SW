@@ -18,67 +18,67 @@ $app->redirect('/', '/accueil', 301);
 
 $app->get('/accueil', [AccueilControleur::class, 'accueil']);
 
-$app->group('/accueil', function ($accueil) {
-    $accueil->get('/rechercher-un-article',	[AccueilControleur::class, 'rechercherArticle']);
-    $accueil->get('/moi',					[AccueilControleur::class, 'moi']);
-    $accueil->get('/nouveautes',			[AccueilControleur::class, 'nouveautes']);
+$app->group('/accueil', function ($groupe) {
+    $groupe->get('/rechercher-un-article',	[AccueilControleur::class, 'rechercherArticle']);
+    $groupe->get('/moi',					[AccueilControleur::class, 'moi']);
+    $groupe->get('/nouveautes',			[AccueilControleur::class, 'nouveautes']);
 });
 
 // ===== PIÈCE =====
 
 $app->get('/piece', [PieceControleur::class, 'accueil']);
 
-$app->group('/piece', function ($piece) {
+$app->group('/piece', function ($groupe) {
 
     // esquisse 2D
-    $piece->get('/esquisse-2d', [PieceControleur::class, 'esquisse2d']);
-    $piece->group('/esquisse-2d', function ($esquisse2d) {
-        $esquisse2d->get('/outils-d-esquisse',      [PieceControleur::class, 'barreDoutils']);
-        $esquisse2d->get('/plan-d-esquisse',        [PieceControleur::class, 'planDesquisse']);
-        $esquisse2d->get('/cotation-intelligente',  [PieceControleur::class, 'cotationIntelligente']);
-        $esquisse2d->get('/contrainte-d-esquisse',  [PieceControleur::class, 'contraindreUneEsquisse']);
-        $esquisse2d->get('/ligne-de-construction',  [PieceControleur::class, 'lignesDeConstruction']);
-        $esquisse2d->get('/code-couleur',           [PieceControleur::class, 'codeCouleur']);
+    $groupe->get('/esquisse-2d', [PieceControleur::class, 'esquisse2d']);
+    $groupe->group('/esquisse-2d', function ($sous_groupe) {
+        $sous_groupe->get('/outils-d-esquisse',      [PieceControleur::class, 'barreDoutils']);
+        $sous_groupe->get('/plan-d-esquisse',        [PieceControleur::class, 'planDesquisse']);
+        $sous_groupe->get('/cotation-intelligente',  [PieceControleur::class, 'cotationIntelligente']);
+        $sous_groupe->get('/contrainte-d-esquisse',  [PieceControleur::class, 'contraindreUneEsquisse']);
+        $sous_groupe->get('/ligne-de-construction',  [PieceControleur::class, 'lignesDeConstruction']);
+        $sous_groupe->get('/code-couleur',           [PieceControleur::class, 'codeCouleur']);
     });
 
     // fonctions
-    $piece->get('/fonctions', [PieceControleur::class, 'fonctions']);
-    $piece->group('/fonctions', function ($fonctions) {
-        $fonctions->get('/extrusion',               [PieceControleur::class, 'extrusion']);
-        $fonctions->get('/revolution',              [PieceControleur::class, 'revolution']);
-        $fonctions->get('/balayage',                [PieceControleur::class, 'balayage']);
-        $fonctions->get('/symetrie',                [PieceControleur::class, 'symetrie']);
-        $fonctions->get('/repetition-lineaire',     [PieceControleur::class, 'repetitionLineaire']);
-        $fonctions->get('/repetition-circulaire',   [PieceControleur::class, 'repetitionCirculaire']);
-        $fonctions->get('/assistance-percage',      [PieceControleur::class, 'assistancePercage']);
-        $fonctions->get('/conge-et-chanfrein',      [PieceControleur::class, 'congeEtChanfrein']);
+    $groupe->get('/fonctions', [PieceControleur::class, 'fonctions']);
+    $groupe->group('/fonctions', function ($sous_groupe) {
+        $sous_groupe->get('/extrusion',               [PieceControleur::class, 'extrusion']);
+        $sous_groupe->get('/revolution',              [PieceControleur::class, 'revolution']);
+        $sous_groupe->get('/balayage',                [PieceControleur::class, 'balayage']);
+        $sous_groupe->get('/symetrie',                [PieceControleur::class, 'symetrie']);
+        $sous_groupe->get('/repetition-lineaire',     [PieceControleur::class, 'repetitionLineaire']);
+        $sous_groupe->get('/repetition-circulaire',   [PieceControleur::class, 'repetitionCirculaire']);
+        $sous_groupe->get('/assistance-percage',      [PieceControleur::class, 'assistancePercage']);
+        $sous_groupe->get('/conge-et-chanfrein',      [PieceControleur::class, 'congeEtChanfrein']);
     });
 
     // volumes elementaires
-    $piece->get('/volumes-elementaires', [PieceControleur::class, 'volumesElementaires']); // À créer/adapter dans votre contrôleur si besoin
-    $piece->group('/volumes-elementaires', function ($volumesElementaires) {
-        $volumesElementaires->get('/prisme-droit',                    [PieceControleur::class, 'prisme']);
-        $volumesElementaires->get('/cylindre-par-extrusion',          [PieceControleur::class, 'cylindreExtrusion']);
-        $volumesElementaires->get('/cylindre-par-revolution',         [PieceControleur::class, 'cylindreRevolution']);
-        $volumesElementaires->get('/sphere',                          [PieceControleur::class, 'sphere']);
-        $volumesElementaires->get('/tronc-de-cone-par-revolution',    [PieceControleur::class, 'troncDeCone']);
-        $volumesElementaires->get('/tronc-de-cone-par-extrusion',     [PieceControleur::class, 'troncDeConeExtrusion']); // À adapter si méthode spécifique
-        $volumesElementaires->get('/tore',                            [PieceControleur::class, 'tore']); // À adapter si méthode spécifique
+    $groupe->get('/volumes-elementaires', [PieceControleur::class, 'volumesElementaires']);
+    $groupe->group('/volumes-elementaires', function ($sous_groupe) {
+        $sous_groupe->get('/prisme-droit',                    [PieceControleur::class, 'prisme']);
+        $sous_groupe->get('/cylindre-par-extrusion',          [PieceControleur::class, 'cylindreExtrusion']);
+        $sous_groupe->get('/cylindre-par-revolution',         [PieceControleur::class, 'cylindreRevolution']);
+        $sous_groupe->get('/sphere',                          [PieceControleur::class, 'sphere']);
+        $sous_groupe->get('/tronc-de-cone-par-revolution',    [PieceControleur::class, 'troncDeCone']);
+        $sous_groupe->get('/tronc-de-cone-par-extrusion',     [PieceControleur::class, 'troncDeConeExtrusion']);
+        $sous_groupe->get('/tore',                            [PieceControleur::class, 'tore']);
     });
 
     // manipuler la pièce
-    $piece->get('/manipuler', [PieceControleur::class, 'manipulerLaPiece']);
-    $piece->group('/manipuler', function ($manipuler) {
-        $manipuler->get('/tourner-et-deplacer',     [PieceControleur::class, 'tournerEtDeplacer']);
-        $manipuler->get('/couper-une-piece',        [PieceControleur::class, 'couperLaPiece']);
-        $manipuler->get('/transparence-ou-couleur', [PieceControleur::class, 'transparenceEtCouleur']);
+    $groupe->get('/manipuler', [PieceControleur::class, 'manipulerLaPiece']);
+    $groupe->group('/manipuler', function ($sous_groupe) {
+        $sous_groupe->get('/tourner-et-deplacer',     [PieceControleur::class, 'tournerEtDeplacer']);
+        $sous_groupe->get('/couper-une-piece',        [PieceControleur::class, 'couperLaPiece']);
+        $sous_groupe->get('/transparence-ou-couleur', [PieceControleur::class, 'transparenceEtCouleur']);
     });
 
     // arbre de création
-    $piece->get('/arbre-creation', [PieceControleur::class, 'arbreDeCreation']);
-    $piece->group('/arbre-creation', function ($arbreCreation) {
-        $arbreCreation->get('/liaison-arbre-zone-graphique', [PieceControleur::class, 'arbreVersZoneGraphique']);
-        $arbreCreation->get('/liaison-zone-graphique-arbre', [PieceControleur::class, 'zoneGraphiqueVersArbre']);
+    $groupe->get('/arbre-creation', [PieceControleur::class, 'arbreDeCreation']);
+    $groupe->group('/arbre-creation', function ($sous_groupe) {
+        $sous_groupe->get('/liaison-arbre-zone-graphique', [PieceControleur::class, 'arbreVersZoneGraphique']);
+        $sous_groupe->get('/liaison-zone-graphique-arbre', [PieceControleur::class, 'zoneGraphiqueVersArbre']);
     });
 });
 
@@ -86,101 +86,101 @@ $app->group('/piece', function ($piece) {
 
 $app->get('/assemblage', [AssemblageControleur::class, 'accueil']);
 
-$app->group('/assemblage', function ($assemblage) {
+$app->group('/assemblage', function ($groupe) {
 
-    $assemblage->get('/contraintes', [AssemblageControleur::class, 'contraintes']);
-    $assemblage->group('/contraintes', function ($contraintes) {
-        $contraintes->get('/appui-plan',          [AssemblageControleur::class, 'appuiPlan']);
-        $contraintes->get('/coaxialite',          [AssemblageControleur::class, 'coaxialite']);
-        $contraintes->get('/contraintes-limites', [AssemblageControleur::class, 'contraintesLimites']);
-        $contraintes->get('/comment-les-choisir', [AssemblageControleur::class, 'commentLesChoisir']);
+    $groupe->get('/contraintes', [AssemblageControleur::class, 'contraintes']);
+    $groupe->group('/contraintes', function ($sous_groupe) {
+        $sous_groupe->get('/appui-plan',          [AssemblageControleur::class, 'appuiPlan']);
+        $sous_groupe->get('/coaxialite',          [AssemblageControleur::class, 'coaxialite']);
+        $sous_groupe->get('/contraintes-limites', [AssemblageControleur::class, 'contraintesLimites']);
+        $sous_groupe->get('/comment-les-choisir', [AssemblageControleur::class, 'commentLesChoisir']);
     });
 
-    $assemblage->get('/arbre-de-creation', [AssemblageControleur::class, 'arbreDeCreation']);
-    $assemblage->group('/arbre-de-creation', function ($arbreDeCreationAssemblage) {
-        $arbreDeCreationAssemblage->get('/arbre-zone-graphique',	[AssemblageControleur::class, 'liaisonArbreZoneGraphique']);
-        $arbreDeCreationAssemblage->get('/zone-graphique-arbre',	[AssemblageControleur::class, 'liaisonZoneGraphiqueArbre']);
-        $arbreDeCreationAssemblage->get('/ouvrir-sous-ensemble',	[AssemblageControleur::class, 'ouvrirSousEnsemble']);
-        $arbreDeCreationAssemblage->get('/cacher-montrer-composant',[AssemblageControleur::class, 'cacherMontrerComposant']);
-        $arbreDeCreationAssemblage->get('/voir-les-contraintes',	[AssemblageControleur::class, 'voirLesContraintes']);
+    $groupe->get('/arbre-de-creation', [AssemblageControleur::class, 'arbreDeCreation']);
+    $groupe->group('/arbre-de-creation', function ($sous_groupe) {
+        $sous_groupe->get('/arbre-zone-graphique',	[AssemblageControleur::class, 'liaisonArbreZoneGraphique']);
+        $sous_groupe->get('/zone-graphique-arbre',	[AssemblageControleur::class, 'liaisonZoneGraphiqueArbre']);
+        $sous_groupe->get('/ouvrir-sous-ensemble',	[AssemblageControleur::class, 'ouvrirSousEnsemble']);
+        $sous_groupe->get('/cacher-montrer-composant',[AssemblageControleur::class, 'cacherMontrerComposant']);
+        $sous_groupe->get('/voir-les-contraintes',	[AssemblageControleur::class, 'voirLesContraintes']);
     });
 
-    $assemblage->get('/configurations',		[AssemblageControleur::class, 'configurations']);
-    $assemblage->get('/creer-un-eclate',	[AssemblageControleur::class, 'eclate']);
-    $assemblage->get('/creer-un-ecorche',	[AssemblageControleur::class, 'ecorche']);
+    $groupe->get('/configurations',		[AssemblageControleur::class, 'configurations']);
+    $groupe->get('/creer-un-eclate',	[AssemblageControleur::class, 'eclate']);
+    $groupe->get('/creer-un-ecorche',	[AssemblageControleur::class, 'ecorche']);
 });
 
 // ===== MISE EN PLAN =====
 
 $app->get('/mise-en-plan', [MiseEnPlanControleur::class, 'miseEnPlan']);
 
-$app->group('/mise-en-plan', function ($miseEnPlan) {
+$app->group('/mise-en-plan', function ($groupe) {
 
-    $miseEnPlan->get('/presentation', [MiseEnPlanControleur::class, 'presentation']);
-    $miseEnPlan->group('/presentation', function ($presentationMiseEnPlan) {
-        $presentationMiseEnPlan->get('/le-module',          [MiseEnPlanControleur::class, 'leModule']);
-        $presentationMiseEnPlan->get('/liste-des-articles', [MiseEnPlanControleur::class, 'listeDesArticles']);
+    $groupe->get('/presentation', [MiseEnPlanControleur::class, 'presentation']);
+    $groupe->group('/presentation', function ($sous_groupe) {
+        $sous_groupe->get('/le-module',          [MiseEnPlanControleur::class, 'leModule']);
+        $sous_groupe->get('/liste-des-articles', [MiseEnPlanControleur::class, 'listeDesArticles']);
     });
 
-    $miseEnPlan->get('/fond-de-plan',                  [MiseEnPlanControleur::class, 'fondDePlan']);
-    $miseEnPlan->get('/cartouche',                     [MiseEnPlanControleur::class, 'cartouche']);
-    $miseEnPlan->get('/exporter-en-pdf',               [MiseEnPlanControleur::class, 'exporterEnPdf']);
-    $miseEnPlan->get('/arbre-de-creation',             [MiseEnPlanControleur::class, 'arbreDeCreation']);
-    $miseEnPlan->get('/lien-fichier-piece-assemblage', [MiseEnPlanControleur::class, 'lienFichierPieceAssemblage']);
+    $groupe->get('/fond-de-plan',                  [MiseEnPlanControleur::class, 'fondDePlan']);
+    $groupe->get('/cartouche',                     [MiseEnPlanControleur::class, 'cartouche']);
+    $groupe->get('/exporter-en-pdf',               [MiseEnPlanControleur::class, 'exporterEnPdf']);
+    $groupe->get('/arbre-de-creation',             [MiseEnPlanControleur::class, 'arbreDeCreation']);
+    $groupe->get('/lien-fichier-piece-assemblage', [MiseEnPlanControleur::class, 'lienFichierPieceAssemblage']);
 
-    $miseEnPlan->get('/vues', [MiseEnPlanControleur::class, 'vues']);
-    $miseEnPlan->group('/vues', function ($vues) {
-        $vues->get('/palette-de-vues', [MiseEnPlanControleur::class, 'paletteDeVues']);
-        $vues->get('/vue-projetee',    [MiseEnPlanControleur::class, 'vueProjetee']);
-        $vues->get('/eclate',          [MiseEnPlanControleur::class, 'eclate']);
-        $vues->get('/ecorche',         [MiseEnPlanControleur::class, 'ecorche']);
-        $vues->get('/detail-agrandi',  [MiseEnPlanControleur::class, 'detailAgrandi']);
+    $groupe->get('/vues', [MiseEnPlanControleur::class, 'vues']);
+    $groupe->group('/vues', function ($sous_groupe) {
+        $sous_groupe->get('/palette-de-vues', [MiseEnPlanControleur::class, 'paletteDeVues']);
+        $sous_groupe->get('/vue-projetee',    [MiseEnPlanControleur::class, 'vueProjetee']);
+        $sous_groupe->get('/eclate',          [MiseEnPlanControleur::class, 'eclate']);
+        $sous_groupe->get('/ecorche',         [MiseEnPlanControleur::class, 'ecorche']);
+        $sous_groupe->get('/detail-agrandi',  [MiseEnPlanControleur::class, 'detailAgrandi']);
 
-        $vues->get('/vue-en-coupe', [MiseEnPlanControleur::class, 'vueEnCoupe']);
-        $vues->group('/vue-en-coupe', function ($vueEnCoupe) {
-            $vueEnCoupe->get('/avec-2012', [MiseEnPlanControleur::class, 'avec2012']);
-            $vueEnCoupe->get('/avec-2015', [MiseEnPlanControleur::class, 'avec2015']);
+        $sous_groupe->get('/vue-en-coupe', [MiseEnPlanControleur::class, 'vueEnCoupe']);
+        $sous_groupe->group('/vue-en-coupe', function ($sous_sous_groupe) {
+            $sous_sous_groupe->get('/avec-2012', [MiseEnPlanControleur::class, 'avec2012']);
+            $sous_sous_groupe->get('/avec-2015', [MiseEnPlanControleur::class, 'avec2015']);
         });
 
-        $vues->get('/perspective', [MiseEnPlanControleur::class, 'perspective']);
-        $vues->group('/perspective', function ($perspective) {
-            $perspective->get('/standard',      [MiseEnPlanControleur::class, 'standard']);
-            $perspective->get('/personnalisee', [MiseEnPlanControleur::class, 'personnalisee']);
-        });
-    });
-
-    $miseEnPlan->get('/cotation', [MiseEnPlanControleur::class, 'cotation']);
-    $miseEnPlan->group('/cotation', function ($cotation) {
-        $cotation->get('/inserer-la-cotation',           [MiseEnPlanControleur::class, 'insererLaCotation']);
-        $cotation->get('/coter-a-la-main',               [MiseEnPlanControleur::class, 'coterALaMain']);
-        $cotation->get('/forcer-le-sens-des-fleches',    [MiseEnPlanControleur::class, 'forcerLeSensDesFleches']);
-        $cotation->get('/nombre-de-decimales',           [MiseEnPlanControleur::class, 'nombreDeDecimales']);
-        $cotation->get('/modifier-les-lignes-de-rappel', [MiseEnPlanControleur::class, 'modifierLesLignesDeRappel']);
-        $cotation->get('/rajouter-du-texte',             [MiseEnPlanControleur::class, 'rajouterDuTexte']);
-
-        $cotation->get('/erreurs-classiques', [MiseEnPlanControleur::class, 'erreursClassiques']);
-        $cotation->group('/erreurs-classiques', function ($erreursClassiques) {
-            $erreursClassiques->get('/croisement-fleche-ligne-rappel',       [MiseEnPlanControleur::class, 'croisementFlecheLigneRappel']);
-            $erreursClassiques->get('/valeurs-non-centrees',                 [MiseEnPlanControleur::class, 'valeursNonCentrees']);
-            $erreursClassiques->get('/ligne-de-rappel-dans-le-vide',         [MiseEnPlanControleur::class, 'ligneDeRappelDansLeVide']);
-            $erreursClassiques->get('/cote-loin-de-sa-forme',                [MiseEnPlanControleur::class, 'coteLoinDeSaForme']);
-            $erreursClassiques->get('/pointes-de-fleche-au-mauvais-endroit', [MiseEnPlanControleur::class, 'pointesDeFlecheAuMauvaisEndroit']);
-            $erreursClassiques->get('/cote-en-dehors-de-la-zone',            [MiseEnPlanControleur::class, 'coteEnDehorsDeLaZone']);
+        $sous_groupe->get('/perspective', [MiseEnPlanControleur::class, 'perspective']);
+        $sous_groupe->group('/perspective', function ($sous_sous_groupe) {
+            $sous_sous_groupe->get('/standard',      [MiseEnPlanControleur::class, 'standard']);
+            $sous_sous_groupe->get('/personnalisee', [MiseEnPlanControleur::class, 'personnalisee']);
         });
     });
 
-    $miseEnPlan->get('/mise-en-page', [MiseEnPlanControleur::class, 'miseEnPage']);
-    $miseEnPlan->group('/mise-en-page', function ($miseEnPage) {
-        $miseEnPage->get('/deplacer-les-vues', [MiseEnPlanControleur::class, 'deplacerLesVues']);
-        $miseEnPage->get('/modifier-lechelle', [MiseEnPlanControleur::class, 'modifierLechelle']);
+    $groupe->get('/cotation', [MiseEnPlanControleur::class, 'cotation']);
+    $groupe->group('/cotation', function ($sous_groupe) {
+        $sous_groupe->get('/inserer-la-cotation',           [MiseEnPlanControleur::class, 'insererLaCotation']);
+        $sous_groupe->get('/coter-a-la-main',               [MiseEnPlanControleur::class, 'coterALaMain']);
+        $sous_groupe->get('/forcer-le-sens-des-fleches',    [MiseEnPlanControleur::class, 'forcerLeSensDesFleches']);
+        $sous_groupe->get('/nombre-de-decimales',           [MiseEnPlanControleur::class, 'nombreDeDecimales']);
+        $sous_groupe->get('/modifier-les-lignes-de-rappel', [MiseEnPlanControleur::class, 'modifierLesLignesDeRappel']);
+        $sous_groupe->get('/rajouter-du-texte',             [MiseEnPlanControleur::class, 'rajouterDuTexte']);
+
+        $sous_groupe->get('/erreurs-classiques', [MiseEnPlanControleur::class, 'erreursClassiques']);
+        $sous_groupe->group('/erreurs-classiques', function ($sous_sous_groupe) {
+            $sous_sous_groupe->get('/croisement-fleche-ligne-rappel',       [MiseEnPlanControleur::class, 'croisementFlecheLigneRappel']);
+            $sous_sous_groupe->get('/valeurs-non-centrees',                 [MiseEnPlanControleur::class, 'valeursNonCentrees']);
+            $sous_sous_groupe->get('/ligne-de-rappel-dans-le-vide',         [MiseEnPlanControleur::class, 'ligneDeRappelDansLeVide']);
+            $sous_sous_groupe->get('/cote-loin-de-sa-forme',                [MiseEnPlanControleur::class, 'coteLoinDeSaForme']);
+            $sous_sous_groupe->get('/pointes-de-fleche-au-mauvais-endroit', [MiseEnPlanControleur::class, 'pointesDeFlecheAuMauvaisEndroit']);
+            $sous_sous_groupe->get('/cote-en-dehors-de-la-zone',            [MiseEnPlanControleur::class, 'coteEnDehorsDeLaZone']);
+        });
     });
 
-    $miseEnPlan->get('/dessin-densemble', [MiseEnPlanControleur::class, 'dessinDensemble']);
-    $miseEnPlan->group('/dessin-densemble', function ($dessinDensemble) {
-        $dessinDensemble->get('/ajouter-des-reperes', [MiseEnPlanControleur::class, 'ajouterDesReperes']);
-        $dessinDensemble->get('/nomenclature',        [MiseEnPlanControleur::class, 'nomenclature']);
-        $dessinDensemble->get('/inserer-un-eclate',   [MiseEnPlanControleur::class, 'insererUnEclate']);
-        $dessinDensemble->get('/inclure-un-ecorche',  [MiseEnPlanControleur::class, 'inclureUnEcorche']);
+    $groupe->get('/mise-en-page', [MiseEnPlanControleur::class, 'miseEnPage']);
+    $groupe->group('/mise-en-page', function ($sous_groupe) {
+        $sous_groupe->get('/deplacer-les-vues', [MiseEnPlanControleur::class, 'deplacerLesVues']);
+        $sous_groupe->get('/modifier-lechelle', [MiseEnPlanControleur::class, 'modifierLechelle']);
+    });
+
+    $groupe->get('/dessin-densemble', [MiseEnPlanControleur::class, 'dessinDensemble']);
+    $groupe->group('/dessin-densemble', function ($sous_groupe) {
+        $sous_groupe->get('/ajouter-des-reperes', [MiseEnPlanControleur::class, 'ajouterDesReperes']);
+        $sous_groupe->get('/nomenclature',        [MiseEnPlanControleur::class, 'nomenclature']);
+        $sous_groupe->get('/inserer-un-eclate',   [MiseEnPlanControleur::class, 'insererUnEclate']);
+        $sous_groupe->get('/inclure-un-ecorche',  [MiseEnPlanControleur::class, 'inclureUnEcorche']);
     });
 });
 
@@ -189,40 +189,34 @@ $app->group('/mise-en-plan', function ($miseEnPlan) {
 
 $app->get('/autre', [AutreControleur::class, 'autre']);
 
-$app->group('/autre', function ($autre) {
+$app->group('/autre', function ($groupe) {
 
-    $autre->get('/presentation',            [AutreControleur::class, 'presentation']);
-    $autre->get('/casier-numerique',        [AutreControleur::class, 'casierNumerique']);
-    $autre->get('/placer-la-barre-doutils', [AutreControleur::class, 'placerLaBarreDoutils']);
+    $groupe->get('/presentation',            [AutreControleur::class, 'presentation']);
+    $groupe->get('/casier-numerique',        [AutreControleur::class, 'casierNumerique']);
+    $groupe->get('/placer-la-barre-doutils', [AutreControleur::class, 'placerLaBarreDoutils']);
 
-    $autre->get('/zoom', [AutreControleur::class, 'zoom']);
-    $autre->group('/zoom', function ($zoom) {
-        $zoom->get('/zoom-au-mieux',   [AutreControleur::class, 'zoomAuMieux']);
-        $zoom->get('/zoom-fenetre',    [AutreControleur::class, 'zoomFenetre']);
-        $zoom->get('/ajuster-le-zoom', [AutreControleur::class, 'ajusterLeZoom']);
-        $zoom->get('/deplacer-la-vue', [AutreControleur::class, 'deplacerLaVue']);
+    $groupe->get('/zoom', [AutreControleur::class, 'zoom']);
+    $groupe->group('/zoom', function ($sous_groupe) {
+        $sous_groupe->get('/zoom-au-mieux',   [AutreControleur::class, 'zoomAuMieux']);
+        $sous_groupe->get('/zoom-fenetre',    [AutreControleur::class, 'zoomFenetre']);
+        $sous_groupe->get('/ajuster-le-zoom', [AutreControleur::class, 'ajusterLeZoom']);
+        $sous_groupe->get('/deplacer-la-vue', [AutreControleur::class, 'deplacerLaVue']);
     });
 
-    $autre->get('/ouvrir-un-fichier', [AutreControleur::class, 'ouvrirUnFichier']);
-    $autre->group('/ouvrir-un-fichier', function ($ouvrirUnFichier) {
-        $ouvrirUnFichier->get('/2012', [AutreControleur::class, 'ouvrir2012']);
-        $ouvrirUnFichier->get('/2015', [AutreControleur::class, 'ouvrir2015']);
+    $groupe->get('/ouvrir-un-fichier', [AutreControleur::class, 'ouvrirUnFichier']);
+    $groupe->group('/ouvrir-un-fichier', function ($sous_groupe) {
+        $sous_groupe->get('/2012', [AutreControleur::class, 'ouvrir2012']);
+        $sous_groupe->get('/2015', [AutreControleur::class, 'ouvrir2015']);
     });
 
-    $autre->get('/mecanique-graphique', [AutreControleur::class, 'mecaniqueGraphique']);
-    $autre->group('/mecanique-graphique', function ($mecaniqueGraphique) {
-        $mecaniqueGraphique->get('/statique', [AutreControleur::class, 'statique']);
+    $groupe->get('/mecanique-graphique', [AutreControleur::class, 'mecaniqueGraphique']);
+    $groupe->group('/mecanique-graphique', function ($sous_groupe) {
+        $sous_groupe->get('/statique', [AutreControleur::class, 'statique']);
 
-        $mecaniqueGraphique->get('/cinematique', [AutreControleur::class, 'cinematique']);
-        $mecaniqueGraphique->group('/cinematique', function ($cinematique) {
-            $cinematique->get('/equi-projectivite',     [AutreControleur::class, 'equiProjectivite']);
-            $cinematique->get('/champ-vecteur-vitesse', [AutreControleur::class, 'champVecteurVitesse']);
+        $sous_groupe->get('/cinematique', [AutreControleur::class, 'cinematique']);
+        $sous_groupe->group('/cinematique', function ($sous_sous_groupe) {
+            $sous_sous_groupe->get('/equi-projectivite',     [AutreControleur::class, 'equiProjectivite']);
+            $sous_sous_groupe->get('/champ-vecteur-vitesse', [AutreControleur::class, 'champVecteurVitesse']);
         });
     });
 });
-
-
-// ===== CONTACT =====
-
-// $app->get('/contact',  [ContactControleur::class, 'afficher']);
-// $app->post('/contact', [ContactControleur::class, 'traiter']);
