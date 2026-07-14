@@ -84,7 +84,7 @@ $app->group('/piece', function ($piece) {
 
 // ===== ASSEMBLAGE =====
 
-$app->get('/assemblage', [AssemblageControleur::class, 'assemblage']);
+$app->get('/assemblage', [AssemblageControleur::class, 'accueil']);
 
 $app->group('/assemblage', function ($assemblage) {
 
