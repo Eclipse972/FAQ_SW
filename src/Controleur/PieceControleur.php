@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 
-class PieceControleur extends ArticleControleur
+class PieceControleur extends OngletControleur
 {
 	/**
 	 * Constructeur

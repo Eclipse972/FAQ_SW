@@ -9,7 +9,7 @@ use Slim\Views\Twig;
  * Classe-mère de tous les controleurs d'article du site.
  */
 
-class ArticleControleur {
+class OngletControleur {
 	protected string $onglet; # nom de l'onglet
 
 	/**
