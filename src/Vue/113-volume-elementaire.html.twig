@@ -51,13 +51,11 @@
 <div class="mise-en-volume">
 	<ol>
 		<li>Dans la barre d'outils, sélectionnez l'onglet <b>Fonctions</b> (premier onglet).</li>
-		<li>
-			Cliquez sur la {{ par_revolution ? 'deuxième' : 'première' }} icône
-			<b>{{ par_revolution ? 'Bossage/Base avec révolution' : 'Base/Bossage extrudé' }}</b>
-			<img src="/images/{{ par_revolution ? 'revolution' : 'extrusion' }}.png"
-				alt="Icône de mise en volume"
-				class="icone">
-		</li>
+	{% if par_revolution %}
+		<li>Cliquez sur la deuxième icône<b>Bossage/Base avec révolution</b><img src="/images/revolution.png" alt="Icône de mise en volume" class="icone"></li>
+	{% else %}
+		<li>Cliquez sur la première icône <b>Base/Bossage extrudé</b><img src="/images/extrusion.png" alt="Icône de mise en volume" class="icone"></li>
+	{% endif %}
 		<li>À gauche de l'écran apparaissent les paramètres.</li>
 		<li>
 			{% if par_revolution %}
