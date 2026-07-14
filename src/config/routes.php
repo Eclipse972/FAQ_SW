@@ -200,10 +200,11 @@ $app->group('/autre', function ($groupe) {
         $sous_groupe->get('/deplacer-la-vue', [AutreControleur::class, 'deplacerLaVue']);
     });
 
-    $groupe->get('/ouvrir-un-fichier', [AutreControleur::class, 'ouvrirUnFichier']);
-    $groupe->group('/ouvrir-un-fichier', function ($sous_groupe) {
-        $sous_groupe->get('/2012', [AutreControleur::class, 'ouvrir2012']);
-        $sous_groupe->get('/2015', [AutreControleur::class, 'ouvrir2015']);
+    $groupe->get('/export-edrawing', [AutreControleur::class, 'exportEdrawing']);
+    $groupe->group('/export-edrawing', function ($sous_groupe) {
+        $sous_groupe->get('/piece',			[AutreControleur::class, 'exportEdrawingPiece']);
+        $sous_groupe->get('/assemblage',	[AutreControleur::class, 'exportEdrawingAssemblage']);
+        $sous_groupe->get('/mise-en-plan',	[AutreControleur::class, 'exportEdrawingPiece']);
     });
 
     $groupe->get('/casier-numerique', [AutreControleur::class, 'casierNumerique']);
