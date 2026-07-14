@@ -184,10 +184,9 @@ $app->group('/mise-en-plan', function ($groupe) {
     });
 });
 
-
 // ===== AUTRE =====
 
-$app->get('/autre', [AutreControleur::class, 'autre']);
+$app->get('/autre', [AutreControleur::class, 'accueil']);
 
 $app->group('/autre', function ($groupe) {
 
@@ -197,9 +196,9 @@ $app->group('/autre', function ($groupe) {
 
     $groupe->get('/zoom', [AutreControleur::class, 'zoom']);
     $groupe->group('/zoom', function ($sous_groupe) {
-        $sous_groupe->get('/zoom-au-mieux',   [AutreControleur::class, 'zoomAuMieux']);
         $sous_groupe->get('/zoom-fenetre',    [AutreControleur::class, 'zoomFenetre']);
         $sous_groupe->get('/ajuster-le-zoom', [AutreControleur::class, 'ajusterLeZoom']);
+        $sous_groupe->get('/zoom-au-mieux',   [AutreControleur::class, 'zoomAuMieux']);
         $sous_groupe->get('/deplacer-la-vue', [AutreControleur::class, 'deplacerLaVue']);
     });
 
@@ -209,11 +208,12 @@ $app->group('/autre', function ($groupe) {
         $sous_groupe->get('/2015', [AutreControleur::class, 'ouvrir2015']);
     });
 
+    $groupe->get('/casier-numerique', [AutreControleur::class, 'casierNumerique']);
+
     $groupe->get('/mecanique-graphique', [AutreControleur::class, 'mecaniqueGraphique']);
     $groupe->group('/mecanique-graphique', function ($sous_groupe) {
-        $sous_groupe->get('/statique', [AutreControleur::class, 'statique']);
+        $sous_groupe->get('/pfs-3-forces', [AutreControleur::class, 'statique']);
 
-        $sous_groupe->get('/cinematique', [AutreControleur::class, 'cinematique']);
         $sous_groupe->group('/cinematique', function ($sous_sous_groupe) {
             $sous_sous_groupe->get('/equi-projectivite',     [AutreControleur::class, 'equiProjectivite']);
             $sous_sous_groupe->get('/champ-vecteur-vitesse', [AutreControleur::class, 'champVecteurVitesse']);
