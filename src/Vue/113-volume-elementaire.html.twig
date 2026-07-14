@@ -51,35 +51,28 @@
 <div class="mise-en-volume">
 	<ol>
 		<li>Dans la barre d'outils, sélectionnez l'onglet <b>Fonctions</b> (premier onglet).</li>
-	{% if par_revolution %}
+
+		{% if par_revolution %}
 		<li>Cliquez sur la deuxième icône<b>Bossage/Base avec révolution</b><img src="/images/revolution.png" alt="Icône de mise en volume" class="icone"></li>
-	{% else %}
+		{% else %}
 		<li>Cliquez sur la première icône <b>Base/Bossage extrudé</b><img src="/images/extrusion.png" alt="Icône de mise en volume" class="icone"></li>
-	{% endif %}
-		<li>À gauche de l'écran apparaissent les paramètres.</li>
-		<li>
-			{% if par_revolution %}
-				Si la case <b>Axe de révolution</b> n'est pas renseignée, sélectionnez l'axe de révolution dans l'esquisse.
-			{% else %}
-				Dans la partie <b>Direction 1</b>, inscrivez la profondeur souhaitée.
-			{% endif %}
-		</li>
-		{% if cas_depouille is defined and cas_depouille %}
-		<li>
-			Cliquez sur l'icône dépouille
-			<img src="/images/depouille.png" alt="Icône dépouille" class="icone">
-			puis entrez l'angle en degrés.
-		</li>
 		{% endif %}
-		<li>
-			Validez en cliquant sur
-			<img src="/images/validation.png" alt="Icône validation" class="icone">
-			en haut à gauche.
-		</li>
+
+		<li>À gauche de l'écran apparaissent les paramètres.</li>
+
+		{% if par_revolution %}
+		<li>Si la case <b>Axe de révolution</b> n'est pas renseignée, sélectionnez l'axe de révolution dans l'esquisse.</li>
+		{% else %}
+		<li>Dans la partie <b>Direction 1</b>, inscrivez la profondeur souhaitée.</li>
+		{% endif %}
+
+		{% if cas_depouille is defined and cas_depouille %}
+		<li>Cliquez sur l'icône dépouille<img src="/images/depouille.png" alt="Icône dépouille" class="icone"> puis entrez l'angle en degrés.</li>
+		{% endif %}
+
+		<li>Validez en cliquant sur<img src="/images/validation.png" alt="Icône validation" class="icone"> en haut à gauche.</li>
 	</ol>
-    <img src="/images/{{ par_revolution ? 'param_revolution' : 'param_extrusion' }}.png"
-         alt="Paramètres"
-         class="param">
+    <img src="/images/{{ par_revolution ? 'param_revolution' : 'param_extrusion' }}.png" alt="Paramètres" class="param">
 </div>
 <p><a href="{{ url_animation_fonction }}">Montre moi comment créer la mise en volume</a></p>
 {% endblock %}
