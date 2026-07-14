@@ -98,18 +98,17 @@ $app->group('/assemblage', function ($assemblage) {
 
     $assemblage->get('/arbre-de-creation', [AssemblageControleur::class, 'arbreDeCreation']);
     $assemblage->group('/arbre-de-creation', function ($arbreDeCreationAssemblage) {
-        $arbreDeCreationAssemblage->get('/arbre-vers-zone-graphique', [AssemblageControleur::class, 'arbreVersZoneGraphique']);
-        $arbreDeCreationAssemblage->get('/zone-graphique-vers-arbre', [AssemblageControleur::class, 'zoneGraphiqueVersArbre']);
-        $arbreDeCreationAssemblage->get('/ouvrir-sous-ensemble',      [AssemblageControleur::class, 'ouvrirSousEnsemble']);
-        $arbreDeCreationAssemblage->get('/cacher-montrer-composant',  [AssemblageControleur::class, 'cacherMontrerComposant']);
-        $arbreDeCreationAssemblage->get('/voir-les-contraintes',      [AssemblageControleur::class, 'voirLesContraintes']);
+        $arbreDeCreationAssemblage->get('/arbre-zone-graphique',	[AssemblageControleur::class, 'liaisonArbreZoneGraphique']);
+        $arbreDeCreationAssemblage->get('/zone-graphique-arbre',	[AssemblageControleur::class, 'LiaisonZoneGraphiqueArbre']);
+        $arbreDeCreationAssemblage->get('/ouvrir-sous-ensemble',	[AssemblageControleur::class, 'ouvrirSousEnsemble']);
+        $arbreDeCreationAssemblage->get('/cacher-montrer-composant',[AssemblageControleur::class, 'cacherMontrerComposant']);
+        $arbreDeCreationAssemblage->get('/voir-les-contraintes',	[AssemblageControleur::class, 'voirLesContraintes']);
     });
 
-    $assemblage->get('/configurations', [AssemblageControleur::class, 'configurations']);
-    $assemblage->get('/eclate',         [AssemblageControleur::class, 'eclate']);
-    $assemblage->get('/ecorche',        [AssemblageControleur::class, 'ecorche']);
+    $assemblage->get('/configurations',		[AssemblageControleur::class, 'configurations']);
+    $assemblage->get('/creer-un-eclate',	[AssemblageControleur::class, 'eclate']);
+    $assemblage->get('/creer-un-ecorche',	[AssemblageControleur::class, 'ecorche']);
 });
-
 
 // ===== MISE EN PLAN =====
 
