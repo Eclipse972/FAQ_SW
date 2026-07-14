@@ -211,8 +211,8 @@ $app->group('/autre', function ($groupe) {
 
     $groupe->get('/mecanique-graphique', [AutreControleur::class, 'mecaniqueGraphique']);
     $groupe->group('/mecanique-graphique', function ($sous_groupe) {
-        $sous_groupe->get('/pfs-3-forces',			[AutreControleur::class, 'ResolutionPFS3forces']);
-        $sous_groupe->get('/equi-projectivite',		[AutreControleur::class, 'EquiProjectivite']);
+        $sous_groupe->get('/pfs-3-forces',			[AutreControleur::class, 'resolutionPFS3forces']);
+        $sous_groupe->get('/equi-projectivite',		[AutreControleur::class, 'equiProjectivite']);
         $sous_groupe->get('/champ-vecteur-vitesse',	[AutreControleur::class, 'champVecteurVitesse']);
     });
 });
