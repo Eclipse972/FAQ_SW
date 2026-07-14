@@ -99,7 +99,7 @@ $app->group('/assemblage', function ($assemblage) {
     $assemblage->get('/arbre-de-creation', [AssemblageControleur::class, 'arbreDeCreation']);
     $assemblage->group('/arbre-de-creation', function ($arbreDeCreationAssemblage) {
         $arbreDeCreationAssemblage->get('/arbre-zone-graphique',	[AssemblageControleur::class, 'liaisonArbreZoneGraphique']);
-        $arbreDeCreationAssemblage->get('/zone-graphique-arbre',	[AssemblageControleur::class, 'LiaisonZoneGraphiqueArbre']);
+        $arbreDeCreationAssemblage->get('/zone-graphique-arbre',	[AssemblageControleur::class, 'liaisonZoneGraphiqueArbre']);
         $arbreDeCreationAssemblage->get('/ouvrir-sous-ensemble',	[AssemblageControleur::class, 'ouvrirSousEnsemble']);
         $arbreDeCreationAssemblage->get('/cacher-montrer-composant',[AssemblageControleur::class, 'cacherMontrerComposant']);
         $arbreDeCreationAssemblage->get('/voir-les-contraintes',	[AssemblageControleur::class, 'voirLesContraintes']);

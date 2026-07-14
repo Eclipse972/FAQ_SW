@@ -140,7 +140,7 @@ class AssemblageControleur extends ArticleControleur
 	 * @param Response $reponse
 	 * @return Response
 	 */
-	public function LiaisonZoneGraphiqueArbre(Request $requete, Response $reponse): Response
+	public function liaisonZoneGraphiqueArbre(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageOrdinaire($reponse, 'zone-graphique-arbre');
 	}
