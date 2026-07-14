@@ -16,7 +16,7 @@ class AssemblageControleur extends ArticleControleur
 	public function __construct(Twig $vue)
 	{
 		parent::__construct($vue);
-		$this->hydrate('accueil');
+		$this->hydrate('assemblage');
 	}
 
 }
