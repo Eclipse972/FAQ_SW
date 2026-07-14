@@ -114,7 +114,7 @@ class PieceControleur extends ArticleControleur
      */
     public function lignesDeConstruction(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'lignes-de-construction');
+       return $this->renduPageOrdinaire($reponse, 'ligne-de-construction');
     }
 
     /**
