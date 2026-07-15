@@ -112,77 +112,49 @@ $app->group('/assemblage', function ($groupe) {
 
 // ===== MISE EN PLAN =====
 
-$app->get('/mise-en-plan', [MiseEnPlanControleur::class, 'miseEnPlan']);
+$app->get('/mise-en-plan', [MiseEnPlanControleur::class, 'accueil']);
 
 $app->group('/mise-en-plan', function ($groupe) {
 
-	$groupe->get('/presentation', [MiseEnPlanControleur::class, 'presentation']);
-	$groupe->group('/presentation', function ($sous_groupe) {
-		$sous_groupe->get('/le-module',          [MiseEnPlanControleur::class, 'leModule']);
-		$sous_groupe->get('/liste-des-articles', [MiseEnPlanControleur::class, 'listeDesArticles']);
-	});
-
-	$groupe->get('/fond-de-plan',                  [MiseEnPlanControleur::class, 'fondDePlan']);
-	$groupe->get('/cartouche',                     [MiseEnPlanControleur::class, 'cartouche']);
-	$groupe->get('/exporter-en-pdf',               [MiseEnPlanControleur::class, 'exporterEnPdf']);
-	$groupe->get('/arbre-de-creation',             [MiseEnPlanControleur::class, 'arbreDeCreation']);
-	$groupe->get('/lien-fichier-piece-assemblage', [MiseEnPlanControleur::class, 'lienFichierPieceAssemblage']);
+	$groupe->get('/fond-de-plan',					[MiseEnPlanControleur::class, 'fondDePlan']);
+	$groupe->get('/cartouche',						[MiseEnPlanControleur::class, 'cartouche']);
+	$groupe->get('/arbre-de-creation',				[MiseEnPlanControleur::class, 'arbreDeCreation']);
+	$groupe->get('/lien-fichier-piece-assemblage',	[MiseEnPlanControleur::class, 'lienFichierPieceAssemblage']);
 
 	$groupe->get('/vues', [MiseEnPlanControleur::class, 'vues']);
 	$groupe->group('/vues', function ($sous_groupe) {
-		$sous_groupe->get('/palette-de-vues', [MiseEnPlanControleur::class, 'paletteDeVues']);
-		$sous_groupe->get('/vue-projetee',    [MiseEnPlanControleur::class, 'vueProjetee']);
-		$sous_groupe->get('/eclate',          [MiseEnPlanControleur::class, 'eclate']);
-		$sous_groupe->get('/ecorche',         [MiseEnPlanControleur::class, 'ecorche']);
-		$sous_groupe->get('/detail-agrandi',  [MiseEnPlanControleur::class, 'detailAgrandi']);
-
-		$sous_groupe->get('/vue-en-coupe', [MiseEnPlanControleur::class, 'vueEnCoupe']);
-		$sous_groupe->group('/vue-en-coupe', function ($sous_sous_groupe) {
-			$sous_sous_groupe->get('/avec-2012', [MiseEnPlanControleur::class, 'avec2012']);
-			$sous_sous_groupe->get('/avec-2015', [MiseEnPlanControleur::class, 'avec2015']);
-		});
-
-		$sous_groupe->get('/perspective', [MiseEnPlanControleur::class, 'perspective']);
-		$sous_groupe->group('/perspective', function ($sous_sous_groupe) {
-			$sous_sous_groupe->get('/standard',      [MiseEnPlanControleur::class, 'standard']);
-			$sous_sous_groupe->get('/personnalisee', [MiseEnPlanControleur::class, 'personnalisee']);
-		});
+		$sous_groupe->get('/vue-projetee',	[MiseEnPlanControleur::class, 'vueProjetee']);
+		$sous_groupe->get('/eclate',		[MiseEnPlanControleur::class, 'eclate']);
+		$sous_groupe->get('/ecorche',		[MiseEnPlanControleur::class, 'ecorche']);
+		$sous_groupe->get('/detail-agrandi',[MiseEnPlanControleur::class, 'detailAgrandi']);
+		$sous_groupe->get('/vue-en-coupe',	[MiseEnPlanControleur::class, 'vueEnCoupe']);
+		$sous_groupe->get('/perspective',	[MiseEnPlanControleur::class, 'perspective']);
 	});
 
 	$groupe->get('/cotation', [MiseEnPlanControleur::class, 'cotation']);
 	$groupe->group('/cotation', function ($sous_groupe) {
-		$sous_groupe->get('/inserer-la-cotation',           [MiseEnPlanControleur::class, 'insererLaCotation']);
-		$sous_groupe->get('/coter-a-la-main',               [MiseEnPlanControleur::class, 'coterALaMain']);
-		$sous_groupe->get('/forcer-le-sens-des-fleches',    [MiseEnPlanControleur::class, 'forcerLeSensDesFleches']);
-		$sous_groupe->get('/nombre-de-decimales',           [MiseEnPlanControleur::class, 'nombreDeDecimales']);
-		$sous_groupe->get('/modifier-les-lignes-de-rappel', [MiseEnPlanControleur::class, 'modifierLesLignesDeRappel']);
-		$sous_groupe->get('/rajouter-du-texte',             [MiseEnPlanControleur::class, 'rajouterDuTexte']);
-
-		$sous_groupe->get('/erreurs-classiques', [MiseEnPlanControleur::class, 'erreursClassiques']);
-		$sous_groupe->group('/erreurs-classiques', function ($sous_sous_groupe) {
-			$sous_sous_groupe->get('/croisement-fleche-ligne-rappel',       [MiseEnPlanControleur::class, 'croisementFlecheLigneRappel']);
-			$sous_sous_groupe->get('/valeurs-non-centrees',                 [MiseEnPlanControleur::class, 'valeursNonCentrees']);
-			$sous_sous_groupe->get('/ligne-de-rappel-dans-le-vide',         [MiseEnPlanControleur::class, 'ligneDeRappelDansLeVide']);
-			$sous_sous_groupe->get('/cote-loin-de-sa-forme',                [MiseEnPlanControleur::class, 'coteLoinDeSaForme']);
-			$sous_sous_groupe->get('/pointes-de-fleche-au-mauvais-endroit', [MiseEnPlanControleur::class, 'pointesDeFlecheAuMauvaisEndroit']);
-			$sous_sous_groupe->get('/cote-en-dehors-de-la-zone',            [MiseEnPlanControleur::class, 'coteEnDehorsDeLaZone']);
-		});
-	});
-
-	$groupe->get('/mise-en-page', [MiseEnPlanControleur::class, 'miseEnPage']);
-	$groupe->group('/mise-en-page', function ($sous_groupe) {
-		$sous_groupe->get('/deplacer-les-vues', [MiseEnPlanControleur::class, 'deplacerLesVues']);
-		$sous_groupe->get('/modifier-lechelle', [MiseEnPlanControleur::class, 'modifierLechelle']);
+		$sous_groupe->get('/inserer-la-cotation',			[MiseEnPlanControleur::class, 'insererLaCotation']);
+		$sous_groupe->get('/coter-a-la-main',				[MiseEnPlanControleur::class, 'coterALaMain']);
+		$sous_groupe->get('/forcer-le-sens-des-fleches',	[MiseEnPlanControleur::class, 'forcerLesensFleches']);
+		$sous_groupe->get('/nombre-de-decimales',			[MiseEnPlanControleur::class, 'nombreDeDecimales']);
+		$sous_groupe->get('/modifier-les-lignes-de-rappel',	[MiseEnPlanControleur::class, 'modifierLignesDeRappel']);
+		$sous_groupe->get('/rajouter-du-texte',				[MiseEnPlanControleur::class, 'rajouterDuTexte']);
+		$sous_groupe->get('/erreurs-classiques',			[MiseEnPlanControleur::class, 'erreursClassiques']);
 	});
 
 	$groupe->get('/dessin-densemble', [MiseEnPlanControleur::class, 'dessinDensemble']);
 	$groupe->group('/dessin-densemble', function ($sous_groupe) {
-		$sous_groupe->get('/ajouter-des-reperes', [MiseEnPlanControleur::class, 'ajouterDesReperes']);
-		$sous_groupe->get('/nomenclature',        [MiseEnPlanControleur::class, 'nomenclature']);
-		$sous_groupe->get('/inserer-un-eclate',   [MiseEnPlanControleur::class, 'insererUnEclate']);
-		$sous_groupe->get('/inclure-un-ecorche',  [MiseEnPlanControleur::class, 'inclureUnEcorche']);
+		$sous_groupe->get('/ajouter-des-reperes',	[MiseEnPlanControleur::class, 'ajouterDesReperes']);
+		$sous_groupe->get('/nomenclature',			[MiseEnPlanControleur::class, 'nomenclature']);
+		$sous_groupe->get('/inserer-un-eclate',		[MiseEnPlanControleur::class, 'insererUnEclate']);
+		$sous_groupe->get('/inclure-un-ecorche',	[MiseEnPlanControleur::class, 'inclureUnEcorche']);
 	});
+
+	$groupe->get('/mise-en-page',		[MiseEnPlanControleur::class, 'miseEnPage']);
+	$groupe->get('/exporter-en-pdf',	[MiseEnPlanControleur::class, 'exporterEnPdf']);
 });
+
+
 
 // ===== AUTRE =====
 
