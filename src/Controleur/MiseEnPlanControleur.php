@@ -110,7 +110,7 @@ class MiseEnPlanControleur extends OngletControleur
 	/**
 	 * Vue projetée.
 	 *
-	 * @route /mise-en-plan/vues/vue-standard
+	 * @route /mise-en-plan/vues/vues-standard
 	 *
 	 * @param Request $requete
 	 * @param Response $reponse
