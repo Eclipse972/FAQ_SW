@@ -19,6 +19,16 @@ class AccueilControleur extends OngletControleur
 		$this->hydrate('accueil');
 	}
 
+	/**
+     * Page d'accueil.
+     *
+     * @route /accueil
+     *
+     * @param Request $requete
+     * @param Response $reponse
+	 *
+     * @return Response
+     */
     public function accueil(Request $requete, Response $reponse): Response
     {
         return $this->vue->render($reponse, '112-article-spotlight.html.twig', [
@@ -27,6 +37,16 @@ class AccueilControleur extends OngletControleur
         ]);
     }
 
+	/**
+     * Rechercher un article.
+     *
+     * @route /accueil/rechercher-un-article
+     *
+     * @param Request $requete
+     * @param Response $reponse
+	 *
+     * @return Response
+     */
 	public function rechercherArticle(Request $requete, Response $reponse): Response
     {
        return $this->vue->render($reponse, '111-liste-articles.html.twig', [
@@ -34,11 +54,31 @@ class AccueilControleur extends OngletControleur
 		]);
     }
 
+    /**
+     * Page "moi".
+     *
+     * @route /accueil/moi
+     *
+     * @param Request $requete
+     * @param Response $reponse
+	 *
+     * @return Response
+     */
     public function moi(Request $requete, Response $reponse): Response
     {
        return $this->renduPageOrdinaire($reponse, 'moi');
     }
 
+    /**
+     * Page des nouveautés.
+     *
+     * @route /accueil/nouveautes
+     *
+     * @param Request $requete
+     * @param Response $reponse
+	 *
+     * @return Response
+     */
     public function nouveautes(Request $requete, Response $reponse): Response
     {
        return $this->renduPageOrdinaire($reponse, 'nouveautes');
