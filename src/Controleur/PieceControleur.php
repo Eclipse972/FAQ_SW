@@ -19,19 +19,10 @@ class PieceControleur extends OngletControleur
 		$this->hydrate('piece');
 	}
 
-    /**
-     * Page d'accueil du module Pièce.
-     *
-     * @param Request $requete
-     * @param Response $reponse
-     * @return Response
-     *
-     * @route /piece
-     */
-    public function accueil(Request $requete, Response $reponse): Response
-    {
-       return $this->renduPageOrdinaire($reponse, 'accueil');
-    }
+	/**
+	 * La page d'accueil utlise la méthode définie dans la classe-mère
+	 * Donc de script de vérification des routes indiquera un erreur pour ce controleur
+	 */
 
     /**
      * Menu et présentation de l'Esquisse 2D.

@@ -20,18 +20,9 @@ class AssemblageControleur extends OngletControleur
 	}
 
 	/**
-	 * Accueil assemblage.
-	 *
-	 * @route /assemblage
-	 *
-	 * @param Request $requete
-	 * @param Response $reponse
-	 * @return Response
+	 * La page d'accueil utlise la méthode définie dans la classe-mère
+	 * Donc de script de vérification des routes indiquera un erreur pour ce controleur
 	 */
-	public function accueil(Request $requete, Response $reponse): Response
-	{
-		return $this->renduPageOrdinaire($reponse, 'accueil');
-	}
 
 	/**
 	 * Menu des contraintes.
