@@ -36,6 +36,19 @@ class OngletControleur {
     }
 
 	/**
+	 * Page d'accueil d'un ongletdont hérite les classes-filles
+	 *
+	 * @param Request $requete
+	 * @param Response $reponse
+	 *
+	 * @return Response
+	 */
+	public function accueil(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageOrdinaire($reponse, 'accueil');
+	}
+
+	/**
 	 * Rendu des pages classique d'un article
 	 * ======================================
 	 * Beaucoup de pages reposent sur le même modèle. L'objectif est de factoriser le code ici.
