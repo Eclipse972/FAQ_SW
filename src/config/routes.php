@@ -123,6 +123,7 @@ $app->group('/mise-en-plan', function ($groupe) {
 
 	$groupe->get('/vues', [MiseEnPlanControleur::class, 'vues']);
 	$groupe->group('/vues', function ($sous_groupe) {
+		$sous_groupe->get('/vues-standard',	[MiseEnPlanControleur::class, 'vueStandard']);
 		$sous_groupe->get('/vue-projetee',	[MiseEnPlanControleur::class, 'vueProjetee']);
 		$sous_groupe->get('/eclate',		[MiseEnPlanControleur::class, 'eclate']);
 		$sous_groupe->get('/ecorche',		[MiseEnPlanControleur::class, 'ecorche']);

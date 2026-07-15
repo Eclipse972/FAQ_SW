@@ -110,6 +110,20 @@ class MiseEnPlanControleur extends OngletControleur
 	/**
 	 * Vue projetée.
 	 *
+	 * @route /mise-en-plan/vues/vue-standard
+	 *
+	 * @param Request $requete
+	 * @param Response $reponse
+	 * @return Response
+	 */
+	public function vueStandard(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageOrdinaire($reponse, 'vues-standard');
+	}
+
+	/**
+	 * Vue projetée.
+	 *
 	 * @route /mise-en-plan/vues/vue-projetee
 	 *
 	 * @param Request $requete
