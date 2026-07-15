@@ -18,7 +18,7 @@ class MiseEnPlanControleur extends OngletControleur
 	public function __construct(Twig $vue)
 	{
 		parent::__construct($vue);
-		$this->hydrate('accueil');
+		$this->hydrate('mise-en-plan');
 	}
 
 }
