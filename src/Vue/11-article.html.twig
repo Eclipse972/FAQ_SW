@@ -38,7 +38,7 @@
 	<p>Liens connexes</p>
 	<ul>
 		{% for item in liens_connexes %}
-		<li><a href="{{ item['url'] | raw }}">{{ item['texte'] | raw }}</a></li>
+		<li><a href="{{ item['url'] | raw }}" target="_blank">{{ item['texte'] | raw }}</a></li>
 		{% endfor %}
 	</ul>
 	{% endif %}
