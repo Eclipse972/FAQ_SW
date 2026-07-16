@@ -32,7 +32,16 @@
 
 {% block liens %}
 <aside>
-<p>Zone en construction</p>
+	{% if liens_connexes == [] %}
+	<p>Aucun lien connexe</p>
+	{% else %}
+	<p>Liens connexes</p>
+	<ul>
+		{% for item in liens_connexes %}
+		<li><a href="{{ item['url'] | raw }}">{{ item['texte'] | raw }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
 </aside>
 {% endblock %}
 
