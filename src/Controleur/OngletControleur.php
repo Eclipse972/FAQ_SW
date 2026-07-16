@@ -67,7 +67,7 @@ class OngletControleur {
 	public function renduPageEnConstruction(Request $requete, Response $reponse): Response
 	{
 		return $this->vue->render($reponse, '12-en-construction.html.twig', [
-				'url'		=> $requete->getUri()->getPath()
+			'url' => $requete->getUri()->getPath()
   		]);
 	}
 
