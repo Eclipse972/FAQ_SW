@@ -13,30 +13,30 @@ class OngletControleur {
 	protected string $onglet; # nom de l'onglet
 
 	/**
-     * Constructeur : injection du moteur de templates.
-     *
-     * Utilise la promotion de propriété PHP 8 : le mot clé
-     * `protected` dans les paramètres déclare et initialise
-     * automatiquement la propriété $vue, ce qui évite
-     * d'écrire $this->vue = $vue; dans le corps du constructeur.
-     *
-     * @param Twig $vue Moteur de templates Twig
-     */
-    public function __construct(protected Twig $vue) {}
-
-	/**
-     * Hydratation pour chaque article
-     *
-     * @param string $onglet     nom de l'onglet en kebab-case. C'est sopuvent le nom d'un dossier
+	 * Constructeur : injection du moteur de templates.
 	 *
-     */
-    public function hydrate(string $onglet): void
-	{
-        $this->onglet = $onglet;
-    }
+	 * Utilise la promotion de propriété PHP 8 : le mot clé
+	 * `protected` dans les paramètres déclare et initialise
+	 * automatiquement la propriété $vue, ce qui évite
+	 * d'écrire $this->vue = $vue; dans le corps du constructeur.
+	 *
+	 * @param Twig $vue Moteur de templates Twig
+	 */
+	public function __construct(protected Twig $vue) {}
 
 	/**
-	 * Page d'accueil d'un ongletdont hérite les classes-filles
+	 * Hydratation pour chaque article
+	 *
+	 * @param string $onglet     nom de l'onglet en kebab-case. C'est souvent le nom d'un dossier
+	 *
+	 */
+	public function hydrate(string $onglet): void
+	{
+		$this->onglet = $onglet;
+	}
+
+	/**
+	 * Page d'accueil d'un onglet dont hérite les classes-filles
 	 *
 	 * @param Request $requete
 	 * @param Response $reponse
@@ -49,8 +49,8 @@ class OngletControleur {
 	}
 
 	/**
-	 * Rendu des pages classique d'un article
-	 * ======================================
+	 * Rendu des pages classiques d'un article
+	 * =======================================
 	 * Beaucoup de pages reposent sur le même modèle. L'objectif est de factoriser le code ici.
 	 * Les classes-filles appelleront simplement ces méthodes.
 	 *
@@ -64,7 +64,7 @@ class OngletControleur {
 	 *
 	 * @return Response
 	 */
-    public function renduPageEnConstruction(Request $requete, Response $reponse): Response
+	public function renduPageEnConstruction(Request $requete, Response $reponse): Response
 	{
 		return $this->vue->render($reponse, '12-en-construction.html.twig', [
 				'url'		=> $requete->getUri()->getPath()
