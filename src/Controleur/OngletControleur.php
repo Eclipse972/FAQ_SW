@@ -76,16 +76,24 @@ class OngletControleur {
 	 *
 	 * Crée une page avec du code isssu d'un fichier.
 	 *
-	 * @param Response $reponse Objet réponse HTTP
-	 * @param string   $fichier Nom du fichier de contenu avec son extension .html.twig ou .html.
+	 * @param Response	$reponse Objet réponse HTTP
+	 * @param string	$fichier Nom du fichier de contenu avec son extension .html.twig ou .html
+	 * @param array		$liens_connexes <int, array{texte: string, url: string}>
 	 *
 	 * @return Response
 	 */
-   public function renduPageOrdinaire(Response $reponse, string $fichier): Response
+	public function renduPageOrdinaire(Response $reponse, string $fichier, array $liens_connexes = []): Response
 	{
+		foreach ($liens_connexes as $index => $lien) {
+			if (!isset($lien['texte'], $lien['url']) || !is_string($lien['texte']) || !is_string($lien['url'])) {
+				$liens_connexes[$index] = ['texte' => 'Erreur de lien', 'url' => '#'];
+			}
+		}
+
 		return $this->vue->render($reponse, '11-article.html.twig', [
-				'onglet'  => $this->onglet,
-				'fichier' => $fichier
+			'onglet' => $this->onglet,
+			'fichier' => $fichier,
+			'liens_connexes' => $liens_connexes
 		]);
 	}
 }
