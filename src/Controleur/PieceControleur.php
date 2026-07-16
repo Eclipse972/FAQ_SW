@@ -5,6 +5,7 @@ namespace FaqSolidworks\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use FaqSolidworks\Modele\Lien;
 
 class PieceControleur extends OngletControleur
 {
@@ -273,6 +274,12 @@ class PieceControleur extends OngletControleur
      */
     public function prisme(Request $requete, Response $reponse): Response
     {
+		Lien::creer();
+		Lien::ajouterAideSW("rectangle par sommets",		't_Sketching_Corner_Rectangles');
+		Lien::ajouterAideSW("Coter une esquisse 2D",		't_Dimensioning_a_2D_Sketch');
+		Lien::ajouterAideSW("Extrusions",					'Hidd_dve_end_spec_dlg');
+		Lien::ajouterAideSW("Le PropertyManager Extrusion",	'r_extrude_propertymanager');
+
         return $this->vue->render($reponse, '113-volume-elementaire.html.twig', [
             'onglet'				=> $this->onglet,
             'titre'					=> 'Prisme droit',
@@ -283,6 +290,7 @@ class PieceControleur extends OngletControleur
             'par_revolution'		=> false,
             'url_animation_esquisse'=> '#',
             'url_animation_fonction'=> '#',
+            'liens_connexes'		=> Lien::obtenir(),
         ]);
     }
 
