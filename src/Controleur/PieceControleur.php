@@ -28,225 +28,300 @@ class PieceControleur extends OngletControleur
     /**
      * Menu et présentation de l'Esquisse 2D.
      *
+     * @route /piece/esquisse-2d
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/esquisse-2d
      */
     public function esquisse2d(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'esquisse-2d');
+		Lien::creer();
+		Lien::ajouterAideSW("Esquisse", 'c_Sketch');
+
+		return $this->renduPageOrdinaire($reponse, 'esquisse-2d', Lien::obtenir());
     }
 
     /**
      * Guide d'utilisation des outils d'esquisse.
+	 *
+     * @route /piece/esquisse-2d/outils-d-esquisse
      *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/esquisse-2d/outils-d-esquisse
      */
     public function barreDoutils(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'barre-doutils');
+		Lien::creer();
+		Lien::ajouterAideSW("Barre d'outils Esquisse", 'r_sketch_toolbar');
+
+    	return $this->renduPageOrdinaire($reponse, 'barre-doutils', Lien::obtenir());
     }
 
     /**
      * Méthode de choix et de création d'un plan d'esquisse.
      *
+     * @route /piece/esquisse-2d/plan-d-esquisse
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/esquisse-2d/plan-d-esquisse
      */
     public function planDesquisse(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'plan-desquisse');
+ 		Lien::creer();
+		Lien::ajouterAideSW("Où commencer une esquisse", 'c_Where_to_Start_a_Sketch');
+		Lien::ajouterAideSW("Esquisse avec Entités d'esquisse ou Outil d'esquisse", 't_sketching_sketch_entities_tool');
+		Lien::ajouterAideSW("Esquisse avec des plans", 't_sketching_with_planes');
+
+    	return $this->renduPageOrdinaire($reponse, 'plan-desquisse', Lien::obtenir());
     }
 
     /**
      * Utilisation de l'outil de cotation intelligente.
      *
+     * @route /piece/esquisse-2d/cotation-intelligente
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/esquisse-2d/cotation-intelligente
      */
     public function cotationIntelligente(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'cotation-intelligente');
+  		Lien::creer();
+		Lien::ajouterAideSW("Coter une esquisse 2D", 't_Dimensioning_a_2D_Sketch');
+
+    	return $this->renduPageOrdinaire($reponse, 'cotation-intelligente', Lien::obtenir());
     }
 
     /**
      * Définition et application d'une contrainte d'esquisse.
      *
+     * @route /piece/esquisse-2d/contrainte-d-esquisse
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/esquisse-2d/contrainte-d-esquisse
      */
     public function contraindreUneEsquisse(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'contraindre-une-esquisse');
+  		Lien::creer();
+		Lien::ajouterAideSW("Icônes de contraintes dans l'arbre de création FeatureManager", 'r_mate_icons_featuremanager_design_tree');
+
+    	return $this->renduPageOrdinaire($reponse, 'contraindre-une-esquisse', Lien::obtenir());
     }
 
     /**
      * Utilisation et rôle de la ligne de construction.
      *
+     * @route /piece/esquisse-2d/ligne-de-construction
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/esquisse-2d/ligne-de-construction
      */
     public function lignesDeConstruction(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'ligne-de-construction');
+ 		Lien::creer();
+		Lien::ajouterAideSW("Lignes de construction", 'c_centerlines');
+		Lien::ajouterAideSW("Utilisation de lignes de construction pour créer des cotes radiales et de diamètre", 't_dimensioning_centerlines');
+
+       return $this->renduPageOrdinaire($reponse, 'ligne-de-construction', Lien::obtenir());
     }
 
     /**
      * Interprétation de l'état de l'esquisse via le code couleur.
      *
+     * @route /piece/esquisse-2d/code-couleur
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/esquisse-2d/code-couleur
      */
     public function codeCouleur(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'code-couleur');
+		Lien::creer();
+		Lien::ajouterAideSW("Statut de la géométrie d'esquisse", 'c_sketch_geometry_status');
+
+    	return $this->renduPageOrdinaire($reponse, 'code-couleur', Lien::obtenir());
     }
 
     /**
      * Menu et liste des fonctions volumiques.
      *
+     * @route /piece/fonctions
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions
      */
     public function fonctions(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'fonctions');
+		Lien::creer();
+		Lien::ajouterAideSW("Barre d'outils Fonctions", 'r_Features_Toolbar_features');
+
+    	return $this->renduPageOrdinaire($reponse, 'fonctions', Lien::obtenir());
     }
 
     /**
      * Création de volume par la fonction d'Extrusion.
      *
+     * @route /piece/fonctions/extrusion
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/extrusion
      */
     public function extrusion(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'extrusion');
+		Lien::creer();
+		Lien::ajouterAideSW("Extrusions", 'Hidd_dve_end_spec_dlg');
+		Lien::ajouter("prisme droit", '/piece/volumes-elementaires/prisme-droit');
+		Lien::ajouter("cylindre par extrrusion", '/piece/volumes-elementaires/cylindre-par-extrusion');
+		Lien::ajouter("tronc de cône par extrrusion", '/piece/volumes-elementaires/tronc-de-cone-par-extrusion');
+
+		return $this->renduPageOrdinaire($reponse, 'extrusion', Lien::obtenir());
     }
 
     /**
      * Création de volume par la fonction de Révolution.
      *
+     * @route /piece/fonctions/revolution
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/revolution
      */
     public function revolution(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'revolution');
+		Lien::creer();
+		Lien::ajouterAideSW("Révolutions", 'c_Revolves_Folder');
+		Lien::ajouter("cylindre par révolution", '/piece/volumes-elementaires/cylindre-par-revolution');
+		Lien::ajouter("tronc de cône par révolution", '/piece/volumes-elementaires/tronc-de-cone-par-revolution');
+		Lien::ajouter("sphère", '/piece/volumes-elementaires/sphere');
+		Lien::ajouter("tore", '/piece/volumes-elementaires/tore');
+
+		return $this->renduPageOrdinaire($reponse, 'revolution', Lien::obtenir());
     }
 
     /**
      * Création de formes par balayage de profil.
      *
+     * @route /piece/fonctions/balayage
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/balayage
      */
     public function balayage(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'balayage');
+		Lien::creer();
+		Lien::ajouterAideSW("Balayages", 'HIDD_DVE_FEAT_SWEEP');
+
+		return $this->renduPageOrdinaire($reponse, 'balayage', Lien::obtenir());
     }
 
     /**
      * Duplication d'éléments par symétrie.
      *
+     * @route /piece/fonctions/symetrie
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/symetrie
      */
     public function symetrie(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'symetrie');
+ 		Lien::creer();
+		Lien::ajouterAideSW("Fonction de symétrie", 'c_Mirror_Feature_Overview');
+
+		return $this->renduPageOrdinaire($reponse, 'symetrie', Lien::obtenir());
     }
 
     /**
      * Répétition linéaire de fonctions ou de faces.
      *
+     * @route /piece/fonctions/repetition-lineaire
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/repetition-lineaire
      */
     public function repetitionLineaire(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'repetition-lineaire');
+ 		Lien::creer();
+		Lien::ajouterAideSW("Répétitions linéaires et le PropertyManager Répétition linéaire", 't_Linear_Patterns_Overview');
+
+		return $this->renduPageOrdinaire($reponse, 'repetition-lineaire', Lien::obtenir());
     }
 
     /**
      * Répétition circulaire autour d'un axe de référence.
      *
+     * @route /piece/fonctions/repetition-circulaire
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/repetition-circulaire
      */
     public function repetitionCirculaire(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'repetition-circulaire');
+		Lien::creer();
+		Lien::ajouterAideSW("Le PropertyManager Répétition circulaire", 'HIDD_CPATTERN');
+
+		return $this->renduPageOrdinaire($reponse, 'repetition-circulaire', Lien::obtenir());
     }
 
     /**
      * Réalisation de trous normés avec l'assistance pour perçage.
      *
+     * @route /piece/fonctions/assistance-percage
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/assistance-percage
      */
     public function assistancePercage(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'assistance-percage');
+		Lien::creer();
+		Lien::ajouterAideSW("Présentation de l'Assistance pour le perçage", 'c_Hole_Wizard_Overview');
+
+		return $this->renduPageOrdinaire($reponse, 'assistance-percage', Lien::obtenir());
     }
 
     /**
      * Application de congés ou de chanfreins sur les arêtes.
      *
+     * @route /piece/fonctions/conge-et-chanfrein
+	 *
      * @param Request $requete
      * @param Response $reponse
+	 *
      * @return Response
-     *
-     * @route /piece/fonctions/conge-et-chanfrein
      */
     public function congeEtChanfrein(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'conge-et-chanfrein');
+ 		Lien::creer();
+		Lien::ajouterAideSW("Vue d'ensemble des congés", 'c_fillet_overview');
+		Lien::ajouterAideSW("Chanfreins", 't_creating_chamfer_feature');
+
+		return $this->renduPageOrdinaire($reponse, 'conge-et-chanfrein', Lien::obtenir());
     }
 
     /**
