@@ -42,6 +42,7 @@ class Lien
 	 * @param string $url   URL du lien
 	 *
 	 * @example
+	 * Lien::creer();
 	 * Lien::ajouter('Accueil', 'https://example.com');
 	 * Lien::ajouter('Contact', 'https://example.com/contact');
 	 */
@@ -62,6 +63,7 @@ class Lien
 	 * @param string $page	page html dans l'aide en ligne de Solidwors
 	 *
 	 * @example
+	 * Lien::creer();
 	 * Lien::ajouterAideSW("barre d'outils", 'r_sketch_toolbar');
 	 * Lien::ajouterAideSW("Icônes des relations d'esquisse"", 'c_sketch_relations_icons');
 	 */
