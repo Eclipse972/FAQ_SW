@@ -189,3 +189,10 @@ $app->group('/autre', function ($groupe) {
 		$sous_groupe->get('/champ-vecteur-vitesse',	[AutreControleur::class, 'champVecteurVitesse']);
 	});
 });
+
+
+// ===== CONTACT =====
+
+$app->get('/contact',         [ContactControleur::class, 'afficher']);
+$app->get('/contact/{titre}', [ContactControleur::class, 'afficher']);
+$app->post('/contact',        [ContactControleur::class, 'traiter']);
