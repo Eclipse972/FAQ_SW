@@ -1,0 +1,74 @@
+{% extends '1-base.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/CSS/contact.css" />
+{% endblock %}
+
+{% block balise_title %}Contact – FAQ SolidWorks{% endblock %}
+
+{% block texte_header %}Foire Aux Questions SolidWorks{% endblock %}
+
+{% block onglets %}
+<nav id="onglets">
+	<ul>
+		<li><a href="/accueil"><img src="/images/accueil.png">Accueil</a></li>
+		<li><a href="/piece"><img src="/images/piece.png">Pièce</a></li>
+		<li><a href="/assemblage"><img src="/images/assemblage.png">Assemblage</a></li>
+		<li><a href="/mise-en-plan"><img src="/images/MEP.png">Mise en plan</a></li>
+		<li><a href="/autre"><img src="/images/autre.png">Autre</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block contenu %}
+<div id="contact">
+
+	<h1>Formulaire de contact</h1>
+
+	{% if titre %}
+	<p class="contact-sujet">Sujet : <strong>{{ titre }}</strong></p>
+	{% endif %}
+
+	{% if statut == 'ok' %}
+		<p class="contact-message contact-ok">✅ Votre message a bien été envoyé. Merci !</p>
+	{% elseif statut == 'err' %}
+		<p class="contact-message contact-err">❌ Une erreur est survenue lors de l'envoi. Veuillez réessayer ultérieurement.</p>
+	{% elseif statut == 'validation' %}
+		<p class="contact-message contact-err">⚠️ Merci de remplir tous les champs avec une adresse e-mail valide.</p>
+	{% endif %}
+
+	{% if statut != 'ok' %}
+	<form action="/contact" method="post" novalidate>
+
+		{# Champ caché : page d'origine #}
+		<input type="hidden" name="titre" value="{{ titreBase64 }}">
+
+		{# Honeypot anti-spam #}
+		<input type="text" name="website" value="" style="display:none" tabindex="-1" autocomplete="off">
+
+		<div class="contact-champ">
+			<label for="nom">Nom</label>
+			<input type="text" id="nom" name="nom" required autocomplete="name">
+		</div>
+
+		<div class="contact-champ">
+			<label for="email">Adresse e-mail</label>
+			<input type="email" id="email" name="email" required autocomplete="email">
+		</div>
+
+		<div class="contact-champ">
+			<label for="message">Message</label>
+			<textarea id="message" name="message" rows="6" required></textarea>
+		</div>
+
+		<button type="submit">Envoyer</button>
+
+	</form>
+	{% endif %}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/JS/gerer-navigation.js"></script>
+{% endblock %}
