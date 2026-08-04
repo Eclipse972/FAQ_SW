@@ -187,8 +187,8 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Extrusions", 'Hidd_dve_end_spec_dlg');
 		Lien::ajouter("prisme droit", '/piece/volumes-elementaires/prisme-droit');
-		Lien::ajouter("cylindre par extrrusion", '/piece/volumes-elementaires/cylindre-par-extrusion');
-		Lien::ajouter("tronc de cône par extrrusion", '/piece/volumes-elementaires/tronc-de-cone-par-extrusion');
+		Lien::ajouter("cylindre par extrusion", '/piece/volumes-elementaires/cylindre-par-extrusion');
+		Lien::ajouter("tronc de cône par extrusion", '/piece/volumes-elementaires/tronc-de-cone-par-extrusion');
 
 		return $this->renduPageOrdinaire($reponse, 'extrusion', Lien::obtenir());
 	}
