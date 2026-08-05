@@ -37,7 +37,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function fondDePlan(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'fond-de-plan');
+		return $this->renduPageOrdinaire($requete, $reponse, 'fond-de-plan');
 	}
 
 	/**
@@ -51,7 +51,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function cartouche(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'cartouche');
+		return $this->renduPageOrdinaire($requete, $reponse, 'cartouche');
 	}
 
 	/**
@@ -65,7 +65,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function arbreDeCreation(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'arbre-de-creation');
+		return $this->renduPageOrdinaire($requete, $reponse, 'arbre-de-creation');
 	}
 
 	/**
@@ -79,7 +79,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function lienFichierPieceAssemblage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'lien-fichier-piece-assemblage');
+		return $this->renduPageOrdinaire($requete, $reponse, 'lien-fichier-piece-assemblage');
 	}
 
 	// ----- VUES -----
@@ -95,7 +95,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function vues(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'vues');
+		return $this->renduPageOrdinaire($requete, $reponse, 'vues');
 	}
 
 	/**
@@ -109,7 +109,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function vueStandard(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'vues-standard');
+		return $this->renduPageOrdinaire($requete, $reponse, 'vues-standard');
 	}
 
 	/**
@@ -123,7 +123,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function vueProjetee(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'vue-projetee');
+		return $this->renduPageOrdinaire($requete, $reponse, 'vue-projetee');
 	}
 
 	/**
@@ -137,7 +137,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'eclate');
+		return $this->renduPageOrdinaire($requete, $reponse, 'eclate');
 	}
 
 	/**
@@ -151,7 +151,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function ecorche(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'ecorche');
+		return $this->renduPageOrdinaire($requete, $reponse, 'ecorche');
 	}
 
 	/**
@@ -165,7 +165,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function detailAgrandi(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'detail-agrandi');
+		return $this->renduPageOrdinaire($requete, $reponse, 'detail-agrandi');
 	}
 
 	/**
@@ -179,7 +179,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function vueEnCoupe(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'vue-en-coupe');
+		return $this->renduPageOrdinaire($requete, $reponse, 'vue-en-coupe');
 	}
 
 	/**
@@ -193,7 +193,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function perspective(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'perspective');
+		return $this->renduPageOrdinaire($requete, $reponse, 'perspective');
 	}
 
 	// ----- COTATION -----
@@ -209,7 +209,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function cotation(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'cotation');
+		return $this->renduPageOrdinaire($requete, $reponse, 'cotation');
 	}
 
 	/**
@@ -223,7 +223,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function insererLaCotation(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'inserer-la-cotation');
+		return $this->renduPageOrdinaire($requete, $reponse, 'inserer-la-cotation');
 	}
 
 	/**
@@ -237,7 +237,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function coterALaMain(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'coter-a-la-main');
+		return $this->renduPageOrdinaire($requete, $reponse, 'coter-a-la-main');
 	}
 
 	/**
@@ -251,7 +251,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function forcerLesensFleches(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'forcer-le-sens-des-fleches');
+		return $this->renduPageOrdinaire($requete, $reponse, 'forcer-le-sens-des-fleches');
 	}
 
 	/**
@@ -265,7 +265,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function nombreDeDecimales(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'nombre-de-decimales');
+		return $this->renduPageOrdinaire($requete, $reponse, 'nombre-de-decimales');
 	}
 
 	/**
@@ -279,7 +279,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function modifierLignesDeRappel(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'modifier-les-lignes-de-rappel');
+		return $this->renduPageOrdinaire($requete, $reponse, 'modifier-les-lignes-de-rappel');
 	}
 
 	/**
@@ -293,7 +293,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function rajouterDuTexte(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'rajouter-du-texte');
+		return $this->renduPageOrdinaire($requete, $reponse, 'rajouter-du-texte');
 	}
 
 	/**
@@ -307,7 +307,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function erreursClassiques(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'erreurs-classiques');
+		return $this->renduPageOrdinaire($requete, $reponse, 'erreurs-classiques');
 	}
 
 	// ----- DESSIN D'ENSEMBLE -----
@@ -323,7 +323,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function dessinDensemble(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'dessin-densemble');
+		return $this->renduPageOrdinaire($requete, $reponse, 'dessin-densemble');
 	}
 
 	/**
@@ -337,7 +337,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function ajouterDesReperes(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'ajouter-des-reperes');
+		return $this->renduPageOrdinaire($requete, $reponse, 'ajouter-des-reperes');
 	}
 
 	/**
@@ -351,7 +351,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function nomenclature(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'nomenclature');
+		return $this->renduPageOrdinaire($requete, $reponse, 'nomenclature');
 	}
 
 	/**
@@ -365,7 +365,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function insererUnEclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'inserer-un-eclate');
+		return $this->renduPageOrdinaire($requete, $reponse, 'inserer-un-eclate');
 	}
 
 	/**
@@ -379,7 +379,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function inclureUnEcorche(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'inclure-un-ecorche');
+		return $this->renduPageOrdinaire($requete, $reponse, 'inclure-un-ecorche');
 	}
 
 	// ----- MISE EN PAGE / EXPORT -----
@@ -395,7 +395,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function miseEnPage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'mise-en-page');
+		return $this->renduPageOrdinaire($requete, $reponse, 'mise-en-page');
 	}
 
 	/**
@@ -409,7 +409,7 @@ class MiseEnPlanControleur extends OngletControleur
 	 */
 	public function exporterEnPdf(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'exporter-en-pdf');
+		return $this->renduPageOrdinaire($requete, $reponse, 'exporter-en-pdf');
 	}
 
 }

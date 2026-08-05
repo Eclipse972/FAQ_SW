@@ -35,7 +35,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function ouvrirFichier(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'ouvrir-un-fichier');
+		return $this->renduPageOrdinaire($requete, $reponse, 'ouvrir-un-fichier');
 	}
 
 	/**
@@ -49,7 +49,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function zoom(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'zoom');
+		return $this->renduPageOrdinaire($requete, $reponse, 'zoom');
 	}
 
 	/**
@@ -63,7 +63,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function zoomFenetre(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'zoom-fenetre');
+		return $this->renduPageOrdinaire($requete, $reponse, 'zoom-fenetre');
 	}
 
 	/**
@@ -77,7 +77,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function ajusterZoom(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'ajuster-le-zoom');
+		return $this->renduPageOrdinaire($requete, $reponse, 'ajuster-le-zoom');
 	}
 
 	/**
@@ -91,7 +91,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function zoomAuMieux(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'zoom-au-mieux');
+		return $this->renduPageOrdinaire($requete, $reponse, 'zoom-au-mieux');
 	}
 
 	/**
@@ -105,7 +105,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function deplacerVue(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'deplacer-la-vue');
+		return $this->renduPageOrdinaire($requete, $reponse, 'deplacer-la-vue');
 	}
 
 	/**
@@ -119,7 +119,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function exportEdrawing(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'export-edrawing');
+		return $this->renduPageOrdinaire($requete, $reponse, 'export-edrawing');
 	}
 
 	/**
@@ -133,7 +133,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function exportEdrawingPiece(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'export-edrawing-piece');
+		return $this->renduPageOrdinaire($requete, $reponse, 'export-edrawing-piece');
 	}
 
 	/**
@@ -147,7 +147,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function exportEdrawingAssemblage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'export-edrawing-assemblage');
+		return $this->renduPageOrdinaire($requete, $reponse, 'export-edrawing-assemblage');
 	}
 
 	/**
@@ -161,7 +161,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function exportEdrawingMiseEnPlan(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'export-edrawing-mise-en-plan');
+		return $this->renduPageOrdinaire($requete, $reponse, 'export-edrawing-mise-en-plan');
 	}
 
 	/**
@@ -175,7 +175,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function casierNumerique(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'casier-numerique');
+		return $this->renduPageOrdinaire($requete, $reponse, 'casier-numerique');
 	}
 
 	/**
@@ -189,7 +189,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function mecaniqueGraphique(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'mecanique-graphique');
+		return $this->renduPageOrdinaire($requete, $reponse, 'mecanique-graphique');
 	}
 
 	/**
@@ -203,7 +203,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function resolutionPFS3forces(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'pfs-3-forces');
+		return $this->renduPageOrdinaire($requete, $reponse, 'pfs-3-forces');
 	}
 
 	/**
@@ -217,7 +217,7 @@ class AutreControleur extends OngletControleur
 	 */
 	public function equiProjectivite(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'equi-projectivite');
+		return $this->renduPageOrdinaire($requete, $reponse, 'equi-projectivite');
 	}
 
 	/**
@@ -231,6 +231,6 @@ class AutreControleur extends OngletControleur
 	 */
 	public function champVecteurVitesse(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'champ-vecteur-vitesse');
+		return $this->renduPageOrdinaire($requete, $reponse, 'champ-vecteur-vitesse');
 	}
 }

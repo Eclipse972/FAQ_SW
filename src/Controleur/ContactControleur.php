@@ -32,15 +32,17 @@ class ContactControleur
 	 */
 	public function afficher(Request $requete, Response $reponse, array $args = []): Response
 	{
-		$titreBase64 = $args['titre'] ?? '';
-		$titre = $titreBase64 ? base64_decode($titreBase64) : '';
+		$titreBase64    = $args['titre']      ?? '';
+		$urlRetourBase64 = $args['url_retour'] ?? '';
+		$titre          = $titreBase64    ? base64_decode($titreBase64)    : '';
 
 		$statut = $requete->getQueryParams()['statut'] ?? '';
 
 		return $this->vue->render($reponse, '14-contact.html.twig', [
-			'titre'       => $titre,
-			'titreBase64' => $titreBase64,
-			'statut'      => $statut,
+			'titre'           => $titre,
+			'titreBase64'     => $titreBase64,
+			'urlRetourBase64' => $urlRetourBase64,
+			'statut'          => $statut,
 		]);
 	}
 
@@ -101,7 +103,8 @@ class ContactControleur
 
 			$mail->send();
 
-			return $reponse->withHeader('Location', '/contact?statut=ok')->withStatus(302);
+			$urlRetour = $urlRetourBase64 ? base64_decode($urlRetourBase64) : '/contact';
+			return $reponse->withHeader('Location', $urlRetour)->withStatus(302);
 
 		} catch (Exception $e) {
 			return $reponse->withHeader('Location', '/contact?statut=err')->withStatus(302);

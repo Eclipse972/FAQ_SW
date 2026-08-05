@@ -45,7 +45,7 @@ class OngletControleur {
 	 */
 	public function accueil(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'accueil');
+		return $this->renduPageOrdinaire($requete, $reponse, 'accueil');
 	}
 
 	/**

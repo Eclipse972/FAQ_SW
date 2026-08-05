@@ -35,7 +35,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function contraintes(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'contraintes');
+		return $this->renduPageOrdinaire($requete, $reponse, 'contraintes');
 	}
 
 	/**
@@ -49,7 +49,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function appuiPlan(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'appui-plan');
+		return $this->renduPageOrdinaire($requete, $reponse, 'appui-plan');
 	}
 
 	/**
@@ -63,7 +63,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function coaxialite(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'coaxialite');
+		return $this->renduPageOrdinaire($requete, $reponse, 'coaxialite');
 	}
 
 	/**
@@ -77,7 +77,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function contraintesLimites(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'contraintes-limites');
+		return $this->renduPageOrdinaire($requete, $reponse, 'contraintes-limites');
 	}
 
 	/**
@@ -91,7 +91,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function commentLesChoisir(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'comment-les-choisir');
+		return $this->renduPageOrdinaire($requete, $reponse, 'comment-les-choisir');
 	}
 
 	/**
@@ -105,7 +105,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function arbreDeCreation(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'arbre-de-creation');
+		return $this->renduPageOrdinaire($requete, $reponse, 'arbre-de-creation');
 	}
 
 	/**
@@ -119,7 +119,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function liaisonArbreZoneGraphique(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'arbre-zone-graphique');
+		return $this->renduPageOrdinaire($requete, $reponse, 'arbre-zone-graphique');
 	}
 
 	/**
@@ -133,7 +133,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function liaisonZoneGraphiqueArbre(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'zone-graphique-arbre');
+		return $this->renduPageOrdinaire($requete, $reponse, 'zone-graphique-arbre');
 	}
 
 	/**
@@ -147,7 +147,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function ouvrirSousEnsemble(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'ouvrir-sous-ensemble');
+		return $this->renduPageOrdinaire($requete, $reponse, 'ouvrir-sous-ensemble');
 	}
 
 	/**
@@ -161,7 +161,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function cacherMontrerComposant(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'cacher-montrer-composant');
+		return $this->renduPageOrdinaire($requete, $reponse, 'cacher-montrer-composant');
 	}
 
 	/**
@@ -175,7 +175,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function voirLesContraintes(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'voir-les-contraintes');
+		return $this->renduPageOrdinaire($requete, $reponse, 'voir-les-contraintes');
 	}
 
 	/**
@@ -189,7 +189,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function configurations(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'configurations');
+		return $this->renduPageOrdinaire($requete, $reponse, 'configurations');
 	}
 
 	/**
@@ -203,7 +203,7 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'creer-un-eclate');
+		return $this->renduPageOrdinaire($requete, $reponse, 'creer-un-eclate');
 	}
 
 	/**
@@ -217,6 +217,6 @@ class AssemblageControleur extends OngletControleur
 	 */
 	public function ecorche(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'creer-un-ecorche');
+		return $this->renduPageOrdinaire($requete, $reponse, 'creer-un-ecorche');
 	}
 }

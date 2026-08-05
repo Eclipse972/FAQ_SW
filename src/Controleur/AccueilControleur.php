@@ -66,7 +66,7 @@ class AccueilControleur extends OngletControleur
      */
     public function moi(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'moi');
+       return $this->renduPageOrdinaire($requete, $reponse, 'moi');
     }
 
     /**
@@ -81,6 +81,6 @@ class AccueilControleur extends OngletControleur
      */
     public function nouveautes(Request $requete, Response $reponse): Response
     {
-       return $this->renduPageOrdinaire($reponse, 'nouveautes');
+       return $this->renduPageOrdinaire($requete, $reponse, 'nouveautes');
     }
 }

@@ -40,7 +40,7 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Esquisse", 'c_Sketch');
 
-		return $this->renduPageOrdinaire($reponse, 'esquisse-2d', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'esquisse-2d', Lien::obtenir());
 	}
 
 	/**
@@ -58,7 +58,7 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Barre d'outils Esquisse", 'r_sketch_toolbar');
 
-		return $this->renduPageOrdinaire($reponse, 'barre-doutils', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'barre-doutils', Lien::obtenir());
 	}
 
 	/**
@@ -78,7 +78,7 @@ class PieceControleur extends OngletControleur
 		Lien::ajouterAideSW("Esquisse avec Entités d'esquisse ou Outil d'esquisse", 't_sketching_sketch_entities_tool');
 		Lien::ajouterAideSW("Esquisse avec des plans", 't_sketching_with_planes');
 
-		return $this->renduPageOrdinaire($reponse, 'plan-desquisse', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'plan-desquisse', Lien::obtenir());
 	}
 
 	/**
@@ -96,7 +96,7 @@ class PieceControleur extends OngletControleur
   		Lien::creer();
 		Lien::ajouterAideSW("Coter une esquisse 2D", 't_Dimensioning_a_2D_Sketch');
 
-		return $this->renduPageOrdinaire($reponse, 'cotation-intelligente', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'cotation-intelligente', Lien::obtenir());
 	}
 
 	/**
@@ -114,7 +114,7 @@ class PieceControleur extends OngletControleur
   		Lien::creer();
 		Lien::ajouterAideSW("Icônes de contraintes dans l'arbre de création FeatureManager", 'r_mate_icons_featuremanager_design_tree');
 
-		return $this->renduPageOrdinaire($reponse, 'contraindre-une-esquisse', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'contraindre-une-esquisse', Lien::obtenir());
 	}
 
 	/**
@@ -133,7 +133,7 @@ class PieceControleur extends OngletControleur
 		Lien::ajouterAideSW("Lignes de construction", 'c_centerlines');
 		Lien::ajouterAideSW("Utilisation de lignes de construction pour créer des cotes radiales et de diamètre", 't_dimensioning_centerlines');
 
-	   return $this->renduPageOrdinaire($reponse, 'ligne-de-construction', Lien::obtenir());
+	   return $this->renduPageOrdinaire($requete, $reponse, 'ligne-de-construction', Lien::obtenir());
 	}
 
 	/**
@@ -151,7 +151,7 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Statut de la géométrie d'esquisse", 'c_sketch_geometry_status');
 
-		return $this->renduPageOrdinaire($reponse, 'code-couleur', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'code-couleur', Lien::obtenir());
 	}
 
 	/**
@@ -169,7 +169,7 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Barre d'outils Fonctions", 'r_Features_Toolbar_features');
 
-		return $this->renduPageOrdinaire($reponse, 'fonctions', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'fonctions', Lien::obtenir());
 	}
 
 	/**
@@ -190,7 +190,7 @@ class PieceControleur extends OngletControleur
 		Lien::ajouter("cylindre par extrusion", '/piece/volumes-elementaires/cylindre-par-extrusion');
 		Lien::ajouter("tronc de cône par extrusion", '/piece/volumes-elementaires/tronc-de-cone-par-extrusion');
 
-		return $this->renduPageOrdinaire($reponse, 'extrusion', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'extrusion', Lien::obtenir());
 	}
 
 	/**
@@ -212,7 +212,7 @@ class PieceControleur extends OngletControleur
 		Lien::ajouter("sphère", '/piece/volumes-elementaires/sphere');
 		Lien::ajouter("tore", '/piece/volumes-elementaires/tore');
 
-		return $this->renduPageOrdinaire($reponse, 'revolution', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'revolution', Lien::obtenir());
 	}
 
 	/**
@@ -230,7 +230,7 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Balayages", 'HIDD_DVE_FEAT_SWEEP');
 
-		return $this->renduPageOrdinaire($reponse, 'balayage', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'balayage', Lien::obtenir());
 	}
 
 	/**
@@ -248,7 +248,7 @@ class PieceControleur extends OngletControleur
  		Lien::creer();
 		Lien::ajouterAideSW("Fonction de symétrie", 'c_Mirror_Feature_Overview');
 
-		return $this->renduPageOrdinaire($reponse, 'symetrie', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'symetrie', Lien::obtenir());
 	}
 
 	/**
@@ -266,7 +266,7 @@ class PieceControleur extends OngletControleur
  		Lien::creer();
 		Lien::ajouterAideSW("Répétitions linéaires et le PropertyManager Répétition linéaire", 't_Linear_Patterns_Overview');
 
-		return $this->renduPageOrdinaire($reponse, 'repetition-lineaire', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'repetition-lineaire', Lien::obtenir());
 	}
 
 	/**
@@ -284,7 +284,7 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Le PropertyManager Répétition circulaire", 'HIDD_CPATTERN');
 
-		return $this->renduPageOrdinaire($reponse, 'repetition-circulaire', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'repetition-circulaire', Lien::obtenir());
 	}
 
 	/**
@@ -302,7 +302,7 @@ class PieceControleur extends OngletControleur
 		Lien::creer();
 		Lien::ajouterAideSW("Présentation de l'Assistance pour le perçage", 'c_Hole_Wizard_Overview');
 
-		return $this->renduPageOrdinaire($reponse, 'assistance-percage', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'assistance-percage', Lien::obtenir());
 	}
 
 	/**
@@ -321,7 +321,7 @@ class PieceControleur extends OngletControleur
 		Lien::ajouterAideSW("Vue d'ensemble des congés", 'c_fillet_overview');
 		Lien::ajouterAideSW("Chanfreins", 't_creating_chamfer_feature');
 
-		return $this->renduPageOrdinaire($reponse, 'conge-et-chanfrein', Lien::obtenir());
+		return $this->renduPageOrdinaire($requete, $reponse, 'conge-et-chanfrein', Lien::obtenir());
 	}
 
 	/**
@@ -335,7 +335,7 @@ class PieceControleur extends OngletControleur
 	 */
 	public function volumesElementaires(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'volumes-elementaires');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'volumes-elementaires');
 	}
 
 	/**
@@ -526,7 +526,7 @@ class PieceControleur extends OngletControleur
 	 */
 	public function manipulerLaPiece(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'manipuler-la-piece');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'manipuler-la-piece');
 	}
 
 	/**
@@ -540,7 +540,7 @@ class PieceControleur extends OngletControleur
 	 */
 	public function tournerEtDeplacer(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'tourner-et-deplacer');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'tourner-et-deplacer');
 	}
 
 	/**
@@ -554,7 +554,7 @@ class PieceControleur extends OngletControleur
 	 */
 	public function couperLaPiece(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'couper-la-piece');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'couper-la-piece');
 	}
 
 	/**
@@ -568,7 +568,7 @@ class PieceControleur extends OngletControleur
 	 */
 	public function transparenceEtCouleur(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'transparence-et-couleur');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'transparence-et-couleur');
 	}
 
 	/**
@@ -582,7 +582,7 @@ class PieceControleur extends OngletControleur
 	 */
 	public function arbreDeCreation(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'arbre-de-creation');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'arbre-de-creation');
 	}
 
 	/**
@@ -596,7 +596,7 @@ class PieceControleur extends OngletControleur
 	 */
 	public function arbreVersZoneGraphique(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'arbre-vers-zone-graphique');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'arbre-vers-zone-graphique');
 	}
 
 	/**
@@ -610,6 +610,6 @@ class PieceControleur extends OngletControleur
 	 */
 	public function zoneGraphiqueVersArbre(Request $requete, Response $reponse): Response
 	{
-	   return $this->renduPageOrdinaire($reponse, 'zone-graphique-vers-arbre');
+	   return $this->renduPageOrdinaire($requete, $reponse, 'zone-graphique-vers-arbre');
 	}
 }
