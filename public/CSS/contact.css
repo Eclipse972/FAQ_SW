@@ -1,12 +1,13 @@
 /* mise en page du formulaire -------------------------------------------------------------------- */
 section {
-	max-width: 700px;
 	width: 100%;
 	margin: 0 auto;
 }
 
 /* zone formulaire ------------------------------------------------------------------------------- */
 #contact {
+	width: 50%;
+	margin: auto;
 	padding: 16px;
 }
 
