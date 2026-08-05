@@ -1,0 +1,99 @@
+/* mise en page du formulaire -------------------------------------------------------------------- */
+section {
+	max-width: 700px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* zone formulaire ------------------------------------------------------------------------------- */
+#contact {
+	padding: 16px;
+}
+
+#contact h1 {
+	text-decoration: underline;
+	text-align: center;
+	font-size: 25px;
+	margin-top: 0;
+}
+
+.contact-sujet {
+	text-align: center;
+	color: var(--couleur4);
+	margin-bottom: 24px;
+}
+
+/* champs ---------------------------------------------------------------------------------------- */
+.contact-champ {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+}
+
+.contact-champ label {
+	font-weight: bold;
+	margin-bottom: 4px;
+	color: var(--couleur5);
+}
+
+.contact-champ input,
+.contact-champ textarea {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 18px;
+	padding: 8px;
+	border: 2px solid var(--couleur2);
+	border-radius: 6px;
+	background-color: var(--couleur3);
+	outline: none;
+	transition: border-color 0.2s;
+}
+
+.contact-champ input:focus,
+.contact-champ textarea:focus {
+	border-color: var(--couleur4);
+}
+
+.contact-champ textarea {
+	resize: vertical;
+}
+
+/* bouton ---------------------------------------------------------------------------------------- */
+button[type="submit"] {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px 30px;
+	background-color: var(--couleur4);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	display: block;
+	margin: 8px auto 0;
+}
+
+button[type="submit"]:hover {
+	background-color: var(--couleur5);
+}
+
+/* messages de statut ---------------------------------------------------------------------------- */
+.contact-message {
+	text-align: center;
+	font-size: 18px;
+	padding: 12px;
+	border-radius: 6px;
+	margin-bottom: 20px;
+}
+
+.contact-ok {
+	background-color: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+}
+
+.contact-err {
+	background-color: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+}
