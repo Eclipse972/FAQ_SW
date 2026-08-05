@@ -21,8 +21,7 @@ class ContactControleur
 	/**
 	 * Affiche le formulaire de contact.
 	 *
-	 * @route GET /contact/{titre}
-	 * @route GET /contact
+	 * @route GET /contact/{titre}/{url_retour}
 	 *
 	 * @param Request  $requete  Requête HTTP
 	 * @param Response $reponse  Réponse HTTP
