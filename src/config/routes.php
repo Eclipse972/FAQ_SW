@@ -192,7 +192,6 @@ $app->group('/autre', function ($groupe) {
 
 
 // ===== CONTACT =====
-
-$app->get('/contact',         [ContactControleur::class, 'afficher']);
-$app->get('/contact/{titre}', [ContactControleur::class, 'afficher']);
-$app->post('/contact',        [ContactControleur::class, 'traiter']);
+$app->get('/contact/{url_retour}',			[ContactControleur::class, 'afficher']);
+$app->get('/contact/{titre}/{url_retour}',	[ContactControleur::class, 'afficher']);
+$app->post('/contact',						[ContactControleur::class, 'traiter']);
