@@ -57,21 +57,6 @@ class OngletControleur {
 	 */
 
 	/**
-	 * Rendu des pages en construction d'un dossier technique
-	 *
-	 * @param Request $requete
-	 * @param Response $reponse
-	 *
-	 * @return Response
-	 */
-	public function renduPageEnConstruction(Request $requete, Response $reponse): Response
-	{
-		return $this->vue->render($reponse, '12-en-construction.html.twig', [
-			'url' => $requete->getUri()->getPath()
-  		]);
-	}
-
-	/**
 	 * Rendu des pages ordinaires
 	 *
 	 * Crée une page avec du code isssu d'un fichier.
