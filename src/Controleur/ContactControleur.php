@@ -75,7 +75,7 @@ class ContactControleur
 			return $reponse->withHeader('Location', '/contact?statut=validation')->withStatus(302);
 		}
 
-		$titre = $titreBase64 ? base64_decode($titreBase64) : '';
+		$titre = $titreBase64 ? base64_decode($titreBase64) : 'pas de titre';
 		$sujet = 'FAQ SW – ' . ($titre !== '' ? $titre : 'Contact');
 
 		// Chargement de la configuration SMTP
