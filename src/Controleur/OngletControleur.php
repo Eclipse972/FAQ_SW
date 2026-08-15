@@ -4,6 +4,7 @@ namespace FaqSolidworks\Controleur;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Firebase\JWT\JWT;
 use Slim\Views\Twig;
 /**
  * Classe-mère de tous les controleurs d'article du site.
@@ -76,11 +77,19 @@ class OngletControleur {
 			}
 		}
 
+		$jwtConfig = require __DIR__ . '/../config/jwt.conf';
+		$payload = [
+			'titre'      => $fichier,
+			'url_retour' => $requete->getUri()->getPath(),
+			'exp'        => time() + $jwtConfig['ttl'],
+		];
+		$token = JWT::encode($payload, $jwtConfig['secret'], $jwtConfig['algo']);
+
 		return $this->vue->render($reponse, '11-article.html.twig', [
-			'onglet' => $this->onglet,
-			'fichier' => $fichier,
+			'onglet'         => $this->onglet,
+			'fichier'        => $fichier,
 			'liens_connexes' => $liens_connexes,
-			'lien_contact' => '/contact/' . base64_encode($fichier) . '/' . base64_encode($requete->getUri()->getPath()),
+			'lien_contact'   => '/contact/' . $token,
 		]);
 	}
 }

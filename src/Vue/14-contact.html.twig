@@ -28,9 +28,7 @@
 	{% if statut != 'ok' %}
 	<form action="/contact" method="post" novalidate>
 
-		{# Champs cachés : titre et URL de retour #}
-		<input type="hidden" name="titre" value="{{ titreBase64 }}">
-		<input type="hidden" name="url_retour" value="{{ urlRetourBase64 }}">
+		<input type="hidden" name="token" value="{{ token }}">
 
 		{# Honeypot anti-spam #}
 		<input type="text" name="website" value="" style="display:none" tabindex="-1" autocomplete="off">

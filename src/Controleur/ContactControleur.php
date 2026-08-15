@@ -2,6 +2,8 @@
 
 namespace FaqSolidworks\Controleur;
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -31,17 +33,22 @@ class ContactControleur
 	 */
 	public function afficher(Request $requete, Response $reponse, array $args = []): Response
 	{
-		$titreBase64    = $args['titre']      ?? '';
-		$urlRetourBase64 = $args['url_retour'] ?? '';
-		$titre          = $titreBase64    ? base64_decode($titreBase64)    : '';
+		$token     = $args['token'] ?? '';
+		$titre     = '';
+		$jwtConfig = require __DIR__ . '/../config/jwt.conf';
+		try {
+			$payload = JWT::decode($token, new Key($jwtConfig['secret'], $jwtConfig['algo']));
+			$titre   = $payload->titre ?? '';
+		} catch (\Exception $e) {
+			// token invalide ou expiré : on affiche le formulaire sans titre
+		}
 
 		$statut = $requete->getQueryParams()['statut'] ?? '';
 
 		return $this->vue->render($reponse, '14-contact.html.twig', [
-			'titre'           => $titre,
-			'titreBase64'     => $titreBase64,
-			'urlRetourBase64' => $urlRetourBase64,
-			'statut'          => $statut,
+			'titre'  => $titre,
+			'token'  => $token,
+			'statut' => $statut,
 		]);
 	}
 
@@ -62,7 +69,7 @@ class ContactControleur
 		$nom         = trim($corps['nom']         ?? '');
 		$email       = trim($corps['email']       ?? '');
 		$message     = trim($corps['message']     ?? '');
-		$titreBase64 = trim($corps['titre']       ?? '');
+		$token       = trim($corps['token']       ?? '');
 		$honeypot    = trim($corps['website']     ?? '');
 
 		// Anti-spam : honeypot rempli → abandon silencieux
@@ -75,7 +82,16 @@ class ContactControleur
 			return $reponse->withHeader('Location', '/contact?statut=validation')->withStatus(302);
 		}
 
-		$titre = $titreBase64 ? base64_decode($titreBase64) : 'pas de titre';
+		$jwtConfig = require __DIR__ . '/../config/jwt.conf';
+		$titre     = 'pas de titre';
+		$urlRetour = '/';
+		try {
+			$payload   = JWT::decode($token, new Key($jwtConfig['secret'], $jwtConfig['algo']));
+			$titre     = $payload->titre      ?? 'pas de titre';
+			$urlRetour = $payload->url_retour ?? '/';
+		} catch (\Exception $e) {
+			// token invalide ou expiré : valeurs par défaut
+		}
 		$sujet = 'FAQ SW – ' . ($titre !== '' ? $titre : 'Contact');
 
 		// Chargement de la configuration SMTP
@@ -102,7 +118,6 @@ class ContactControleur
 
 			$mail->send();
 
-			$urlRetour = $urlRetourBase64 ? base64_decode($urlRetourBase64) : '/contact';
 			return $reponse->withHeader('Location', $urlRetour)->withStatus(302);
 
 		} catch (Exception $e) {
