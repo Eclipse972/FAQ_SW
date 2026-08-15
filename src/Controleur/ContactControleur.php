@@ -45,7 +45,7 @@ class ContactControleur
 
 		$statut = $requete->getQueryParams()['statut'] ?? '';
 
-		return $this->vue->render($reponse, '14-contact.html.twig', [
+		return $this->vue->render($reponse, '12-contact.html.twig', [
 			'titre'  => $titre,
 			'token'  => $token,
 			'statut' => $statut,
