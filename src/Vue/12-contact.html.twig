@@ -29,6 +29,7 @@
 	<form action="/contact" method="post" novalidate>
 
 		<input type="hidden" name="token" value="{{ token }}">
+		<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
 
 		{# Honeypot anti-spam #}
 		<input type="text" name="website" value="" style="display:none" tabindex="-1" autocomplete="off">

@@ -45,10 +45,17 @@ class ContactControleur
 
 		$statut = $requete->getQueryParams()['statut'] ?? '';
 
+		session_start();
+		if (empty($_SESSION['csrf_token'])) {
+			$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+		}
+		$csrfToken = $_SESSION['csrf_token'];
+
 		return $this->vue->render($reponse, '12-contact.html.twig', [
-			'titre'  => $titre,
-			'token'  => $token,
-			'statut' => $statut,
+			'titre'		=> $titre,
+			'token'		=> $token,
+			'statut'	=> $statut,
+			'csrf_token'=> $csrfToken,
 		]);
 	}
 
@@ -71,6 +78,15 @@ class ContactControleur
 		$message     = trim($corps['message']     ?? '');
 		$token       = trim($corps['token']       ?? '');
 		$honeypot    = trim($corps['website']     ?? '');
+
+		// Validation CSRF
+		session_start();
+		$csrfRecu    = trim($corps['csrf_token'] ?? '');
+		$csrfSession = $_SESSION['csrf_token']   ?? '';
+		if ($csrfRecu === '' || !hash_equals($csrfSession, $csrfRecu)) {
+			return $reponse->withHeader('Location', '/contact?statut=validation')->withStatus(302);
+		}
+		$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
 		// Anti-spam : honeypot rempli → abandon silencieux
 		if ($honeypot !== '') {
