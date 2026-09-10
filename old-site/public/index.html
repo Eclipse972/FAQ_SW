@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="8;url=https://faq-solidworks.seache.fr" />
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline" />
+    <title>Redirection vers le nouveau site</title>
+    <style>
+        body {
+            --couleur1: #E6E2AF;
+            --couleur2: #A7A37E;
+            --couleur3: #EFECCA;
+            --couleur4: #046380;
+            --couleur5: #002F2F;
+            --largeur_1e_colonne: 200px;
+            --largeur_2e_colonne: 1200px;
+
+            background-color: var(--couleur3);
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+        }
+
+        header, section, main {
+            width: calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + 8px);
+            margin: auto;
+        }
+
+        header {
+            margin-bottom: 5px;
+            background-image: linear-gradient(to right, white, var(--couleur5));
+        }
+
+        #logo, #titre {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #logo { width: var(--largeur_1e_colonne); }
+
+        #logo img {
+            max-height: 80px;
+            max-width: 170px;
+            padding: 4px;
+            display: block;
+            margin: auto;
+        }
+
+        #titre { width: var(--largeur_2e_colonne); }
+
+        #titre p {
+            margin: 30px;
+            font-weight: bold;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        section {
+            font-size: 20px;
+            overflow: auto;
+            background-color: white;
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        #illustration {
+            width: 160px;
+            height: 160px;
+        }
+
+        #message-redirection {
+            text-align: center;
+            color: var(--couleur5);
+        }
+
+        #message-redirection p {
+            margin: 8px 0;
+            font-size: 22px;
+        }
+
+        #compteur {
+            font-weight: bold;
+            font-size: 28px;
+            color: var(--couleur4);
+        }
+
+        #lien-manuel {
+            margin-top: 12px;
+            font-size: 18px;
+        }
+
+        #lien-manuel a {
+            color: var(--couleur4);
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        #lien-manuel a:hover {
+            color: var(--couleur5);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div id="logo">
+        <img src="/logo.png" alt="Logo seache.fr" />
+    </div>
+    <div id="titre">
+        <p class="font-effect-outline">Redirection vers le nouveau site</p>
+    </div>
+</header>
+
+<main role="main">
+<section>
+
+    <!-- Illustration SVG libre : symbole de redirection web -->
+    <svg id="illustration" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-label="Redirection vers un nouveau site">
+        <!-- Cercle de fond -->
+        <circle cx="80" cy="80" r="76" fill="#EFECCA" stroke="#046380" stroke-width="4"/>
+        <!-- Globe stylisé -->
+        <ellipse cx="80" cy="80" rx="44" ry="44" fill="none" stroke="#046380" stroke-width="3"/>
+        <ellipse cx="80" cy="80" rx="20" ry="44" fill="none" stroke="#046380" stroke-width="2"/>
+        <line x1="36" y1="80" x2="124" y2="80" stroke="#046380" stroke-width="2"/>
+        <line x1="42" y1="58" x2="118" y2="58" stroke="#046380" stroke-width="1.5"/>
+        <line x1="42" y1="102" x2="118" y2="102" stroke="#046380" stroke-width="1.5"/>
+        <!-- Flèche de redirection -->
+        <g transform="translate(92, 36)">
+            <!-- Fond blanc pour lisibilité -->
+            <circle cx="22" cy="22" r="22" fill="white"/>
+            <!-- Flèche courbe -->
+            <path d="M8 28 Q8 8 28 8" fill="none" stroke="#002F2F" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Pointe de flèche -->
+            <polyline points="20,2 28,8 20,14" fill="none" stroke="#002F2F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+    </svg>
+
+    <div id="message-redirection">
+        <p>Ce site a déménagé vers une nouvelle adresse.</p>
+        <p>Vous allez être redirigé automatiquement dans&nbsp;:</p>
+        <p><span id="compteur">8</span> secondes</p>
+    </div>
+
+    <p id="lien-manuel">
+        Si la redirection ne fonctionne pas, <a href="https://faq-solidworks.seache.fr">cliquez ici</a>.
+    </p>
+
+</section>
+</main>
+
+<script>
+    const DUREE = 8;
+    const URL_CIBLE = 'https://faq-solidworks.seache.fr';
+    const affichage = document.getElementById('compteur');
+    let secondes = DUREE;
+
+    const intervalle = setInterval(function () {
+        secondes--;
+        affichage.textContent = secondes;
+        if (secondes <= 0) {
+            clearInterval(intervalle);
+            window.location.href = URL_CIBLE;
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
