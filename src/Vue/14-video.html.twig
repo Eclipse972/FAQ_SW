@@ -1,0 +1,41 @@
+{% extends '1-base.html.twig' %}
+
+{% block css %}
+	<link rel="stylesheet" href="/CSS/winkPlayer.css" />
+{% endblock %}
+
+{% block meta %}
+	<link rel="canonical" href="{{ url_canonique }}" />
+{% endblock %}
+
+{% block balise_title %}{{ titre }} - Foire Aux Questions SolidWorks{% endblock %}
+
+{% block texte_header %}Foire Aux Questions SolidWorks{% endblock %}
+
+{% block contenu %}
+<h1>{{ titre }}</h1>
+
+<div class="winkVideoContainerClass">
+	<video class="winkVideoClass" data-varname="winkVideoData">
+		<source src="{{ url_mp4 }}" type="video/mp4">
+	</video>
+	<div class="winkVideoOverlayClass"></div>
+	<div class="winkVideoControlBarClass">
+		<button class="winkVideoControlBarPlayButtonClass"></button>
+		<button class="winkVideoControlBarPauseButtonClass"></button>
+		<div class="winkVideoControlBarProgressLeftClass"></div>
+		<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+		<div class="winkVideoControlBarProgressRightClass"></div>
+		<div class="winkVideoControlBarProgressFilledMiddleClass"></div>
+		<div class="winkVideoControlBarProgressThumbClass"></div>
+	</div>
+	<div class="winkVideoPlayOverlayClass"></div>
+</div>
+
+<p><a href="{{ url_retour }}">Retour à la page précédente</a></p>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_donnees }}"></script>
+<script src="/JS/winkPlayer.js"></script>
+{% endblock %}
