@@ -8,6 +8,7 @@ use FaqSolidworks\Controleur\AssemblageControleur;
 use FaqSolidworks\Controleur\MiseEnPlanControleur;
 use FaqSolidworks\Controleur\AutreControleur;
 use FaqSolidworks\Controleur\ContactControleur;
+use FaqSolidworks\Controleur\VideoControleur;
 
 use Slim\App;
 /** @var App $app */
@@ -189,3 +190,9 @@ $app->group('/autre', function ($groupe) {
 		$sous_groupe->get('/champ-vecteur-vitesse',	[AutreControleur::class, 'champVecteurVitesse']);
 	});
 });
+
+// ===== VIDÉOS =====
+
+$app->get('/video/plan-d-esquisse',					[VideoControleur::class, 'planDesquisse']);
+$app->get('/video/esquisse-cylindre-par-extrusion',	[VideoControleur::class, 'esquisseCylindreExtrusion']);
+$app->get('/video/fonction-cylindre-par-extrusion',	[VideoControleur::class, 'fonctionCylindreExtrusion']);
